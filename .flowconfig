@@ -1,0 +1,17 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/scripts/.*
+<PROJECT_ROOT>/config/.*
+<PROJECT_ROOT>/public/.*
+<PROJECT_ROOT>/.storybook/.*
+<PROJECT_ROOT>/flow-typed/.*
+<PROJECT_ROOT>/build/.*
+<PROJECT_ROOT>/coverage/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
