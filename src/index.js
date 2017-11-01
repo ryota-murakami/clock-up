@@ -10,8 +10,10 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider, graphql } from 'react-apollo'
 
 const client = new ApolloClient({
-    link: new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cj9fb5po51o070117u0p3z4s0' }),
-    cache: new InMemoryCache().restore({})
+  link: new HttpLink({
+    uri: 'https://api.graph.cool/simple/v1/cj9fb5po51o070117u0p3z4s0'
+  }),
+  cache: new InMemoryCache().restore({})
 })
 
 ReactDOM.render(<App />, document.getElementById('root'))
