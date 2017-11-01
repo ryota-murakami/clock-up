@@ -54,7 +54,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom --collectCoverage"
+    "test": "node scripts/test.js --env=jsdom --collectCoverage",
+    "codecov": "codecov -t 3227ae14-d685-4ea0-8cea-9de9b5071b41"
   },
   "jest": {
     "collectCoverageFrom": [
