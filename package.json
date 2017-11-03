@@ -57,7 +57,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom --collectCoverage",
     "codecov": "codecov -t 3227ae14-d685-4ea0-8cea-9de9b5071b41",
-    "eslint": "eslint --fix src"
+    "eslint": "eslint --fix src",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,5 +102,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.2.14",
+    "@storybook/addon-actions": "^3.2.14",
+    "@storybook/addon-links": "^3.2.14"
   }
 }
