@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
-import { ApolloProvider, graphql } from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
 
 const client = new ApolloClient({
   link: new HttpLink({
