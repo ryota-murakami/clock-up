@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import SignUp from './SignUp'
+import SignIn from './SignIn'
 import registerServiceWorker from './registerServiceWorker'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -62,6 +63,7 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <div>
           <Route exact path="/" component={App} />
+          <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
         </div>
       </ConnectedRouter>

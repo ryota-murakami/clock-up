@@ -1,22 +1,25 @@
 // @flow
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import LoginAuth0 from './LoginAuth0'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
 
 type Props = {
-  data: any
+  data: any,
+  // withRouter()
+  match: any,
+  location: any,
+  history: any
 }
 
 class App extends Component<Props> {
-  _logout = () => {
+  logout = () => {
     window.localStorage.removeItem(AUTH0_ID_TOKEN)
     window.location.reload()
   }
 
-  _isLoggedIn = () => {
+  isAuthenticated() {
     return this.props.data.user
   }
 
@@ -25,17 +28,13 @@ class App extends Component<Props> {
       return <div>Loading</div>
     }
 
-    if (this._isLoggedIn()) {
-      return this.renderLoggedIn()
-    } else {
-      return <LoginAuth0 />
+    if (this.props.data.loding && !this.isAuthenticated()) {
+      return <Redirect to="/signin" />
     }
-  }
 
-  renderLoggedIn() {
     return (
       <div>
-        <span onClick={this._logout}>Logout</span>
+        <span onClick={this.logout}>Logout</span>
       </div>
     )
   }

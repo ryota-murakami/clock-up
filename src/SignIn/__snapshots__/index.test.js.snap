@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: LoginAuth0 snapshot 1`] = `
+exports[`Component: SignIn snapshot 1`] = `
 <Route
   render={[Function]}
 />
