@@ -28,7 +28,7 @@ class App extends Component<Props> {
     if (this._isLoggedIn()) {
       return this.renderLoggedIn()
     } else {
-      return this.renderAuth0()
+      return <LoginAuth0 />
     }
   }
 
@@ -38,10 +38,6 @@ class App extends Component<Props> {
         <span onClick={this._logout}>Logout</span>
       </div>
     )
-  }
-
-  renderAuth0() {
-    return <LoginAuth0 />
   }
 }
 
