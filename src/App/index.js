@@ -23,6 +23,11 @@ class App extends Component<Props> {
     return this.props.data.user
   }
 
+  // TODO to be later
+  isDuringClockIn() {
+    return false
+  }
+
   render() {
     if (this.props.data.loding) {
       return <div>Loading</div>
@@ -35,6 +40,7 @@ class App extends Component<Props> {
     return (
       <div>
         <span onClick={this.logout}>Logout</span>
+        <div>{this.isDuringClockIn() ? 'clock out' : 'clock in'}</div>
       </div>
     )
   }
