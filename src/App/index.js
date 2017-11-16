@@ -20,27 +20,25 @@ class App extends Component<Props> {
   }
 
   isAuthenticated() {
-    return this.props.data.user
-  }
-
-  // TODO to be later
-  isDuringClockIn() {
-    return false
+    if (this.props.data.user) {
+      return true
+    } else {
+      return false
+    }
   }
 
   render() {
-    if (this.props.data.loding) {
+    if (this.props.data.loading) {
       return <div>Loading</div>
     }
 
-    if (this.props.data.loding && !this.isAuthenticated()) {
+    if (!this.isAuthenticated()) {
       return <Redirect to="/signin" />
     }
 
     return (
       <div>
         <span onClick={this.logout}>Logout</span>
-        <div>{this.isDuringClockIn() ? 'clock out' : 'clock in'}</div>
       </div>
     )
   }
@@ -50,6 +48,7 @@ const userQuery = gql`
   query {
     user {
       id
+      isDuringClockIn
     }
   }
 `
