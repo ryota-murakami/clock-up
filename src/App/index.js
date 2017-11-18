@@ -10,7 +10,9 @@ type Props = {
   // withRouter()
   match: any,
   location: any,
-  history: any
+  history: any,
+  clockInMutation1: Function,
+  clockInMutation2: Function
 }
 
 class App extends Component<Props> {
@@ -27,6 +29,23 @@ class App extends Component<Props> {
     }
   }
 
+  clockIn = () => {
+    const { data, clockInMutation1, clockInMutation2 } = this.props
+
+    const userId = data.user.id
+    const clockIn = () => new Date().toISOString()
+
+    clockInMutation1({ variables: { userId } }).then(response => {
+      console.log(response)
+    })
+
+    clockInMutation2({
+      variables: { userId: userId, clockIn: clockIn() }
+    }).then(response => {
+      console.log(response)
+    })
+  }
+
   render() {
     if (this.props.data.loading) {
       return <div>Loading</div>
@@ -40,7 +59,7 @@ class App extends Component<Props> {
       <div>
         <span onClick={this.logout}>Logout</span>
         {!this.props.data.user.isDuringClockIn ? (
-          <button>clock in</button>
+          <button onClick={this.clockIn}>clock in</button>
         ) : (
           <button>clock out</button>
         )}
@@ -58,6 +77,28 @@ const userQuery = gql`
   }
 `
 
-export default graphql(userQuery, { options: { fetchPolicy: 'network-only' } })(
-  withRouter(App)
+const clockInMutation2 = gql`
+  mutation($userId: ID!, $clockIn: DateTime) {
+    createClock(userId: $userId, clockIn: $clockIn) {
+      id
+      clockIn
+      clockOut
+    }
+  }
+`
+
+const clockInMutation1 = gql`
+  mutation($userId: ID!) {
+    updateUser(id: $userId, isDuringClockIn: true) {
+      isDuringClockIn
+    }
+  }
+`
+
+export default graphql(clockInMutation1, { name: 'clockInMutation1' })(
+  graphql(clockInMutation2, { name: 'clockInMutation2' })(
+    graphql(userQuery, { options: { fetchPolicy: 'network-only' } })(
+      withRouter(App)
+    )
+  )
 )
