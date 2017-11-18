@@ -1,5 +1,5 @@
 # project: cj9fb5po51o070117u0p3z4s0
-# version: 6
+# version: 7
 
 type User @model {
   id: ID! @isUnique
@@ -13,8 +13,8 @@ type User @model {
 type Clock @model {
   id: ID! @isUnique
   user: User! @relation(name: "UserClocks")
-  clockIn: DateTime!
-  clockOut: DateTime!
+  clockIn: DateTime
+  clockOut: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
 }
