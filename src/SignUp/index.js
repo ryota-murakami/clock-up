@@ -72,7 +72,7 @@ const userQuery = gql`
 `
 
 export default graphql(createUser, { name: 'createUser' })(
-  graphql(userQuery, { options: { fetchPolicy: 'network-only' } })(
-    withRouter(CreateUser)
-  )
+  graphql(userQuery, {
+    options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
+  })(withRouter(CreateUser))
 )
