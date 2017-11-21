@@ -122,6 +122,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.14",
     "@storybook/addon-links": "^3.2.14",
-    "@storybook/react": "^3.2.14"
+    "@storybook/react": "^3.2.14",
+    "puppeteer": "^0.13.0"
   }
 }

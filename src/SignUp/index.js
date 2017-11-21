@@ -9,32 +9,14 @@ type Props = {
 }
 
 class CreateUser extends React.Component<Props> {
-  render() {
-    if (this.props.data.loading) {
-      return <div>Loading</div>
-    }
-
-    // redirect if user is logged in or did not finish Auth0 Lock dialog
-    if (
-      this.props.data.user ||
-      window.localStorage.getItem(AUTH0_ID_TOKEN) === null
-    ) {
-      console.warn('not a new user or already logged in')
-      return (
-        <Redirect
-          to={{
-            pathname: '/'
-          }}
-        />
-      )
-    }
-
+  /**
+   * 新規ユーザーかどうか
+   * @returns {boolean}
+   */
+  isFreshUser() {
     return (
-      <div>
-        <div>
-          <button onClick={this.createUser}>Sign up</button>
-        </div>
-      </div>
+      !this.props.data.user ||
+      window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
     )
   }
 
@@ -46,12 +28,32 @@ class CreateUser extends React.Component<Props> {
     this.props
       .createUser({ variables })
       .then(response => {
-        this.props.history.replace('/')
+        // TODO 「ユーザー作成」に成功しました。的なポップアップを表示するAction的なものを発行する
+        console.log(response)
       })
       .catch(e => {
+        // TODO エラーハンドリング
         console.error(e)
-        this.props.history.replace('/')
       })
+  }
+
+  render() {
+    if (this.props.data.loading) {
+      return <div>Loading</div>
+    }
+
+    // 新規ユーザーであればGraphCoolにユーザー情報としてAuth0認証情報を登録する
+    if (this.isFreshUser()) {
+      this.createUser()
+    }
+
+    return (
+      <Redirect
+        to={{
+          pathname: '/'
+        }}
+      />
+    )
   }
 }
 

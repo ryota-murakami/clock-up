@@ -47,7 +47,7 @@ class LoginButton extends Component<Props> {
   render() {
     return (
       <div>
-        <span onClick={this.showLogin}>Google Login</span>
+        <span onClick={this.showLogin} data-test="sign-in-btn">Google Login</span>
       </div>
     )
   }

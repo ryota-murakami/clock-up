@@ -86,11 +86,15 @@ class App extends Component<Props> {
 
     return (
       <div>
-        <span onClick={this.logout}>Logout</span>
+        <span onClick={this.logout} data-test="logout-btn">Logout</span>
         {!this.props.data.user.isDuringClockIn ? (
-          <button onClick={this.clockIn}>clock in</button>
+          <button onClick={this.clockIn} data-test="clock-in-btn">
+            clock in
+          </button>
         ) : (
-          <button onClick={this.clockOut}>clock out</button>
+          <button onClick={this.clockOut} data-test="clock-out-btn">
+            clock out
+          </button>
         )}
       </div>
     )
