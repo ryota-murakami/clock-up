@@ -15,6 +15,9 @@ afterAll(() => {
   browser.close()
 })
 
+/**
+ * TODO テストユーザーの、UserテーブルがisDuringClockIn = false状態であることに依存しているのでテスト開始時と終了時にリセットgraphqlを投げたい
+ */
 describe('E2E', () => {
   it('GoogleIDログイン -> メイン画面へ遷移 -> クロックイン -> クロックアウト -> ログアウト', async () => {
     // トップページを表示
