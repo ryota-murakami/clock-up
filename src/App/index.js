@@ -81,7 +81,7 @@ class App extends Component<Props> {
     }
 
     if (!this.isAuthenticated()) {
-      return <Redirect to="/signin" />
+      return <Redirect to="/login" />
     }
 
     return (

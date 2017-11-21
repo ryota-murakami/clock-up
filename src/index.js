@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import SignUp from './CreateUser'
-import SignIn from './Login'
+import CreateUser from './CreateUser'
+import Login from './Login'
 import registerServiceWorker from './registerServiceWorker'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -63,8 +63,8 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <div>
           <Route exact path="/" component={App} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
+          <Route path="/createuser" component={CreateUser} />
         </div>
       </ConnectedRouter>
     </ApolloProvider>

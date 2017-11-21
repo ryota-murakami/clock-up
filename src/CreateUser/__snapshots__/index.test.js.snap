@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: SignUp.index snapshot 1`] = `
+exports[`Component: CreateUser.index snapshot 1`] = `
 <QueryRecyclerProvider>
   <Apollo(Apollo(withRouter(CreateUser))) />
 </QueryRecyclerProvider>

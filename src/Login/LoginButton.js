@@ -27,7 +27,7 @@ class LoginButton extends Component<Props> {
     // Auth0のログインモーダルで認証 -> コールバックURLへ帰還した時の処理
     this.lock.on('authenticated', authResult => {
       window.localStorage.setItem(AUTH0_ID_TOKEN, authResult.idToken)
-      this.props.history.push(`/signup`)
+      this.props.history.push(`/createuser`)
     })
   }
 
