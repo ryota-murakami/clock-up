@@ -15,8 +15,8 @@ afterAll(() => {
   browser.close()
 })
 
-describe('新規ユーザー', () => {
-  it('GoogleIDでユーザー登録 -> メイン画面の遷移まで行えること', async () => {
+describe('E2E', () => {
+  it('GoogleIDログイン -> メイン画面へ遷移 -> クロックイン -> クロックアウト -> ログアウト', async () => {
     // トップページを表示
     await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
 
@@ -53,8 +53,38 @@ describe('新規ユーザー', () => {
     const logoutBtn = await page.$(sel('logout-btn'))
     expect(logoutBtn !== null).toEqual(true)
     expect(logoutBtn.constructor.name).toEqual('ElementHandle')
-    const clockInBtn = await page.$(sel('clock-in-btn'))
+    let clockInBtn = await page.$(sel('clock-in-btn'))
     expect(clockInBtn !== null).toEqual(true)
     expect(clockInBtn.constructor.name).toEqual('ElementHandle')
+
+    // クロックインボタンクリック
+    await page.click(sel('clock-in-btn'))
+
+    // クロックインが完了し、クロックアウトボタンが表示されていること
+    await page.waitFor(5000)
+
+    let clockOutBtn = await page.$(sel('clock-out-btn'))
+    expect(clockOutBtn !== null).toEqual(true)
+    expect(clockOutBtn.constructor.name).toEqual('ElementHandle')
+
+    // クロックアウトボタンをクリック
+    await page.click(sel('clock-out-btn'))
+
+    // クロックアウトが完了し、クロックインボタンが表示されていること
+    await page.waitFor(1000)
+
+    clockInBtn = await page.$(sel('clock-in-btn'))
+    expect(clockInBtn !== null).toEqual(true)
+    expect(clockInBtn.constructor.name).toEqual('ElementHandle')
+
+    // ログアウトボタンをクロック
+    await page.click(sel('logout-btn'))
+
+    // ログアウトが完了し、ログインボタンが完了していること
+    await page.waitFor(1000)
+
+    let logInBtn = await page.$(sel('sign-in-btn'))
+    expect(logInBtn !== null).toEqual(true)
+    expect(logInBtn.constructor.name).toEqual('ElementHandle')
   })
 })
