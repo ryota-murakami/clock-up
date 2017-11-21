@@ -3,12 +3,20 @@ const sel = id => `[data-test="${id}"]`
 const googleId = process.env.TEST_GOOGLE_ACCOUNT
 const googlePassword = process.env.TEST_GOOGLE_ACCOUNT_PASSWORD
 jest.setTimeout(100000)
+let page
+let browser
+
+beforeAll(async () => {
+  browser = await puppeteer.launch({ headless: false, timeout: 0 })
+  page = await browser.newPage()
+})
+
+afterAll(() => {
+  browser.close()
+})
 
 describe('新規ユーザー', () => {
   it('GoogleIDでユーザー登録 -> メイン画面の遷移まで行えること', async () => {
-    const browser = await puppeteer.launch({ headless: false, timeout: 0 })
-    const page = await browser.newPage()
-
     // トップページを表示
     await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
 
@@ -48,7 +56,5 @@ describe('新規ユーザー', () => {
     const clockInBtn = await page.$(sel('clock-in-btn'))
     expect(clockInBtn !== null).toEqual(true)
     expect(clockInBtn.constructor.name).toEqual('ElementHandle')
-
-    browser.close()
   })
 })
