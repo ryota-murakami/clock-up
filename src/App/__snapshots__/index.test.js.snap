@@ -2,6 +2,6 @@
 
 exports[`Component: App.index snapshot 1`] = `
 <QueryRecyclerProvider>
-  <Apollo(withRouter(App)) />
+  <Apollo(Apollo(Apollo(Apollo(Apollo(withRouter(App)))))) />
 </QueryRecyclerProvider>
 `;
