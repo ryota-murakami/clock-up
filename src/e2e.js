@@ -61,7 +61,7 @@ describe('E2E', () => {
     await page.click(sel('clock-in-btn'))
 
     // クロックインが完了し、クロックアウトボタンが表示されていること
-    await page.waitFor(5000)
+    await page.waitForSelector(sel('clock-out-btn'))
 
     let clockOutBtn = await page.$(sel('clock-out-btn'))
     expect(clockOutBtn !== null).toEqual(true)
@@ -71,7 +71,7 @@ describe('E2E', () => {
     await page.click(sel('clock-out-btn'))
 
     // クロックアウトが完了し、クロックインボタンが表示されていること
-    await page.waitFor(1000)
+    await page.waitForSelector(sel('clock-in-btn'))
 
     clockInBtn = await page.$(sel('clock-in-btn'))
     expect(clockInBtn !== null).toEqual(true)
@@ -81,7 +81,7 @@ describe('E2E', () => {
     await page.click(sel('logout-btn'))
 
     // ログアウトが完了し、ログインボタンが完了していること
-    await page.waitFor(1000)
+    await page.waitForSelector(sel('sign-in-btn'))
 
     let logInBtn = await page.$(sel('sign-in-btn'))
     expect(logInBtn !== null).toEqual(true)
