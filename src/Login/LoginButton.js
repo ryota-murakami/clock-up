@@ -12,7 +12,7 @@ type Props = {
   lock: Auth0Lock
 }
 
-class LoginButton extends Component<Props> {
+export class LoginButton extends Component<Props> {
   componentDidMount() {
     const { lock } = this.props
     // Auth0のログインモーダルで認証 -> コールバックURLへ帰還した時の処理
