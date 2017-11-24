@@ -1,13 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { linkTo } from '@storybook/addon-links'
+import { MemoryRouter } from 'react-router'
+import Auth0Lock from 'auth0-lock'
 
-import { Button, Welcome } from '@storybook/react/demo';
+import LoginButton from '../src/Login/LoginButton'
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+storiesOf('Login Pagee', module).add('LoginButton', () => {
+  const lock = new Auth0Lock('story', 'book')
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+  return (
+    <MemoryRouter>
+      <LoginButton lock={lock} />
+    </MemoryRouter>
+  )
+})
