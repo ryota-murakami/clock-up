@@ -24,6 +24,7 @@ describe('E2E', () => {
     await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
 
     // ログインボタンをクリック
+    await page.waitForSelector(sel('sign-in-btn'))
     await page.click(sel('sign-in-btn'))
 
     // Auth0のダイアログでGoogleログインを選択
