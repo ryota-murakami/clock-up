@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-const sel = id => `[data-test="${id}"]`
+import { sel } from './src/testUtil'
 const googleId = process.env.TEST_GOOGLE_ACCOUNT
 const googlePassword = process.env.TEST_GOOGLE_ACCOUNT_PASSWORD
 jest.setTimeout(100000)
