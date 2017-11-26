@@ -3,7 +3,6 @@ import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-client'
 import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { MemoryRouter } from 'react-router'
 
 /**
  * @see https://github.com/apollographql/react-apollo/blob/master/test/react-web/client/ApolloProvider.test.tsx
