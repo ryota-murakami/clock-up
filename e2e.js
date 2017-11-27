@@ -24,8 +24,8 @@ describe('E2E', () => {
     await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
 
     // ログインボタンをクリック
-    await page.waitForSelector(sel('sign-in-btn'))
-    await page.click(sel('sign-in-btn'))
+    await page.waitForSelector(sel('login-btn'))
+    await page.click(sel('login-btn'))
 
     // Auth0のダイアログでGoogleログインを選択
     const googleSignInBtn =
@@ -85,9 +85,9 @@ describe('E2E', () => {
     await page.click(sel('logout-btn'))
 
     // ログアウトが完了し、ログインボタンが完了していること
-    await page.waitForSelector(sel('sign-in-btn'))
+    await page.waitForSelector(sel('login-btn'))
 
-    let logInBtn = await page.$(sel('sign-in-btn'))
+    let logInBtn = await page.$(sel('login-btn'))
     expect(logInBtn !== null).toEqual(true)
     expect(logInBtn.constructor.name).toEqual('ElementHandle')
   })

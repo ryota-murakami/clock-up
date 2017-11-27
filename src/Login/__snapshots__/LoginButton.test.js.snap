@@ -3,7 +3,7 @@
 exports[`Component: LoginButton snapshotが正しいこと 1`] = `
 <div>
   <span
-    data-test="sign-in-btn"
+    data-test="login-btn"
     onClick={[Function]}
   >
     Google Login

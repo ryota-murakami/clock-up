@@ -39,7 +39,7 @@ export class LoginButton extends Component<Props> {
   render() {
     return (
       <div>
-        <span onClick={this.showLogin} data-test="sign-in-btn">
+        <span onClick={this.showLogin} data-test="login-btn">
           Google Login
         </span>
       </div>
