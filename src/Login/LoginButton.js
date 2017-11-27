@@ -13,6 +13,11 @@ type Props = {
 }
 
 export class LoginButton extends Component<Props> {
+  constructor(props: Props) {
+    super(props)
+    this.showLogin = this.showLogin.bind(this)
+  }
+
   componentDidMount() {
     const { lock } = this.props
     // Auth0のログインモーダルで認証 -> コールバックURLへ帰還した時の処理
@@ -25,7 +30,7 @@ export class LoginButton extends Component<Props> {
   /**
    * Auth0のログインモーダルを表示
    */
-  showLogin = () => {
+  showLogin() {
     const { lock } = this.props
     lock.show({
       auth: {
