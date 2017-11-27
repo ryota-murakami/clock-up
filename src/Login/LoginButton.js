@@ -13,6 +13,8 @@ type Props = {
 }
 
 export class LoginButton extends Component<Props> {
+  showLogin: Function
+
   constructor(props: Props) {
     super(props)
     this.showLogin = this.showLogin.bind(this)
