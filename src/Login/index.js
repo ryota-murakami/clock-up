@@ -12,7 +12,7 @@ type Props = {
   history: any
 }
 
-class SignIn extends Component<Props> {
+export class Login extends Component<Props> {
   render() {
     const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
     const domain = process.env.REACT_APP_AUTH0_DOMAIN
@@ -22,4 +22,4 @@ class SignIn extends Component<Props> {
   }
 }
 
-export default withRouter(SignIn)
+export default withRouter(Login)
