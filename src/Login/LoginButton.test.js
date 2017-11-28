@@ -5,7 +5,7 @@ import { LoginButton } from './LoginButton'
 import Auth0Lock from 'auth0-lock'
 import { sel } from '../testUtil'
 
-describe('Component: LoginButton', () => {
+describe('<LoginButton />', () => {
   function setup() {
     const lock = new Auth0Lock('story', 'book')
     const wrapper = shallow(<LoginButton lock={lock} />)

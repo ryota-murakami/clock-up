@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Login } from './index'
 
-describe('Component: Login', () => {
+describe('<Login />', () => {
   it('snapshotが一致すること', () => {
     const wrapper = shallow(<Login />)
     expect(toJson(wrapper)).toMatchSnapshot()
