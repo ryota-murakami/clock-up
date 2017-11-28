@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: LoginButton snapshotが正しいこと 1`] = `
+exports[`Component: LoginButton snapshotが一致すること 1`] = `
 <div>
   <span
     data-test="login-btn"
