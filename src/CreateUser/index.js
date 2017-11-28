@@ -14,19 +14,19 @@ export class CreateUser extends React.Component<Props> {
    * @returns {boolean}
    */
   isFreshUser() {
-    return (
-      !this.props.data.user ||
-      window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
-    )
+    const { data } = this.props
+
+    return !data.user || window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
   }
 
   createUser() {
+    const { createUser } = this.props
+
     const variables = {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
-    this.props
-      .createUser({ variables })
+    createUser({ variables })
       .then(response => {
         // TODO 「ユーザー作成」に成功しました。的なポップアップを表示するActionを発行する
         console.log(response)
@@ -38,7 +38,9 @@ export class CreateUser extends React.Component<Props> {
   }
 
   render() {
-    if (this.props.data.loading) {
+    const { data } = this.props
+
+    if (data.loading) {
       return <div>Loading</div>
     }
 
