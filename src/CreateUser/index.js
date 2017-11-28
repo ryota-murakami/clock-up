@@ -8,7 +8,7 @@ type Props = {
   data: any
 }
 
-class CreateUser extends React.Component<Props> {
+export class CreateUser extends React.Component<Props> {
   /**
    * 新規ユーザーかどうか
    * @returns {boolean}
