@@ -13,7 +13,7 @@ describe('Component: LoginButton', () => {
     return wrapper
   }
 
-  it('snapshotが正しいこと', () => {
+  it('snapshotが一致すること', () => {
     const wrapper = setup()
     expect(toJson(wrapper)).toMatchSnapshot()
   })
