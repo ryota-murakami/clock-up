@@ -28,7 +28,7 @@ export class CreateUser extends React.Component<Props> {
     this.props
       .createUser({ variables })
       .then(response => {
-        // TODO 「ユーザー作成」に成功しました。的なポップアップを表示するAction的なものを発行する
+        // TODO 「ユーザー作成」に成功しました。的なポップアップを表示するActionを発行する
         console.log(response)
       })
       .catch(e => {
