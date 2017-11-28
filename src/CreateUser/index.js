@@ -20,7 +20,7 @@ export class CreateUser extends React.Component<Props> {
     )
   }
 
-  createUser = () => {
+  createUser() {
     const variables = {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
