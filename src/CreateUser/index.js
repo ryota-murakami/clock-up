@@ -5,7 +5,8 @@ import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
 
 type Props = {
-  data: any
+  data: any,
+  createUser: Function // GraphQL Mutation
 }
 
 export class CreateUser extends React.Component<Props> {
