@@ -1,8 +1,6 @@
 import raf from './raf'
-import 'jest-localstorage-mock'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-
 configure({ adapter: new Adapter() })
 
 if (typeof Promise === 'undefined') {
@@ -23,5 +21,6 @@ Object.assign = require('object-assign')
 // In tests, polyfill requestAnimationFrame since jsdom doesn't provide it yet.
 // We don't polyfill it in the browser--this is user's responsibility.
 if (process.env.NODE_ENV === 'test') {
+  require('jest-localstorage-mock')
   require('raf').polyfill(global)
 }
