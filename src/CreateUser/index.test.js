@@ -17,18 +17,21 @@ describe('<CreateUser />', () => {
     })
   })
   describe('data.loading == false', () => {
-    const createUser = jest.fn()
-    const isFreshUser = jest.fn().mockReturnValue(true)
-    function setup() {
-      const data = { loading: false }
-      CreateUser.prototype.createUser = createUser
-      CreateUser.prototype.isFreshUser = isFreshUser
-      const wrapper = shallow(<CreateUser data={data} />)
-
-      return wrapper
-    }
-    it('Loadingが表示されないこと', () => {})
     describe('isFreshUser() == true', () => {
+      const createUser = jest.fn()
+      const isFreshUser = jest.fn().mockReturnValue(true)
+      function setup() {
+        const data = { loading: false }
+        CreateUser.prototype.createUser = createUser
+        CreateUser.prototype.isFreshUser = isFreshUser
+        const wrapper = shallow(<CreateUser data={data} />)
+
+        return wrapper
+      }
+      it('Loadingが表示されないこと', () => {
+        const wrapper = setup()
+        expect(wrapper.find(sel('loading')).exists()).toEqual(false)
+      })
       it('createUser()が起動すること', () => {
         setup()
         expect(createUser).toBeCalled()
