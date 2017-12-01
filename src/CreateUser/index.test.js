@@ -33,7 +33,10 @@ describe('<CreateUser />', () => {
         setup()
         expect(createUser).toBeCalled()
       })
-      it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {})
+      it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
+        const wrapper = setup()
+        expect(wrapper.find('Redirect').exists()).toEqual(true)
+      })
     })
     describe('isFreshUser() == true', () => {
       it('createUser()が起動しないこと', () => {})
