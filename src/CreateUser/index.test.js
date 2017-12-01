@@ -17,9 +17,22 @@ describe('<CreateUser />', () => {
     })
   })
   describe('data.loading == false', () => {
+    const createUser = jest.fn()
+    const isFreshUser = jest.fn().mockReturnValue(true)
+    function setup() {
+      const data = { loading: false }
+      CreateUser.prototype.createUser = createUser
+      CreateUser.prototype.isFreshUser = isFreshUser
+      const wrapper = shallow(<CreateUser data={data} />)
+
+      return wrapper
+    }
     it('Loadingが表示されないこと', () => {})
     describe('isFreshUser() == true', () => {
-      it('createUser()が起動すること', () => {})
+      it('createUser()が起動すること', () => {
+        setup()
+        expect(createUser).toBeCalled()
+      })
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {})
     })
     describe('isFreshUser() == true', () => {
