@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: Login snapshotが一致すること 1`] = `
+exports[`<Login /> snapshotが一致すること 1`] = `
 <withRouter(LoginButton)
   lock={
     Auth0Lock {
