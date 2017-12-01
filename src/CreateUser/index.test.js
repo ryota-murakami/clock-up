@@ -41,9 +41,29 @@ describe('<CreateUser />', () => {
         expect(wrapper.find('Redirect').exists()).toEqual(true)
       })
     })
-    describe('isFreshUser() == true', () => {
-      it('createUser()が起動しないこと', () => {})
-      it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {})
+    describe('isFreshUser() == false', () => {
+      const createUser = jest.fn()
+      const isFreshUser = jest.fn().mockReturnValue(false)
+      function setup() {
+        const data = { loading: false }
+        CreateUser.prototype.createUser = createUser
+        CreateUser.prototype.isFreshUser = isFreshUser
+        const wrapper = shallow(<CreateUser data={data} />)
+
+        return wrapper
+      }
+      it('Loadingが表示されないこと', () => {
+        const wrapper = setup()
+        expect(wrapper.find(sel('loading')).exists()).toEqual(false)
+      })
+      it('createUser()が起動しないこと', () => {
+        setup()
+        expect(createUser).toHaveBeenCalledTimes(0)
+      })
+      it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
+        const wrapper = setup()
+        expect(wrapper.find('Redirect').exists()).toEqual(true)
+      })
     })
   })
 })
