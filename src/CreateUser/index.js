@@ -42,7 +42,7 @@ export class CreateUser extends React.Component<Props> {
     const { data } = this.props
 
     if (data.loading) {
-      return <div>Loading</div>
+      return <div data-test="loading">Loading</div>
     }
 
     // 新規ユーザーであればGraphCoolにユーザー情報としてAuth0認証情報を登録する

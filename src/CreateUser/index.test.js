@@ -1,16 +1,20 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import CreateUser from './index'
-import { apolloWarapper } from '../testUtil'
+import { sel } from '../testUtil'
+import { CreateUser } from './index'
 
 describe('<CreateUser />', () => {
-  it('snapshot', () => {
-    const wrapper = shallow(apolloWarapper(CreateUser))
-    expect(toJson(wrapper)).toMatchSnapshot()
-  })
   describe('data.loading == true', () => {
-    it('Loadingが表示されること', () => {})
+    function setup() {
+      const data = { loading: true }
+      const wrapper = shallow(<CreateUser data={data} />)
+
+      return wrapper
+    }
+    it('Loadingが表示されること', () => {
+      const wrapper = setup()
+      expect(wrapper.find(sel('loading')).exists()).toEqual(true)
+    })
   })
   describe('data.loading == false', () => {
     it('Loadingが表示されないこと', () => {})
