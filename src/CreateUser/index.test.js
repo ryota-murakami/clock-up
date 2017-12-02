@@ -11,11 +11,14 @@ describe('<CreateUser />', () => {
 
       return wrapper
     }
+
     it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
       expect(() => setup()).not.toThrow()
     })
+
     it('Loadingが表示されること', () => {
       const wrapper = setup()
+
       expect(wrapper.find(sel('loading')).exists()).toEqual(true)
     })
   })
@@ -23,6 +26,7 @@ describe('<CreateUser />', () => {
     describe('isFreshUser() == true', () => {
       const createUser = jest.fn()
       const isFreshUser = jest.fn().mockReturnValue(true)
+
       function setup() {
         const data = { loading: false }
         CreateUser.prototype.createUser = createUser
@@ -31,19 +35,26 @@ describe('<CreateUser />', () => {
 
         return wrapper
       }
+
       it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
         expect(() => setup()).not.toThrow()
       })
+
       it('Loadingが表示されないこと', () => {
         const wrapper = setup()
+
         expect(wrapper.find(sel('loading')).exists()).toEqual(false)
       })
+
       it('createUser()が起動すること', () => {
         setup()
+
         expect(createUser).toBeCalled()
       })
+
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
         const wrapper = setup()
+
         expect(wrapper.find('Redirect').exists()).toEqual(true)
       })
     })
@@ -58,19 +69,26 @@ describe('<CreateUser />', () => {
 
         return wrapper
       }
+
       it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
         expect(() => setup()).not.toThrow()
       })
+
       it('Loadingが表示されないこと', () => {
         const wrapper = setup()
+
         expect(wrapper.find(sel('loading')).exists()).toEqual(false)
       })
+
       it('createUser()が起動しないこと', () => {
         setup()
+
         expect(createUser).not.toBeCalled()
       })
+
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
         const wrapper = setup()
+
         expect(wrapper.find('Redirect').exists()).toEqual(true)
       })
     })

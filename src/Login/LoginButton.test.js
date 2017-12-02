@@ -15,6 +15,7 @@ describe('<LoginButton />', () => {
 
   it('snapshotが一致すること', () => {
     const wrapper = setup()
+
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -25,6 +26,7 @@ describe('<LoginButton />', () => {
     expect(Object.prototype.hasOwnProperty.call(events, 'authenticated')).toBe(
       true
     )
+
     expect(typeof events.authenticated).toEqual('function')
   })
 

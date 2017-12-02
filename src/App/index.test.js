@@ -10,11 +10,14 @@ describe('<App />', () => {
       const wrapper = shallow(<App data={data} />)
       return wrapper
     }
+
     it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
       expect(() => setup()).not.toThrow()
     })
+
     it('loadingが表示されること', () => {
       const wrapper = setup()
+
       expect(wrapper.find(sel('loading')).exists()).toEqual(true)
     })
   })
