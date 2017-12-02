@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component: App.index snapshot 1`] = `
-<QueryRecyclerProvider>
-  <Apollo(Apollo(Apollo(Apollo(Apollo(withRouter(App)))))) />
-</QueryRecyclerProvider>
+<Apollo(Apollo(Apollo(Apollo(withRouter(App)))))
+  clockOutMutation1={[Function]}
+/>
 `;
