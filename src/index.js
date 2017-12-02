@@ -4,6 +4,7 @@ import App from './App'
 import CreateUser from './CreateUser'
 import Login from './Login'
 import registerServiceWorker from './registerServiceWorker'
+import Auth0Lock from 'auth0-lock'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
@@ -57,23 +58,17 @@ const client = new ApolloClient({
   cache: new InMemoryCache().restore({})
 })
 
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
+const domain = process.env.REACT_APP_AUTH0_DOMAIN
+const lock = new Auth0Lock(clientId, domain)
+
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
       <ConnectedRouter history={history}>
         <div>
           <Route exact path="/" component={App} />
-          <Route
-            path="/login"
-            component={() => {
-              return (
-                <Login
-                  clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-                  domain={process.env.REACT_APP_AUTH0_DOMAIN}
-                />
-              )
-            }}
-          />
+          <Route path="/login" component={() => <Login lock={lock} />} />
           <Route path="/createuser" component={CreateUser} />
         </div>
       </ConnectedRouter>

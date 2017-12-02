@@ -5,11 +5,11 @@ import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
 
 type Props = {
+  lock: Auth0Lock,
   // withRouter()
   match: any,
   location: any,
-  history: any,
-  lock: Auth0Lock
+  history: any
 }
 
 export class LoginButton extends Component<Props> {
