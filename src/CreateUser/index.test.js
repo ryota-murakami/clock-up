@@ -58,7 +58,7 @@ describe('<CreateUser />', () => {
       })
       it('createUser()が起動しないこと', () => {
         setup()
-        expect(createUser).toHaveBeenCalledTimes(0)
+        expect(createUser).not.toBeCalled()
       })
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
         const wrapper = setup()
