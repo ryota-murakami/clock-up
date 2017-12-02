@@ -82,7 +82,7 @@ export class App extends Component<Props> {
     const { data } = this.props
 
     if (data.loading) {
-      return <div>Loading</div>
+      return <div data-test="loading">Loading</div>
     }
 
     if (!this.isAuthenticated()) {
