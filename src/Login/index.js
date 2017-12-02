@@ -5,7 +5,6 @@ import LoginButton from './LoginButton'
 import Auth0Lock from 'auth0-lock'
 
 type Props = {
-  data: any,
   // withRouter()
   match: any,
   location: any,
