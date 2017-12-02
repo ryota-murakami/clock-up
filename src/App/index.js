@@ -17,7 +17,7 @@ type Props = {
   clockOutMutation2: Function
 }
 
-class App extends Component<Props> {
+export class App extends Component<Props> {
   logout = () => {
     window.localStorage.removeItem(AUTH0_ID_TOKEN)
     window.location.reload()
