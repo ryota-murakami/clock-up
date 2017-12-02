@@ -63,7 +63,17 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <div>
           <Route exact path="/" component={App} />
-          <Route path="/login" component={Login} />
+          <Route
+            path="/login"
+            component={() => {
+              return (
+                <Login
+                  clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+                  domain={process.env.REACT_APP_AUTH0_DOMAIN}
+                />
+              )
+            }}
+          />
           <Route path="/createuser" component={CreateUser} />
         </div>
       </ConnectedRouter>

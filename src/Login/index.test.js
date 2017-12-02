@@ -5,7 +5,7 @@ import { Login } from './index'
 
 describe('<Login />', () => {
   it('snapshotが一致すること', () => {
-    const wrapper = shallow(<Login />)
+    const wrapper = shallow(<Login clientId="aaaa" domain="eeee" />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
