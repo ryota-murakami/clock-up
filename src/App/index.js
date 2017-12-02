@@ -11,6 +11,7 @@ type Props = {
   match: any,
   location: any,
   history: any,
+  // graphql()
   clockInMutation1: Function,
   clockInMutation2: Function,
   clockOutMutation1: Function,
