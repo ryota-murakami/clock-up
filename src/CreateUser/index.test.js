@@ -31,6 +31,9 @@ describe('<CreateUser />', () => {
 
         return wrapper
       }
+      it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+        expect(() => setup()).not.toThrow()
+      })
       it('Loadingが表示されないこと', () => {
         const wrapper = setup()
         expect(wrapper.find(sel('loading')).exists()).toEqual(false)
