@@ -24,7 +24,9 @@ export class App extends Component<Props> {
   }
 
   isAuthenticated() {
-    if (this.props.data.user) {
+    const { data } = this.props
+
+    if (data.user) {
       return true
     } else {
       return false
@@ -76,7 +78,9 @@ export class App extends Component<Props> {
   }
 
   render() {
-    if (this.props.data.loading) {
+    const { data } = this.props
+
+    if (data.loading) {
       return <div>Loading</div>
     }
 
@@ -86,8 +90,10 @@ export class App extends Component<Props> {
 
     return (
       <div>
-        <span onClick={this.logout} data-test="logout-btn">Logout</span>
-        {!this.props.data.user.isDuringClockIn ? (
+        <span onClick={this.logout} data-test="logout-btn">
+          Logout
+        </span>
+        {!data.user.isDuringClockIn ? (
           <button onClick={this.clockIn} data-test="clock-in-btn">
             clock in
           </button>
