@@ -87,7 +87,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <div>
+      <div data-test="main">
         <span onClick={this.logout} data-test="logout-btn">
           Logout
         </span>

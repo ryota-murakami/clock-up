@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { sel } from '../testUtil'
 import { App } from './index'
 
 describe('<App />', () => {
@@ -48,6 +49,21 @@ describe('<App />', () => {
           to: '/login',
           push: false
         })
+      })
+    })
+
+    describe('isAuthenticated() == true', () => {
+      function setup() {
+        const data = { loading: false, user: { foo: 'bar' } }
+        const wrapper = shallow(<App data={data} />)
+
+        return wrapper
+      }
+
+      it('メイン画面が表示されること', () => {
+        const wrapper = setup()
+
+        expect(wrapper.find(sel('main')).exists()).toEqual(true)
       })
     })
   })
