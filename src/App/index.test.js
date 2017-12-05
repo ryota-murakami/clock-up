@@ -72,5 +72,29 @@ describe('<App />', () => {
         expect(wrapper.find(sel('logout-btn')).exists()).toEqual(true)
       })
     })
+
+    describe('data.user.isDuringClockIn == false', () => {
+      it('クロックインしていない場合はクロックインボタンが表示されること', () => {
+        const data = {
+          loading: false,
+          user: { foo: 'bar', isDuringClockIn: false }
+        }
+        const wrapper = setup(data)
+
+        expect(wrapper.find(sel('clock-in-btn')).exists()).toEqual(true)
+      })
+    })
+
+    describe('data.user.isDuringClockIn == true', () => {
+      it('クロックイン中はクロックアウトボタンが表示されること', () => {
+        const data = {
+          loading: false,
+          user: { foo: 'bar', isDuringClockIn: true }
+        }
+        const wrapper = setup(data)
+
+        expect(wrapper.find(sel('clock-out-btn')).exists()).toEqual(true)
+      })
+    })
   })
 })
