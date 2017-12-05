@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {}
 
-class Loading extends React.Component<Props> {
+export class Loading extends React.Component<Props> {
   render() {
     return <div>Loading</div>
   }
