@@ -4,45 +4,44 @@ import { sel } from '../testUtil'
 import { App } from './index'
 
 describe('<App />', () => {
+  function setup(data) {
+    const wrapper = shallow(<App data={data} />)
+
+    return wrapper
+  }
+
   describe('data.loading == true', () => {
-    function setup() {
-      const data = { loading: true }
-      const wrapper = shallow(<App data={data} />)
-
-      return wrapper
-    }
-
     it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
-      expect(() => setup()).not.toThrow()
+      const data = { loading: true }
+
+      expect(() => setup(data)).not.toThrow()
     })
 
     it('loadingが表示されること', () => {
-      const wrapper = setup()
+      const data = { loading: true }
+      const wrapper = setup(data)
 
       expect(wrapper.find('Loading').exists()).toEqual(true)
     })
   })
   describe('data.loading == false', () => {
-    function setup() {
-      const data = { loading: false, user: null }
-      const wrapper = shallow(<App data={data} />)
-
-      return wrapper
-    }
-
     it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
-      expect(() => setup()).not.toThrow()
+      const data = { loading: false, user: null }
+
+      expect(() => setup(data)).not.toThrow()
     })
 
     it('loadingが表示されないこと', () => {
-      const wrapper = setup()
+      const data = { loading: false, user: null }
+      const wrapper = setup(data)
 
       expect(wrapper.find('Loading').exists()).toEqual(false)
     })
 
     describe('isAuthenticated() == false', () => {
       it('ログイン画面へリダイレクトされること', () => {
-        const wrapper = setup()
+        const data = { loading: false, user: null }
+        const wrapper = setup(data)
 
         expect(wrapper.find('Redirect').exists()).toEqual(true)
         expect(wrapper.find('Redirect').props()).toEqual({
@@ -53,24 +52,22 @@ describe('<App />', () => {
     })
 
     describe('isAuthenticated() == true', () => {
-      function setup() {
+      it('メイン画面が表示されること', () => {
         const data = {
           loading: false,
           user: { foo: 'bar', isDuringClockIn: false }
         }
-        const wrapper = shallow(<App data={data} />)
-
-        return wrapper
-      }
-
-      it('メイン画面が表示されること', () => {
-        const wrapper = setup()
+        const wrapper = setup(data)
 
         expect(wrapper.find(sel('main')).exists()).toEqual(true)
       })
 
       it('ログアウトボタンが表示されること', () => {
-        const wrapper = setup()
+        const data = {
+          loading: false,
+          user: { foo: 'bar', isDuringClockIn: false }
+        }
+        const wrapper = setup(data)
 
         expect(wrapper.find(sel('logout-btn')).exists()).toEqual(true)
       })
