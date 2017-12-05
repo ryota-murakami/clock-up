@@ -75,7 +75,7 @@
     "build-storybook": "build-storybook"
   },
   "jest": {
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
       "!src/index.js",
