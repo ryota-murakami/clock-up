@@ -25,14 +25,10 @@ export class App extends Component<Props> {
     window.location.reload()
   }
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     const { data } = this.props
 
-    if (data.user) {
-      return true
-    } else {
-      return false
-    }
+    return data.user || false
   }
 
   clockIn = () => {
