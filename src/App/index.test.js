@@ -65,6 +65,12 @@ describe('<App />', () => {
 
         expect(wrapper.find(sel('main')).exists()).toEqual(true)
       })
+
+      it('ログアウトボタンが表示されること', () => {
+        const wrapper = setup()
+
+        expect(wrapper.find(sel('logout-btn')).exists()).toEqual(true)
+      })
     })
   })
 })
