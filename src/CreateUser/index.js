@@ -7,7 +7,7 @@ import { AUTH0_ID_TOKEN } from '../GlobalConst'
 import Loading from '../components/Loading'
 
 type Props = {
-  data: any,
+  data: Object,
   createUser: Function // GraphQL Mutation
 }
 
