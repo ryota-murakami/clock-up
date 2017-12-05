@@ -20,4 +20,5 @@ describe('<App />', () => {
       expect(wrapper.find('Loading').exists()).toEqual(true)
     })
   })
+  describe('data.loading == true', () => {})
 })
