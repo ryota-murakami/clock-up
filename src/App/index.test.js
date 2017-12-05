@@ -38,5 +38,17 @@ describe('<App />', () => {
 
       expect(wrapper.find('Loading').exists()).toEqual(false)
     })
+
+    describe('isAuthenticated() == false', () => {
+      it('ログイン画面へリダイレクトされること', () => {
+        const wrapper = setup()
+
+        expect(wrapper.find('Redirect').exists()).toEqual(true)
+        expect(wrapper.find('Redirect').props()).toEqual({
+          to: '/login',
+          push: false
+        })
+      })
+    })
   })
 })
