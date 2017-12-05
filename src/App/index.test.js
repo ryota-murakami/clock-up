@@ -23,7 +23,7 @@ describe('<App />', () => {
   })
   describe('data.loading == false', () => {
     function setup() {
-      const data = { loading: false }
+      const data = { loading: false, user: null }
       const wrapper = shallow(<App data={data} />)
 
       return wrapper
