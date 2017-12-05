@@ -7,6 +7,7 @@ describe('<App />', () => {
     function setup() {
       const data = { loading: true }
       const wrapper = shallow(<App data={data} />)
+
       return wrapper
     }
 
@@ -20,5 +21,22 @@ describe('<App />', () => {
       expect(wrapper.find('Loading').exists()).toEqual(true)
     })
   })
-  describe('data.loading == false', () => {})
+  describe('data.loading == false', () => {
+    function setup() {
+      const data = { loading: false }
+      const wrapper = shallow(<App data={data} />)
+
+      return wrapper
+    }
+
+    it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+      expect(() => setup()).not.toThrow()
+    })
+
+    it('loadingが表示されないこと', () => {
+      const wrapper = setup()
+
+      expect(wrapper.find('Loading').exists()).toEqual(false)
+    })
+  })
 })
