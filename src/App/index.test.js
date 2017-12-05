@@ -54,7 +54,10 @@ describe('<App />', () => {
 
     describe('isAuthenticated() == true', () => {
       function setup() {
-        const data = { loading: false, user: { foo: 'bar' } }
+        const data = {
+          loading: false,
+          user: { foo: 'bar', isDuringClockIn: false }
+        }
         const wrapper = shallow(<App data={data} />)
 
         return wrapper
