@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { sel } from '../testUtil'
 import { App } from './index'
 
 describe('<App />', () => {
@@ -18,7 +17,7 @@ describe('<App />', () => {
     it('loadingが表示されること', () => {
       const wrapper = setup()
 
-      expect(wrapper.find(sel('loading')).exists()).toEqual(true)
+      expect(wrapper.find('Loading').exists()).toEqual(true)
     })
   })
 })

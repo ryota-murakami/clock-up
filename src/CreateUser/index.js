@@ -3,6 +3,7 @@ import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
+import Loading from '../components/Loading'
 
 type Props = {
   data: any,
@@ -42,7 +43,7 @@ export class CreateUser extends React.Component<Props> {
     const { data } = this.props
 
     if (data.loading) {
-      return <div data-test="loading">Loading</div>
+      return <Loading />
     }
 
     // 新規ユーザーであればGraphCoolにユーザー情報としてAuth0認証情報を登録する

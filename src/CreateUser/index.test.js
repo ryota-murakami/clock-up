@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { sel } from '../testUtil'
 import { CreateUser } from './index'
 
 describe('<CreateUser />', () => {
@@ -19,7 +18,7 @@ describe('<CreateUser />', () => {
     it('Loadingが表示されること', () => {
       const wrapper = setup()
 
-      expect(wrapper.find(sel('loading')).exists()).toEqual(true)
+      expect(wrapper.find('Loading').exists()).toEqual(true)
     })
   })
   describe('data.loading == false', () => {
@@ -43,7 +42,7 @@ describe('<CreateUser />', () => {
       it('Loadingが表示されないこと', () => {
         const wrapper = setup()
 
-        expect(wrapper.find(sel('loading')).exists()).toEqual(false)
+        expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
       it('createUser()が起動すること', () => {
@@ -77,7 +76,7 @@ describe('<CreateUser />', () => {
       it('Loadingが表示されないこと', () => {
         const wrapper = setup()
 
-        expect(wrapper.find(sel('loading')).exists()).toEqual(false)
+        expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
       it('createUser()が起動しないこと', () => {
