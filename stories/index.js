@@ -7,8 +7,9 @@ import { MemoryRouter } from 'react-router'
 import Auth0Lock from 'auth0-lock'
 
 import LoginButton from '../src/Login/LoginButton'
+import { Loading } from '../src/components/Loading'
 
-storiesOf('Login Pagee', module).add('LoginButton', () => {
+storiesOf('ログインページ', module).add('LoginButton', () => {
   const lock = new Auth0Lock('story', 'book')
 
   return (
@@ -16,4 +17,8 @@ storiesOf('Login Pagee', module).add('LoginButton', () => {
       <LoginButton lock={lock} />
     </MemoryRouter>
   )
+})
+
+storiesOf('汎用コンポーネント', module).add('Loading', () => {
+  return <Loading />
 })
