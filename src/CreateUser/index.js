@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
