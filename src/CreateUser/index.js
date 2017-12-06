@@ -14,15 +14,14 @@ type Props = {
 export class CreateUser extends React.Component<Props> {
   /**
    * 新規ユーザーかどうか
-   * @returns {boolean}
    */
-  isFreshUser() {
+  isFreshUser(): boolean {
     const { data } = this.props
 
     return !data.user || window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
   }
 
-  createUser() {
+  createUser(): void {
     const { createUser } = this.props
 
     const variables = {
