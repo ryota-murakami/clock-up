@@ -75,6 +75,17 @@ export class App extends Component<Props> {
     })
   }
 
+  formatDate(str: string): string {
+    const dateObj = new Date(str)
+
+    const options = {
+      hour: '2-digit',
+      minute: '2-digit'
+    }
+
+    return dateObj.toLocaleTimeString('en-us', options)
+  }
+
   render() {
     const { data } = this.props
 
@@ -91,13 +102,18 @@ export class App extends Component<Props> {
         <span onClick={this.logout} data-test="logout-btn">
           Logout
         </span>
-        {!data.user.isDuringClockIn ? (
+        {data.user.isDuringClockIn ? (
+          <div>
+            <button onClick={this.clockOut} data-test="clock-out-btn">
+              clock out
+            </button>
+            <div data-test="clock-in-time">
+              {this.formatDate(data.user.clocks[0].clockIn)}
+            </div>
+          </div>
+        ) : (
           <button onClick={this.clockIn} data-test="clock-in-btn">
             clock in
-          </button>
-        ) : (
-          <button onClick={this.clockOut} data-test="clock-out-btn">
-            clock out
           </button>
         )}
       </div>
@@ -112,6 +128,8 @@ const userQuery = gql`
       isDuringClockIn
       clocks(last: 1) {
         id
+        clockIn
+        clockOut
       }
     }
   }
