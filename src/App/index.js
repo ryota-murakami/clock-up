@@ -75,6 +75,10 @@ export class App extends Component<Props> {
     })
   }
 
+  /**
+   * @param str ISOString. e.g. '2017-12-10T14:31:10.501Z'
+   * @returns {string} human readable string. e.g. '11:31 PM'
+   */
   formatDate(str: string): string {
     const dateObj = new Date(str)
 
