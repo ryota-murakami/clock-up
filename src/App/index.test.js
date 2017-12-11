@@ -89,7 +89,16 @@ describe('<App />', () => {
       it('クロックイン中はクロックアウトボタンが表示されること', () => {
         const data = {
           loading: false,
-          user: { foo: 'bar', isDuringClockIn: true }
+          user: {
+            foo: 'bar',
+            isDuringClockIn: true,
+            clocks: [
+              {
+                clockIn: '2017-12-10T14:31:10.501Z',
+                clockOut: '2017-12-10T14:31:10.501Z'
+              }
+            ]
+          }
         }
         const wrapper = setup(data)
 
