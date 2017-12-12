@@ -6,6 +6,7 @@ import gql from 'graphql-tag'
 import Loading from '../components/Loading'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
+import styled from 'styled-components'
 
 type Props = {
   data: Object,
@@ -98,7 +99,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <div data-test="main">
+      <Main>
         <CurrentDateTime />
         <LogoutBtn />
         {data.user.isDuringClockIn ? (
@@ -115,10 +116,12 @@ export class App extends Component<Props> {
             clock in
           </button>
         )}
-      </div>
+      </Main>
     )
   }
 }
+
+const Main = styled.main``
 
 const userQuery = gql`
   query {
