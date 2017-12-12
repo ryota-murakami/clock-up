@@ -9,6 +9,9 @@ import { LoginButton } from '../src/Login/LoginButton'
 import { Loading } from '../src/components/Loading'
 import { CurrentDateTime } from '../src/App/CurrentDateTime'
 import LogoutBtn from '../src/App/LogoutBtn'
+import { ClockinBtn } from '../src/App/ClockinBtn'
+import { ClockoutBtn } from '../src/App/ClockoutBtn'
+import ClockinTime from '../src/App/ClockinTime'
 
 storiesOf('ログインページ', module).add('LoginButton', () => {
   const lock = new Auth0Lock('story', 'book')
@@ -26,4 +29,13 @@ storiesOf('メインページ', module)
   })
   .add('LogoutBtn', () => {
     return <LogoutBtn />
+  })
+  .add('ClockinBtn', () => {
+    return <ClockinBtn />
+  })
+  .add('ClockoutBtn', () => {
+    return <ClockoutBtn />
+  })
+  .add('ClockinTime', () => {
+    return <ClockinTime />
   })
