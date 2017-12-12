@@ -33,12 +33,12 @@ describe('<LoginButton />', () => {
   it('クリックしたらshowLogin()メソッドが起動すること', () => {
     // LoginBtnのshowLogin()メソッドをモックする
     const lock = new Auth0Lock('story', 'book')
-    const mockFunction = jest.fn()
-    LoginButton.prototype.showLogin = mockFunction
+    const mockFunc = jest.fn()
+    LoginButton.prototype.showLogin = mockFunc
     const wrapper = shallow(<LoginButton lock={lock} />)
 
     wrapper.find(sel('login-btn')).simulate('click')
 
-    expect(mockFunction).toBeCalled()
+    expect(mockFunc).toBeCalled()
   })
 })
