@@ -10,6 +10,7 @@ import History from './History'
 import ClockoutBtn from './ClockoutBtn'
 import { fetchUserQuery } from '../graphql'
 import ClockinBtn from './ClockinBtn'
+import ClockinTime from './ClockinTime'
 
 type Props = {
   data: Object,
@@ -24,21 +25,6 @@ export class App extends Component<Props> {
     const { data } = this.props
 
     return !!data.user
-  }
-
-  /**
-   * @param str ISOString. e.g. '2017-12-10T14:31:10.501Z'
-   * @returns {string} human readable string. e.g. '11:31 PM'
-   */
-  formatDate(str: string): string {
-    const dateObj = new Date(str)
-
-    const options = {
-      hour: '2-digit',
-      minute: '2-digit'
-    }
-
-    return dateObj.toLocaleTimeString('en-us', options)
   }
 
   render() {
@@ -59,9 +45,7 @@ export class App extends Component<Props> {
         {data.user.isDuringClockIn ? (
           <div>
             <ClockoutBtn data={data} />
-            <div data-test="clock-in-time">
-              {this.formatDate(data.user.clocks[0].clockIn)}
-            </div>
+            <ClockinTime data={data} />
           </div>
         ) : (
           <ClockinBtn data={data} />
