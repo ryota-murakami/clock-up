@@ -9,4 +9,6 @@ export class History extends Component<Props> {
   }
 }
 
+// TODO Clockテーブルのデータを直近10個ほど取得する
+
 export default History
