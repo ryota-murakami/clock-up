@@ -8,4 +8,12 @@ injectGlobal`
     margin: 0;
     background-color: #ffffff;
   }
+  
+  #root {
+    height: 100%;
+  }
+  
+  #root > div {
+    height: 100%;
+  }
 `
