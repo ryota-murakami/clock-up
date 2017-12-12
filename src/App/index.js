@@ -7,6 +7,7 @@ import Loading from '../components/Loading'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
 import styled from 'styled-components'
+import History from './History'
 
 type Props = {
   data: Object,
@@ -116,6 +117,7 @@ export class App extends Component<Props> {
             clock in
           </button>
         )}
+        <History />
       </Main>
     )
   }
