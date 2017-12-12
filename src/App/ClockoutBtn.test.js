@@ -5,13 +5,7 @@ import { sel } from '../testUtil'
 
 describe('<ClockoutBtn />', () => {
   it('should be render', () => {
-    const wrapper = shallow(
-      <ClockoutBtn
-        data={new Object()}
-        mutation1={new Object()}
-        mutation2={new Object()}
-      />
-    )
+    const wrapper = shallow(<ClockoutBtn />)
 
     expect(wrapper.exists()).toBe(true)
   })
@@ -19,13 +13,7 @@ describe('<ClockoutBtn />', () => {
   it('should be invoke recordClockoutTimeToGraphcool() when clicked', () => {
     const mockFunc = jest.fn()
     ClockoutBtn.prototype.recordClockoutTimeToGraphcool = mockFunc
-    const wrapper = shallow(
-      <ClockoutBtn
-        data={new Object()}
-        mutation1={new Object()}
-        mutation2={new Object()}
-      />
-    )
+    const wrapper = shallow(<ClockoutBtn />)
 
     wrapper.find(sel('clock-out-btn')).simulate('click')
 
