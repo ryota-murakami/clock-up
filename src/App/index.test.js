@@ -102,7 +102,7 @@ describe('<App />', () => {
         }
         const wrapper = setup(data)
 
-        expect(wrapper.find(sel('clock-out-btn')).exists()).toEqual(true)
+        expect(wrapper.find('ClockoutBtn').exists()).toEqual(true)
       })
     })
   })

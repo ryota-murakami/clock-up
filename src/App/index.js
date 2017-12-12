@@ -8,6 +8,7 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
 import styled from 'styled-components'
 import History from './History'
+import { ClockoutBtn } from './ClockoutBtn'
 
 type Props = {
   data: Object,
@@ -17,9 +18,7 @@ type Props = {
   history: any,
   // graphql()
   clockInMutation1: Function,
-  clockInMutation2: Function,
-  clockOutMutation1: Function,
-  clockOutMutation2: Function
+  clockInMutation2: Function
 }
 
 export class App extends Component<Props> {
@@ -44,30 +43,6 @@ export class App extends Component<Props> {
 
     clockInMutation2({
       variables: { userId: userId, clockIn: clockIn() }
-    }).then(response => {
-      console.log(response)
-    })
-  }
-
-  clockOut = () => {
-    const { data, clockOutMutation1, clockOutMutation2 } = this.props
-
-    const userId = data.user.id
-    const clockOut = () => new Date().toISOString()
-
-    clockOutMutation1({
-      variables: { userId },
-      refetchQueries: [{ query: userQuery }]
-    }).then(response => {
-      console.log(response)
-    })
-
-    clockOutMutation2({
-      variables: {
-        clockId: data.user.clocks[0].id,
-        userId: userId,
-        clockOut: clockOut()
-      }
     }).then(response => {
       console.log(response)
     })
@@ -105,9 +80,7 @@ export class App extends Component<Props> {
         <LogoutBtn />
         {data.user.isDuringClockIn ? (
           <div>
-            <button onClick={this.clockOut} data-test="clock-out-btn">
-              clock out
-            </button>
+            <ClockoutBtn />
             <div data-test="clock-in-time">
               {this.formatDate(data.user.clocks[0].clockIn)}
             </div>
@@ -157,48 +130,20 @@ const clockInMutation1 = gql`
   }
 `
 
-const clockOutMutation2 = gql`
-  mutation($clockId: ID!, $userId: ID, $clockOut: DateTime) {
-    updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
-      id
-      clockIn
-      clockOut
-    }
-  }
-`
-
-const clockOutMutation1 = gql`
-  mutation($userId: ID!) {
-    updateUser(id: $userId, isDuringClockIn: false) {
-      isDuringClockIn
-    }
-  }
-`
-
-export default graphql(clockOutMutation1, {
-  name: 'clockOutMutation1',
+export default graphql(clockInMutation1, {
+  name: 'clockInMutation1',
   notifyOnNetworkStatusChange: true
 })(
-  graphql(clockOutMutation2, {
-    name: 'clockOutMutation2',
+  graphql(clockInMutation2, {
+    name: 'clockInMutation2',
     notifyOnNetworkStatusChange: true
   })(
-    graphql(clockInMutation1, {
-      name: 'clockInMutation1',
-      notifyOnNetworkStatusChange: true
-    })(
-      graphql(clockInMutation2, {
-        name: 'clockInMutation2',
-        notifyOnNetworkStatusChange: true
-      })(
-        graphql(userQuery, {
-          options: {
-            fetchPolicy: 'network-only',
-            notifyOnNetworkStatusChange: true,
-            options: { pollInterval: 1000 }
-          }
-        })(withRouter(App))
-      )
-    )
+    graphql(userQuery, {
+      options: {
+        fetchPolicy: 'network-only',
+        notifyOnNetworkStatusChange: true,
+        options: { pollInterval: 1000 }
+      }
+    })(withRouter(App))
   )
 )
