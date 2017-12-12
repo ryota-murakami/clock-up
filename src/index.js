@@ -41,10 +41,10 @@ const store = createStore(
 
 // apollo-client
 const middlewareLink = new ApolloLink((operation, forward) => {
+  const auth0IdToken = window.localStorage.getItem(AUTH0_ID_TOKEN)
   operation.setContext({
     headers: {
-      authorization:
-        'Bearer ' + window.localStorage.getItem(AUTH0_ID_TOKEN) || null
+      authorization: 'Bearer ' + auth0IdToken || null
     }
   })
   return forward(operation)
