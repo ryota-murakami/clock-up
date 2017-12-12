@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
 import Loading from '../components/Loading'
+import CurrentDateTime from './CurrentDateTime'
 
 type Props = {
   data: Object,
@@ -103,6 +104,7 @@ export class App extends Component<Props> {
 
     return (
       <div data-test="main">
+        <CurrentDateTime />
         <span onClick={this.logout} data-test="logout-btn">
           Logout
         </span>
