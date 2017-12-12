@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
+import { fetchUserQuery } from '../graphql'
 
 type Props = {
   data: Object,
@@ -10,6 +11,13 @@ type Props = {
 }
 
 export class ClockoutBtn extends Component<Props> {
+  constructor(props: Props) {
+    super(props)
+    this.recordClockoutTimeToGraphcool = this.recordClockoutTimeToGraphcool.bind(
+      this
+    )
+  }
+
   recordClockoutTimeToGraphcool() {
     const { data, mutation1, mutation2 } = this.props
 
@@ -18,7 +26,7 @@ export class ClockoutBtn extends Component<Props> {
 
     mutation1({
       variables: { userId },
-      refetchQueries: [{ query: userQuery }]
+      refetchQueries: [{ query: fetchUserQuery }]
     }).then(response => {
       // TODO console.log()
       console.log(response)
@@ -48,20 +56,6 @@ export class ClockoutBtn extends Component<Props> {
   }
 }
 
-const userQuery = gql`
-  query {
-    user {
-      id
-      isDuringClockIn
-      clocks(last: 1) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
-
 const mutation1 = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: false) {
@@ -82,7 +76,7 @@ const mutation2 = gql`
 
 export default compose(
   graphql(mutation1, {
-    name: 'muta`tion1',
+    name: 'mutation1',
     notifyOnNetworkStatusChange: true
   }),
   graphql(mutation2, {

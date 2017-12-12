@@ -8,7 +8,8 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
 import styled from 'styled-components'
 import History from './History'
-import { ClockoutBtn } from './ClockoutBtn'
+import ClockoutBtn from './ClockoutBtn'
+import { fetchUserQuery } from '../graphql'
 
 type Props = {
   data: Object,
@@ -36,7 +37,7 @@ export class App extends Component<Props> {
 
     clockInMutation1({
       variables: { userId },
-      refetchQueries: [{ query: userQuery }]
+      refetchQueries: [{ query: fetchUserQuery }]
     }).then(response => {
       console.log(response)
     })
@@ -80,7 +81,7 @@ export class App extends Component<Props> {
         <LogoutBtn />
         {data.user.isDuringClockIn ? (
           <div>
-            <ClockoutBtn />
+            <ClockoutBtn data={data} />
             <div data-test="clock-in-time">
               {this.formatDate(data.user.clocks[0].clockIn)}
             </div>
@@ -97,20 +98,6 @@ export class App extends Component<Props> {
 }
 
 const Main = styled.main``
-
-const userQuery = gql`
-  query {
-    user {
-      id
-      isDuringClockIn
-      clocks(last: 1) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
 
 const clockInMutation2 = gql`
   mutation($userId: ID!, $clockIn: DateTime) {
@@ -138,7 +125,7 @@ export default graphql(clockInMutation1, {
     name: 'clockInMutation2',
     notifyOnNetworkStatusChange: true
   })(
-    graphql(userQuery, {
+    graphql(fetchUserQuery, {
       options: {
         fetchPolicy: 'network-only',
         notifyOnNetworkStatusChange: true,

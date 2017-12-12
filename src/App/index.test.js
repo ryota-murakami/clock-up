@@ -102,7 +102,7 @@ describe('<App />', () => {
         }
         const wrapper = setup(data)
 
-        expect(wrapper.find('ClockoutBtn').exists()).toEqual(true)
+        expect(wrapper.find('Apollo(Apollo(ClockoutBtn))').exists()).toEqual(true)
       })
     })
   })
