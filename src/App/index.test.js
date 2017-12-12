@@ -81,7 +81,7 @@ describe('<App />', () => {
         }
         const wrapper = setup(data)
 
-        expect(wrapper.find(sel('clock-in-btn')).exists()).toEqual(true)
+        expect(wrapper.find('Apollo(Apollo(ClockinBtn))').exists()).toEqual(true)
       })
     })
 

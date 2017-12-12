@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 import Loading from '../components/Loading'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
@@ -10,16 +9,14 @@ import styled from 'styled-components'
 import History from './History'
 import ClockoutBtn from './ClockoutBtn'
 import { fetchUserQuery } from '../graphql'
+import ClockinBtn from './ClockinBtn'
 
 type Props = {
   data: Object,
   // withRouter()
   match: any,
   location: any,
-  history: any,
-  // graphql()
-  clockInMutation1: Function,
-  clockInMutation2: Function
+  history: any
 }
 
 export class App extends Component<Props> {
@@ -27,26 +24,6 @@ export class App extends Component<Props> {
     const { data } = this.props
 
     return !!data.user
-  }
-
-  clockIn = () => {
-    const { data, clockInMutation1, clockInMutation2 } = this.props
-
-    const userId = data.user.id
-    const clockIn = () => new Date().toISOString()
-
-    clockInMutation1({
-      variables: { userId },
-      refetchQueries: [{ query: fetchUserQuery }]
-    }).then(response => {
-      console.log(response)
-    })
-
-    clockInMutation2({
-      variables: { userId: userId, clockIn: clockIn() }
-    }).then(response => {
-      console.log(response)
-    })
   }
 
   /**
@@ -87,9 +64,7 @@ export class App extends Component<Props> {
             </div>
           </div>
         ) : (
-          <button onClick={this.clockIn} data-test="clock-in-btn">
-            clock in
-          </button>
+          <ClockinBtn data={data} />
         )}
         <History />
       </Main>
@@ -99,38 +74,10 @@ export class App extends Component<Props> {
 
 const Main = styled.main``
 
-const clockInMutation2 = gql`
-  mutation($userId: ID!, $clockIn: DateTime) {
-    createClock(userId: $userId, clockIn: $clockIn) {
-      id
-      clockIn
-      clockOut
-    }
+export default graphql(fetchUserQuery, {
+  options: {
+    fetchPolicy: 'network-only',
+    notifyOnNetworkStatusChange: true,
+    options: { pollInterval: 1000 }
   }
-`
-
-const clockInMutation1 = gql`
-  mutation($userId: ID!) {
-    updateUser(id: $userId, isDuringClockIn: true) {
-      isDuringClockIn
-    }
-  }
-`
-
-export default graphql(clockInMutation1, {
-  name: 'clockInMutation1',
-  notifyOnNetworkStatusChange: true
-})(
-  graphql(clockInMutation2, {
-    name: 'clockInMutation2',
-    notifyOnNetworkStatusChange: true
-  })(
-    graphql(fetchUserQuery, {
-      options: {
-        fetchPolicy: 'network-only',
-        notifyOnNetworkStatusChange: true,
-        options: { pollInterval: 1000 }
-      }
-    })(withRouter(App))
-  )
-)
+})(withRouter(App))
