@@ -76,11 +76,9 @@ const mutation2 = gql`
 
 export default compose(
   graphql(mutation1, {
-    name: 'mutation1',
-    notifyOnNetworkStatusChange: true
+    name: 'mutation1'
   }),
   graphql(mutation2, {
-    name: 'mutation2',
-    notifyOnNetworkStatusChange: true
+    name: 'mutation2'
   })
 )(ClockoutBtn)
