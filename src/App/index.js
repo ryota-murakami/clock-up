@@ -6,6 +6,7 @@ import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../GlobalConst'
 import Loading from '../components/Loading'
 import CurrentDateTime from './CurrentDateTime'
+import LogoutBtn from './LogoutBtn'
 
 type Props = {
   data: Object,
@@ -21,11 +22,6 @@ type Props = {
 }
 
 export class App extends Component<Props> {
-  logout = () => {
-    window.localStorage.removeItem(AUTH0_ID_TOKEN)
-    window.location.reload()
-  }
-
   isAuthenticated(): boolean {
     const { data } = this.props
 
@@ -105,9 +101,7 @@ export class App extends Component<Props> {
     return (
       <div data-test="main">
         <CurrentDateTime />
-        <span onClick={this.logout} data-test="logout-btn">
-          Logout
-        </span>
+        <LogoutBtn />
         {data.user.isDuringClockIn ? (
           <div>
             <button onClick={this.clockOut} data-test="clock-out-btn">

@@ -69,7 +69,7 @@ describe('<App />', () => {
         }
         const wrapper = setup(data)
 
-        expect(wrapper.find(sel('logout-btn')).exists()).toEqual(true)
+        expect(wrapper.find('LogoutBtn').exists()).toEqual(true)
       })
     })
 

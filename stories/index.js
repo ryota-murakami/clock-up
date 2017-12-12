@@ -8,6 +8,7 @@ import Auth0Lock from 'auth0-lock'
 import { LoginButton } from '../src/Login/LoginButton'
 import { Loading } from '../src/components/Loading'
 import { CurrentDateTime } from '../src/App/CurrentDateTime'
+import LogoutBtn from '../src/App/LogoutBtn'
 
 storiesOf('ログインページ', module).add('LoginButton', () => {
   const lock = new Auth0Lock('story', 'book')
@@ -19,6 +20,10 @@ storiesOf('汎用コンポーネント', module).add('Loading', () => {
   return <Loading />
 })
 
-storiesOf('メインページ', module).add('CurrentDateTime', () => {
-  return <CurrentDateTime />
-})
+storiesOf('メインページ', module)
+  .add('CurrentDateTime', () => {
+    return <CurrentDateTime />
+  })
+  .add('LogoutBtn', () => {
+    return <LogoutBtn />
+  })
