@@ -28,7 +28,7 @@ export class App extends Component<Props> {
   isAuthenticated(): boolean {
     const { data } = this.props
 
-    return data.user || false
+    return !!data.user
   }
 
   clockIn = () => {
