@@ -2,29 +2,75 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor } from '../cssVariables'
+import { connect } from 'react-redux'
 
-type Props = {}
+type Props = {
+  year: number,
+  month: string,
+  days: string,
+  date: number,
+  hour: number,
+  minutes: number,
+  seconds: number
+}
 
 export class CurrentDateTime extends Component<Props> {
   render() {
+    const { year, month, days, date, hour, minutes } = this.props
+
     return (
       <Container>
-        <Day>Wednesday Nov 22 2017</Day>
-        <Time>3:14</Time>
+        <Day>
+          {days} {month} {date} {year}
+        </Day>
+        <Time>
+          {hour}:{minutes}
+        </Time>
       </Container>
     )
   }
 }
 
+const color = '#616161'
+
 const Container = styled.div`
-  height: 50%;
+  height: 25%;
   border: 1px solid ${borderColor};
   margin: 20px;
+  padding: 60px;
   border-radius: 5px;
 `
 
-const Day = styled.div``
+const Day = styled.div`
+  height: 30%;
+  color: ${color};
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 
-const Time = styled.div``
+const Time = styled.div`
+  height: 70%;
+  color: ${color};
+  font-size: 7em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 
-export default CurrentDateTime
+function mapStateToProps(state) {
+  return {
+    year: state.app.year,
+    month: state.app.month,
+    days: state.app.days,
+    date: state.app.date,
+    hour: state.app.hour,
+    minutes: state.app.minutes,
+    seconds: state.app.seconds
+  }
+}
+
+export default connect(mapStateToProps)(CurrentDateTime)
