@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import ClockinBtn from './ClockinBtn'
 import ClockinTime from './ClockinTime'
 import ClockoutBtn from './ClockoutBtn'
@@ -14,15 +15,26 @@ export class Control extends Component<Props> {
 
     if (data.user.isDuringClockIn) {
       return (
-        <div>
-          <ClockoutBtn data={data} />
+        <Container>
           <ClockinTime data={data} />
-        </div>
+          <ClockoutBtn data={data} />
+        </Container>
       )
     } else {
-      return <ClockinBtn data={data} />
+      return (
+        <Container>
+          <ClockinBtn data={data} />
+        </Container>
+      )
     }
   }
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 20px;
+`
 
 export default Control
