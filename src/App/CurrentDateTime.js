@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor } from '../cssVariables'
+import { borderColor, color } from '../cssVariables'
 import { connect } from 'react-redux'
 
 type Props = {
@@ -44,8 +44,6 @@ export class CurrentDateTime extends Component<Props> {
     )
   }
 }
-
-const color = '#616161'
 
 const Container = styled.div`
   height: 25%;
