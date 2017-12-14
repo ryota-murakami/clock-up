@@ -15,6 +15,16 @@ type Props = {
 }
 
 export class CurrentDateTime extends Component<Props> {
+  flush() {
+    const { seconds } = this.props
+
+    if (seconds % 2 === 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
     const { year, month, days, date, hour, minutes } = this.props
 
@@ -24,7 +34,11 @@ export class CurrentDateTime extends Component<Props> {
           {days} {month} {date} {year}
         </Day>
         <Time>
-          {hour}:{minutes}
+          {hour}
+          <span style={{ visibility: this.flush() ? 'visible' : 'hidden' }}>
+            :
+          </span>
+          {minutes}
         </Time>
       </Container>
     )
@@ -56,9 +70,6 @@ const Time = styled.div`
   color: ${color};
   font-size: 7em;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `
 
 function mapStateToProps(state) {
