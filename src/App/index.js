@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
+import { connect } from 'react-redux'
 import Loading from '../components/Loading'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
@@ -10,9 +11,11 @@ import History from './History'
 import { fetchUserQuery } from '../graphql'
 import { borderColor } from '../cssVariables'
 import Control from './Control'
+import { syncDate } from './actions'
 
 type Props = {
   data: Object,
+  syncDate: Function,
   // withRouter()
   match: any,
   location: any,
@@ -24,6 +27,14 @@ export class App extends Component<Props> {
     const { data } = this.props
 
     return !!data.user
+  }
+
+  componentDidMount() {
+    this.syncDate = setInterval(this.props.syncDate, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.syncDate)
   }
 
   render() {
@@ -90,10 +101,26 @@ const Left = styled.div`
   border: 1px solid ${borderColor};
 `
 
-export default graphql(fetchUserQuery, {
-  options: {
-    fetchPolicy: 'network-only',
-    notifyOnNetworkStatusChange: true,
-    options: { pollInterval: 1000 }
+function mapStateToProps(state) {
+  return {}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    syncDate: () => {
+      dispatch(syncDate())
+    }
   }
-})(withRouter(App))
+}
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  graphql(fetchUserQuery, {
+    options: {
+      fetchPolicy: 'network-only',
+      notifyOnNetworkStatusChange: true,
+      options: { pollInterval: 1000 }
+    }
+  }),
+  withRouter
+)(App)
