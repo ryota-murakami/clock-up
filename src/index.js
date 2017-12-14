@@ -21,7 +21,7 @@ import {
 } from 'react-router-redux'
 import { AUTH0_ID_TOKEN } from './GlobalConst'
 import './GlobalCSS'
-import appReducer from './App/reducers'
+import appReducer from './App/reducer'
 
 // react-router
 const history = createHistory()
