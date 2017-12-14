@@ -6,8 +6,16 @@ const initialState = parseTime(new Date())
 export default function app(state = initialState, action) {
   switch (action.type) {
     case SYNC_DATE:
-      const { hour, minutes, seconds } = action
-      return Object.assign({}, state, { hour, minutes, seconds })
+      const { year, month, days, date, hour, minutes, seconds } = action
+      return Object.assign({}, state, {
+        year,
+        month,
+        days,
+        date,
+        hour,
+        minutes,
+        seconds
+      })
     default:
       return state
   }
