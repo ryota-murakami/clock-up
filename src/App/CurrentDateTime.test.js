@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import CurrentDateTime from './CurrentDateTime'
+import { CurrentDateTime } from './CurrentDateTime'
 
 describe('<CurrentDateTime />', () => {
   it('should be render', () => {
