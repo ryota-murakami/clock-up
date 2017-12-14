@@ -13,15 +13,20 @@ export class LogoutBtn extends Component<Props> {
 
   render() {
     return (
-      <Main onClick={this.logout} data-test="logout-btn">
+      <Button onClick={this.logout} data-test="logout-btn">
         Logout
-      </Main>
+      </Button>
     )
   }
 }
 
-const Main = styled.div`
-  margin: 0 auto;
+const Button = styled.div`
+  color: #78909c;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #78909c;
+  border-radius: 3px;
+  cursor: pointer;
 `
 
 export default LogoutBtn
