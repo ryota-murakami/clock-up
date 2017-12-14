@@ -5,13 +5,13 @@ import { borderColor, color } from '../cssVariables'
 import { connect } from 'react-redux'
 
 type Props = {
-  year: number,
+  year: string,
   month: string,
   days: string,
-  date: number,
-  hour: number,
-  minutes: number,
-  seconds: number
+  date: string,
+  hour: string,
+  minutes: string,
+  seconds: string
 }
 
 export class CurrentDateTime extends Component<Props> {

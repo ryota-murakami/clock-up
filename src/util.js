@@ -1,3 +1,4 @@
+// @flow
 export function parseTime(date = new Date()) {
   const days = []
   days[0] = 'Sunday'
@@ -23,12 +24,16 @@ export function parseTime(date = new Date()) {
   month[11] = 'December'
 
   return {
-    year: date.getFullYear(),
+    year: String(date.getFullYear()),
     month: month[date.getMonth()],
     days: days[date.getDay()],
-    date: date.getDate(),
-    hour: date.getHours(),
-    minutes: date.getMinutes(),
-    seconds: date.getSeconds()
+    date: pad(String(date.getDate())),
+    hour: pad(String(date.getHours())),
+    minutes: pad(String(date.getMinutes())),
+    seconds: String(date.getSeconds())
   }
+}
+
+function pad(str: string): string {
+  return ('00' + str).slice(-2)
 }
