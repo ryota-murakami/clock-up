@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { fetchUserQuery } from '../graphql'
 
@@ -46,15 +47,27 @@ export class ClockoutBtn extends Component<Props> {
 
   render() {
     return (
-      <button
+      <Button
         onClick={this.recordClockoutTimeToGraphcool}
         data-test="clock-out-btn"
       >
         clock out
-      </button>
+      </Button>
     )
   }
 }
+
+const Button = styled.div`
+  width: 70px;
+  color: #ffffff;
+  font-size: 1em;
+  background-color: #e57373;
+  line-height: 28px;
+  padding: 0.25em 1em;
+  border: 2px solid #e57373;
+  border-radius: 3px;
+  cursor: pointer;
+`
 
 const mutation1 = gql`
   mutation($userId: ID!) {

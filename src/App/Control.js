@@ -15,22 +15,29 @@ export class Control extends Component<Props> {
 
     if (data.user.isDuringClockIn) {
       return (
-        <Container>
+        <ClockoutContainer>
           <ClockinTime data={data} />
           <ClockoutBtn data={data} />
-        </Container>
+        </ClockoutContainer>
       )
     } else {
       return (
-        <Container>
+        <ClockinContainer>
           <ClockinBtn data={data} />
-        </Container>
+        </ClockinContainer>
       )
     }
   }
 }
 
-const Container = styled.div`
+const ClockoutContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+`
+
+const ClockinContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
