@@ -51,57 +51,26 @@ describe('<App />', () => {
     })
 
     describe('isAuthenticated() == true', () => {
+      const data = {
+        loading: false,
+        user: { foo: 'bar', isDuringClockIn: false }
+      }
       it('メイン画面が表示されること', () => {
-        const data = {
-          loading: false,
-          user: { foo: 'bar', isDuringClockIn: false }
-        }
         const wrapper = setup(data)
 
         expect(wrapper.find('App__Container').exists()).toEqual(true)
       })
 
       it('ログアウトボタンが表示されること', () => {
-        const data = {
-          loading: false,
-          user: { foo: 'bar', isDuringClockIn: false }
-        }
         const wrapper = setup(data)
 
         expect(wrapper.find('LogoutBtn').exists()).toEqual(true)
       })
-    })
 
-    describe('data.user.isDuringClockIn == false', () => {
-      it('クロックインしていない場合はクロックインボタンが表示されること', () => {
-        const data = {
-          loading: false,
-          user: { foo: 'bar', isDuringClockIn: false }
-        }
+      it('コントロールが表示されること', () => {
         const wrapper = setup(data)
 
-        expect(wrapper.find('Apollo(Apollo(ClockinBtn))').exists()).toEqual(true)
-      })
-    })
-
-    describe('data.user.isDuringClockIn == true', () => {
-      it('クロックイン中はクロックアウトボタンが表示されること', () => {
-        const data = {
-          loading: false,
-          user: {
-            foo: 'bar',
-            isDuringClockIn: true,
-            clocks: [
-              {
-                clockIn: '2017-12-10T14:31:10.501Z',
-                clockOut: '2017-12-10T14:31:10.501Z'
-              }
-            ]
-          }
-        }
-        const wrapper = setup(data)
-
-        expect(wrapper.find('Apollo(Apollo(ClockoutBtn))').exists()).toEqual(true)
+        expect(wrapper.find('Control').exists()).toEqual(true)
       })
     })
   })

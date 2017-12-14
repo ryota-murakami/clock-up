@@ -7,11 +7,9 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutBtn'
 import styled from 'styled-components'
 import History from './History'
-import ClockoutBtn from './ClockoutBtn'
 import { fetchUserQuery } from '../graphql'
-import ClockinBtn from './ClockinBtn'
-import ClockinTime from './ClockinTime'
 import { borderColor } from '../cssVariables'
+import Control from './Control'
 
 type Props = {
   data: Object,
@@ -49,14 +47,7 @@ export class App extends Component<Props> {
         </Right>
         <Left>
           <CurrentDateTime />
-          {data.user.isDuringClockIn ? (
-            <div>
-              <ClockoutBtn data={data} />
-              <ClockinTime data={data} />
-            </div>
-          ) : (
-            <ClockinBtn data={data} />
-          )}
+          <Control data={data} />
         </Left>
       </Container>
     )
