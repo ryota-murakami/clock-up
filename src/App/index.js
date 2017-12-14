@@ -40,10 +40,15 @@ export class App extends Component<Props> {
     }
 
     return (
-      <Main>
-        <Right>
-          <CurrentDateTime />
+      <Container>
+        <Header>
           <LogoutBtn />
+        </Header>
+        <Right>
+          <History />
+        </Right>
+        <Left>
+          <CurrentDateTime />
           {data.user.isDuringClockIn ? (
             <div>
               <ClockoutBtn data={data} />
@@ -52,33 +57,38 @@ export class App extends Component<Props> {
           ) : (
             <ClockinBtn data={data} />
           )}
-        </Right>
-        <Left>
-          <History />
         </Left>
-      </Main>
+      </Container>
     )
   }
 }
 
-const Main = styled.main`
+const Container = styled.main`
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    'header header header'
+    'left left right';
+  grid-column-gap: 10px;
+`
+
+const Header = styled.div`
+  grid-area: header;
+  border-bottom: 1px solid ${borderColor};
 `
 
 const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 60%;
+  grid-area: right;
   margin: 10px;
   border-radius: 5px;
   border: 1px solid ${borderColor};
 `
 
 const Left = styled.div`
-  width: 40%;
+  grid-area: left;
   margin: 10px;
   border-radius: 5px;
   border: 1px solid ${borderColor};
