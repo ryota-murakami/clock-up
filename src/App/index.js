@@ -11,6 +11,7 @@ import ClockoutBtn from './ClockoutBtn'
 import { fetchUserQuery } from '../graphql'
 import ClockinBtn from './ClockinBtn'
 import ClockinTime from './ClockinTime'
+import { borderColor } from '../cssVariables'
 
 type Props = {
   data: Object,
@@ -40,23 +41,48 @@ export class App extends Component<Props> {
 
     return (
       <Main>
-        <CurrentDateTime />
-        <LogoutBtn />
-        {data.user.isDuringClockIn ? (
-          <div>
-            <ClockoutBtn data={data} />
-            <ClockinTime data={data} />
-          </div>
-        ) : (
-          <ClockinBtn data={data} />
-        )}
-        <History />
+        <Right>
+          <CurrentDateTime />
+          <LogoutBtn />
+          {data.user.isDuringClockIn ? (
+            <div>
+              <ClockoutBtn data={data} />
+              <ClockinTime data={data} />
+            </div>
+          ) : (
+            <ClockinBtn data={data} />
+          )}
+        </Right>
+        <Left>
+          <History />
+        </Left>
       </Main>
     )
   }
 }
 
-const Main = styled.main``
+const Main = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+`
+
+const Right = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid ${borderColor};
+`
+
+const Left = styled.div`
+  width: 40%;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid ${borderColor};
+`
 
 export default graphql(fetchUserQuery, {
   options: {
