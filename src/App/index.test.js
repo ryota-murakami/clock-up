@@ -58,7 +58,7 @@ describe('<App />', () => {
         }
         const wrapper = setup(data)
 
-        expect(wrapper.find('App__Main').exists()).toEqual(true)
+        expect(wrapper.find('App__Container').exists()).toEqual(true)
       })
 
       it('ログアウトボタンが表示されること', () => {
