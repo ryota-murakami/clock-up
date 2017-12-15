@@ -51,3 +51,14 @@ export function calcTimeDiff(now: Date, past: Date): string {
 
   return hh + 'h' + mm + 'm' + ss + 's'
 }
+
+export function ISOtoYmd(iso: string): string {
+  const dateObj = new Date(iso)
+  const year = dateObj.getFullYear()
+  const month = dateObj.getMonth()
+  const date = dateObj.getDate()
+  const hour = dateObj.getHours()
+  const minutes = dateObj.getMinutes()
+
+  return year + '/' + month + '/' + date + ' ' + hour + ':' + minutes
+}

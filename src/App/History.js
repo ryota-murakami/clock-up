@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
-import { calcTimeDiff } from '../util'
+import { calcTimeDiff, ISOtoYmd } from '../util'
 
 type Props = {
   clocks: Array
@@ -14,23 +14,27 @@ export class History extends Component<Props> {
 
     var history = ''
     if (clocks.length) {
-      history = clocks.map((v, i) => {
-        const clockIn = v.clockIn
-        const clockout = v.clockOut
-        const createdAt = v.createdAt
-        const small = new Date(clockIn)
-        const large = new Date(clockout)
-        const total = calcTimeDiff(large, small)
+      history = clocks
+        .filter(v => {
+          return v.clockOut !== null // during clock-in data
+        })
+        .map((v, i) => {
+          const clockIn = v.clockIn
+          const clockout = v.clockOut
+          const createdAt = v.createdAt
+          const small = new Date(clockIn)
+          const large = new Date(clockout)
+          const total = calcTimeDiff(large, small)
 
-        return (
-          <tr key={i}>
-            <td>{createdAt}</td>
-            <td>{total}</td>
-            <td>{clockIn}</td>
-            <td>{clockout}</td>
-          </tr>
-        )
-      })
+          return (
+            <tr key={i}>
+              <td>{ISOtoYmd(createdAt)}</td>
+              <td>{total}</td>
+              <td>{ISOtoYmd(clockIn)}</td>
+              <td>{ISOtoYmd(clockout)}</td>
+            </tr>
+          )
+        })
     } else {
       history = (
         <tr>
@@ -45,7 +49,7 @@ export class History extends Component<Props> {
     return (
       <Container>
         <Header>History</Header>
-        <table>
+        <Table>
           <tbody>
             <tr>
               <th>createdAt</th>
@@ -55,7 +59,7 @@ export class History extends Component<Props> {
             </tr>
             {history}
           </tbody>
-        </table>
+        </Table>
       </Container>
     )
   }
@@ -70,6 +74,11 @@ const Header = styled.div`
   text-align: center;
   font-size: 1.2em;
   border-bottom: 1px solid ${borderColor};
+`
+
+const Table = styled.table`
+  margin: 0 auto;
+  padding: 10px;s
 `
 
 export default History
