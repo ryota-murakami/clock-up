@@ -28,14 +28,14 @@ export function parseTime(dateObj = new Date()) {
     year: String(dateObj.getFullYear()),
     month: month[dateObj.getMonth()],
     days: days[dateObj.getDay()],
-    date: pad(String(dateObj.getDate())),
-    hour: pad(String(dateObj.getHours())),
-    minutes: pad(String(dateObj.getMinutes())),
+    date: pad2(String(dateObj.getDate())),
+    hour: pad2(String(dateObj.getHours())),
+    minutes: pad2(String(dateObj.getMinutes())),
     seconds: String(dateObj.getSeconds())
   }
 }
 
-function pad(str: string): string {
+function pad2(str: string): string {
   return ('00' + str).slice(-2)
 }
 
