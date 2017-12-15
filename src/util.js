@@ -24,6 +24,7 @@ export function parseTime(date = new Date()) {
   month[11] = 'December'
 
   return {
+    dateObject: date,
     year: String(date.getFullYear()),
     month: month[date.getMonth()],
     days: days[date.getDay()],

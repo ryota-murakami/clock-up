@@ -22,7 +22,7 @@ describe('<Control />', () => {
     it('should be show ClokinTime', () => {
       const wrapper = shallow(<Control data={data} />)
 
-      expect(wrapper.find('ClockinTime').exists()).toBe(true)
+      expect(wrapper.find('Connect(ClockinTime)').exists()).toBe(true)
     })
   })
 
