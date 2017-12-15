@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<History /> pass empty array should be match snapshot 1`] = `
+<History__Container>
+  <History__Header>
+    History
+  </History__Header>
+  <table>
+    <tbody>
+      <tr>
+        <th>
+          createdAt
+        </th>
+        <th>
+          total
+        </th>
+        <th>
+          clockIn
+        </th>
+        <th>
+          clockout
+        </th>
+      </tr>
+      <tr>
+        <td>
+          N/A
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          N/A
+        </td>
+        <td>
+          N/A
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</History__Container>
+`;

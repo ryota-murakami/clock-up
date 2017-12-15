@@ -54,7 +54,7 @@ export class App extends Component<Props> {
           <LogoutBtn />
         </Header>
         <Right>
-          <History data={data} />
+          <History clocks={data.user.clocks} />
         </Right>
         <Left>
           <CurrentDateTime />
