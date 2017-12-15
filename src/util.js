@@ -47,18 +47,17 @@ export function calcTimeDiff(now: Date, past: Date): string {
   const mm = Math.floor(msec / 1000 / 60)
   msec -= mm * 1000 * 60
   const ss = Math.floor(msec / 1000)
-  msec -= ss * 1000
 
-  return hh + 'h' + mm + 'm' + ss + 's'
+  return pad2(hh) + 'h' + pad2(mm) + 'm' + pad2(ss) + 's'
 }
 
 export function ISOtoYmd(iso: string): string {
   const dateObj = new Date(iso)
-  const year = dateObj.getFullYear()
-  const month = dateObj.getMonth()
-  const date = dateObj.getDate()
-  const hour = dateObj.getHours()
-  const minutes = dateObj.getMinutes()
+  const year = String(dateObj.getFullYear())
+  const month = pad2(String(dateObj.getMonth()))
+  const date = pad2(String(dateObj.getDate()))
+  const hour = pad2(String(dateObj.getHours()))
+  const minutes = pad2(String(dateObj.getMinutes()))
 
   return year + '/' + month + '/' + date + ' ' + hour + ':' + minutes
 }
