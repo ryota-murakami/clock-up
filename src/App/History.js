@@ -8,7 +8,7 @@ type Props = {
 }
 
 export class History extends Component<Props> {
-  trimLatest(data) {
+  trimLvatest(data) {
     data.user.clocks.splice(0, 1)
   }
 
