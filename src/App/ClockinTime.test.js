@@ -27,8 +27,10 @@ describe('<ClockinTime / >', () => {
 
   it('should formatDate() is working correct', () => {
     const wrapper = shallow(<ClockinTime data={correctData} />)
-console.log(wrapper.debug())
-    expect(wrapper.html().includes('2:15 AM')).toBe(true)
+
+    expect(
+      wrapper.html().includes('2:15 AM') || wrapper.html().includes('5:15 PM')
+    ).toBe(true)
   })
 
   it('should not be render with incorrect data', () => {
