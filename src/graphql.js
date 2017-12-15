@@ -5,10 +5,12 @@ export const fetchUserQuery = gql`
     user {
       id
       isDuringClockIn
-      clocks(last: 1) {
+      clocks(first: 10, orderBy: createdAt_DESC) {
         id
         clockIn
         clockOut
+        createdAt
+        updatedAt
       }
     }
   }
