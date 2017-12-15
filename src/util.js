@@ -38,3 +38,16 @@ export function parseTime(date = new Date()) {
 function pad(str: string): string {
   return ('00' + str).slice(-2)
 }
+
+export function calcTimeDiff(now: Date, past: Date): string {
+  const diff = now - past // milliseconds
+  var msec = diff
+  const hh = Math.floor(msec / 1000 / 60 / 60)
+  msec -= hh * 1000 * 60 * 60
+  const mm = Math.floor(msec / 1000 / 60)
+  msec -= mm * 1000 * 60
+  const ss = Math.floor(msec / 1000)
+  msec -= ss * 1000
+
+  return hh + 'h' + mm + 'm' + ss + 's'
+}

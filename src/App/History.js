@@ -2,58 +2,59 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
+import { calcTimeDiff } from '../util'
 
 type Props = {
-  data: Object
+  clocks: Array
 }
 
 export class History extends Component<Props> {
-  trimLvatest(data) {
-    data.user.clocks.splice(0, 1)
-  }
-
   render() {
-    const { data } = this.props
+    const { clocks } = this.props
 
-    // this.trimLatest(data)
-    // const history = data.user.clocks.map(i => {
-    //   const clockIn = i.clockIn
-    //   const clockout = i.clockOut
-    //   const createdAt = i.createdAt
-    //   const clockInDateObj = new Date(clockIn)
-    //   const clockoutDateObj = new Date(clockout)
-    //
-    //   const diff = clockoutDateObj - clockInDateObj // milliseconds
-    //   var msec = diff
-    //   const hh = Math.floor(msec / 1000 / 60 / 60)
-    //   msec -= hh * 1000 * 60 * 60
-    //   const mm = Math.floor(msec / 1000 / 60)
-    //   msec -= mm * 1000 * 60
-    //   const ss = Math.floor(msec / 1000)
-    //   msec -= ss * 1000
-    //
-    //   const total = hh + 'h' + mm + 'm' + ss + 's'
-    //
-    //   return (
-    //     <tr>
-    //       <td>{createdAt}</td>
-    //       <td>{total}</td>
-    //       <td>{clockIn}</td>
-    //       <td>{clockout}</td>
-    //     </tr>
-    //   )
-    // })
+    var history = ''
+    if (clocks.length) {
+      history = clocks.map((v, i) => {
+        const clockIn = v.clockIn
+        const clockout = v.clockOut
+        const createdAt = v.createdAt
+        const small = new Date(clockIn)
+        const large = new Date(clockout)
+        const total = calcTimeDiff(large, small)
+
+        return (
+          <tr key={i}>
+            <td>{createdAt}</td>
+            <td>{total}</td>
+            <td>{clockIn}</td>
+            <td>{clockout}</td>
+          </tr>
+        )
+      })
+    } else {
+      history = (
+        <tr>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+      )
+    }
 
     return (
       <Container>
         <Header>History</Header>
         <table>
-          <thead>
-            <th>createdAt</th>
-            <th>total</th>
-            <th>clockIn</th>
-            <th>clockout</th>
-          </thead>
+          <tbody>
+            <tr>
+              <th>createdAt</th>
+              <th>total</th>
+              <th>clockIn</th>
+              <th>clockout</th>
+            </tr>
+            {history}
+          </tbody>
         </table>
       </Container>
     )

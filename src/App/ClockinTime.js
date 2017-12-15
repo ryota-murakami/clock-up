@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
+import { calcTimeDiff } from '../util'
 
 type Props = {
   data: Object,
@@ -30,33 +31,19 @@ export class ClockinTime extends Component<Props> {
     return dateObj.toLocaleTimeString('en-us', options)
   }
 
-  getWorkingTime(latestClockinTime: string): string {
-    const { dateObject } = this.props
-
-    const clockin = new Date(latestClockinTime)
-    const now = dateObject
-    const diff = now - clockin // milliseconds
-    var msec = diff
-    const hh = Math.floor(msec / 1000 / 60 / 60)
-    msec -= hh * 1000 * 60 * 60
-    const mm = Math.floor(msec / 1000 / 60)
-    msec -= mm * 1000 * 60
-    const ss = Math.floor(msec / 1000)
-    msec -= ss * 1000
-
-    return hh + 'h' + mm + 'm' + ss + 's'
-  }
-
   render() {
-    const { data } = this.props
+    const { data, dateObject } = this.props
+    const now: Date = dateObject
+    const ClockinTimeISO: string = data.user.clocks[0].clockIn
+    const past = new Date(ClockinTimeISO)
+    const workingTime = calcTimeDiff(now, past)
 
-    const latestClockinTime: string = data.user.clocks[0].clockIn
     return (
       <Container data-test="clock-in-time">
         <Text>ClockIn</Text>
-        <Text>{this.formatDate(latestClockinTime)}</Text>
+        <Text>{this.formatDate(ClockinTimeISO)}</Text>
         <Text>WoringTime</Text>
-        <Text>{this.getWorkingTime(latestClockinTime)}</Text>
+        <Text>{workingTime}</Text>
       </Container>
     )
   }
