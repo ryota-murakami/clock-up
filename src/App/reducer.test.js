@@ -18,23 +18,23 @@ describe('App/reducers', () => {
   it('should be correct work SYNC_DATE', () => {
     const action = {
       type: SYNC_DATE,
-      year: 2018,
+      year: '2018',
       month: 'January',
       days: 'Wednesday',
-      date: 30,
-      hour: 6,
-      minutes: 42,
-      seconds: 13
+      date: '30',
+      hour: '6',
+      minutes: '42',
+      seconds: '13'
     }
     const res = appReducer(undefined, action)
     const expectedState = {
-      year: 2018,
+      year: '2018',
       month: 'January',
       days: 'Wednesday',
-      date: 30,
-      hour: 6,
-      minutes: 42,
-      seconds: 13
+      date: '30',
+      hour: '6',
+      minutes: '42',
+      seconds: '13'
     }
 
     expect(res).toEqual(expectedState)
