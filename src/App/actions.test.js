@@ -8,6 +8,7 @@ describe('App/actions', () => {
   it('should be create correct datetime response', () => {
     const action = syncDate()
 
+    expect(action.hasOwnProperty('dateObject')).toBe(true)
     expect(action.hasOwnProperty('year')).toBe(true)
     expect(action.hasOwnProperty('month')).toBe(true)
     expect(action.hasOwnProperty('days')).toBe(true)

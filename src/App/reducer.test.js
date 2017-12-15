@@ -18,6 +18,7 @@ describe('App/reducers', () => {
   it('should be correct work SYNC_DATE', () => {
     const action = {
       type: SYNC_DATE,
+      dateObject: {},
       year: '2018',
       month: 'January',
       days: 'Wednesday',
@@ -28,6 +29,7 @@ describe('App/reducers', () => {
     }
     const res = appReducer(undefined, action)
     const expectedState = {
+      dateObject: {},
       year: '2018',
       month: 'January',
       days: 'Wednesday',
