@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> should be match snapshot 1`] = `
+<Loading__Container>
+  <onlyUpdateForKeys(Loader)
+    color="#36D7B7"
+    loading={true}
+    size={100}
+  />
+</Loading__Container>
+`;
