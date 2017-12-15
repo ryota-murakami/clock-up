@@ -42,7 +42,7 @@ export class ClockinTime extends Component<Props> {
       <Container data-test="clock-in-time">
         <Text>ClockIn</Text>
         <Text>{this.formatDate(ClockinTimeISO)}</Text>
-        <Text>WoringTime</Text>
+        <Text>WorkingTime</Text>
         <Text>{workingTime}</Text>
       </Container>
     )
