@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
-import { calcTimeDiff, ISOtoHumanReadable, ISOtoYmd, ISOtoHm } from '../util'
+import { calcTimeDiff, ISOtoYmd, ISOtoHm } from '../util'
 
 type Props = {
   clocks: Array
