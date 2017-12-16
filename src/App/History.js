@@ -78,7 +78,7 @@ const Header = styled.div`
 
 const Table = styled.table`
   margin: 0 auto;
-  padding: 10px;s
+  padding: 10px;
 `
 
 export default History
