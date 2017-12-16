@@ -118,8 +118,7 @@ export default compose(
   graphql(fetchUserQuery, {
     options: {
       fetchPolicy: 'network-only',
-      notifyOnNetworkStatusChange: true,
-      options: { pollInterval: 1000 }
+      notifyOnNetworkStatusChange: true
     }
   }),
   withRouter
