@@ -62,7 +62,14 @@ const client = new ApolloClient({
 
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
-const lock = new Auth0Lock(clientId, domain)
+const redirectUrl =
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000/login' : 'TBD'
+const option = {
+  auth: {
+    redirectUrl: redirectUrl
+  }
+}
+const lock = new Auth0Lock(clientId, domain, option)
 
 ReactDOM.render(
   <Provider store={store}>
