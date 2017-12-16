@@ -48,10 +48,16 @@ export function calcTimeDiff(now: Date, past: Date): string {
   msec -= mm * 1000 * 60
   const ss = Math.floor(msec / 1000)
 
-  return pad2(hh) + 'h' + pad2(mm) + 'm' + pad2(ss) + 's'
+  return pad2(hh) + 'h' + pad2(mm) + 'm' // + pad2(ss) + 's'
 }
 
-export function ISOtoYmd(iso: string): string {
+/**
+ * ISO to 2017/12/15 12:35
+ * @param iso
+ * @returns {string}
+ * @constructor
+ */
+export function ISOtoHumanReadable(iso: string): string {
   const dateObj = new Date(iso)
   const year = String(dateObj.getFullYear())
   const month = pad2(String(dateObj.getMonth() + 1))
@@ -60,4 +66,31 @@ export function ISOtoYmd(iso: string): string {
   const minutes = pad2(String(dateObj.getMinutes()))
 
   return year + '/' + month + '/' + date + ' ' + hour + ':' + minutes
+}
+
+/**
+ * ISO to 2017/12/15
+ * @param iso
+ * @constructor
+ */
+export function ISOtoYmd(iso: string): string {
+  const dateObj = new Date(iso)
+  const year = String(dateObj.getFullYear())
+  const month = pad2(String(dateObj.getMonth() + 1))
+  const date = pad2(String(dateObj.getDate()))
+
+  return year + '/' + month + '/' + date
+}
+
+/**
+ * ISO to 12:35
+ * @param iso
+ * @constructor
+ */
+export function ISOtoHm(iso: string): string {
+  const dateObj = new Date(iso)
+  const hour = pad2(String(dateObj.getHours()))
+  const minutes = pad2(String(dateObj.getMinutes()))
+
+  return hour + ':' + minutes
 }

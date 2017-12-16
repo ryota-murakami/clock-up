@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
-import { calcTimeDiff, ISOtoYmd } from '../util'
+import { calcTimeDiff, ISOtoHumanReadable, ISOtoYmd, ISOtoHm } from '../util'
 
 type Props = {
   clocks: Array
@@ -30,8 +30,8 @@ export class History extends Component<Props> {
             <tr key={i}>
               <td>{ISOtoYmd(createdAt)}</td>
               <td>{total}</td>
-              <td>{ISOtoYmd(clockIn)}</td>
-              <td>{ISOtoYmd(clockout)}</td>
+              <td>{ISOtoHm(clockIn)}</td>
+              <td>{ISOtoHm(clockout)}</td>
             </tr>
           )
         })
@@ -52,10 +52,10 @@ export class History extends Component<Props> {
         <Table>
           <tbody>
             <tr>
-              <th>createdAt</th>
+              <th>date</th>
               <th>total</th>
-              <th>clockIn</th>
-              <th>clockout</th>
+              <th>in</th>
+              <th>out</th>
             </tr>
             {history}
           </tbody>

@@ -9,16 +9,16 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
     <tbody>
       <tr>
         <th>
-          createdAt
+          date
         </th>
         <th>
           total
         </th>
         <th>
-          clockIn
+          in
         </th>
         <th>
-          clockout
+          out
         </th>
       </tr>
       <tr>
