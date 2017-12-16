@@ -5,7 +5,7 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
   <History__Header>
     History
   </History__Header>
-  <table>
+  <History__Table>
     <tbody>
       <tr>
         <th>
@@ -36,6 +36,6 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
         </td>
       </tr>
     </tbody>
-  </table>
+  </History__Table>
 </History__Container>
 `;
