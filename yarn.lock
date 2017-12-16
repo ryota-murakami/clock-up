@@ -3626,6 +3626,13 @@ file-loader@1.1.5, file-loader@^1.1.5:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
+file-loader@1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.6.tgz#7b9a8f2c58f00a77fddf49e940f7ac978a3ea0e8"
+  dependencies:
+    loader-utils "^1.0.2"
+    schema-utils "^0.3.0"
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -4013,9 +4020,9 @@ graphql-tag@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.6.0.tgz#0fb1b9f6d6651263c47a3420e827910e6fed3952"
 
-graphql@^0.11.7:
-  version "0.11.7"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.11.7.tgz#e5abaa9cb7b7cccb84e9f0836bf4370d268750c6"
+graphql@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.12.0.tgz#a62576995f67f7a94a02f3e57e91d752bae70055"
   dependencies:
     iterall "1.1.3"
 
