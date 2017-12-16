@@ -6,36 +6,36 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
     History
   </History__Header>
   <History__Table>
-    <tbody>
+    <History__Tbody>
       <tr>
-        <th>
+        <History__Th>
           date
-        </th>
-        <th>
+        </History__Th>
+        <History__Th>
           total
-        </th>
-        <th>
+        </History__Th>
+        <History__Th>
           in
-        </th>
-        <th>
+        </History__Th>
+        <History__Th>
           out
-        </th>
+        </History__Th>
       </tr>
       <tr>
-        <td>
+        <History__Td>
           N/A
-        </td>
-        <td>
+        </History__Td>
+        <History__Td>
           N/A
-        </td>
-        <td>
+        </History__Td>
+        <History__Td>
           N/A
-        </td>
-        <td>
+        </History__Td>
+        <History__Td>
           N/A
-        </td>
+        </History__Td>
       </tr>
-    </tbody>
+    </History__Tbody>
   </History__Table>
 </History__Container>
 `;

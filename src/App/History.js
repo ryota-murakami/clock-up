@@ -28,20 +28,20 @@ export class History extends Component<Props> {
 
           return (
             <tr key={i}>
-              <td>{ISOtoYmd(createdAt)}</td>
-              <td>{total}</td>
-              <td>{ISOtoHm(clockIn)}</td>
-              <td>{ISOtoHm(clockout)}</td>
+              <Td>{ISOtoYmd(createdAt)}</Td>
+              <Td>{total}</Td>
+              <Td>{ISOtoHm(clockIn)}</Td>
+              <Td>{ISOtoHm(clockout)}</Td>
             </tr>
           )
         })
     } else {
       history = (
         <tr>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <Td>N/A</Td>
+          <Td>N/A</Td>
+          <Td>N/A</Td>
+          <Td>N/A</Td>
         </tr>
       )
     }
@@ -50,15 +50,15 @@ export class History extends Component<Props> {
       <Container>
         <Header>History</Header>
         <Table>
-          <tbody>
+          <Tbody>
             <tr>
-              <th>date</th>
-              <th>total</th>
-              <th>in</th>
-              <th>out</th>
+              <Th>date</Th>
+              <Th>total</Th>
+              <Th>in</Th>
+              <Th>out</Th>
             </tr>
             {history}
-          </tbody>
+          </Tbody>
         </Table>
       </Container>
     )
@@ -70,15 +70,42 @@ const Container = styled.div`
 `
 
 const Header = styled.div`
+  margin-bottom: 10px;
   padding: 10px 0;
   text-align: center;
   font-size: 1.2em;
   border-bottom: 1px solid ${borderColor};
 `
 
+const tableBorder = `
+  border: 1px solid ${borderColor};
+  border-collapse: collapse;
+`
+
 const Table = styled.table`
   margin: 0 auto;
   padding: 10px;
+  ${tableBorder};
+`
+
+const tablePadding = `
+  padding: 10px 8px;
+`
+
+const Th = styled.th`
+  ${tableBorder};
+  ${tablePadding};
+`
+
+const Td = styled.td`
+  ${tableBorder};
+  ${tablePadding};
+`
+
+const Tbody = styled.tbody`
+  tr:nth-child(even) > Td {
+    background-color: #fafafa;
+  }
 `
 
 export default History
