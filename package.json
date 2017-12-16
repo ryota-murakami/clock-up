@@ -34,7 +34,7 @@
     "file-loader": "1.1.6",
     "flow-bin": "^0.61.0",
     "fs-extra": "^5.0.0",
-    "graphql": "^0.11.7",
+    "graphql": "^0.12.0",
     "graphql-tag": "^2.5.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
