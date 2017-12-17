@@ -1,5 +1,5 @@
 // @flow
-export function parseTime(dateObj = new Date()) {
+export function parseTime(dateObj: Date = new Date()): Object {
   const days = []
   days[0] = 'Sunday'
   days[1] = 'Monday'
