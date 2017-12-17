@@ -3,7 +3,7 @@ import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { AUTH0_ID_TOKEN } from '../GlobalConst'
+import { AUTH0_ID_TOKEN } from '../globalConst'
 import Loading from '../components/Loading'
 
 type Props = {

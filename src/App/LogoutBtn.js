@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { AUTH0_ID_TOKEN } from '../GlobalConst'
+import { AUTH0_ID_TOKEN } from '../globalConst'
 import styled from 'styled-components'
 
 type Props = {}

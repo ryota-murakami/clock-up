@@ -19,7 +19,7 @@ import {
   routerReducer,
   routerMiddleware
 } from 'react-router-redux'
-import { AUTH0_ID_TOKEN } from './GlobalConst'
+import { AUTH0_ID_TOKEN } from './globalConst'
 import './globalCSS'
 import appReducer from './App/reducer'
 

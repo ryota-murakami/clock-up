@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
-import { AUTH0_ID_TOKEN } from '../GlobalConst'
+import { AUTH0_ID_TOKEN } from '../globalConst'
 
 type Props = {
   lock: Auth0Lock,
