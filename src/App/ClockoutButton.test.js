@@ -1,19 +1,19 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ClockoutBtn } from './ClockoutBtn'
+import { ClockoutButton } from './ClockoutButton'
 import { sel } from '../testUtil'
 
-describe('<ClockoutBtn />', () => {
+describe('<ClockoutButton />', () => {
   it('should be render', () => {
-    const wrapper = shallow(<ClockoutBtn />)
+    const wrapper = shallow(<ClockoutButton />)
 
     expect(wrapper.exists()).toBe(true)
   })
 
   it('should be invoke recordClockoutTimeToGraphcool() when clicked', () => {
     const mockFunc = jest.fn()
-    ClockoutBtn.prototype.recordClockoutTimeToGraphcool = mockFunc
-    const wrapper = shallow(<ClockoutBtn />)
+    ClockoutButton.prototype.recordClockoutTimeToGraphcool = mockFunc
+    const wrapper = shallow(<ClockoutButton />)
 
     wrapper.find(sel('clock-out-btn')).simulate('click')
 

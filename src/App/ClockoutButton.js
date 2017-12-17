@@ -12,7 +12,7 @@ type Props = {
   mutation2: Function
 }
 
-export class ClockoutBtn extends Component<Props> {
+export class ClockoutButton extends Component<Props> {
   constructor(props: Props) {
     super(props)
     this.recordClockoutTimeToGraphcool = this.recordClockoutTimeToGraphcool.bind(
@@ -89,4 +89,4 @@ export default compose(
   graphql(mutation2, {
     name: 'mutation2'
   })
-)(ClockoutBtn)
+)(ClockoutButton)

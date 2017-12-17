@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import ClockinBtn from './ClockinButton'
 import ClockinTime from './ClockinTime'
-import ClockoutBtn from './ClockoutBtn'
+import ClockoutBtn from './ClockoutButton'
 
 type Props = {
   data: Object
