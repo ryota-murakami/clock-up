@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LogoutBtn } from './LogoutBtn'
+import { LogoutButton } from './LogoutButton'
 
-describe('<LoginBtn / >', () => {
+describe('<LoginButton / >', () => {
   it('should be render', () => {
-    const wrapper = shallow(<LogoutBtn />)
+    const wrapper = shallow(<LogoutButton />)
     expect(wrapper.exists()).toBe(true)
   })
 })

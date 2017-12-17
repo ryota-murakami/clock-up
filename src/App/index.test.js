@@ -64,7 +64,7 @@ describe('<App />', () => {
       it('ログアウトボタンが表示されること', () => {
         const wrapper = setup(data)
 
-        expect(wrapper.find('LogoutBtn').exists()).toEqual(true)
+        expect(wrapper.find('LogoutButton').exists()).toEqual(true)
       })
 
       it('コントロールが表示されること', () => {

@@ -5,7 +5,7 @@ import { Button } from '../components/Button'
 
 type Props = {}
 
-export class LogoutBtn extends Component<Props> {
+export class LogoutButton extends Component<Props> {
   logout = () => {
     window.localStorage.removeItem(AUTH0_ID_TOKEN)
     window.location.reload()
@@ -25,4 +25,4 @@ const MyButton = Button.extend`
   border: 2px solid #78909c;
 `
 
-export default LogoutBtn
+export default LogoutButton
