@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../cssVariables'
 import { calcTimeDiff, ISOtoYmd, ISOtoHm } from '../util'
+import { Table, Td, Tbody, Th } from '../components/Table'
 
 type Props = {
   clocks: Array
@@ -75,37 +76,6 @@ const Header = styled.div`
   text-align: center;
   font-size: 1.2em;
   border-bottom: 1px solid ${borderColor};
-`
-
-const tableBorder = `
-  border: 1px solid ${borderColor};
-  border-collapse: collapse;
-`
-
-const Table = styled.table`
-  margin: 0 auto;
-  padding: 10px;
-  ${tableBorder};
-`
-
-const tablePadding = `
-  padding: 10px 8px;
-`
-
-const Th = styled.th`
-  ${tableBorder};
-  ${tablePadding};
-`
-
-const Td = styled.td`
-  ${tableBorder};
-  ${tablePadding};
-`
-
-const Tbody = styled.tbody`
-  tr:nth-child(even) > Td {
-    background-color: #fafafa;
-  }
 `
 
 export default History
