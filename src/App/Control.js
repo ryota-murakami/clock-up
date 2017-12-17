@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import ClockinBtn from './ClockinBtn'
+import ClockinBtn from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutBtn from './ClockoutBtn'
 

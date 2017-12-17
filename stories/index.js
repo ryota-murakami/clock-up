@@ -9,7 +9,7 @@ import { LoginButton } from '../src/Login/LoginButton'
 import { Loading } from '../src/components/Loading'
 import { CurrentDateTime } from '../src/App/CurrentDateTime'
 import LogoutBtn from '../src/App/LogoutBtn'
-import { ClockinBtn } from '../src/App/ClockinBtn'
+import { ClockinButton } from '../src/App/ClockinButton'
 import { ClockoutBtn } from '../src/App/ClockoutBtn'
 import ClockinTime from '../src/App/ClockinTime'
 
@@ -31,7 +31,7 @@ storiesOf('メインページ', module)
     return <LogoutBtn />
   })
   .add('ClockinBtn', () => {
-    return <ClockinBtn />
+    return <ClockinButton />
   })
   .add('ClockoutBtn', () => {
     return <ClockoutBtn />

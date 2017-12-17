@@ -30,10 +30,10 @@ describe('<Control />', () => {
     const data = {
       user: { foo: 'bar', isDuringClockIn: false }
     }
-    it('should be show ClockinBtn', () => {
+    it('should be show ClockinButton', () => {
       const wrapper = shallow(<Control data={data} />)
 
-      expect(wrapper.find('Apollo(Apollo(ClockinBtn))').exists()).toBe(true)
+      expect(wrapper.find('Apollo(Apollo(ClockinButton))').exists()).toBe(true)
     })
   })
 })
