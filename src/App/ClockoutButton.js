@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
-import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { fetchUserQuery } from '../graphql'
 import { Button } from '../components/Button'
