@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { AUTH0_ID_TOKEN } from '../globalConst'
-import styled from 'styled-components'
+import { Button } from '../components/Button'
 
 type Props = {}
 
@@ -13,20 +13,16 @@ export class LogoutBtn extends Component<Props> {
 
   render() {
     return (
-      <Button onClick={this.logout} data-test="logout-btn">
+      <MyButton onClick={this.logout} data-test="logout-btn">
         Logout
-      </Button>
+      </MyButton>
     )
   }
 }
 
-const Button = styled.div`
+const MyButton = Button.extend`
   color: #78909c;
-  font-size: 1em;
-  padding: 0.25em 1em;
   border: 2px solid #78909c;
-  border-radius: 3px;
-  cursor: pointer;
 `
 
 export default LogoutBtn

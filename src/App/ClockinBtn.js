@@ -4,6 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { fetchUserQuery } from '../graphql'
+import { Button } from '../components/Button'
 
 type Props = {
   data: Object,
@@ -41,26 +42,20 @@ export class ClockinBtn extends Component<Props> {
 
   render() {
     return (
-      <Button
+      <MyButton
         onClick={this.recordClockinTimeToGraphcool}
         data-test="clock-in-btn"
       >
         Clock In
-      </Button>
+      </MyButton>
     )
   }
 }
 
-const Button = styled.div`
-  width: 70px;
+const MyButton = Button.extend`
   color: #ffffff;
   background-color: #66bb6a;
-  font-size: 1em;
-  line-height: 28px;
-  padding: 0.25em 1em;
   border: 2px solid #66bb6a;
-  border-radius: 3px;
-  cursor: pointer;
 `
 
 const mutation1 = gql`

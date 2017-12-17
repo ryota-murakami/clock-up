@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginButton /> snapshotが一致すること 1`] = `
-<LoginButton__Button
+<Button
   data-test="login-btn"
   onClick={[Function]}
 >
   Login
-</LoginButton__Button>
+</Button>
 `;
