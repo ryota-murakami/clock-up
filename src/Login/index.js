@@ -21,9 +21,9 @@ export class Login extends Component<Props> {
       <Container>
         <LoginButton lock={lock} />
         <p>
-          <a href="https://github.com/ryota-murakami/clock-up" target="_blank">
+          <A href="https://github.com/ryota-murakami/clock-up" target="_blank">
             Clock Up
-          </a>
+          </A>
         </p>
       </Container>
     )
@@ -37,6 +37,10 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+
+const A = styled.a`
+  text-decoration: none;
 `
 
 export default withRouter(Login)
