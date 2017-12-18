@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> toMatchSnapshot 1`] = `
+<table
+  className="Table-gSqoht hbLQfT"
+/>
+`;
+
+exports[`<Tbody /> toMatchSnapshot 1`] = `
+<tbody
+  className="Table__Tbody-cctiVe jWeVfe"
+/>
+`;
+
+exports[`<Td /> toMatchSnapshot 1`] = `
+<td
+  className="Table__Td-jYnqZt gutfcF"
+/>
+`;
+
+exports[`<Th /> toMatchSnapshot 1`] = `
+<th
+  className="Table__Th-fuhtCG fMwITu"
+/>
+`;
