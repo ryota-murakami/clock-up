@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import ClockinBtn from './ClockinButton'
+import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutBtn from './ClockoutButton'
 
@@ -23,7 +23,7 @@ export class Control extends Component<Props> {
     } else {
       return (
         <ClockinContainer>
-          <ClockinBtn data={data} />
+          <ClockinButton data={data} />
         </ClockinContainer>
       )
     }

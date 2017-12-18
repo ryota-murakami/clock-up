@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockoutButton } from './ClockoutButton'
-import { sel } from '../testUtil'
+import { sel } from '../../testUtil'
 
 describe('<ClockoutButton />', () => {
   it('should be render', () => {

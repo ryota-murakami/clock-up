@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import History from './History'
 import { fetchUserQuery } from '../graphql'
 import { borderColor } from '../commonCSS'
-import Control from './Control'
+import Control from './Control/index'
 import { syncDate } from './actions'
 
 type Props = {

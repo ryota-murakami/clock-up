@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockinButton } from './ClockinButton'
-import { sel } from '../testUtil'
+import { sel } from '../../testUtil'
 
 describe('<ClockinButton />', () => {
   it('should be render', () => {

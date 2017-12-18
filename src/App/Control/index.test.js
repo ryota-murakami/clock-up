@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Control } from './Control'
+import { Control } from './index'
 
 describe('<Control />', () => {
   describe('incorrect data', () => {

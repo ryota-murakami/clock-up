@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { borderColor, color } from '../commonCSS'
-import { calcTimeDiff } from '../util'
+import { borderColor, color } from '../../commonCSS'
+import { calcTimeDiff } from '../../util'
 
 type Props = {
   data: Object,
