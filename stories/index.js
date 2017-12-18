@@ -11,7 +11,7 @@ import { CurrentDateTime } from '../src/App/CurrentDateTime'
 import LogoutBtn from '../src/App/LogoutButton'
 import { ClockinButton } from '../src/App/Control/ClockinButton'
 import { ClockoutButton } from '../src/App/Control/ClockoutButton'
-import ClockinTime from '../src/App/Control/ClockinTime'
+import { ClockinTime } from '../src/App/Control/ClockinTime'
 
 storiesOf('コンポーネント一覧', module)
   .add('LoginButton', () => {
