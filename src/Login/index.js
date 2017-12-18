@@ -20,6 +20,11 @@ export class Login extends Component<Props> {
     return (
       <Container>
         <LoginButton lock={lock} />
+        <p>
+          <a href="https://github.com/ryota-murakami/clock-up" target="_blank">
+            Clock Up
+          </a>
+        </p>
       </Container>
     )
   }
@@ -29,7 +34,7 @@ const Container = styled.main`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `

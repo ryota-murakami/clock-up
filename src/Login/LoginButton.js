@@ -54,6 +54,8 @@ export class LoginButton extends Component<Props> {
 }
 
 const MyButton = Button.extend`
+  width: 200px;
+  height: 50px;
   color: #66bb6a;
   border: 2px solid #66bb6a;
 `
