@@ -4,6 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { connect } from 'react-redux'
 import Loading from '../components/Loading'
+import { Header } from '../components/Header'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
 import styled from 'styled-components'
@@ -75,16 +76,6 @@ const Container = styled.main`
     'header header header'
     'left left right';
   grid-column-gap: 10px;
-`
-
-const Header = styled.div`
-  padding: 0 30px;
-  grid-area: header;
-  border-bottom: 1px solid ${borderColor};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
 `
 
 const Right = styled.div`
