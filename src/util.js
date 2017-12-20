@@ -40,6 +40,7 @@ function pad2(str: string): string {
 }
 
 export function calcTimeDiff(now: Date, past: Date): string {
+  // always now > past
   const diff = now - past // milliseconds
   var msec = diff
   const hh = Math.floor(msec / 1000 / 60 / 60)
