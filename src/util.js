@@ -45,7 +45,7 @@ function pad2(str: string): string {
  * @param past
  * @returns {string}
  */
-export function calcTimeDiff(now: Date, past: Date): string {
+export function calcTotalTime(now: Date, past: Date): string {
   // always now > past
   const diff = now - past // milliseconds
 

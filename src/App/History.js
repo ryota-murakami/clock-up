@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../commonCSS'
-import { calcTimeDiff, ISOtoYmd, ISOtoHm } from '../util'
+import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../util'
 import { Table, Td, Tbody, Th } from '../components/Table'
 
 type Props = {
@@ -25,7 +25,7 @@ export class History extends Component<Props> {
           const createdAt = v.createdAt
           const small = new Date(clockIn)
           const large = new Date(clockout)
-          const total = calcTimeDiff(large, small)
+          const total = calcTotalTime(large, small)
 
           return (
             <tr key={i}>

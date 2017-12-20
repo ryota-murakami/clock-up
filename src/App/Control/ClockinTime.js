@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { borderColor, color } from '../../commonCSS'
-import { calcTimeDiff } from '../../util'
+import { calcTotalTime } from '../../util'
 
 type Props = {
   data: Object,
@@ -36,7 +36,7 @@ export class ClockinTime extends Component<Props> {
     const now: Date = dateObject
     const ClockinTimeISO: string = data.user.clocks[0].clockIn
     const past = new Date(ClockinTimeISO)
-    const workingTime = calcTimeDiff(now, past)
+    const workingTime = calcTotalTime(now, past)
 
     return (
       <Container data-test="clock-in-time">
