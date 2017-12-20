@@ -36,14 +36,14 @@ export class ClockinTime extends Component<Props> {
     const now: Date = dateObject
     const ClockinTimeISO: string = data.user.clocks[0].clockIn
     const past = new Date(ClockinTimeISO)
-    const workingTime = calcTotalTime(now, past)
+    const TotalTime = calcTotalTime(now, past)
 
     return (
       <Container data-test="clock-in-time">
         <Text>ClockIn</Text>
         <Text>{this.formatDate(ClockinTimeISO)}</Text>
-        <Text>WorkingTime</Text>
-        <Text>{workingTime}</Text>
+        <Text>TotalTime</Text>
+        <Text>{TotalTime}</Text>
       </Container>
     )
   }
