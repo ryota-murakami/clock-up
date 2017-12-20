@@ -39,13 +39,25 @@ function pad2(str: string): string {
   return ('00' + str).slice(-2)
 }
 
+/**
+ * millisecounds to 00h00m
+ * @param now
+ * @param past
+ * @returns {string}
+ */
 export function calcTimeDiff(now: Date, past: Date): string {
   // always now > past
   const diff = now - past // milliseconds
-  var msec = diff
-  const hh = Math.floor(msec / 1000 / 60 / 60)
+
+  // prevent sown minus e.g. -01h-59m
+  if (diff <= 0) {
+    return '00h00m'
+  }
+
+  let msec = diff
+  let hh = Math.floor(msec / 1000 / 60 / 60)
   msec -= hh * 1000 * 60 * 60
-  const mm = Math.floor(msec / 1000 / 60)
+  let mm = Math.floor(msec / 1000 / 60)
 
   return pad2(hh) + 'h' + pad2(mm) + 'm'
 }
