@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer'
-import { sel } from './src/testUtil'
+import { sel } from './src/common/testUtil'
 const googleId = process.env.TEST_GOOGLE_ACCOUNT
 const googlePassword = process.env.TEST_GOOGLE_ACCOUNT_PASSWORD
 jest.setTimeout(100000)

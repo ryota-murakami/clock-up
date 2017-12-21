@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, color } from '../common/CSS'
-import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../util'
+import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Td, Tbody, Th } from '../common/components/Table'
 
 type Props = {

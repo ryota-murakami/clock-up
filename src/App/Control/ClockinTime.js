@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { borderColor, color } from '../../common/CSS'
-import { calcTotalTime } from '../../util'
+import { calcTotalTime } from '../../common/util'
 
 type Props = {
   data: Object,

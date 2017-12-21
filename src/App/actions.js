@@ -1,4 +1,4 @@
-import { parseTime } from '../util'
+import { parseTime } from '../common/util'
 
 export const SYNC_DATE = 'SYNC_DATE'
 

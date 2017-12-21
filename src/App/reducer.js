@@ -1,5 +1,5 @@
 import { SYNC_DATE } from './actions'
-import { parseTime } from '../util'
+import { parseTime } from '../common/util'
 
 const initialState = parseTime(new Date())
 
