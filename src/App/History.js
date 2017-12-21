@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor, color } from '../commonCSS'
+import { borderColor, color } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../util'
-import { Table, Td, Tbody, Th } from '../components/Table'
+import { Table, Td, Tbody, Th } from '../common/components/Table'
 
 type Props = {
   clocks: Array

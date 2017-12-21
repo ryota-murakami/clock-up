@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
-import { AUTH0_ID_TOKEN } from '../globalConst'
-import { Button } from '../components/Button'
+import { AUTH0_ID_TOKEN } from '../common/Const'
+import { Button } from '../common/components/Button'
 
 type Props = {
   lock: Auth0Lock,

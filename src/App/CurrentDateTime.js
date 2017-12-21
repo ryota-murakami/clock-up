@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor, color } from '../commonCSS'
+import { borderColor, color } from '../common/CSS'
 import { connect } from 'react-redux'
 
 type Props = {

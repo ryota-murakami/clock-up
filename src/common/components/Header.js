@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borderColor } from '../commonCSS'
+import { borderColor } from '../CSS'
 
 export const Header = styled.div`
   padding: 0 30px;

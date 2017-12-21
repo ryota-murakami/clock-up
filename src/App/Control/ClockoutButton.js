@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { fetchUserQuery } from '../../commonGraphQL'
-import { Button } from '../../components/Button'
+import { fetchUserQuery } from '../../common/GraphQL'
+import { Button } from '../../common/components/Button'
 
 type Props = {
   data: Object,

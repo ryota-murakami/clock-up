@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { borderColor } from '../commonCSS'
+import { borderColor } from '../CSS'
 
 const tableBorder = css`
   border: 1px solid ${borderColor};
