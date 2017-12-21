@@ -14,28 +14,25 @@ export class History extends Component<Props> {
     const { clocks } = this.props
 
     var history = ''
-    if (clocks.length) {
-      history = clocks
-        .filter(v => {
-          return v.clockOut !== null // during clock-in data
-        })
-        .map((v, i) => {
-          const clockIn = v.clockIn
-          const clockout = v.clockOut
-          const createdAt = v.createdAt
-          const small = new Date(clockIn)
-          const large = new Date(clockout)
-          const total = calcTotalTime(large, small)
+    // must have complate clock in/out. not allow only clock in data of first time.
+    if (clocks.length && clocks[0].clockOut !== null) {
+      history = clocks.map((v, i) => {
+        const clockIn = v.clockIn
+        const clockout = v.clockOut
+        const createdAt = v.createdAt
+        const small = new Date(clockIn)
+        const large = new Date(clockout)
+        const total = calcTotalTime(large, small)
 
-          return (
-            <tr key={i}>
-              <Td>{ISOtoYmd(createdAt)}</Td>
-              <Td>{total}</Td>
-              <Td>{ISOtoHm(clockIn)}</Td>
-              <Td>{ISOtoHm(clockout)}</Td>
-            </tr>
-          )
-        })
+        return (
+          <tr key={i}>
+            <Td>{ISOtoYmd(createdAt)}</Td>
+            <Td>{total}</Td>
+            <Td>{ISOtoHm(clockIn)}</Td>
+            <Td>{ISOtoHm(clockout)}</Td>
+          </tr>
+        )
+      })
     } else {
       history = (
         <tr>
