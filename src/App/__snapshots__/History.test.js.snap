@@ -39,3 +39,43 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
   </Table>
 </History__Container>
 `;
+
+exports[`<History /> pass first time clock in data should be match snapshot 1`] = `
+<History__Container>
+  <History__Header>
+    History
+  </History__Header>
+  <Table>
+    <Table__Tbody>
+      <tr>
+        <Table__Th>
+          date
+        </Table__Th>
+        <Table__Th>
+          total
+        </Table__Th>
+        <Table__Th>
+          in
+        </Table__Th>
+        <Table__Th>
+          out
+        </Table__Th>
+      </tr>
+      <tr>
+        <Table__Td>
+          N/A
+        </Table__Td>
+        <Table__Td>
+          N/A
+        </Table__Td>
+        <Table__Td>
+          N/A
+        </Table__Td>
+        <Table__Td>
+          N/A
+        </Table__Td>
+      </tr>
+    </Table__Tbody>
+  </Table>
+</History__Container>
+`;
