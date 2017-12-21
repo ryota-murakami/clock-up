@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { fetchUserQuery } from '../../graphql'
+import { fetchUserQuery } from '../../commonGraphQL'
 import { Button } from '../../components/Button'
 
 type Props = {
