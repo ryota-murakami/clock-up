@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor, color } from '../common/CSS'
+import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Td, Tbody, Th } from '../common/components/Table'
 
@@ -71,7 +71,7 @@ export class History extends Component<Props> {
 }
 
 const Container = styled.div`
-  color: ${color};
+  color: ${textColor};
 `
 
 const Header = styled.div`

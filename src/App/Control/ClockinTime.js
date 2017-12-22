@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { borderColor, color } from '../../common/CSS'
+import { borderColor, textColor } from '../../common/CSS'
 import { calcTotalTime } from '../../common/util'
 
 type Props = {
@@ -51,7 +51,7 @@ export class ClockinTime extends Component<Props> {
 
 const Container = styled.div`
   flex-grow: 3;
-  color: ${color};
+  color: ${textColor};
   font-size: 1.1em;
   display: flex;
   flex-direction: row;
