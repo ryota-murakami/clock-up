@@ -13,6 +13,14 @@ import { ClockinButton } from '../src/App/Control/ClockinButton'
 import { ClockoutButton } from '../src/App/Control/ClockoutButton'
 import { ClockinTime } from '../src/App/Control/ClockinTime'
 import { data } from './data'
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  html,
+  body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  }
+`
 
 storiesOf('コンポーネント一覧', module)
   .add('LoginButton', () => {
@@ -36,5 +44,5 @@ storiesOf('コンポーネント一覧', module)
     return <ClockoutButton />
   })
   .add('ClockinTime', () => {
-    return <ClockinTime data={data} />
+    return <ClockinTime data={data} dateObject={new Date('2017/12/20')} />
   })
