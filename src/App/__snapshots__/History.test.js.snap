@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<History /> pass complete data should be match snapshot 1`] = `
+<History__Container>
+  <History__Header>
+    History
+  </History__Header>
+  <Table>
+    <Table__Tbody>
+      <tr>
+        <Table__Th>
+          date
+        </Table__Th>
+        <Table__Th>
+          total
+        </Table__Th>
+        <Table__Th>
+          in
+        </Table__Th>
+        <Table__Th>
+          out
+        </Table__Th>
+      </tr>
+      <tr
+        key="0"
+      >
+        <Table__Td>
+          2017/12/21
+        </Table__Td>
+        <Table__Td>
+          14h41m
+        </Table__Td>
+        <Table__Td>
+          11:12
+        </Table__Td>
+        <Table__Td>
+          01:54
+        </Table__Td>
+      </tr>
+    </Table__Tbody>
+  </Table>
+</History__Container>
+`;
+
 exports[`<History /> pass empty array should be match snapshot 1`] = `
 <History__Container>
   <History__Header>
