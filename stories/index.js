@@ -41,7 +41,16 @@ storiesOf('コンポーネント一覧', module)
     return <ClockoutButton />
   })
   .add('CurrentDateTime', () => {
-    return <CurrentDateTime />
+    const props = {
+      year: '2017',
+      month: 'December',
+      days: 'Friday',
+      date: '22',
+      hour: '21',
+      minutes: '41',
+      seconds: '52'
+    }
+    return <CurrentDateTime {...props} />
   })
   .add('ClockinTime', () => {
     return <ClockinTime data={data} dateObject={new Date('2017/12/20')} />
