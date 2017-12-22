@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { AUTH0_ID_TOKEN } from '../common/Const'
 import { Button } from '../common/components/Button'
+import { gray } from '../common/CSS'
 
 type Props = {}
 
@@ -13,7 +14,7 @@ export class LogoutButton extends Component<Props> {
 
   render() {
     return (
-      <Button color={'#78909c'} onClick={this.logout} data-test="logout-btn">
+      <Button color={gray} onClick={this.logout} data-test="logout-btn">
         Logout
       </Button>
     )

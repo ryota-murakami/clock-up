@@ -4,6 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
+import { green } from '../../common/CSS'
 
 type Props = {
   data: Object,
@@ -43,7 +44,7 @@ export class ClockinButton extends Component<Props> {
     return (
       <Button
         primary
-        color={'#66bb6a'}
+        color={green}
         onClick={this.recordClockinTimeToGraphcool}
         data-test="clock-in-btn"
       >

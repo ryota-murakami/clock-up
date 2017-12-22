@@ -4,6 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
+import { red } from '../../common/CSS'
 
 type Props = {
   data: Object,
@@ -49,7 +50,7 @@ export class ClockoutButton extends Component<Props> {
     return (
       <Button
         primary
-        color={'#e57373'}
+        color={red}
         onClick={this.recordClockoutTimeToGraphcool}
         data-test="clock-out-btn"
       >

@@ -4,6 +4,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../common/Const'
 import { Button } from '../common/components/Button'
+import { green } from '../common/CSS'
 
 type Props = {
   lock: Auth0Lock,
@@ -46,11 +47,7 @@ export class LoginButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton
-        color={'#66bb6a'}
-        onClick={this.showLogin}
-        data-test="login-btn"
-      >
+      <MyButton color={green} onClick={this.showLogin} data-test="login-btn">
         Login
       </MyButton>
     )
