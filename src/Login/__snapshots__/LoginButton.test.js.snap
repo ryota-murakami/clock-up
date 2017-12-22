@@ -2,6 +2,7 @@
 
 exports[`<LoginButton /> snapshotが一致すること 1`] = `
 <Button
+  color="#66bb6a"
   data-test="login-btn"
   onClick={[Function]}
 >

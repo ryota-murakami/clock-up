@@ -2,6 +2,6 @@
 
 exports[`<Button /> toMatchSnapshot 1`] = `
 <button
-  className="Button-hYXUXp dJyYHf"
+  className="Button-hYXUXp eUyUuw"
 />
 `;

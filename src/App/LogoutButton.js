@@ -13,16 +13,11 @@ export class LogoutButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton onClick={this.logout} data-test="logout-btn">
+      <Button color={'#78909c'} onClick={this.logout} data-test="logout-btn">
         Logout
-      </MyButton>
+      </Button>
     )
   }
 }
-
-const MyButton = Button.extend`
-  color: #78909c;
-  border: 2px solid #78909c;
-`
 
 export default LogoutButton

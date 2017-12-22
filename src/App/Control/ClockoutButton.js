@@ -47,21 +47,17 @@ export class ClockoutButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton
+      <Button
+        primary
+        color={'#e57373'}
         onClick={this.recordClockoutTimeToGraphcool}
         data-test="clock-out-btn"
       >
         clock out
-      </MyButton>
+      </Button>
     )
   }
 }
-
-const MyButton = Button.extend`
-  color: #ffffff;
-  background-color: #e57373;
-  border: 2px solid #e57373;
-`
 
 const mutation1 = gql`
   mutation($userId: ID!) {

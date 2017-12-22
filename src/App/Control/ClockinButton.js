@@ -41,21 +41,17 @@ export class ClockinButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton
+      <Button
+        primary
+        color={'#66bb6a'}
         onClick={this.recordClockinTimeToGraphcool}
         data-test="clock-in-btn"
       >
         Clock In
-      </MyButton>
+      </Button>
     )
   }
 }
-
-const MyButton = Button.extend`
-  color: #ffffff;
-  background-color: #66bb6a;
-  border: 2px solid #66bb6a;
-`
 
 const mutation1 = gql`
   mutation($userId: ID!) {
