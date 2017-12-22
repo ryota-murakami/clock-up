@@ -21,7 +21,7 @@ injectGlobal`
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   }
 `
-
+// TODO プリミティブなButtonのstoryを追加する
 storiesOf('コンポーネント一覧', module)
   .add('LoginButton', () => {
     const lock = new Auth0Lock('story', 'book')
