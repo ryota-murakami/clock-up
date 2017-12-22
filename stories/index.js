@@ -8,7 +8,7 @@ import Auth0Lock from 'auth0-lock'
 import { LoginButton } from '../src/Login/LoginButton'
 import { Loading } from '../src/common/components/Loading'
 import { CurrentDateTime } from '../src/App/CurrentDateTime'
-import LogoutBtn from '../src/App/LogoutButton'
+import { LogoutButton } from '../src/App/LogoutButton'
 import { ClockinButton } from '../src/App/Control/ClockinButton'
 import { ClockoutButton } from '../src/App/Control/ClockoutButton'
 import { ClockinTime } from '../src/App/Control/ClockinTime'
@@ -23,25 +23,25 @@ injectGlobal`
 `
 // TODO プリミティブなButtonのstoryを追加する
 storiesOf('コンポーネント一覧', module)
+  .add('Loading', () => {
+    return <Loading />
+  })
   .add('LoginButton', () => {
     const lock = new Auth0Lock('story', 'book')
 
     return <LoginButton lock={lock} />
   })
-  .add('Loading', () => {
-    return <Loading />
+  .add('LogoutButton', () => {
+    return <LogoutButton />
+  })
+  .add('ClockinButton', () => {
+    return <ClockinButton />
+  })
+  .add('ClockoutButton', () => {
+    return <ClockoutButton />
   })
   .add('CurrentDateTime', () => {
     return <CurrentDateTime />
-  })
-  .add('LogoutBtn', () => {
-    return <LogoutBtn />
-  })
-  .add('ClockinBtn', () => {
-    return <ClockinButton />
-  })
-  .add('ClockoutBtn', () => {
-    return <ClockoutButton />
   })
   .add('ClockinTime', () => {
     return <ClockinTime data={data} dateObject={new Date('2017/12/20')} />
