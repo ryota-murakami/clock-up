@@ -2,24 +2,24 @@
 
 exports[`<Table /> toMatchSnapshot 1`] = `
 <table
-  className="Table-gSqoht hbLQfT"
+  className="Table-evpfJW ekcGgi"
 />
 `;
 
 exports[`<Tbody /> toMatchSnapshot 1`] = `
 <tbody
-  className="Table__Tbody-cctiVe jWeVfe"
+  className="Table__Tbody-coKAkO laniDP"
 />
 `;
 
 exports[`<Td /> toMatchSnapshot 1`] = `
 <td
-  className="Table__Td-jYnqZt gutfcF"
+  className="Table__Td-rXNav LRKLc"
 />
 `;
 
 exports[`<Th /> toMatchSnapshot 1`] = `
 <th
-  className="Table__Th-fuhtCG fMwITu"
+  className="Table__Th-eisASl fdsIwX"
 />
 `;
