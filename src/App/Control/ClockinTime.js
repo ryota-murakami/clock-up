@@ -5,10 +5,11 @@ import styled from 'styled-components'
 import { borderColor, textColor } from '../../common/CSS'
 import { calcTotalTime } from '../../common/util'
 import type { MapStateToProps } from 'react-redux'
+import type { CurrentTime } from '../../types/CurrentTime'
 
 type Props = {
   data: Object,
-  dateObject: Date
+  currentTime: CurrentTime
 }
 
 export class ClockinTime extends Component<Props> {
@@ -35,10 +36,13 @@ export class ClockinTime extends Component<Props> {
   }
 
   render() {
-    const { data, dateObject } = this.props
-    const now: Date = dateObject
+    const { data } = this.props
+    const currentTime: CurrentTime = this.props.currentTime
+
+    const now: Date = currentTime.dateObject
     const ClockinTimeISO: string = data.user.clocks[0].clockIn
     const past = new Date(ClockinTimeISO)
+
     const TotalTime = calcTotalTime(now, past)
 
     return (
@@ -69,7 +73,7 @@ const Text = styled.div``
 
 const mapStateToProps: MapStateToProps<*, *, *> = state => {
   return {
-    dateObject: state.app.dateObject
+    currentTime: state.app.currentTime
   }
 }
 

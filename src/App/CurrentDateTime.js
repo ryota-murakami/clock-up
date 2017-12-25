@@ -4,21 +4,14 @@ import styled from 'styled-components'
 import { borderColor, textColor } from '../common/CSS'
 import { connect } from 'react-redux'
 import type { MapStateToProps } from 'react-redux'
+import type { CurrentTime } from '../types/CurrentTime'
 
 type Props = {
-  year: string,
-  month: string,
-  days: string,
-  date: string,
-  hour: string,
-  minutes: string,
-  seconds: string
+  currentTime: CurrentTime
 }
 
 export class CurrentDateTime extends Component<Props> {
-  flush(): boolean {
-    const { seconds } = this.props
-
+  flush(seconds: string): boolean {
     if (Number.parseInt(seconds) % 2 === 0) {
       return true
     } else {
@@ -27,7 +20,8 @@ export class CurrentDateTime extends Component<Props> {
   }
 
   render() {
-    const { year, month, days, date, hour, minutes } = this.props
+    const currentTime: CurrentTime = this.props.currentTime
+    const { year, month, days, date, hour, minutes, seconds } = currentTime
 
     return (
       <Container>
@@ -36,7 +30,9 @@ export class CurrentDateTime extends Component<Props> {
         </Day>
         <Time>
           {hour}
-          <span style={{ visibility: this.flush() ? 'visible' : 'hidden' }}>
+          <span
+            style={{ visibility: this.flush(seconds) ? 'visible' : 'hidden' }}
+          >
             :
           </span>
           {minutes}
@@ -73,13 +69,7 @@ const Time = styled.div`
 
 const mapStateToProps: MapStateToProps<*, *, *> = state => {
   return {
-    year: state.app.year,
-    month: state.app.month,
-    days: state.app.days,
-    date: state.app.date,
-    hour: state.app.hour,
-    minutes: state.app.minutes,
-    seconds: state.app.seconds
+    currentTime: state.app.currentTime
   }
 }
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockinTime } from './ClockinTime'
+import type { CurrentTime } from '../../types/CurrentTime'
+import { parseTime } from '../../common/util'
 
 describe('<ClockinTime / >', () => {
   const correctData = {
@@ -19,21 +21,33 @@ describe('<ClockinTime / >', () => {
 
   const incorrectData = {}
 
+  const currentTime: CurrentTime = parseTime(new Date())
+
+  it('should be error without currentTime props', () => {
+    expect(() => shallow(<ClockinTime data={correctData} />)).toThrow()
+  })
+
+  it('should not error with incorrect data', () => {
+    expect(() =>
+      shallow(<ClockinTime data={incorrectData} currentTime={currentTime} />)
+    ).toThrow()
+  })
+
   it('should be render', () => {
-    const wrapper = shallow(<ClockinTime data={correctData} />)
+    const wrapper = shallow(
+      <ClockinTime data={correctData} currentTime={currentTime} />
+    )
 
     expect(wrapper.exists()).toBe(true)
   })
 
   it('should formatDate() is working correct', () => {
-    const wrapper = shallow(<ClockinTime data={correctData} />)
+    const wrapper = shallow(
+      <ClockinTime data={correctData} currentTime={currentTime} />
+    )
 
     expect(
       wrapper.html().includes('2:15 AM') || wrapper.html().includes('5:15 PM')
     ).toBe(true)
-  })
-
-  it('should not be render with incorrect data', () => {
-    expect(() => shallow(<ClockinTime data={incorrectData} />)).toThrow()
   })
 })

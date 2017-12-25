@@ -7,6 +7,6 @@ export function syncDate() {
   const time: CurrentTime = parseTime(new Date())
   return {
     type: SYNC_DATE,
-    ...time
+    currentTime: time
   }
 }

@@ -5,6 +5,7 @@ import { BounceLoader } from 'react-spinners'
 
 type Props = {}
 
+// TODO stateless function
 export class Loading extends React.Component<Props> {
   render() {
     return (

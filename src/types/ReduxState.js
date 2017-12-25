@@ -1,6 +1,7 @@
 // @flow
 import type { CurrentTime } from './CurrentTime'
 
-export type ReduxState = {
-  currentTime: CurrentTime
-}
+/**
+ * TODO object expression
+ */
+export type ReduxState = { currentTime: CurrentTime }
