@@ -3,17 +3,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { BounceLoader } from 'react-spinners'
 
-type Props = {}
-
-// TODO stateless function
-export class Loading extends React.Component<Props> {
-  render() {
-    return (
-      <Container>
-        <BounceLoader color={'#36D7B7'} size={100} />
-      </Container>
-    )
-  }
+export function Loading() {
+  return (
+    <Container>
+      <BounceLoader color={'#36D7B7'} size={100} />
+    </Container>
+  )
 }
 
 const Container = styled.div`
