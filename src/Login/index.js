@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import LoginButton from './LoginButton'
+import { A } from '../common/components/A'
 
 type Props = {
   lock: Auth0Lock,
@@ -37,10 +38,6 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
-
-const A = styled.a`
-  text-decoration: none;
 `
 
 export default withRouter(Login)
