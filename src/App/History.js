@@ -6,7 +6,7 @@ import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Td, Tbody, Th } from '../common/components/Table'
 
 type Props = {
-  clocks: Array
+  clocks: Array<Object>
 }
 
 export class History extends Component<Props> {
