@@ -35,6 +35,11 @@ export function parseTime(dateObj: Date = new Date()): Object {
   }
 }
 
+/**
+ * 8 to 08
+ * @param str
+ * @returns {string}
+ */
 function pad2(str: string): string {
   return ('00' + str).slice(-2)
 }
