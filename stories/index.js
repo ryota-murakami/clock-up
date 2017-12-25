@@ -15,6 +15,7 @@ import { ClockinTime } from '../src/App/Control/ClockinTime'
 import { data } from './data'
 import { injectGlobal } from 'styled-components'
 import { Button } from '../src/common/components/Button'
+import { Header } from '../src/common/components/Header'
 
 injectGlobal`
   html,
@@ -33,6 +34,9 @@ storiesOf('コンポーネント一覧', module)
         Button
       </Button>
     )
+  })
+  .add('<Header />', () => {
+    return <Header>Header</Header>
   })
   .add('Loading', () => {
     return <Loading />
