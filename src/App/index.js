@@ -24,6 +24,8 @@ type Props = {
 }
 
 export class App extends Component<Props> {
+  syncDate: number
+
   isAuthenticated(): boolean {
     const { data } = this.props
 
