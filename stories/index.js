@@ -16,6 +16,7 @@ import { data } from './data'
 import { injectGlobal } from 'styled-components'
 import { Button } from '../src/common/components/Button'
 import { Header } from '../src/common/components/Header'
+import { Table, Tr, Tbody, Th, Td } from '../src/common/components/Table'
 
 injectGlobal`
   html,
@@ -40,6 +41,22 @@ storiesOf('コンポーネント一覧', module)
   })
   .add('Loading', () => {
     return <Loading />
+  })
+  .add('<Table />', () => {
+    return (
+      <Table>
+        <Tbody>
+          <Tr>
+            <Th>table</Th>
+            <Th>table</Th>
+          </Tr>
+          <Tr>
+            <Td>table</Td>
+            <Td>table</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    )
   })
   .add('LoginButton', () => {
     const lock = new Auth0Lock('story', 'book')
