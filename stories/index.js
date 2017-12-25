@@ -14,6 +14,7 @@ import { ClockoutButton } from '../src/App/Control/ClockoutButton'
 import { ClockinTime } from '../src/App/Control/ClockinTime'
 import { data } from './data'
 import { injectGlobal } from 'styled-components'
+import { Button } from '../src/common/components/Button'
 
 injectGlobal`
   html,
@@ -23,6 +24,16 @@ injectGlobal`
 `
 // TODO プリミティブなButtonのstoryを追加する
 storiesOf('コンポーネント一覧', module)
+  .add("<Button color={'#000000'} />", () => {
+    return <Button color={'#000000'}>Button</Button>
+  })
+  .add("<Button primary color={'#000000'} />", () => {
+    return (
+      <Button primary color={'#000000'}>
+        Button
+      </Button>
+    )
+  })
   .add('Loading', () => {
     return <Loading />
   })
