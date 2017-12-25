@@ -11,6 +11,8 @@ type Props = {
 }
 
 export class ClockinTime extends Component<Props> {
+  formatDate: Function
+
   constructor(props: Props) {
     super(props)
     this.formatDate = this.formatDate.bind(this)
