@@ -59,7 +59,7 @@ export function calcTotalTime(now: Date, past: Date): string {
   msec -= hh * 1000 * 60 * 60
   let mm = Math.floor(msec / 1000 / 60)
 
-  return pad2(hh) + 'h' + pad2(mm) + 'm'
+  return pad2(hh.toString()) + 'h' + pad2(mm.toString()) + 'm'
 }
 
 /**
