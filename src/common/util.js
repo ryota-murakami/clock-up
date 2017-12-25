@@ -63,23 +63,6 @@ export function calcTotalTime(now: Date, past: Date): string {
 }
 
 /**
- * ISO to 2017/12/15 12:35
- * @param iso
- * @returns {string}
- * @constructor
- */
-export function ISOtoHumanReadable(iso: string): string {
-  const dateObj = new Date(iso)
-  const year = String(dateObj.getFullYear())
-  const month = pad2(String(dateObj.getMonth() + 1))
-  const date = pad2(String(dateObj.getDate()))
-  const hour = pad2(String(dateObj.getHours()))
-  const minutes = pad2(String(dateObj.getMinutes()))
-
-  return year + '/' + month + '/' + date + ' ' + hour + ':' + minutes
-}
-
-/**
  * ISO to 2017/12/15
  * @param iso
  * @constructor
