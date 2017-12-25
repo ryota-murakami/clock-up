@@ -7,7 +7,7 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
   </History__Header>
   <Table>
     <Table__Tbody>
-      <tr>
+      <Table__Tr>
         <Table__Th>
           date
         </Table__Th>
@@ -20,8 +20,8 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
         <Table__Th>
           out
         </Table__Th>
-      </tr>
-      <tr>
+      </Table__Tr>
+      <Table__Tr>
         <Table__Td>
           N/A
         </Table__Td>
@@ -34,7 +34,7 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
         <Table__Td>
           N/A
         </Table__Td>
-      </tr>
+      </Table__Tr>
     </Table__Tbody>
   </Table>
 </History__Container>
@@ -47,7 +47,7 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
   </History__Header>
   <Table>
     <Table__Tbody>
-      <tr>
+      <Table__Tr>
         <Table__Th>
           date
         </Table__Th>
@@ -60,8 +60,8 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
         <Table__Th>
           out
         </Table__Th>
-      </tr>
-      <tr>
+      </Table__Tr>
+      <Table__Tr>
         <Table__Td>
           N/A
         </Table__Td>
@@ -74,7 +74,7 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
         <Table__Td>
           N/A
         </Table__Td>
-      </tr>
+      </Table__Tr>
     </Table__Tbody>
   </Table>
 </History__Container>

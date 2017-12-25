@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
-import { Table, Td, Tbody, Th } from '../common/components/Table'
+import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
 
 type Props = {
   clocks: Array<Object>
@@ -39,15 +39,15 @@ export class History extends Component<Props> {
         })
     }
 
-    // clocks.length === 0 or clocks.lengh ===1 and clocks.[0] only has clockIn value without clockOut.
+    // clocks.length == 0 or clocks.lengh ===1 and clocks.[0] only has clockIn value without clockOut.
     if (history.length === 0) {
       history = (
-        <tr>
+        <Tr>
           <Td>N/A</Td>
           <Td>N/A</Td>
           <Td>N/A</Td>
           <Td>N/A</Td>
-        </tr>
+        </Tr>
       )
     }
 
@@ -56,12 +56,12 @@ export class History extends Component<Props> {
         <Header>History</Header>
         <Table>
           <Tbody>
-            <tr>
+            <Tr>
               <Th>date</Th>
               <Th>total</Th>
               <Th>in</Th>
               <Th>out</Th>
-            </tr>
+            </Tr>
             {history}
           </Tbody>
         </Table>

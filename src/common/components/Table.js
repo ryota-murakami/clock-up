@@ -16,6 +16,8 @@ export const Table = styled.table`
   ${tableBorder};
 `
 
+export const Tr = styled.tr``
+
 export const Th = styled.th`
   ${tableBorder};
   ${tablePadding};
