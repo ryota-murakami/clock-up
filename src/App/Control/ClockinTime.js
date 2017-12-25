@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { borderColor, textColor } from '../../common/CSS'
 import { calcTotalTime } from '../../common/util'
+import type { MapStateToProps } from 'react-redux'
 
 type Props = {
   data: Object,
@@ -66,7 +67,7 @@ const Container = styled.div`
 
 const Text = styled.div``
 
-function mapStateToProps(state) {
+const mapStateToProps: MapStateToProps<*, *, *> = state => {
   return {
     dateObject: state.app.dateObject
   }
