@@ -17,6 +17,7 @@ import { injectGlobal } from 'styled-components'
 import { Button } from '../src/common/components/Button'
 import { Header } from '../src/common/components/Header'
 import { Table, Tr, Tbody, Th, Td } from '../src/common/components/Table'
+import { A } from '../src/common/components/A'
 
 injectGlobal`
   html,
@@ -35,6 +36,9 @@ storiesOf('コンポーネント一覧', module)
         Button
       </Button>
     )
+  })
+  .add('<A />', () => {
+    return <A href={'https://news.google.com'}>news.google.com</A>
   })
   .add('<Header />', () => {
     return <Header>Header</Header>
