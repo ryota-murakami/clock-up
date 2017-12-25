@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, textColor } from '../common/CSS'
 import { connect } from 'react-redux'
+import type { MapStateToProps } from 'react-redux'
 
 type Props = {
   year: string,
@@ -70,7 +71,7 @@ const Time = styled.div`
   text-align: center;
 `
 
-function mapStateToProps(state) {
+const mapStateToProps: MapStateToProps<*, *, *> = state => {
   return {
     year: state.app.year,
     month: state.app.month,
