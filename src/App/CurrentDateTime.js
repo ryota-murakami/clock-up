@@ -15,7 +15,7 @@ type Props = {
 }
 
 export class CurrentDateTime extends Component<Props> {
-  flush() {
+  flush(): boolean {
     const { seconds } = this.props
 
     if (Number.parseInt(seconds) % 2 === 0) {
