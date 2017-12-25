@@ -39,7 +39,7 @@ storiesOf('コンポーネント一覧', module)
   .add('<Header />', () => {
     return <Header>Header</Header>
   })
-  .add('Loading', () => {
+  .add('<Loading />', () => {
     return <Loading />
   })
   .add('<Table />', () => {
@@ -58,21 +58,21 @@ storiesOf('コンポーネント一覧', module)
       </Table>
     )
   })
-  .add('LoginButton', () => {
+  .add('<LoginButton />', () => {
     const lock = new Auth0Lock('story', 'book')
 
     return <LoginButton lock={lock} />
   })
-  .add('LogoutButton', () => {
+  .add('<LogoutButton />', () => {
     return <LogoutButton />
   })
-  .add('ClockinButton', () => {
+  .add('<ClockinButton />', () => {
     return <ClockinButton />
   })
-  .add('ClockoutButton', () => {
+  .add('<ClockoutButton />', () => {
     return <ClockoutButton />
   })
-  .add('CurrentDateTime', () => {
+  .add('<CurrentDateTime />', () => {
     const props = {
       year: '2017',
       month: 'December',
@@ -84,6 +84,6 @@ storiesOf('コンポーネント一覧', module)
     }
     return <CurrentDateTime {...props} />
   })
-  .add('ClockinTime', () => {
+  .add('<ClockinTime />', () => {
     return <ClockinTime data={data} dateObject={new Date('2017/12/20')} />
   })
