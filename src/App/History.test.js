@@ -118,7 +118,7 @@ describe('<History />', () => {
         wrapper.html().includes('11:12') || wrapper.html().includes('02:12')
       ).toBe(true) // "in" column JST | GMT
       expect(
-        wrapper.html().includes('01:54') || wrapper.html().includes('16:12')
+        wrapper.html().includes('01:54') || wrapper.html().includes('16:54')
       ).toBe(true) // "out" column JST | GMT
     })
   })
