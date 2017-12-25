@@ -13,6 +13,8 @@ type Props = {
 }
 
 export class ClockoutButton extends Component<Props> {
+  recordClockoutTimeToGraphcool: Function
+
   constructor(props: Props) {
     super(props)
     this.recordClockoutTimeToGraphcool = this.recordClockoutTimeToGraphcool.bind(
