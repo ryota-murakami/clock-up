@@ -12,7 +12,7 @@ import History from './History'
 import { fetchUserQuery } from '../common/GraphQL'
 import { borderColor } from '../common/CSS'
 import Control from './Control/index'
-import { syncDate } from './actions'
+import { syncDate } from './actionCreator'
 
 type Props = {
   data: Object,

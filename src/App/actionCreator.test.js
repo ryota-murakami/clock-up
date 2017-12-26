@@ -1,4 +1,4 @@
-import { syncDate, SYNC_DATE } from './actions'
+import { syncDate, SYNC_DATE } from './actionCreator'
 
 describe('App/actions', () => {
   it('should be create action.type SYNC_DATE', () => {

@@ -1,6 +1,6 @@
 // @flow
 import appReducer from './appReducer'
-import { SYNC_DATE } from './actions'
+import { SYNC_DATE } from './actionCreator'
 import type { ReduxState } from '../types/ReduxState'
 
 describe('App/reducers', () => {
