@@ -1,5 +1,5 @@
 // @flow
-import appReducer from './reducer'
+import appReducer from './appReducer'
 import { SYNC_DATE } from './actions'
 import type { ReduxState } from '../types/ReduxState'
 
