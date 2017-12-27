@@ -9,4 +9,4 @@
 
 > [WIP] attendance management tool for personal use.
 
-![example](demo.gif)
+![example](demo.png)
