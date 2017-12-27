@@ -63,7 +63,7 @@ const client = new ApolloClient({
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const redirectUrl =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:3000/login' : 'TBD'
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000/login' : 'clockup.malloc.tokyo'
 const option = {
   auth: {
     redirectUrl: redirectUrl
