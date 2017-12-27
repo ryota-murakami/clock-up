@@ -7,6 +7,6 @@
 [![codecov](https://codecov.io/gh/ryota-murakami/clock-up/branch/master/graph/badge.svg)](https://codecov.io/gh/ryota-murakami/clock-up)
 [![BCH compliance](https://bettercodehub.com/edge/badge/ryota-murakami/clock-up?branch=master)](https://bettercodehub.com/)
 
-> [WIP] attendance management tool for personal use.
+> attendance management tool for personal use. https://clockup.malloc.tokyo
 
 ![example](demo.png)
