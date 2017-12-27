@@ -65,7 +65,7 @@ const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const redirectUrl =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/login'
-    : 'clockup.malloc.tokyo'
+    : 'clockup.malloc.tokyo/login'
 const option = {
   auth: {
     redirectUrl: redirectUrl
