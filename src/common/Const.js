@@ -6,3 +6,8 @@
  * @type {string}
  */
 export const AUTH0_ID_TOKEN = 'auth0IdToken'
+
+/**
+ * Redux Action
+ */
+export const SYNC_DATE = 'SYNC_DATE'

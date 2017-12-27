@@ -1,8 +1,8 @@
-import { syncDate, SYNC_DATE } from './actionCreator'
+import { syncDate } from './actionCreator'
 
 describe('App/actions', () => {
   it('should be create action.type SYNC_DATE', () => {
-    expect(syncDate().type).toBe(SYNC_DATE)
+    expect(syncDate().type).toBe('SYNC_DATE')
   })
 
   it('should be create correct datetime response', () => {

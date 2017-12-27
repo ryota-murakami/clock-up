@@ -1,11 +1,9 @@
-// @flow
 import appReducer from './appReducer'
-import { SYNC_DATE } from './actionCreator'
-import type { ReduxState } from '../types/ReduxState'
+import { SYNC_DATE } from './../common/Const'
 
 describe('App/reducers', () => {
   it('should be return the initial state', () => {
-    const res: ReduxState = appReducer(undefined, {})
+    const res = appReducer(undefined, {})
 
     expect(typeof res === 'object').toBe(true)
     expect(res.hasOwnProperty('currentTime')).toBe(true)
