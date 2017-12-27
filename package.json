@@ -68,6 +68,7 @@
       "!src/globalCSS.js"
     ],
     "setupFiles": [
+      "<rootDir>/config/shims.js",
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
