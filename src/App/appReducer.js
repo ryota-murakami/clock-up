@@ -1,5 +1,5 @@
 // @flow
-import { SYNC_DATE } from '../common/Const'
+import { SYNC_DATE } from '../common/const'
 import { parseTime } from '../common/util'
 import type { CurrentTime } from '../types/CurrentTime'
 import type { ReduxState } from '../types/ReduxState'
