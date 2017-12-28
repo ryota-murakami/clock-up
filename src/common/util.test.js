@@ -21,11 +21,11 @@ describe('parseTime()', () => {
 
 describe('pad2()', () => {
   it('should be return 2digit-zero-paddinged string when passing 1digit string', () => {
-    expect(pad2('1')).toEqual('01')
+    expect(pad2('1')).toBe('01')
   })
 
   it('should be return raw string when passing 2digit string', () => {
-    expect(pad2('20')).toEqual('20')
+    expect(pad2('20')).toBe('20')
   })
 })
 
