@@ -8,8 +8,8 @@ import { green } from '../../common/CSS'
 
 type Props = {
   data: Object,
-  mutation1: Function,
-  mutation2: Function
+  updateUser: Function,
+  createClock: Function
 }
 
 export class ClockinButton extends Component<Props> {
@@ -23,19 +23,19 @@ export class ClockinButton extends Component<Props> {
   }
 
   recordClockinTimeToGraphcool() {
-    const { data, mutation1, mutation2 } = this.props
+    const { data, updateUser, createClock } = this.props
 
     const userId = data.user.id
     const clockIn = () => new Date().toISOString()
 
-    mutation1({
+    updateUser({
       variables: { userId },
       refetchQueries: [{ query: fetchUserQuery }]
     }).then(response => {
       console.log(response)
     })
 
-    mutation2({
+    createClock({
       variables: { userId: userId, clockIn: clockIn() }
     }).then(response => {
       console.log(response)
@@ -56,7 +56,7 @@ export class ClockinButton extends Component<Props> {
   }
 }
 
-const mutation1 = gql`
+const updateUser = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: true) {
       isDuringClockIn
@@ -64,7 +64,7 @@ const mutation1 = gql`
   }
 `
 
-const mutation2 = gql`
+const createClock = gql`
   mutation($userId: ID!, $clockIn: DateTime) {
     createClock(userId: $userId, clockIn: $clockIn) {
       id
@@ -75,10 +75,10 @@ const mutation2 = gql`
 `
 
 export default compose(
-  graphql(mutation1, {
-    name: 'mutation1'
+  graphql(updateUser, {
+    name: 'updateUser'
   }),
-  graphql(mutation2, {
-    name: 'mutation2'
+  graphql(createClock, {
+    name: 'createClock'
   })
 )(ClockinButton)
