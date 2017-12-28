@@ -1,6 +1,6 @@
 import { parseTime } from './util'
 
-describe('parseTime', () => {
+describe('parseTime()', () => {
   it('should be return CurrentDate when passed Date', () => {
     const date = new Date('2017/1/1 12:00:00')
     const expected = {
