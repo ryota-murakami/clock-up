@@ -1,4 +1,4 @@
-import { parseTime, pad2 } from './util'
+import { parseTime, pad2, calcTotalTime } from './util'
 
 describe('parseTime()', () => {
   it('should be return CurrentDate when passed Date', () => {
@@ -32,5 +32,15 @@ describe('pad2()', () => {
     const expected = '20'
 
     expect(pad2(twenty)).toEqual(expected)
+  })
+})
+
+describe('calcTotalTime()', () => {
+  it('should be return time diff string', () => {
+    const now = new Date('2017/01/01 12:00:00')
+    const past = new Date('2017/01/01 11:00:00')
+    const res = calcTotalTime(now, past)
+
+    expect(res).toBe('01h00m')
   })
 })
