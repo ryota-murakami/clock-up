@@ -1,4 +1,11 @@
-import { parseTime, pad2, calcTotalTime, ISOtoYmd, ISOtoHm } from './util'
+import {
+  parseTime,
+  pad2,
+  calcTotalTime,
+  ISOtoYmd,
+  ISOtoHm,
+  getObjectType
+} from './util'
 
 describe('parseTime()', () => {
   it('should be return CurrentDate when passed Date', () => {
@@ -59,4 +66,52 @@ describe('ISOtoHm()', () => {
   const res = ISOtoHm(new Date('2017/01/01 12:00:00'))
 
   expect(res).toBe('12:00')
+})
+
+describe('getObjectType()', () => {
+  it('should be return Date', () => {
+    const date = new Date()
+
+    expect(getObjectType(date)).toBe('Date')
+  })
+
+  it('should be return Array', () => {
+    const array = []
+
+    expect(getObjectType(array)).toBe('Array')
+  })
+
+  it('should be return String', () => {
+    const string = ''
+
+    expect(getObjectType(string)).toBe('String')
+  })
+
+  it('should be return Boolean', () => {
+    const boolean = true
+
+    expect(getObjectType(boolean)).toBe('Boolean')
+  })
+
+  it('should be return Number', () => {
+    const number = 1
+
+    expect(getObjectType(number)).toBe('Number')
+  })
+
+  it('should be return Error', () => {
+    expect(getObjectType(new Error())).toBe('Error')
+  })
+
+  it('should be return Function', () => {
+    expect(getObjectType(() => {})).toBe('Function')
+  })
+
+  it('should be return Null', () => {
+    expect(getObjectType(null)).toBe('Null')
+  })
+
+  it('should be return Undefined', () => {
+    expect(getObjectType(undefined)).toBe('Undefined')
+  })
 })
