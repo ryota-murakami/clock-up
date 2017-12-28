@@ -1,4 +1,4 @@
-import { parseTime, pad2, calcTotalTime } from './util'
+import { parseTime, pad2, calcTotalTime, ISOtoYmd } from './util'
 
 describe('parseTime()', () => {
   it('should be return CurrentDate when passed Date', () => {
@@ -44,5 +44,13 @@ describe('calcTotalTime()', () => {
     const res = calcTotalTime(now, past)
 
     expect(res).toBe('00h00m')
+  })
+})
+
+describe('ISOtoYmd()', () => {
+  it('should be return yyyy/mm/dd', () => {
+    const res = ISOtoYmd(new Date('2017/01/01 12:00:00'))
+
+    expect(res).toBe('2017/01/01')
   })
 })
