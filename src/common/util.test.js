@@ -19,7 +19,7 @@ describe('parseTime()', () => {
   })
 })
 
-describe('pad2', () => {
+describe('pad2()', () => {
   it('should be return 2digit-zero-paddinged string when passing 1digit string', () => {
     const one = '1'
     const expected = '01'
