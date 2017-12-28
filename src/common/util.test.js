@@ -37,4 +37,12 @@ describe('calcTotalTime()', () => {
 
     expect(res).toBe('01h00m')
   })
+
+  it('shoulb be return 00h00m when now < past', () => {
+    const past = new Date('2017/01/01 12:00:00')
+    const now = new Date('2017/01/01 11:00:00')
+    const res = calcTotalTime(now, past)
+
+    expect(res).toBe('00h00m')
+  })
 })
