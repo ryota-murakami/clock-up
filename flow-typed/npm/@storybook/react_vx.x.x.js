@@ -1,4 +1,4 @@
-// flow-typed signature: c56b0bf8db835270cf3dcf13adb7246f
+// flow-typed signature: a5690ce62bd0ebc734a32c9b02a696ea
 // flow-typed version: <<STUB>>/@storybook/react_v^3.2.14/flow_v0.61.0
 
 /**
@@ -154,14 +154,6 @@ declare module '@storybook/react/dist/server/config/webpack.config.prod' {
   declare module.exports: any;
 }
 
-declare module '@storybook/react/dist/server/iframe.html' {
-  declare module.exports: any;
-}
-
-declare module '@storybook/react/dist/server/index.html' {
-  declare module.exports: any;
-}
-
 declare module '@storybook/react/dist/server/index' {
   declare module.exports: any;
 }
@@ -273,12 +265,6 @@ declare module '@storybook/react/dist/server/config/webpack.config.js' {
 }
 declare module '@storybook/react/dist/server/config/webpack.config.prod.js' {
   declare module.exports: $Exports<'@storybook/react/dist/server/config/webpack.config.prod'>;
-}
-declare module '@storybook/react/dist/server/iframe.html.js' {
-  declare module.exports: $Exports<'@storybook/react/dist/server/iframe.html'>;
-}
-declare module '@storybook/react/dist/server/index.html.js' {
-  declare module.exports: $Exports<'@storybook/react/dist/server/index.html'>;
 }
 declare module '@storybook/react/dist/server/index.js' {
   declare module.exports: $Exports<'@storybook/react/dist/server/index'>;
