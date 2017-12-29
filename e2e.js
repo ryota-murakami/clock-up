@@ -11,7 +11,11 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000
  */
 describe('E2E', () => {
   it('GoogleIDログイン -> メイン画面へ遷移 -> クロックイン -> クロックアウト -> ログアウト', async () => {
-    browser = await puppeteer.launch({ headless: false, timeout: 0 })
+    browser = await puppeteer.launch({
+      headless: false,
+      timeout: 0,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    })
     page = await browser.newPage()
 
     // トップページを表示
