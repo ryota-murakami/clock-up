@@ -2,24 +2,18 @@ import puppeteer from 'puppeteer'
 import { sel } from './src/common/testUtil'
 const googleId = process.env.TEST_GOOGLE_ACCOUNT
 const googlePassword = process.env.TEST_GOOGLE_ACCOUNT_PASSWORD
-jest.setTimeout(100000)
 let page
 let browser
-
-beforeAll(async () => {
-  browser = await puppeteer.launch({ headless: false, timeout: 0 })
-  page = await browser.newPage()
-})
-
-afterAll(() => {
-  browser.close()
-})
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000
 
 /**
  * TODO テストユーザーの、UserテーブルがisDuringClockIn = false状態であることに依存しているのでテスト開始時と終了時にリセットgraphqlを投げたい
  */
 describe('E2E', () => {
   it('GoogleIDログイン -> メイン画面へ遷移 -> クロックイン -> クロックアウト -> ログアウト', async () => {
+    browser = await puppeteer.launch({ headless: false, timeout: 0 })
+    page = await browser.newPage()
+
     // トップページを表示
     await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
 
@@ -30,7 +24,7 @@ describe('E2E', () => {
     // Auth0のダイアログでGoogleログインを選択
     const googleSignInBtn =
       '#auth0-lock-container-1 > div > div.auth0-lock-center > form > div > div > div:nth-child(3) > span > div > div > div > div > div > div > div > div > div > div.auth0-lock-social-buttons-container > button'
-    await page.waitFor(2000)
+    await page.waitFor(10000)
     await page.waitForSelector(googleSignInBtn)
     await page.click(googleSignInBtn)
 
@@ -53,7 +47,7 @@ describe('E2E', () => {
     await page.waitForNavigation()
 
     // メイン画面への遷移が成功し、ログアウトボタンとクロックインボタンが表示されること
-    await page.waitFor(2000)
+    await page.waitFor(5000)
     const logoutBtn = await page.$(sel('logout-btn'))
     expect(logoutBtn !== null).toEqual(true)
     expect(logoutBtn.constructor.name).toEqual('ElementHandle')
@@ -90,5 +84,7 @@ describe('E2E', () => {
     let logInBtn = await page.$(sel('login-btn'))
     expect(logInBtn !== null).toEqual(true)
     expect(logInBtn.constructor.name).toEqual('ElementHandle')
+
+    browser.close()
   })
 })
