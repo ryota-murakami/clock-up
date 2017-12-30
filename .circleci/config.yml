@@ -40,6 +40,5 @@ jobs:
       # E2E
       - run: chmod +x ./setup_libxcb.sh
       - run: sh ./setup_libxcb.sh
-      - run: yarn start
       - run: yarn e2e
 

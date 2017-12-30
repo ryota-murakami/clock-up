@@ -19,7 +19,9 @@ describe('E2E', () => {
     page = await browser.newPage()
 
     // トップページを表示
-    await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' })
+    await page.goto('https://clockup.malloc.tokyo', {
+      waitUntil: 'networkidle2'
+    })
 
     // ログインボタンをクリック
     await page.waitForSelector(sel('login-btn'))
