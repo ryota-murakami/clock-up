@@ -9,4 +9,7 @@
 
 > attendance management tool for personal use. https://clockup.malloc.tokyo
 
+Work in progress now.  
+Development roadmap will be released at a later date.
+
 ![example](demo.png)
