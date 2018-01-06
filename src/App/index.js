@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
+import type { MapStateToProps, MapDispatchToProps } from 'react-redux'
 import { connect } from 'react-redux'
 import Loading from '../common/components/Loading'
 import { Header } from '../common/components/Header'
@@ -94,11 +95,11 @@ const Left = styled.div`
   border: 1px solid ${borderColor};
 `
 
-function mapStateToProps(state) {
+const mapStateToProps: MapStateToProps<*, *, *> = () => {
   return {}
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
   return {
     syncDate: () => {
       dispatch(syncDate())
