@@ -110,6 +110,7 @@ const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(fetchUserQuery, {
+    // TODO onChangeでclockの検索条件を変更する
     options: {
       fetchPolicy: 'network-only',
       notifyOnNetworkStatusChange: true
