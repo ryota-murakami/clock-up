@@ -18,6 +18,7 @@ import { Button } from '../src/common/components/Button'
 import { Header } from '../src/common/components/Header'
 import { Table, Tr, Tbody, Th, Td } from '../src/common/components/Table'
 import { A } from '../src/common/components/A'
+import { Select } from '../src/common/components/Select'
 
 injectGlobal`
   html,
@@ -90,4 +91,15 @@ storiesOf('コンポーネント一覧', module)
   })
   .add('<ClockinTime />', () => {
     return <ClockinTime data={data} dateObject={new Date('2017/12/20')} />
+  })
+  .add('<Select />', () => {
+    return (
+      <Select>
+        <option value="0" selected>
+          0
+        </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </Select>
+    )
   })
