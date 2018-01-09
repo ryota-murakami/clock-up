@@ -1,3 +1,5 @@
+# for flow type check
+
 language: node_js
 
 sudo: false
