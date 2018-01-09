@@ -1,0 +1,14 @@
+language: node_js
+
+sudo: false
+
+node_js:
+  - "9.3"
+
+cache: yarn
+
+install:
+  - yarn install
+
+script:
+  - $(npm bin)/flow check
