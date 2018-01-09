@@ -25,7 +25,7 @@ type Props = {
 }
 
 export class App extends Component<Props> {
-  syncDate: number
+  syncDate: IntervalID
 
   isAuthenticated(): boolean {
     const { data } = this.props
