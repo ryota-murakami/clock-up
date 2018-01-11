@@ -6,12 +6,17 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
     History
   </History__Header>
   <History__SelectBoxWrapper>
-    <Select>
-      <option>
+    <Select
+      defaultValue="latest 1month"
+      onChange={[Function]}
+    >
+      <option
+        value="latest 1week"
+      >
         latest 1week
       </option>
       <option
-        selected={true}
+        value="latest 1month"
       >
         latest 1month
       </option>
@@ -61,12 +66,17 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
     History
   </History__Header>
   <History__SelectBoxWrapper>
-    <Select>
-      <option>
+    <Select
+      defaultValue="latest 1month"
+      onChange={[Function]}
+    >
+      <option
+        value="latest 1week"
+      >
         latest 1week
       </option>
       <option
-        selected={true}
+        value="latest 1month"
       >
         latest 1month
       </option>
