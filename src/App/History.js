@@ -11,6 +11,10 @@ type Props = {
 }
 
 export class History extends Component<Props> {
+  renewGQL() {
+    console.log('renewGQL')
+  }
+
   render() {
     const { clocks } = this.props
 
@@ -56,9 +60,9 @@ export class History extends Component<Props> {
       <Container>
         <Header>History</Header>
         <SelectBoxWrapper>
-          <Select>
-            <option>latest 1week</option>
-            <option selected>latest 1month</option>
+          <Select onChange={this.renewGQL} defaultValue={'latest 1month'}>
+            <option value="latest 1week">latest 1week</option>
+            <option value="latest 1month">latest 1month</option>
             <option>2018/01</option>
           </Select>
         </SelectBoxWrapper>
