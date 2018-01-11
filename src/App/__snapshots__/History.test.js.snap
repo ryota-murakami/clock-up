@@ -5,6 +5,21 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
   <History__Header>
     History
   </History__Header>
+  <History__SelectBoxWrapper>
+    <Select>
+      <option>
+        latest 1week
+      </option>
+      <option
+        selected={true}
+      >
+        latest 1month
+      </option>
+      <option>
+        2018/01
+      </option>
+    </Select>
+  </History__SelectBoxWrapper>
   <Table>
     <Table__Tbody>
       <Table__Tr>
@@ -45,6 +60,21 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
   <History__Header>
     History
   </History__Header>
+  <History__SelectBoxWrapper>
+    <Select>
+      <option>
+        latest 1week
+      </option>
+      <option
+        selected={true}
+      >
+        latest 1month
+      </option>
+      <option>
+        2018/01
+      </option>
+    </Select>
+  </History__SelectBoxWrapper>
   <Table>
     <Table__Tbody>
       <Table__Tr>

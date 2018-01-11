@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
+import { Select } from '../common/components/Select'
 
 type Props = {
   clocks: Array<Object>
@@ -55,6 +56,13 @@ export class History extends Component<Props> {
     return (
       <Container>
         <Header>History</Header>
+        <SelectBoxWrapper>
+          <Select>
+            <option>latest 1week</option>
+            <option selected>latest 1month</option>
+            <option>2018/01</option>
+          </Select>
+        </SelectBoxWrapper>
         <Table>
           <Tbody>
             <Tr>
@@ -75,8 +83,14 @@ const Container = styled.div`
   color: ${textColor};
 `
 
+const SelectBoxWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
+
 const Header = styled.div`
-  margin-bottom: 10px;
   padding: 10px 0;
   text-align: center;
   font-size: 1.2em;
