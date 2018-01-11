@@ -31,9 +31,8 @@ export class ClockoutButton extends Component<Props> {
     updateUser({
       variables: { userId },
       refetchQueries: [{ query: fetchUserQuery }]
-    }).then(response => {
-      // TODO console.log()
-      console.log(response)
+    }).catch(() => {
+      alert('error occurred when updateUser on clockout')
     })
 
     updateClock({
@@ -42,9 +41,8 @@ export class ClockoutButton extends Component<Props> {
         userId: userId,
         clockOut: clockOut()
       }
-    }).then(response => {
-      // TODO console.log()
-      console.log(response)
+    }).catch(() => {
+      alert('error occurred when updateClock on clockout')
     })
   }
 
