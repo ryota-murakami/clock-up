@@ -26,7 +26,6 @@ injectGlobal`
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   }
 `
-// TODO プリミティブなButtonのstoryを追加する
 storiesOf('コンポーネント一覧', module)
   .add("<Button color={'#000000'} />", () => {
     return <Button color={'#000000'}>Button</Button>

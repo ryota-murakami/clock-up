@@ -52,7 +52,6 @@ export class History extends Component<Props> {
       )
     }
 
-    // TODO 表示期間を変更するセレクトボックスを追加
     return (
       <Container>
         <Header>History</Header>

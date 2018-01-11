@@ -28,15 +28,10 @@ export class CreateUser extends React.Component<Props> {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
-    createUser({ variables })
-      .then(response => {
-        // TODO 「ユーザー作成」に成功しました。的なポップアップを表示するActionを発行する
-        console.log(response)
-      })
-      .catch(e => {
-        // TODO エラーハンドリング
-        console.error(e)
-      })
+    createUser({ variables }).catch(e => {
+      // TODO エラーハンドリング
+      console.error(e)
+    })
   }
 
   render() {
