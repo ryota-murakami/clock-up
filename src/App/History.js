@@ -9,7 +9,7 @@ import { Select } from '../common/components/Select'
 type Props = {
   clocks: Array<Object>
 }
-
+// TODO queryを独立させ、必要なパラメータをReduxStoreから受け取る
 export class History extends Component<Props> {
   renewGQL() {
     console.log('renewGQL')

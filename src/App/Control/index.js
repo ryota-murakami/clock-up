@@ -8,7 +8,7 @@ import ClockoutBtn from './ClockoutButton'
 type Props = {
   data: Object
 }
-
+// TODO queryを独立させ、必要なパラメータをReduxStoreから受け取る
 export class Control extends Component<Props> {
   render() {
     const { data } = this.props
