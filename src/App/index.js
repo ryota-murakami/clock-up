@@ -57,13 +57,13 @@ export class App extends Component<Props> {
         <Header>
           <LogoutBtn />
         </Header>
-        <Right>
-          <History clocks={data.user.clocks} />
-        </Right>
         <Left>
           <CurrentDateTime />
           <Control data={data} />
         </Left>
+        <Right>
+          <History clocks={data.user.clocks} />
+        </Right>
       </Container>
     )
   }
