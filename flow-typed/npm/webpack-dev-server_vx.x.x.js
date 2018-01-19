@@ -1,4 +1,4 @@
-// flow-typed signature: 337d8de5f7cadd0b6e9e71ec5ca11b83
+// flow-typed signature: a56d90da15ef9247fd93b70c6d358f45
 // flow-typed version: <<STUB>>/webpack-dev-server_v^2.9.7/flow_v0.63.1
 
 /**
@@ -38,10 +38,6 @@ declare module 'webpack-dev-server/client/live.bundle' {
   declare module.exports: any;
 }
 
-declare module 'webpack-dev-server/client/live' {
-  declare module.exports: any;
-}
-
 declare module 'webpack-dev-server/client/overlay' {
   declare module.exports: any;
 }
@@ -51,26 +47,6 @@ declare module 'webpack-dev-server/client/socket' {
 }
 
 declare module 'webpack-dev-server/client/sockjs.bundle' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/client/sockjs' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/client/web_modules/jquery/index' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/client/web_modules/jquery/jquery-1.8.1' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/client/webpack.config' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/client/webpack.sockjs.config' {
   declare module.exports: any;
 }
 
@@ -107,9 +83,6 @@ declare module 'webpack-dev-server/client/index.js' {
 declare module 'webpack-dev-server/client/live.bundle.js' {
   declare module.exports: $Exports<'webpack-dev-server/client/live.bundle'>;
 }
-declare module 'webpack-dev-server/client/live.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/live'>;
-}
 declare module 'webpack-dev-server/client/overlay.js' {
   declare module.exports: $Exports<'webpack-dev-server/client/overlay'>;
 }
@@ -118,21 +91,6 @@ declare module 'webpack-dev-server/client/socket.js' {
 }
 declare module 'webpack-dev-server/client/sockjs.bundle.js' {
   declare module.exports: $Exports<'webpack-dev-server/client/sockjs.bundle'>;
-}
-declare module 'webpack-dev-server/client/sockjs.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/sockjs'>;
-}
-declare module 'webpack-dev-server/client/web_modules/jquery/index.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/web_modules/jquery/index'>;
-}
-declare module 'webpack-dev-server/client/web_modules/jquery/jquery-1.8.1.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/web_modules/jquery/jquery-1.8.1'>;
-}
-declare module 'webpack-dev-server/client/webpack.config.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/webpack.config'>;
-}
-declare module 'webpack-dev-server/client/webpack.sockjs.config.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/webpack.sockjs.config'>;
 }
 declare module 'webpack-dev-server/lib/OptionsValidationError.js' {
   declare module.exports: $Exports<'webpack-dev-server/lib/OptionsValidationError'>;

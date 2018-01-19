@@ -1,4 +1,4 @@
-// flow-typed signature: 85155ec82024d67791a7fa9c5dc57278
+// flow-typed signature: 2c897ec08a6dadeee83376756e393f59
 // flow-typed version: <<STUB>>/auth0-lock_v^11.0.0/flow_v0.63.1
 
 /**
@@ -475,6 +475,10 @@ declare module 'auth0-lock/lib/i18n/nb' {
 }
 
 declare module 'auth0-lock/lib/i18n/nl' {
+  declare module.exports: any;
+}
+
+declare module 'auth0-lock/lib/i18n/no' {
   declare module.exports: any;
 }
 
@@ -1036,6 +1040,9 @@ declare module 'auth0-lock/lib/i18n/nb.js' {
 }
 declare module 'auth0-lock/lib/i18n/nl.js' {
   declare module.exports: $Exports<'auth0-lock/lib/i18n/nl'>;
+}
+declare module 'auth0-lock/lib/i18n/no.js' {
+  declare module.exports: $Exports<'auth0-lock/lib/i18n/no'>;
 }
 declare module 'auth0-lock/lib/i18n/pl.js' {
   declare module.exports: $Exports<'auth0-lock/lib/i18n/pl'>;
