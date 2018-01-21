@@ -23,7 +23,7 @@ export class ClockinButton extends Component<Props> {
     )
   }
 
-  recordClockinTimeToGraphcool() {
+  recordClockinTimeToGraphcool(): void {
     const { data, updateUser, createClock } = this.props
 
     const userId = data.user.id
