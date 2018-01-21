@@ -6,9 +6,10 @@ import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import Loading from '../common/components/Loading'
 import type { GraphQLMutation } from '../types/GraphQLMutation'
+import type { GraphQLQueryResult } from '../types/GraphQLQueryResult'
 
 type Props = {
-  data: Object,
+  data: GraphQLQueryResult,
   createUser: GraphQLMutation
 }
 
