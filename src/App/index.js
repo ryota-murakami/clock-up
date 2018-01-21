@@ -15,14 +15,14 @@ import { borderColor } from '../common/CSS'
 import Control from './Control/index'
 import { syncDate } from './actionCreator'
 import type { GraphQLQueryResult } from '../types/GraphQLQueryResult'
+import type { Match, Location, RouterHistory } from 'react-router'
 
 type Props = {
   data: GraphQLQueryResult,
   syncDate: Function,
-  // withRouter()
-  match: any,
-  location: any,
-  history: any
+  match: Match,
+  location: Location,
+  history: RouterHistory
 }
 
 export class App extends Component<Props> {
