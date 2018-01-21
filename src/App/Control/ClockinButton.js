@@ -5,11 +5,12 @@ import gql from 'graphql-tag'
 import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
 import { green } from '../../common/CSS'
+import type { GraphQLMutation } from '../../types/GraphQLMutation'
 
 type Props = {
   data: Object,
-  updateUser: Function,
-  createClock: Function
+  updateUser: GraphQLMutation,
+  createClock: GraphQLMutation
 }
 
 export class ClockinButton extends Component<Props> {

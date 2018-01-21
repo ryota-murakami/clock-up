@@ -5,10 +5,11 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import Loading from '../common/components/Loading'
+import type { GraphQLMutation } from '../types/GraphQLMutation'
 
 type Props = {
   data: Object,
-  createUser: Function // GraphQL Mutation
+  createUser: GraphQLMutation
 }
 
 export class CreateUser extends React.Component<Props> {

@@ -5,11 +5,12 @@ import gql from 'graphql-tag'
 import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
 import { red } from '../../common/CSS'
+import type { GraphQLMutation } from '../../types/GraphQLMutation'
 
 type Props = {
   data: Object,
-  updateUser: Function,
-  updateClock: Function
+  updateUser: GraphQLMutation,
+  updateClock: GraphQLMutation
 }
 
 export class ClockoutButton extends Component<Props> {
@@ -22,7 +23,7 @@ export class ClockoutButton extends Component<Props> {
     )
   }
 
-  recordClockoutTimeToGraphcool() {
+  recordClockoutTimeToGraphcool(): void {
     const { data, updateUser, updateClock } = this.props
 
     const userId = data.user.id
