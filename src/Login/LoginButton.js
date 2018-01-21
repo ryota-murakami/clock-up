@@ -24,7 +24,7 @@ export class LoginButton extends Component<Props> {
 
   componentDidMount() {
     const { lock } = this.props
-    // Auth0のログインモーダルで認証 -> コールバックURLへ帰還した時の処理
+    // success Auth0 modal authentication -> come back to callback url from auth0
     lock.on('authenticated', authResult => {
       window.localStorage.setItem(AUTH0_ID_TOKEN, authResult.idToken)
       this.props.history.push(`/createuser`)
