@@ -4,9 +4,10 @@ import styled from 'styled-components'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutBtn from './ClockoutButton'
+import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
 
 type Props = {
-  data: Object
+  data: GraphQLQueryResult
 }
 // TODO queryを独立させ、必要なパラメータをReduxStoreから受け取る
 export class Control extends Component<Props> {

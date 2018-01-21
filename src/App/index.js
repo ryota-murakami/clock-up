@@ -14,9 +14,10 @@ import { fetchUserQuery } from '../common/GraphQL'
 import { borderColor } from '../common/CSS'
 import Control from './Control/index'
 import { syncDate } from './actionCreator'
+import type { GraphQLQueryResult } from '../types/GraphQLQueryResult'
 
 type Props = {
-  data: Object,
+  data: GraphQLQueryResult,
   syncDate: Function,
   // withRouter()
   match: any,

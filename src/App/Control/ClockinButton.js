@@ -6,9 +6,10 @@ import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
 import { green } from '../../common/CSS'
 import type { GraphQLMutation } from '../../types/GraphQLMutation'
+import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
 
 type Props = {
-  data: Object,
+  data: GraphQLQueryResult,
   updateUser: GraphQLMutation,
   createClock: GraphQLMutation
 }
