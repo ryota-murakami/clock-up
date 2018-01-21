@@ -28,7 +28,12 @@ export class CreateUser extends React.Component<Props> {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
-    createUser({ variables }).catch(() => {
+    createUser({ variables }).catch(e => {
+      if (
+        e.message === 'GraphQL error: User already exists with that information'
+      )
+        return
+
       alert('error occurred when createUser')
     })
   }
