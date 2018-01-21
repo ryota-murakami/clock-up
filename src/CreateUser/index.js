@@ -12,9 +12,6 @@ type Props = {
 }
 
 export class CreateUser extends React.Component<Props> {
-  /**
-   * 新規ユーザーかどうか
-   */
   isFreshUser(): boolean {
     const { data } = this.props
 
