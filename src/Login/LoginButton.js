@@ -15,11 +15,11 @@ type Props = {
 }
 
 export class LoginButton extends Component<Props> {
-  showLogin: Function
+  showAuth0LoginModal: Function
 
   constructor(props: Props) {
     super(props)
-    this.showLogin = this.showLogin.bind(this)
+    this.showAuth0LoginModal = this.showAuth0LoginModal.bind(this)
   }
 
   componentDidMount() {
@@ -31,10 +31,7 @@ export class LoginButton extends Component<Props> {
     })
   }
 
-  /**
-   * Auth0のログインモーダルを表示
-   */
-  showLogin() {
+  showAuth0LoginModal() {
     const { lock } = this.props
     lock.show({
       auth: {
@@ -47,7 +44,11 @@ export class LoginButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton color={green} onClick={this.showLogin} data-test="login-btn">
+      <MyButton
+        color={green}
+        onClick={this.showAuth0LoginModal}
+        data-test="login-btn"
+      >
         Login
       </MyButton>
     )
