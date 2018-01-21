@@ -14,13 +14,13 @@ type Props = {
 }
 
 export class CreateUser extends React.Component<Props> {
-  isFreshUser(): boolean {
+  isNotExistUserInAuth0(): boolean {
     const { data } = this.props
 
     return !data.user || window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
   }
 
-  createUser(): void {
+  InsertUserDataToAuth0(): void {
     const { createUser } = this.props
 
     const variables = {
@@ -44,9 +44,8 @@ export class CreateUser extends React.Component<Props> {
       return <Loading />
     }
 
-    // 新規ユーザーであればGraphCoolにユーザー情報としてAuth0認証情報を登録する
-    if (this.isFreshUser()) {
-      this.createUser()
+    if (this.isNotExistUserInAuth0()) {
+      this.InsertUserDataToAuth0()
     }
 
     return (

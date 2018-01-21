@@ -28,8 +28,8 @@ describe('<CreateUser />', () => {
 
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.createUser = createUser
-        CreateUser.prototype.isFreshUser = isFreshUser
+        CreateUser.prototype.InsertUserDataToAuth0 = createUser
+        CreateUser.prototype.isNotExistUserInAuth0 = isFreshUser
         const wrapper = shallow(<CreateUser data={data} />)
 
         return wrapper
@@ -62,8 +62,8 @@ describe('<CreateUser />', () => {
       const isFreshUser = jest.fn().mockReturnValue(false)
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.createUser = createUser
-        CreateUser.prototype.isFreshUser = isFreshUser
+        CreateUser.prototype.InsertUserDataToAuth0 = createUser
+        CreateUser.prototype.isNotExistUserInAuth0 = isFreshUser
         const wrapper = shallow(<CreateUser data={data} />)
 
         return wrapper
