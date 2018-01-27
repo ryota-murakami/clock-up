@@ -20,13 +20,13 @@ type User = {
   id: string
 }
 
-type fetchUserQueryResult = {
+type GraphQLData = {
   user: User,
   loading: boolean
 }
 
 type Props = {
-  data: fetchUserQueryResult,
+  data: GraphQLData,
   syncDate: Function,
   match: Match,
   location: Location,
