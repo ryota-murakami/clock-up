@@ -6,7 +6,13 @@ import { History } from './History'
 describe('<History />', () => {
   describe('pass empty array', () => {
     function setup() {
-      const wrapper = shallow(<History clocks={[]} />)
+      const data = {
+        user: {
+          clocks: []
+        },
+        loading: false
+      }
+      const wrapper = shallow(<History data={data} />)
       return wrapper
     }
 
@@ -43,18 +49,23 @@ describe('<History />', () => {
     })
   })
   describe('pass first time clock in data', () => {
-    const clocks = [
-      {
-        id: 'cjbfuqo1j3n5p0146x0pjsj7o',
-        clockIn: '2017-12-21T02:12:28.707Z',
-        clockOut: null,
-        createdAt: '2017-12-21T02:12:28.000Z',
-        updatedAt: '2017-12-21T02:12:28.000Z',
-        __typename: 'Clock'
-      }
-    ]
+    const data = {
+      user: {
+        clocks: [
+          {
+            id: 'cjbfuqo1j3n5p0146x0pjsj7o',
+            clockIn: '2017-12-21T02:12:28.707Z',
+            clockOut: null,
+            createdAt: '2017-12-21T02:12:28.000Z',
+            updatedAt: '2017-12-21T02:12:28.000Z',
+            __typename: 'Clock'
+          }
+        ]
+      },
+      loading: false
+    }
     function setup() {
-      const wrapper = shallow(<History clocks={clocks} />)
+      const wrapper = shallow(<History data={data} />)
       return wrapper
     }
 
@@ -85,26 +96,31 @@ describe('<History />', () => {
     })
   })
   describe('pass complete data', () => {
-    const clocks = [
-      {
-        id: 'cjbhtpf8psjmv0146zkmd9zrh',
-        clockIn: '2017-12-22T11:19:02.776Z',
-        clockOut: null,
-        createdAt: '2017-12-22T11:19:03.000Z',
-        updatedAt: '2017-12-22T11:19:03.000Z',
-        __typename: 'Clock'
+    const data = {
+      user: {
+        clocks: [
+          {
+            id: 'cjbhtpf8psjmv0146zkmd9zrh',
+            clockIn: '2017-12-22T11:19:02.776Z',
+            clockOut: null,
+            createdAt: '2017-12-22T11:19:03.000Z',
+            updatedAt: '2017-12-22T11:19:03.000Z',
+            __typename: 'Clock'
+          },
+          {
+            id: 'cjbfuqo1j3n5p0146x0pjsj7o',
+            clockIn: '2017-12-21T02:12:28.707Z',
+            clockOut: '2017-12-21T16:54:21.094Z',
+            createdAt: '2017-12-21T02:12:28.000Z',
+            updatedAt: '2017-12-21T16:54:21.000Z',
+            __typename: 'Clock'
+          }
+        ]
       },
-      {
-        id: 'cjbfuqo1j3n5p0146x0pjsj7o',
-        clockIn: '2017-12-21T02:12:28.707Z',
-        clockOut: '2017-12-21T16:54:21.094Z',
-        createdAt: '2017-12-21T02:12:28.000Z',
-        updatedAt: '2017-12-21T16:54:21.000Z',
-        __typename: 'Clock'
-      }
-    ]
+      loading: false
+    }
     function setup() {
-      const wrapper = shallow(<History clocks={clocks} />)
+      const wrapper = shallow(<History data={data} />)
       return wrapper
     }
 
