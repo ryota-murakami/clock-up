@@ -76,8 +76,8 @@ export class App extends Component<Props> {
   }
 }
 
-export const fetchUserQuery = gql`
-  query FetchUserQuery {
+export const query = gql`
+  query {
     user {
       id
     }
@@ -98,7 +98,7 @@ const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  graphql(fetchUserQuery, {
+  graphql(query, {
     options: {
       fetchPolicy: 'network-only'
     }
