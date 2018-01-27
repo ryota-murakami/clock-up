@@ -10,7 +10,6 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
 import styled from 'styled-components'
 import History from './History'
-import { fetchUserQuery } from '../common/GraphQL'
 import { borderColor } from '../common/CSS'
 import Control from './Control/index'
 import { syncDate } from './actionCreator'
@@ -95,26 +94,3 @@ const Left = styled.div`
   border-radius: 5px;
   border: 1px solid ${borderColor};
 `
-
-const mapStateToProps: MapStateToProps<*, *, *> = () => {
-  return {}
-}
-
-const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
-  return {
-    syncDate: () => {
-      dispatch(syncDate())
-    }
-  }
-}
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  graphql(fetchUserQuery, {
-    options: {
-      fetchPolicy: 'network-only',
-      notifyOnNetworkStatusChange: true
-    }
-  }),
-  withRouter
-)(App)

@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
 import { green } from '../../common/CSS'
 import type { GraphQLMutation } from '../../types/GraphQLMutation'
@@ -31,8 +30,7 @@ export class ClockinButton extends Component<Props> {
     const clockIn = () => new Date().toISOString()
 
     updateUser({
-      variables: { userId },
-      refetchQueries: [{ query: fetchUserQuery }]
+      variables: { userId }
     }).then(response => {
       console.log(response)
     })
