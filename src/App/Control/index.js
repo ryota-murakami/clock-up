@@ -30,8 +30,8 @@ export class Control extends Component<Props> {
     if (data.user.isDuringClockIn) {
       return (
         <ClockoutContainer>
-          <p>ClockinTime</p>
-          <p>ClockoutBtn</p>
+          <ClockinTime />
+          <ClockoutBtn />
         </ClockoutContainer>
       )
     } else {

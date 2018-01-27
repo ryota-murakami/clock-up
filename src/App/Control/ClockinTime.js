@@ -2,13 +2,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { graphql, compose } from 'react-apollo'
+import gql from 'graphql-tag'
 import { borderColor, textColor } from '../../common/CSS'
 import { calcTotalTime } from '../../common/util'
 import type { MapStateToProps } from 'react-redux'
 import type { CurrentTime } from '../../types/CurrentTime'
 
+type User = {
+  id: string,
+  clocks: Array<{
+    id: string,
+    clockIn: string
+  }>
+}
+
+type GraphQLdata = {
+  user: User,
+  loading: boolean
+}
+
 type Props = {
-  data: Object,
+  data: GraphQLdata,
   currentTime: CurrentTime
 }
 
@@ -37,10 +52,14 @@ export class ClockinTime extends Component<Props> {
 
   render() {
     const { data } = this.props
-    const currentTime: CurrentTime = this.props.currentTime
+    if (data.loading) return null
+
+    const { user } = data
+    const currentTime: CurrentTime = this.props.currentTime // from redux
 
     const now: Date = currentTime.dateObject
-    const ClockinTimeISO: string = data.user.clocks[0].clockIn
+    console.log(user.clocks[0].clockIn instanceof Date)
+    const ClockinTimeISO: string = user.clocks[0].clockIn
     const past = new Date(ClockinTimeISO)
 
     const TotalTime = calcTotalTime(now, past)
@@ -56,6 +75,26 @@ export class ClockinTime extends Component<Props> {
   }
 }
 
+const query = gql`
+  query {
+    user {
+      id
+      clocks {
+        id
+        clockIn
+      }
+    }
+  }
+`
+
+const mapStateToProps: MapStateToProps<any, any, any> = state => {
+  return {
+    currentTime: state.app.currentTime
+  }
+}
+
+export default compose(connect(mapStateToProps), graphql(query))(ClockinTime)
+
 const Container = styled.div`
   flex-grow: 3;
   color: ${textColor};
@@ -70,11 +109,3 @@ const Container = styled.div`
 `
 
 const Text = styled.div``
-
-const mapStateToProps: MapStateToProps<*, *, *> = state => {
-  return {
-    currentTime: state.app.currentTime
-  }
-}
-
-export default connect(mapStateToProps)(ClockinTime)
