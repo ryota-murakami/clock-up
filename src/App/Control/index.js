@@ -37,7 +37,7 @@ export class Control extends Component<Props> {
     } else {
       return (
         <ClockinContainer>
-          <p>ClockinButton</p>
+          <ClockinButton />
         </ClockinContainer>
       )
     }

@@ -4,11 +4,20 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Button } from '../../common/components/Button'
 import { green } from '../../common/CSS'
+import type { GraphQLMutation } from '../../types/GraphQLMutation'
 
-// todo define flow
+type User = {
+  id: string
+}
+
+type GraphQLData = {
+  user: User
+}
+
 type Props = {
-  updateUser: Object,
-  createClock: Object
+  data: GraphQLData,
+  updateUser: GraphQLMutation,
+  createClock: GraphQLMutation
 }
 
 export class ClockinButton extends Component<Props> {
@@ -18,12 +27,11 @@ export class ClockinButton extends Component<Props> {
     super(props)
     this.recordClockinTimeToGraphcool = this.recordClockinTimeToGraphcool.bind(
       this
-    )
+    ) // avoid Class properties arrow function bind in order to test mocking
   }
 
   recordClockinTimeToGraphcool(): void {
     const { data, updateUser, createClock } = this.props
-
     const userId = data.user.id
     const clockIn = () => new Date().toISOString()
 
@@ -54,6 +62,14 @@ export class ClockinButton extends Component<Props> {
   }
 }
 
+const query = gql`
+  query {
+    user {
+      id
+    }
+  }
+`
+
 const updateUser = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: true) {
@@ -73,6 +89,7 @@ const createClock = gql`
 `
 
 export default compose(
+  graphql(query),
   graphql(updateUser, {
     name: 'updateUser'
   }),
