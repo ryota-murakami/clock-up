@@ -30,6 +30,7 @@ type Props = {
 }
 
 export class History extends Component<Props> {
+  // TODO to be implement
   renewGQL() {
     console.log('renewGQL')
   }
