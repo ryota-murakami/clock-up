@@ -138,6 +138,4 @@ const Header = styled.div`
   border-bottom: 1px solid ${borderColor};
 `
 
-export default graphql(UserClocksQuery, {
-  options: { notifyOnNetworkStatusChange: true } // recognize clockIn/clockOut btn click
-})(History)
+export default graphql(UserClocksQuery)(History)
