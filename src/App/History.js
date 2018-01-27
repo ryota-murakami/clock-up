@@ -20,13 +20,13 @@ type Clocks = Array<{
   updatedAt: string
 }>
 
-type UserClocksQueryResult = {
+type GraqhQLData = {
   user: User,
   loading: boolean
 }
 
 type Props = {
-  data: UserClocksQueryResult
+  data: GraqhQLData
 }
 
 export class History extends Component<Props> {
