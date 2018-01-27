@@ -98,11 +98,7 @@ const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  graphql(query, {
-    options: {
-      fetchPolicy: 'network-only'
-    }
-  }),
+  graphql(query),
   withRouter
 )(App)
 

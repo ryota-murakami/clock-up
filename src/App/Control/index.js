@@ -53,9 +53,7 @@ const query = gql`
   }
 `
 
-export default graphql(query, { options: { fetchPolicy: 'network-only' } })(
-  Control
-)
+export default graphql(query)(Control)
 
 const ClockoutContainer = styled.div`
   display: flex;

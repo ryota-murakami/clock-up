@@ -38,7 +38,6 @@ export class History extends Component<Props> {
     const { loading } = this.props.data
     if (loading) return null
 
-
     const { clocks } = this.props.data.user
 
     var history = []
@@ -140,5 +139,5 @@ const Header = styled.div`
 `
 
 export default graphql(UserClocksQuery, {
-  options: { notifyOnNetworkStatusChange: true }
+  options: { notifyOnNetworkStatusChange: true } // recognize clockIn/clockOut btn click
 })(History)
