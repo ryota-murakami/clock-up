@@ -58,7 +58,6 @@ export class ClockinTime extends Component<Props> {
     const currentTime: CurrentTime = this.props.currentTime // from redux
 
     const now: Date = currentTime.dateObject
-    console.log(user.clocks[0].clockIn instanceof Date)
     const ClockinTimeISO: string = user.clocks[0].clockIn
     const past = new Date(ClockinTimeISO)
 
