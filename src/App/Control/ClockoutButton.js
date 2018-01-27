@@ -4,32 +4,54 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Button } from '../../common/components/Button'
 import { red } from '../../common/CSS'
+import type { GraphQLMutation } from '../../types/GraphQLMutation'
 
-// TODO define flow
+type User = {
+  id: string,
+  clocks: Array<{
+    id: string
+  }>
+}
+
+type GraphQLData = {
+  user: User,
+  loading: boolean
+}
+
 type Props = {
-  data: Object,
-  updateUser: Function,
-  updateClock: Object
+  data: GraphQLData,
+  updateUser: GraphQLMutation,
+  updateClock: GraphQLMutation
 }
 
 export class ClockoutButton extends Component<Props> {
-  recordClockoutTimeToGraphcool: Function
+  gqlLogic: Function
 
-  constructor(props: Props) {
+  constructor(props: Props): void {
     super(props)
-    this.recordClockoutTimeToGraphcool = this.recordClockoutTimeToGraphcool.bind(
-      this
-    )
+    this.gqlLogic = this.gqlLogic.bind(this) // avoid Class properties arrow function bind in order to test mocking
   }
 
-  recordClockoutTimeToGraphcool(): void {
+  gqlLogic(): void {
     const { data, updateUser, updateClock } = this.props
 
     const userId = data.user.id
     const clockOut = () => new Date().toISOString()
 
     updateUser({
-      variables: { userId }
+      variables: { userId },
+      refetchQueries: [
+        {
+          query: gql`
+            query {
+              user {
+                id
+                isDuringClockIn
+              }
+            }
+          `
+        }
+      ]
     }).catch(() => {
       alert('error occurred when updateUser on clockout')
     })
@@ -46,11 +68,14 @@ export class ClockoutButton extends Component<Props> {
   }
 
   render() {
+    const { data } = this.props
+    if (data.loading) return null
+
     return (
       <Button
         primary
         color={red}
-        onClick={this.recordClockoutTimeToGraphcool}
+        onClick={this.gqlLogic}
         data-test="clock-out-btn"
       >
         clock out
@@ -58,6 +83,17 @@ export class ClockoutButton extends Component<Props> {
     )
   }
 }
+
+const query = gql`
+  query {
+    user {
+      id
+      clocks {
+        id
+      }
+    }
+  }
+`
 
 const updateUser = gql`
   mutation($userId: ID!) {
@@ -78,6 +114,7 @@ const updateClock = gql`
 `
 
 export default compose(
+  graphql(query),
   graphql(updateUser, {
     name: 'updateUser'
   }),

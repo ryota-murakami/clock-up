@@ -12,7 +12,7 @@ describe('<ClockoutButton />', () => {
 
   it('should be invoke recordClockoutTimeToGraphcool() when clicked', () => {
     const mockFunc = jest.fn()
-    ClockoutButton.prototype.recordClockoutTimeToGraphcool = mockFunc
+    ClockoutButton.prototype.gqlLogic = mockFunc
     const wrapper = shallow(<ClockoutButton />)
 
     wrapper.find(sel('clock-out-btn')).simulate('click')
