@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
-import Loading from '../common/components/Loading'
 import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
@@ -37,9 +36,8 @@ export class History extends Component<Props> {
 
   render() {
     const { loading } = this.props.data
-    if (loading) {
-      return <Loading />
-    }
+    if (loading) return null
+
 
     const { clocks } = this.props.data.user
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
-import Loading from '../../common/components/Loading'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutBtn from './ClockoutButton'
@@ -26,7 +25,7 @@ export class Control extends Component<Props> {
   render() {
     const { data } = this.props
 
-    if (data.loading) return <Loading />
+    if (data.loading) return null
 
     if (data.user.isDuringClockIn) {
       return (
