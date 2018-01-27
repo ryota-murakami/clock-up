@@ -4,13 +4,11 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Button } from '../../common/components/Button'
 import { green } from '../../common/CSS'
-import type { GraphQLMutation } from '../../types/GraphQLMutation'
-import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
 
+// todo define flow
 type Props = {
-  data: GraphQLQueryResult,
-  updateUser: GraphQLMutation,
-  createClock: GraphQLMutation
+  updateUser: Object,
+  createClock: Object
 }
 
 export class ClockinButton extends Component<Props> {

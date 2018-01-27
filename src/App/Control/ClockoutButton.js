@@ -4,13 +4,12 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Button } from '../../common/components/Button'
 import { red } from '../../common/CSS'
-import type { GraphQLMutation } from '../../types/GraphQLMutation'
-import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
 
+// TODO define flow
 type Props = {
-  data: GraphQLQueryResult,
-  updateUser: GraphQLMutation,
-  updateClock: GraphQLMutation
+  data: Object,
+  updateUser: Function,
+  updateClock: Object
 }
 
 export class ClockoutButton extends Component<Props> {
