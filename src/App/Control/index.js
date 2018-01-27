@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
-import ClockoutBtn from './ClockoutButton'
+import ClockoutButton from './ClockoutButton'
 
 type User = {
   id: string,
@@ -31,7 +31,7 @@ export class Control extends Component<Props> {
       return (
         <ClockoutContainer>
           <ClockinTime />
-          <ClockoutBtn />
+          <ClockoutButton />
         </ClockoutContainer>
       )
     } else {
