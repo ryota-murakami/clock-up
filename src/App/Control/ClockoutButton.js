@@ -20,7 +20,7 @@ type GraphQLData = {
 
 type Props = {
   data: GraphQLData,
-  updateUser: GraphQLMutation,
+  changeToFalseIsDuringClockIn: GraphQLMutation,
   updateClock: GraphQLMutation
 }
 
@@ -33,12 +33,12 @@ export class ClockoutButton extends Component<Props> {
   }
 
   gqlLogic(): void {
-    const { data, updateUser, updateClock } = this.props
+    const { data, changeToFalseIsDuringClockIn, updateClock } = this.props
 
     const userId = data.user.id
     const clockOut = () => new Date().toISOString()
 
-    updateUser({
+    changeToFalseIsDuringClockIn({
       variables: { userId },
       refetchQueries: [
         {
@@ -95,7 +95,7 @@ const query = gql`
   }
 `
 
-const updateUser = gql`
+const changeToFalseIsDuringClockIn = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: false) {
       isDuringClockIn
@@ -115,8 +115,8 @@ const updateClock = gql`
 
 export default compose(
   graphql(query),
-  graphql(updateUser, {
-    name: 'updateUser'
+  graphql(changeToFalseIsDuringClockIn, {
+    name: 'changeToFalseIsDuringClockIn'
   }),
   graphql(updateClock, {
     name: 'updateClock'

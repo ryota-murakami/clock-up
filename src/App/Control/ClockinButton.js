@@ -16,26 +16,24 @@ type GraphQLData = {
 
 type Props = {
   data: GraphQLData,
-  updateUser: GraphQLMutation,
+  changeToTrueIsDuringClockIn: GraphQLMutation,
   createClock: GraphQLMutation
 }
 
 export class ClockinButton extends Component<Props> {
-  recordClockinTimeToGraphcool: Function
+  gqlLogic: Function
 
   constructor(props: Props) {
     super(props)
-    this.recordClockinTimeToGraphcool = this.recordClockinTimeToGraphcool.bind(
-      this
-    ) // avoid Class properties arrow function bind in order to test mocking
+    this.gqlLogic = this.gqlLogic.bind(this) // avoid Class properties arrow function bind in order to test mocking
   }
 
-  recordClockinTimeToGraphcool(): void {
-    const { data, updateUser, createClock } = this.props
+  gqlLogic(): void {
+    const { data, changeToTrueIsDuringClockIn, createClock } = this.props
     const userId = data.user.id
     const clockIn = () => new Date().toISOString()
 
-    updateUser({
+    changeToTrueIsDuringClockIn({
       variables: { userId },
       refetchQueries: [
         {
@@ -65,7 +63,7 @@ export class ClockinButton extends Component<Props> {
       <Button
         primary
         color={green}
-        onClick={this.recordClockinTimeToGraphcool}
+        onClick={this.gqlLogic}
         data-test="clock-in-btn"
       >
         Clock In
@@ -82,7 +80,7 @@ const query = gql`
   }
 `
 
-const updateUser = gql`
+const changeToTrueIsDuringClockIn = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: true) {
       isDuringClockIn
@@ -102,8 +100,8 @@ const createClock = gql`
 
 export default compose(
   graphql(query),
-  graphql(updateUser, {
-    name: 'updateUser'
+  graphql(changeToTrueIsDuringClockIn, {
+    name: 'changeToTrueIsDuringClockIn'
   }),
   graphql(createClock, {
     name: 'createClock'
