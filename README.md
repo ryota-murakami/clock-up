@@ -8,6 +8,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![codecov](https://codecov.io/gh/ryota-murakami/clock-up/branch/master/graph/badge.svg)](https://codecov.io/gh/ryota-murakami/clock-up)
 [![BCH compliance](https://bettercodehub.com/edge/badge/ryota-murakami/clock-up?branch=master)](https://bettercodehub.com/)
+[![CodeFactor](https://www.codefactor.io/repository/github/ryota-murakami/clock-up/badge)](https://www.codefactor.io/repository/github/ryota-murakami/clock-up)
 
 > attendance management tool for personal use. https://clockup.malloc.tokyo
 
