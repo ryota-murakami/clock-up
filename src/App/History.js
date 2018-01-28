@@ -110,7 +110,7 @@ const UserClocksQuery = gql`
   query FetchUserClocks {
     user {
       id
-      clocks(first: 7, orderBy: createdAt_ASC) {
+      clocks(first: 7, orderBy: createdAt_DESC) {
         id
         clockIn
         clockOut
