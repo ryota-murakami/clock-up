@@ -8,10 +8,6 @@ import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
 import { Select } from '../common/components/Select'
 
-type User = {
-  clocks: Clocks
-}
-
 type Clocks = Array<{
   id: string,
   clockIn: string,
@@ -19,6 +15,10 @@ type Clocks = Array<{
   createdAt: string,
   updatedAt: string
 }>
+
+type User = {
+  clocks: Clocks
+}
 
 type GraqhQLData = {
   user: User,
