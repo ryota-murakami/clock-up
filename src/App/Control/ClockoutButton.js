@@ -2,37 +2,56 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { fetchUserQuery } from '../../common/GraphQL'
 import { Button } from '../../common/components/Button'
 import { red } from '../../common/CSS'
 import type { GraphQLMutation } from '../../types/GraphQLMutation'
-import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
+
+type User = {
+  id: string,
+  clocks: Array<{
+    id: string
+  }>
+}
+
+type GraphQLData = {
+  user: User,
+  loading: boolean
+}
 
 type Props = {
-  data: GraphQLQueryResult,
-  updateUser: GraphQLMutation,
+  data: GraphQLData,
+  changeToFalseIsDuringClockIn: GraphQLMutation,
   updateClock: GraphQLMutation
 }
 
 export class ClockoutButton extends Component<Props> {
-  recordClockoutTimeToGraphcool: Function
+  gqlLogic: Function
 
-  constructor(props: Props) {
+  constructor(props: Props): void {
     super(props)
-    this.recordClockoutTimeToGraphcool = this.recordClockoutTimeToGraphcool.bind(
-      this
-    )
+    this.gqlLogic = this.gqlLogic.bind(this) // avoid Class properties arrow function bind in order to test mocking
   }
 
-  recordClockoutTimeToGraphcool(): void {
-    const { data, updateUser, updateClock } = this.props
+  gqlLogic(): void {
+    const { data, changeToFalseIsDuringClockIn, updateClock } = this.props
 
     const userId = data.user.id
     const clockOut = () => new Date().toISOString()
 
-    updateUser({
+    changeToFalseIsDuringClockIn({
       variables: { userId },
-      refetchQueries: [{ query: fetchUserQuery }]
+      refetchQueries: [
+        {
+          query: gql`
+            query {
+              user {
+                id
+                isDuringClockIn
+              }
+            }
+          `
+        }
+      ]
     }).catch(() => {
       alert('error occurred when updateUser on clockout')
     })
@@ -49,11 +68,14 @@ export class ClockoutButton extends Component<Props> {
   }
 
   render() {
+    const { data } = this.props
+    if (data.loading) return null
+
     return (
       <Button
         primary
         color={red}
-        onClick={this.recordClockoutTimeToGraphcool}
+        onClick={this.gqlLogic}
         data-test="clock-out-btn"
       >
         clock out
@@ -62,7 +84,18 @@ export class ClockoutButton extends Component<Props> {
   }
 }
 
-const updateUser = gql`
+const query = gql`
+  query {
+    user {
+      id
+      clocks {
+        id
+      }
+    }
+  }
+`
+
+const changeToFalseIsDuringClockIn = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: false) {
       isDuringClockIn
@@ -81,8 +114,9 @@ const updateClock = gql`
 `
 
 export default compose(
-  graphql(updateUser, {
-    name: 'updateUser'
+  graphql(query),
+  graphql(changeToFalseIsDuringClockIn, {
+    name: 'changeToFalseIsDuringClockIn'
   }),
   graphql(updateClock, {
     name: 'updateClock'

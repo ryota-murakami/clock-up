@@ -1,34 +1,59 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
-import ClockoutBtn from './ClockoutButton'
-import type { GraphQLQueryResult } from '../../types/GraphQLQueryResult'
+import ClockoutButton from './ClockoutButton'
+
+type User = {
+  id: string,
+  isDuringClockIn: boolean
+}
+
+type GraphQLData = {
+  user: User,
+  loading: boolean
+}
 
 type Props = {
-  data: GraphQLQueryResult
+  data: GraphQLData
 }
+
 export class Control extends Component<Props> {
   render() {
     const { data } = this.props
 
+    if (data.loading) return null
+
     if (data.user.isDuringClockIn) {
       return (
         <ClockoutContainer>
-          <ClockinTime data={data} />
-          <ClockoutBtn data={data} />
+          <ClockinTime />
+          <ClockoutButton />
         </ClockoutContainer>
       )
     } else {
       return (
         <ClockinContainer>
-          <ClockinButton data={data} />
+          <ClockinButton />
         </ClockinContainer>
       )
     }
   }
 }
+
+const query = gql`
+  query {
+    user {
+      id
+      isDuringClockIn
+    }
+  }
+`
+
+export default graphql(query)(Control)
 
 const ClockoutContainer = styled.div`
   display: flex;
@@ -43,5 +68,3 @@ const ClockinContainer = styled.div`
   justify-content: flex-end;
   padding: 0 20px;
 `
-
-export default Control

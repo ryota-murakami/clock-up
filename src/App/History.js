@@ -1,22 +1,45 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
 import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
 import { Select } from '../common/components/Select'
 
+type Clocks = Array<{
+  id: string,
+  clockIn: string,
+  clockOut: string,
+  createdAt: string,
+  updatedAt: string
+}>
+
+type User = {
+  clocks: Clocks
+}
+
+type GraqhQLData = {
+  user: User,
+  loading: boolean
+}
+
 type Props = {
-  clocks: Array<Object>
+  data: GraqhQLData
 }
 
 export class History extends Component<Props> {
+  // TODO to be implement
   renewGQL() {
     console.log('renewGQL')
   }
 
   render() {
-    const { clocks } = this.props
+    const { loading } = this.props.data
+    if (loading) return null
+
+    const { clocks } = this.props.data.user
 
     var history = []
     if (clocks.length) {
@@ -60,9 +83,9 @@ export class History extends Component<Props> {
       <Container>
         <Header>History</Header>
         <SelectBoxWrapper>
-          <Select onChange={this.renewGQL} defaultValue={'latest 1month'}>
-            <option value="latest 1week">latest 1week</option>
-            <option value="latest 1month">latest 1month</option>
+          <Select onChange={this.renewGQL} defaultValue={'1week'}>
+            <option value="1week">1week</option>
+            <option value="1month">1month</option>
             <option>2018/01</option>
           </Select>
         </SelectBoxWrapper>
@@ -82,6 +105,24 @@ export class History extends Component<Props> {
   }
 }
 
+// TODO variable props search query
+const UserClocksQuery = gql`
+  query FetchUserClocks {
+    user {
+      id
+      clocks(first: 7, orderBy: createdAt_ASC) {
+        id
+        clockIn
+        clockOut
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`
+
+export default graphql(UserClocksQuery)(History)
+
 const Container = styled.div`
   color: ${textColor};
 `
@@ -99,5 +140,3 @@ const Header = styled.div`
   font-size: 1.2em;
   border-bottom: 1px solid ${borderColor};
 `
-
-export default History

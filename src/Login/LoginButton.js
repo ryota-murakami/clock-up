@@ -5,36 +5,33 @@ import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import { Button } from '../common/components/Button'
 import { green } from '../common/CSS'
+import type { Match, Location, RouterHistory } from 'react-router'
 
 type Props = {
   lock: Auth0Lock,
-  // withRouter()
-  match: any,
-  location: any,
-  history: any
+  match: Match,
+  location: Location,
+  history: RouterHistory
 }
 
 export class LoginButton extends Component<Props> {
-  showLogin: Function
+  showAuth0LoginModal: Function
 
   constructor(props: Props) {
     super(props)
-    this.showLogin = this.showLogin.bind(this)
+    this.showAuth0LoginModal = this.showAuth0LoginModal.bind(this)
   }
 
   componentDidMount() {
     const { lock } = this.props
-    // Auth0のログインモーダルで認証 -> コールバックURLへ帰還した時の処理
+    // success Auth0 modal authentication -> come back to callback url from auth0
     lock.on('authenticated', authResult => {
       window.localStorage.setItem(AUTH0_ID_TOKEN, authResult.idToken)
       this.props.history.push(`/createuser`)
     })
   }
 
-  /**
-   * Auth0のログインモーダルを表示
-   */
-  showLogin() {
+  showAuth0LoginModal() {
     const { lock } = this.props
     lock.show({
       auth: {
@@ -47,7 +44,11 @@ export class LoginButton extends Component<Props> {
 
   render() {
     return (
-      <MyButton color={green} onClick={this.showLogin} data-test="login-btn">
+      <MyButton
+        color={green}
+        onClick={this.showAuth0LoginModal}
+        data-test="login-btn"
+      >
         Login
       </MyButton>
     )

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import CreateUser from './CreateUser'
 import Login from './Login'
-import registerServiceWorker from './registerServiceWorker'
 import Auth0Lock from 'auth0-lock'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -87,4 +86,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-registerServiceWorker()

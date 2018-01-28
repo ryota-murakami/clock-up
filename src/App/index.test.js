@@ -67,10 +67,10 @@ describe('<App />', () => {
         expect(wrapper.find('LogoutButton').exists()).toEqual(true)
       })
 
-      it('コントロールが表示されること', () => {
+      it('should be display control', () => {
         const wrapper = setup(data)
 
-        expect(wrapper.find('Control').exists()).toEqual(true)
+        expect(wrapper.find('Apollo(Control)').exists()).toEqual(true)
       })
     })
   })

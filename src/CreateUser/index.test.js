@@ -22,14 +22,14 @@ describe('<CreateUser />', () => {
     })
   })
   describe('data.loading == false', () => {
-    describe('isFreshUser() == true', () => {
-      const createUser = jest.fn()
-      const isFreshUser = jest.fn().mockReturnValue(true)
+    describe('isNotExistUserInAuth0() == true', () => {
+      const emptyMock = jest.fn()
+      const returnTrueMock = jest.fn().mockReturnValue(true)
 
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.createUser = createUser
-        CreateUser.prototype.isFreshUser = isFreshUser
+        CreateUser.prototype.InsertUserDataToAuth0 = emptyMock
+        CreateUser.prototype.isNotExistUserInAuth0 = returnTrueMock
         const wrapper = shallow(<CreateUser data={data} />)
 
         return wrapper
@@ -45,10 +45,10 @@ describe('<CreateUser />', () => {
         expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
-      it('createUser()が起動すること', () => {
+      it('sould be fire InsertUserDataToAuth0()', () => {
         setup()
 
-        expect(createUser).toBeCalled()
+        expect(emptyMock).toBeCalled()
       })
 
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
@@ -57,13 +57,14 @@ describe('<CreateUser />', () => {
         expect(wrapper.find('Redirect').exists()).toEqual(true)
       })
     })
-    describe('isFreshUser() == false', () => {
-      const createUser = jest.fn()
-      const isFreshUser = jest.fn().mockReturnValue(false)
+    describe('isNotExistUserInAuth0() == false', () => {
+      const emptyMock = jest.fn()
+      const returnFalseMock = jest.fn().mockReturnValue(false)
+
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.createUser = createUser
-        CreateUser.prototype.isFreshUser = isFreshUser
+        CreateUser.prototype.InsertUserDataToAuth0 = emptyMock
+        CreateUser.prototype.isNotExistUserInAuth0 = returnFalseMock
         const wrapper = shallow(<CreateUser data={data} />)
 
         return wrapper
@@ -79,10 +80,10 @@ describe('<CreateUser />', () => {
         expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
-      it('createUser()が起動しないこと', () => {
+      it('should not fire InsertUserDataToAuth0()', () => {
         setup()
 
-        expect(createUser).not.toBeCalled()
+        expect(emptyMock).not.toBeCalled()
       })
 
       it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {

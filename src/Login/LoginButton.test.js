@@ -34,7 +34,7 @@ describe('<LoginButton />', () => {
     // LoginBtnのshowLogin()メソッドをモックする
     const lock = new Auth0Lock('story', 'book')
     const mockFunc = jest.fn()
-    LoginButton.prototype.showLogin = mockFunc
+    LoginButton.prototype.showAuth0LoginModal = mockFunc
     const wrapper = shallow(<LoginButton lock={lock} />)
 
     wrapper.find(sel('login-btn')).simulate('click')

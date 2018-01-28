@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
-import type { MapStateToProps, MapDispatchToProps } from 'react-redux'
+import gql from 'graphql-tag'
 import { connect } from 'react-redux'
 import Loading from '../common/components/Loading'
 import { Header } from '../common/components/Header'
@@ -10,28 +10,34 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
 import styled from 'styled-components'
 import History from './History'
-import { fetchUserQuery } from '../common/GraphQL'
 import { borderColor } from '../common/CSS'
 import Control from './Control/index'
 import { syncDate } from './actionCreator'
-import type { GraphQLQueryResult } from '../types/GraphQLQueryResult'
+import type { MapStateToProps, MapDispatchToProps } from 'react-redux'
+import type { Match, Location, RouterHistory } from 'react-router'
+
+type User = {
+  id: string
+}
+
+type GraphQLData = {
+  user: User,
+  loading: boolean
+}
 
 type Props = {
-  data: GraphQLQueryResult,
+  data: GraphQLData,
   syncDate: Function,
-  // withRouter()
-  match: any,
-  location: any,
-  history: any
+  match: Match,
+  location: Location,
+  history: RouterHistory
 }
 
 export class App extends Component<Props> {
   syncDate: IntervalID
 
-  isAuthenticated(): boolean {
-    const { data } = this.props
-
-    return !!data.user
+  isAuthenticated(user: User): boolean {
+    return !!user
   }
 
   componentDidMount() {
@@ -43,13 +49,13 @@ export class App extends Component<Props> {
   }
 
   render() {
-    const { data } = this.props
+    const { loading, user } = this.props.data
 
-    if (data.loading) {
+    if (loading) {
       return <Loading />
     }
 
-    if (!this.isAuthenticated()) {
+    if (!this.isAuthenticated(user)) {
       return <Redirect to="/login" />
     }
 
@@ -60,15 +66,41 @@ export class App extends Component<Props> {
         </Header>
         <Left>
           <CurrentDateTime />
-          <Control data={data} />
+          <Control />
         </Left>
         <Right>
-          <History clocks={data.user.clocks} />
+          <History />
         </Right>
       </Container>
     )
   }
 }
+
+export const query = gql`
+  query {
+    user {
+      id
+    }
+  }
+`
+
+const mapStateToProps: MapStateToProps<*, *, *> = () => {
+  return {}
+}
+
+const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
+  return {
+    syncDate: () => {
+      dispatch(syncDate())
+    }
+  }
+}
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  graphql(query),
+  withRouter
+)(App)
 
 const Container = styled.main`
   width: 100%;
@@ -95,26 +127,3 @@ const Left = styled.div`
   border-radius: 5px;
   border: 1px solid ${borderColor};
 `
-
-const mapStateToProps: MapStateToProps<*, *, *> = () => {
-  return {}
-}
-
-const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
-  return {
-    syncDate: () => {
-      dispatch(syncDate())
-    }
-  }
-}
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  graphql(fetchUserQuery, {
-    options: {
-      fetchPolicy: 'network-only',
-      notifyOnNetworkStatusChange: true
-    }
-  }),
-  withRouter
-)(App)
