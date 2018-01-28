@@ -121,6 +121,8 @@ const UserClocksQuery = gql`
   }
 `
 
+export default graphql(UserClocksQuery)(History)
+
 const Container = styled.div`
   color: ${textColor};
 `
@@ -138,5 +140,3 @@ const Header = styled.div`
   font-size: 1.2em;
   border-bottom: 1px solid ${borderColor};
 `
-
-export default graphql(UserClocksQuery)(History)
