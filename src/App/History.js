@@ -106,6 +106,7 @@ export class History extends Component<Props> {
 }
 
 // TODO variable props search query
+// give filter selectbox
 const UserClocksQuery = gql`
   query FetchUserClocks {
     user {

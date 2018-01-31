@@ -5,6 +5,9 @@ import { SYNC_DATE } from '../common/const'
 
 export type SyncDateAction = {| type: SYNC_DATE, currentTime: CurrentTime |}
 
-type FooAction = {| type: 'FOO', foo: number |} // dummy
+type InteractHistorySelectboxAction = {|
+  type: 'INTEract_HistorySelectbox',
+  foo: number
+|}
 
-export type ReduxAction = SyncDateAction | FooAction
+export type ReduxAction = SyncDateAction | InteractHistorySelectboxAction
