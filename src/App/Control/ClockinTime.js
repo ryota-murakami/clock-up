@@ -78,7 +78,7 @@ const query = gql`
   query {
     user {
       id
-      clocks {
+      clocks(last: 1) {
         id
         clockIn
       }

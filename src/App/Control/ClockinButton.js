@@ -83,6 +83,7 @@ const query = gql`
 const changeToTrueIsDuringClockIn = gql`
   mutation($userId: ID!) {
     updateUser(id: $userId, isDuringClockIn: true) {
+      id
       isDuringClockIn
     }
   }
