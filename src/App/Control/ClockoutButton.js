@@ -36,6 +36,7 @@ export class ClockoutButton extends Component<Props> {
     const { data, changeToFalseIsDuringClockIn, updateClock } = this.props
 
     const userId = data.user.id
+    const clockId = data.user.clocks[0].id
     const clockOut = () => new Date().toISOString()
 
     changeToFalseIsDuringClockIn({
@@ -46,7 +47,7 @@ export class ClockoutButton extends Component<Props> {
 
     updateClock({
       variables: {
-        clockId: data.user.clocks[0].id,
+        clockId: clockId,
         userId: userId,
         clockOut: clockOut()
       }

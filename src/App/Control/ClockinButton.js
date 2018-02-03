@@ -31,7 +31,6 @@ export class ClockinButton extends Component<Props> {
   gqlLogic(): void {
     const { data, changeToTrueIsDuringClockIn, createClock } = this.props
     const userId = data.user.id
-    const clockIn = () => new Date().toISOString()
 
     changeToTrueIsDuringClockIn({
       variables: { userId }
@@ -40,7 +39,7 @@ export class ClockinButton extends Component<Props> {
     })
 
     createClock({
-      variables: { userId: userId, clockIn: clockIn() }
+      variables: { userId: userId, clockIn: new Date().toISOString() }
     }).then(response => {
       console.log(response)
     })
