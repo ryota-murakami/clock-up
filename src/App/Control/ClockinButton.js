@@ -34,19 +34,7 @@ export class ClockinButton extends Component<Props> {
     const clockIn = () => new Date().toISOString()
 
     changeToTrueIsDuringClockIn({
-      variables: { userId },
-      refetchQueries: [
-        {
-          query: gql`
-            query {
-              user {
-                id
-                isDuringClockIn
-              }
-            }
-          `
-        }
-      ]
+      variables: { userId }
     }).then(response => {
       console.log(response)
     })

@@ -39,19 +39,7 @@ export class ClockoutButton extends Component<Props> {
     const clockOut = () => new Date().toISOString()
 
     changeToFalseIsDuringClockIn({
-      variables: { userId },
-      refetchQueries: [
-        {
-          query: gql`
-            query {
-              user {
-                id
-                isDuringClockIn
-              }
-            }
-          `
-        }
-      ]
+      variables: { userId }
     }).catch(() => {
       alert('error occurred when updateUser on clockout')
     })
