@@ -70,7 +70,7 @@ const query = gql`
   query {
     user {
       id
-      clocks(last: 1) {
+      clocks(first: 1, orderBy: createdAt_DESC) {
         id
         clockIn
         clockOut
@@ -89,7 +89,7 @@ const mutation = gql`
     updateUser(id: $userId, isDuringClockIn: false) {
       id
       isDuringClockIn
-      clocks(last: 1) {
+      clocks(first: 1, orderBy: createdAt_DESC) {
         id
         clockIn
         clockOut

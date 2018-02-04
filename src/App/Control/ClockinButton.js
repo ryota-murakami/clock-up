@@ -11,7 +11,8 @@ type User = {
 }
 
 type GraphQLData = {
-  user: User
+  user: User,
+  loading: boolean
 }
 
 type Props = {
@@ -39,6 +40,9 @@ export class ClockinButton extends Component<Props> {
   }
 
   render() {
+    const { loading } = this.props.data
+    if (loading) return null
+
     return (
       <Button
         primary
@@ -70,7 +74,7 @@ const mutation = gql`
     updateUser(id: $userId, isDuringClockIn: true) {
       id
       isDuringClockIn
-      clocks(last: 1) {
+      clocks(first: 1, orderBy: createdAt_DESC) {
         id
         clockIn
         clockOut
