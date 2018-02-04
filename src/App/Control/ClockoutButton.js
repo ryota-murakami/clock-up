@@ -43,7 +43,7 @@ export class ClockoutButton extends Component<Props> {
         userId: userId,
         clockOut: new Date().toISOString()
       }
-    }).catch((e) => {
+    }).catch(e => {
       console.log(e)
       alert('error occurred when updateClock on clockout')
     })
