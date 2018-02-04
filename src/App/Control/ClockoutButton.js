@@ -20,8 +20,7 @@ type GraphQLData = {
 
 type Props = {
   data: GraphQLData,
-  changeToFalseIsDuringClockIn: GraphQLMutation,
-  updateClock: GraphQLMutation
+  mutation: GraphQLMutation
 }
 
 export class ClockoutButton extends Component<Props> {
@@ -33,25 +32,19 @@ export class ClockoutButton extends Component<Props> {
   }
 
   gqlLogic(): void {
-    const { data, changeToFalseIsDuringClockIn, updateClock } = this.props
+    const { data, mutation } = this.props
 
     const userId = data.user.id
     const clockId = data.user.clocks[0].id
-    const clockOut = () => new Date().toISOString()
 
-    changeToFalseIsDuringClockIn({
-      variables: { userId }
-    }).catch(() => {
-      alert('error occurred when updateUser on clockout')
-    })
-
-    updateClock({
+    mutation({
       variables: {
         clockId: clockId,
         userId: userId,
-        clockOut: clockOut()
+        clockOut: new Date().toISOString()
       }
-    }).catch(() => {
+    }).catch((e) => {
+      console.log(e)
       alert('error occurred when updateClock on clockout')
     })
   }
@@ -86,31 +79,28 @@ const query = gql`
   }
 `
 
-const changeToFalseIsDuringClockIn = gql`
-  mutation($userId: ID!) {
-    updateUser(id: $userId, isDuringClockIn: false) {
-      id
-      isDuringClockIn
-    }
-  }
-`
-
-const updateClock = gql`
-  mutation($clockId: ID!, $userId: ID, $clockOut: DateTime) {
+const mutation = gql`
+  mutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
     updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
       id
       clockIn
       clockOut
+    }
+    updateUser(id: $userId, isDuringClockIn: false) {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
     }
   }
 `
 
 export default compose(
   graphql(query),
-  graphql(changeToFalseIsDuringClockIn, {
-    name: 'changeToFalseIsDuringClockIn'
-  }),
-  graphql(updateClock, {
-    name: 'updateClock'
+  graphql(mutation, {
+    name: 'mutation'
   })
 )(ClockoutButton)

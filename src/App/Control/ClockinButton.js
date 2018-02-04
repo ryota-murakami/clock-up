@@ -16,8 +16,7 @@ type GraphQLData = {
 
 type Props = {
   data: GraphQLData,
-  changeToTrueIsDuringClockIn: GraphQLMutation,
-  createClock: GraphQLMutation
+  mutation: GraphQLMutation
 }
 
 export class ClockinButton extends Component<Props> {
@@ -29,16 +28,10 @@ export class ClockinButton extends Component<Props> {
   }
 
   gqlLogic(): void {
-    const { data, changeToTrueIsDuringClockIn, createClock } = this.props
+    const { data, mutation } = this.props
     const userId = data.user.id
 
-    changeToTrueIsDuringClockIn({
-      variables: { userId }
-    }).then(response => {
-      console.log(response)
-    })
-
-    createClock({
+    mutation({
       variables: { userId: userId, clockIn: new Date().toISOString() }
     }).then(response => {
       console.log(response)
@@ -67,31 +60,28 @@ const query = gql`
   }
 `
 
-const changeToTrueIsDuringClockIn = gql`
-  mutation($userId: ID!) {
-    updateUser(id: $userId, isDuringClockIn: true) {
-      id
-      isDuringClockIn
-    }
-  }
-`
-
-const createClock = gql`
+const mutation = gql`
   mutation($userId: ID!, $clockIn: DateTime) {
     createClock(userId: $userId, clockIn: $clockIn) {
       id
       clockIn
       clockOut
     }
+    updateUser(id: $userId, isDuringClockIn: true) {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
   }
 `
 
 export default compose(
   graphql(query),
-  graphql(changeToTrueIsDuringClockIn, {
-    name: 'changeToTrueIsDuringClockIn'
-  }),
-  graphql(createClock, {
-    name: 'createClock'
+  graphql(mutation, {
+    name: 'mutation'
   })
 )(ClockinButton)
