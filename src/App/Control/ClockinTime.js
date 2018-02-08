@@ -95,6 +95,7 @@ const mapStateToProps: MapStateToProps<any, any, any> = state => {
 export default compose(connect(mapStateToProps), graphql(query))(ClockinTime)
 
 const Container = styled.div`
+  flex-basics: max-content;
   flex-grow: 3;
   color: ${textColor};
   font-size: 1.1em;
