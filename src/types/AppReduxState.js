@@ -25,8 +25,12 @@ import type { CurrentTime } from './CurrentTime'
  *      hour: '18',
  *      minutes: '54',
  *      seconds: '44'
- *    }
+ *    },
+ *    historySelectQuery: "first: 7, orderBy: createdAt_DESC"
  *  }
  *}
  */
-export type ReduxState = { currentTime: CurrentTime }
+export type ReduxState = {
+  currentTime: CurrentTime,
+  historySelectQuery: string
+}
