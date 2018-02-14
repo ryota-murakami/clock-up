@@ -2,19 +2,23 @@
 import { SYNC_DATE } from '../common/const'
 import { parseTime } from '../common/util'
 import type { CurrentTime } from '../types/CurrentTime'
-import type { ReduxState } from '../types/ReduxState'
+import type { AppReduxState } from '../types/AppReduxState'
 import type { ReduxAction } from '../types/ReduxAction'
+import type { HistorySelectQuery } from '../types/HistorySelectQuery'
 
 const currentTime: CurrentTime = parseTime(new Date())
+const historySelectQuery: HistorySelectQuery =
+  'first: 7, orderBy: createdAt_DESC'
 
-const initialState: ReduxState = {
-  currentTime: currentTime
+const initialState: AppReduxState = {
+  currentTime: currentTime,
+  historySelectQuery: historySelectQuery
 }
 
 export default function appReducer(
-  state: ReduxState = initialState,
+  state: AppReduxState = initialState,
   action: ReduxAction
-): ReduxState {
+): AppReduxState {
   switch (action.type) {
     case 'SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime

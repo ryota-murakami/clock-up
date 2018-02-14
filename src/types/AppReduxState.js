@@ -30,7 +30,7 @@ import type { CurrentTime } from './CurrentTime'
  *  }
  *}
  */
-export type ReduxState = {
+export type AppReduxState = {
   currentTime: CurrentTime,
   historySelectQuery: string
 }
