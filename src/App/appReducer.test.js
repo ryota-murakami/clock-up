@@ -33,15 +33,16 @@ describe('App/reducers', () => {
     const res = appReducer(undefined, action)
     const expectedState = {
       currentTime: {
-        dateObject: {},
-        year: '2018',
-        month: 'January',
-        days: 'Wednesday',
         date: '30',
+        dateObject: {},
+        days: 'Wednesday',
         hour: '6',
         minutes: '42',
-        seconds: '13'
-      }
+        month: 'January',
+        seconds: '13',
+        year: '2018'
+      },
+      historySelectQuery: 'first: 7, orderBy: createdAt_DESC'
     }
 
     expect(res).toEqual(expectedState)
