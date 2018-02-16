@@ -11,7 +11,17 @@
 
 > attendance management tool for personal use. https://clockup.malloc.tokyo
 
-:exclamation:Work in progress now.  
-Development roadmap will be released at a later date.
+:exclamation:still development.  
 
 ![example](demo.png)
+
+# Description
+
+clock-up is demo implementation SPA of bellow stack combination.
+
+- [react](https://github.com/facebook/react): View library
+- [redux](https://github.com/reactjs/redux): Flux architecture
+- [graphql](http://graphql.org/): query language
+  - [react-apollo](https://github.com/apollographql/react-apollo): graphql client
+  - [Graphcool](https://www.graph.cool/): BaaS of graphql
+- [netlify](https://www.netlify.com/): site deployment
