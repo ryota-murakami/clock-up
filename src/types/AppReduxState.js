@@ -1,5 +1,6 @@
 // @flow
 import type { CurrentTime } from './CurrentTime'
+import type { HistoryQueryParameter } from './HistoryQueryParameter'
 
 /**
  * ↓↓ is entire Redux State tree.
@@ -32,5 +33,5 @@ import type { CurrentTime } from './CurrentTime'
  */
 export type AppReduxState = {
   currentTime: CurrentTime,
-  historySelectQuery: string
+  historyQueryParameter: HistoryQueryParameter
 }

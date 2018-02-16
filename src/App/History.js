@@ -1,12 +1,16 @@
 // @flow
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
 import { Select } from '../common/components/Select'
+import type { MapStateToProps } from 'react-redux'
+import type { HistoryQueryParameter } from '../types/HistoryQueryParameter'
+import type { ReduxState } from '../types/ReduxState'
 
 type Clocks = Array<{
   id: string,
@@ -26,7 +30,8 @@ type GraqhQLData = {
 }
 
 type Props = {
-  data: GraqhQLData
+  data: GraqhQLData,
+  historyQueryParameter: HistoryQueryParameter
 }
 
 export class History extends Component<Props> {
@@ -105,13 +110,11 @@ export class History extends Component<Props> {
   }
 }
 
-// TODO variable props search query
-// give filter selectbox
 const UserClocksQuery = gql`
-  query FetchUserClocks {
+  query FetchUserClocks($first: Int, $orderBy: ClockOrderBy) {
     user {
       id
-      clocks(first: 7, orderBy: createdAt_DESC) {
+      clocks(first: $first, orderBy: $orderBy) {
         id
         clockIn
         clockOut
@@ -122,7 +125,27 @@ const UserClocksQuery = gql`
   }
 `
 
-export default graphql(UserClocksQuery)(History)
+type Return = { historyQueryParameter: HistoryQueryParameter }
+
+const mapStateToProps: MapStateToProps<ReduxState, Props, Return> = (
+  state: ReduxState
+) => {
+  return { historyQueryParameter: state.app.historyQueryParameter }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  graphql(UserClocksQuery, {
+    options: ({ historyQueryParameter }) => {
+      return {
+        variables: {
+          first: historyQueryParameter.first,
+          orderBy: historyQueryParameter.orderBy
+        }
+      }
+    }
+  })
+)(History)
 
 const Container = styled.div`
   color: ${textColor};

@@ -42,7 +42,7 @@ describe('App/reducers', () => {
         seconds: '13',
         year: '2018'
       },
-      historySelectQuery: 'first: 7, orderBy: createdAt_DESC'
+      historyQueryParameter: { first: 7, orderBy: 'createdAt_DESC' }
     }
 
     expect(res).toEqual(expectedState)
