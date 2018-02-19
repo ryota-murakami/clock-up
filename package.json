@@ -33,7 +33,7 @@
     "react": "^16.0.0",
     "react-apollo": "^2.0.0",
     "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
+    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -118,7 +118,7 @@
     "flow-bin": "^0.66.0",
     "jest-localstorage-mock": "^2.1.0",
     "prettier": "^1.7.4",
-    "puppeteer": "^1.0.0",
+    "puppeteer": "^1.1.0",
     "react-dev-utils": "^5.0.0",
     "webpack-dev-server": "^2.9.7"
   }
