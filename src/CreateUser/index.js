@@ -6,7 +6,6 @@ import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import Loading from '../common/components/Loading'
 
-// TODO define flow
 type Props = {
   data: Object,
   createUser: Function
