@@ -53,8 +53,6 @@ const query = gql`
   }
 `
 
-export default graphql(query)(Control)
-
 const ClockoutContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -68,3 +66,5 @@ const ClockinContainer = styled.div`
   justify-content: flex-end;
   padding: 0 20px;
 `
+
+export default graphql(query)(Control)

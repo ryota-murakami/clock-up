@@ -86,14 +86,6 @@ const query = gql`
   }
 `
 
-const mapStateToProps: MapStateToProps<any, any, any> = state => {
-  return {
-    currentTime: state.app.currentTime
-  }
-}
-
-export default compose(connect(mapStateToProps), graphql(query))(ClockinTime)
-
 const Container = styled.div`
   flex-basics: max-content;
   flex-grow: 3;
@@ -109,3 +101,11 @@ const Container = styled.div`
 `
 
 const Text = styled.div``
+
+const mapStateToProps: MapStateToProps<any, any, any> = state => {
+  return {
+    currentTime: state.app.currentTime
+  }
+}
+
+export default compose(connect(mapStateToProps), graphql(query))(ClockinTime)

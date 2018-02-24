@@ -84,24 +84,6 @@ export const query = gql`
   }
 `
 
-const mapStateToProps: MapStateToProps<*, *, *> = () => {
-  return {}
-}
-
-const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
-  return {
-    syncDate: () => {
-      dispatch(syncDate())
-    }
-  }
-}
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  graphql(query),
-  withRouter
-)(App)
-
 const Container = styled.main`
   width: 100%;
   height: 100%;
@@ -127,3 +109,21 @@ const Left = styled.div`
   border-radius: 5px;
   border: 1px solid ${borderColor};
 `
+
+const mapStateToProps: MapStateToProps<*, *, *> = () => {
+  return {}
+}
+
+const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
+  return {
+    syncDate: () => {
+      dispatch(syncDate())
+    }
+  }
+}
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  graphql(query),
+  withRouter
+)(App)
