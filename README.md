@@ -17,7 +17,7 @@
 
 # Description
 
-clock-up is demo implementation SPA of bellow stack combination.
+Clock Up is demo implementation SPA of bellow stack combination.
 
 - [react](https://github.com/facebook/react): View library
 - [redux](https://github.com/reactjs/redux): Flux architecture
