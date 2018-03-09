@@ -42,7 +42,7 @@
     "react-test-renderer": "^16.0.0",
     "style-loader": "0.20.3",
     "styled-components": "^3.0.2",
-    "sw-precache-webpack-plugin": "0.11.4",
+    "sw-precache-webpack-plugin": "0.11.5",
     "url-loader": "1.0.0",
     "webpack": "3.11.0",
     "webpack-manifest-plugin": "2.0.0-rc.2",
