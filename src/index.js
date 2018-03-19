@@ -21,6 +21,7 @@ import {
 import { AUTH0_ID_TOKEN } from './common/const'
 import './globalCSS'
 import appReducer from './App/appReducer'
+import registerServiceWorker from './registerServiceWorker'
 
 // react-router
 const history = createHistory()
@@ -86,3 +87,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+
+registerServiceWorker()
