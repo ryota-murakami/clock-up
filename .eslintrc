@@ -6,6 +6,7 @@
     ],
     "rules": {
         "prettier/prettier": ["error", {"singleQuote": true,"semi": false, "parser": "flow"}],
-        "jsx-a11y/href-no-hash": "off"
+        "jsx-a11y/href-no-hash": "off",
+        "no-unused-vars": ["error"]
     }
 }
