@@ -12,7 +12,7 @@ type Props = {
 
 export class CurrentDateTime extends Component<Props> {
   flush(seconds: string): boolean {
-    if (Number.parseInt(seconds) % 2 === 0) {
+    if (Number.parseInt(seconds, 10) % 2 === 0) {
       return true
     } else {
       return false

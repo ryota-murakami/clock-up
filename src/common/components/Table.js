@@ -29,7 +29,7 @@ export const Td = styled.td`
 `
 
 export const Tbody = styled.tbody`
-  tr:nth-child(even) > Td {
+  tr:nth-child(even) > td {
     background-color: #fafafa;
   }
 `
