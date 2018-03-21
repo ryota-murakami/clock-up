@@ -8,7 +8,7 @@ exports[`<Table /> toMatchSnapshot 1`] = `
 
 exports[`<Tbody /> toMatchSnapshot 1`] = `
 <tbody
-  className="Table__Tbody-coKAkO laniDP"
+  className="Table__Tbody-coKAkO dHtLHf"
 />
 `;
 
