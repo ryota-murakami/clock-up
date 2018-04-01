@@ -13,8 +13,9 @@ import History from './History'
 import { borderColor } from '../common/CSS'
 import Control from './Control/index'
 import { syncDate } from './actionCreator'
-import type { MapStateToProps, MapDispatchToProps } from 'react-redux'
 import type { Match, Location, RouterHistory } from 'react-router'
+import type { Dispatch } from 'redux'
+import type { ReduxAction } from '../types/ReduxAction'
 
 type User = {
   id: string
@@ -110,11 +111,7 @@ const Left = styled.div`
   border: 1px solid ${borderColor};
 `
 
-const mapStateToProps: MapStateToProps<*, *, *> = () => {
-  return {}
-}
-
-const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch<ReduxAction>) => {
   return {
     syncDate: () => {
       dispatch(syncDate())
@@ -123,7 +120,7 @@ const mapDispatchToProps: MapDispatchToProps<*, *, *> = dispatch => {
 }
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(null, mapDispatchToProps),
   graphql(query),
   withRouter
 )(App)

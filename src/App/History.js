@@ -8,7 +8,6 @@ import { borderColor, textColor } from '../common/CSS'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../common/util'
 import { Table, Tr, Td, Tbody, Th } from '../common/components/Table'
 import { Select } from '../common/components/Select'
-import type { MapStateToProps } from 'react-redux'
 import type { HistoryQueryParameter } from '../types/HistoryQueryParameter'
 import type { ReduxState } from '../types/ReduxState'
 
@@ -143,11 +142,7 @@ const Header = styled.div`
   border-bottom: 1px solid ${borderColor};
 `
 
-type Return = { historyQueryParameter: HistoryQueryParameter }
-
-const mapStateToProps: MapStateToProps<ReduxState, Props, Return> = (
-  state: ReduxState
-) => {
+const mapStateToProps = (state: ReduxState) => {
   return { historyQueryParameter: state.app.historyQueryParameter }
 }
 

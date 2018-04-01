@@ -6,9 +6,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { borderColor, textColor } from '../../common/CSS'
 import { calcTotalTime } from '../../common/util'
-import type { MapStateToProps } from 'react-redux'
 import type { CurrentTime } from '../../types/CurrentTime'
-import type { ReduxState } from '../../types/ReduxState'
 
 type User = {
   id: string,
@@ -103,11 +101,7 @@ const Container = styled.div`
 
 const Text = styled.div``
 
-const mapStateToProps: MapStateToProps<
-  ReduxState,
-  GraphQLdata,
-  Object
-> = state => {
+const mapStateToProps = state => {
   return {
     currentTime: state.app.currentTime
   }

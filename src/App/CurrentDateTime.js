@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { borderColor, textColor } from '../common/CSS'
 import { connect } from 'react-redux'
-import type { MapStateToProps } from 'react-redux'
 import type { CurrentTime } from '../types/CurrentTime'
 
 type Props = {
@@ -67,7 +66,7 @@ const Time = styled.div`
   text-align: center;
 `
 
-const mapStateToProps: MapStateToProps<*, *, *> = state => {
+const mapStateToProps = state => {
   return {
     currentTime: state.app.currentTime
   }
