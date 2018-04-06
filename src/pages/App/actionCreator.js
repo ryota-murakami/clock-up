@@ -1,6 +1,6 @@
-import { parseTime } from '../common/util'
+import { parseTime } from '../../util'
 import type { CurrentTime } from '../types/CurrentTime'
-import { SYNC_DATE } from '../common/const'
+import { SYNC_DATE } from '../../const'
 import type { SyncDateAction } from '../types/ReduxAction'
 
 export function syncDate(): SyncDateAction {

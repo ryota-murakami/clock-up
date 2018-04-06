@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react'
-import { AUTH0_ID_TOKEN } from '../common/const'
-import { Button } from '../common/components/Button'
-import { gray } from '../common/css'
+import { AUTH0_ID_TOKEN } from '../../const'
+import { Button } from '../../elements/Button'
+import { gray } from '../../css'
 
 type Props = {}
 

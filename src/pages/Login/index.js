@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import LoginButton from './LoginButton'
-import { A } from '../common/components/A'
+import { A } from '../../elements/A'
 import type { Match, Location, RouterHistory } from 'react-router'
 
 type Props = {
@@ -13,7 +13,6 @@ type Props = {
   location: Location,
   history: RouterHistory
 }
-
 export class Login extends Component<Props> {
   render() {
     const { lock } = this.props

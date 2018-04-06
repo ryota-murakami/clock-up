@@ -420,10 +420,10 @@ declare module '@storybook/addon-actions/src/preview.test' {
 
 // Filename aliases
 declare module '@storybook/addon-actions/dist/components/ActionLogger/index.js' {
-  declare module.exports: $Exports<'@storybook/addon-actions/dist/components/ActionLogger/index'>;
+  declare module.exports: $Exports<'@storybook/addon-actions/dist/elements/ActionLogger/index'>;
 }
 declare module '@storybook/addon-actions/dist/components/ActionLogger/style.js' {
-  declare module.exports: $Exports<'@storybook/addon-actions/dist/components/ActionLogger/style'>;
+  declare module.exports: $Exports<'@storybook/addon-actions/dist/elements/ActionLogger/style'>;
 }
 declare module '@storybook/addon-actions/dist/containers/ActionLogger/index.js' {
   declare module.exports: $Exports<'@storybook/addon-actions/dist/containers/ActionLogger/index'>;
@@ -540,10 +540,10 @@ declare module '@storybook/addon-actions/register.js' {
   declare module.exports: $Exports<'@storybook/addon-actions/register'>;
 }
 declare module '@storybook/addon-actions/src/components/ActionLogger/index.js' {
-  declare module.exports: $Exports<'@storybook/addon-actions/src/components/ActionLogger/index'>;
+  declare module.exports: $Exports<'@storybook/addon-actions/src/elements/ActionLogger/index'>;
 }
 declare module '@storybook/addon-actions/src/components/ActionLogger/style.js' {
-  declare module.exports: $Exports<'@storybook/addon-actions/src/components/ActionLogger/style'>;
+  declare module.exports: $Exports<'@storybook/addon-actions/src/elements/ActionLogger/style'>;
 }
 declare module '@storybook/addon-actions/src/containers/ActionLogger/index.js' {
   declare module.exports: $Exports<'@storybook/addon-actions/src/containers/ActionLogger/index'>;

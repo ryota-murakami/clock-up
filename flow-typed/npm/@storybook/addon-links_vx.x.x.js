@@ -89,7 +89,7 @@ declare module '@storybook/addon-links/dist/preview.js' {
   declare module.exports: $Exports<'@storybook/addon-links/dist/preview'>;
 }
 declare module '@storybook/addon-links/dist/react/components/link.js' {
-  declare module.exports: $Exports<'@storybook/addon-links/dist/react/components/link'>;
+  declare module.exports: $Exports<'@storybook/addon-links/dist/react/elements/link'>;
 }
 declare module '@storybook/addon-links/dist/react/index.js' {
   declare module.exports: $Exports<'@storybook/addon-links/dist/react/index'>;
@@ -113,10 +113,10 @@ declare module '@storybook/addon-links/src/preview.test.js' {
   declare module.exports: $Exports<'@storybook/addon-links/src/preview.test'>;
 }
 declare module '@storybook/addon-links/src/react/components/link.js' {
-  declare module.exports: $Exports<'@storybook/addon-links/src/react/components/link'>;
+  declare module.exports: $Exports<'@storybook/addon-links/src/react/elements/link'>;
 }
 declare module '@storybook/addon-links/src/react/components/link.test.js' {
-  declare module.exports: $Exports<'@storybook/addon-links/src/react/components/link.test'>;
+  declare module.exports: $Exports<'@storybook/addon-links/src/react/elements/link.test'>;
 }
 declare module '@storybook/addon-links/src/react/index.js' {
   declare module.exports: $Exports<'@storybook/addon-links/src/react/index'>;

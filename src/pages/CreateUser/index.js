@@ -3,8 +3,8 @@ import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { AUTH0_ID_TOKEN } from '../common/const'
-import Loading from '../common/components/Loading'
+import { AUTH0_ID_TOKEN } from '../../const'
+import Loading from '../../elements/Loading'
 
 type Props = {
   data: Object,

@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import CreateUser from './CreateUser'
-import Login from './Login'
+import App from './pages/App'
+import CreateUser from './pages/CreateUser'
+import Login from './pages/Login'
 import Auth0Lock from 'auth0-lock'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -18,9 +18,9 @@ import {
   routerReducer,
   routerMiddleware
 } from 'react-router-redux'
-import { AUTH0_ID_TOKEN } from './common/const'
+import { AUTH0_ID_TOKEN } from './const'
 import './index.css'
-import appReducer from './App/appReducer'
+import appReducer from './pages/App/appReducer'
 import registerServiceWorker from './registerServiceWorker'
 
 // react-router

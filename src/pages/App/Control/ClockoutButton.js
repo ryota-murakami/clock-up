@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { Button } from '../../common/components/Button'
-import { red } from '../../common/css'
+import { Button } from '../../../elements/Button'
+import { red } from '../../../css'
 import type { GraphQLMutation } from '../../types/GraphQLMutation'
 
 type User = {

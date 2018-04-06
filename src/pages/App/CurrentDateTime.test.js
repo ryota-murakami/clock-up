@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { CurrentDateTime } from './CurrentDateTime'
 import type { CurrentTime } from '../types/CurrentTime'
-import { parseTime } from '../common/util'
+import { parseTime } from '../../util'
 
 describe('<CurrentDateTime />', () => {
   const currentTime: CurrentTime = parseTime(new Date())

@@ -1,5 +1,5 @@
 import appReducer from './appReducer'
-import { SYNC_DATE } from '../common/const'
+import { SYNC_DATE } from '../../const'
 
 describe('App/reducers', () => {
   it('should be return the initial state', () => {

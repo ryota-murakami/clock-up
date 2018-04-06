@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor, textColor } from '../common/css'
+import { borderColor, textColor } from '../../css'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../types/CurrentTime'
 
