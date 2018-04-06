@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import { Button } from '../common/components/Button'
-import { gray } from '../common/CSS'
+import { gray } from '../common/css'
 
 type Props = {}
 

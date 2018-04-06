@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { LoginButton } from './LoginButton'
 import Auth0Lock from 'auth0-lock'
-import { sel } from '../common/testUtil'
+import { sel } from '../common/testutil'
 
 describe('<LoginButton />', () => {
   function setup() {

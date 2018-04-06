@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import { borderColor, textColor } from '../../common/CSS'
+import { borderColor, textColor } from '../../common/css'
 import { calcTotalTime } from '../../common/util'
 import type { CurrentTime } from '../../types/CurrentTime'
 

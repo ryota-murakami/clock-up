@@ -4,7 +4,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../common/const'
 import { Button } from '../common/components/Button'
-import { green } from '../common/CSS'
+import { green } from '../common/css'
 import type { Match, Location, RouterHistory } from 'react-router'
 
 type Props = {
