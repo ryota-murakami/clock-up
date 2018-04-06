@@ -25,6 +25,3 @@ Clock Up is demo implementation SPA of bellow stack combination.
   - [react-apollo](https://github.com/apollographql/react-apollo): graphql client
   - [Graphcool](https://www.graph.cool/): BaaS of graphql
 - [netlify](https://www.netlify.com/): site deployment
-
-# Contributions
-to be defined
