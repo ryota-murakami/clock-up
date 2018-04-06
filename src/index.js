@@ -19,7 +19,7 @@ import {
   routerMiddleware
 } from 'react-router-redux'
 import { AUTH0_ID_TOKEN } from './common/const'
-import './globalCSS'
+import './index.css'
 import appReducer from './App/appReducer'
 import registerServiceWorker from './registerServiceWorker'
 
