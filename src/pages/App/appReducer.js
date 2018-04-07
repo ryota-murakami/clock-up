@@ -23,8 +23,8 @@ export default function appReducer(
   switch (action.type) {
     case 'SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime
-
       return Object.assign({}, state, { currentTime: currentTime })
+
     default:
       return state
   }

@@ -5,6 +5,31 @@ import { borderColor, textColor } from '../../css'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../../types/CurrentTime'
 
+const Container = styled.div`
+  height: 25%;
+  border: 1px solid ${borderColor};
+  margin: 20px;
+  padding: 60px;
+  border-radius: 5px;
+`
+
+const Day = styled.div`
+  height: 30%;
+  color: ${textColor};
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const Time = styled.div`
+  height: 70%;
+  color: ${textColor};
+  font-size: 7em;
+  text-align: center;
+`
+
 type Props = {
   currentTime: CurrentTime
 }
@@ -40,31 +65,6 @@ export class CurrentDateTime extends Component<Props> {
     )
   }
 }
-
-const Container = styled.div`
-  height: 25%;
-  border: 1px solid ${borderColor};
-  margin: 20px;
-  padding: 60px;
-  border-radius: 5px;
-`
-
-const Day = styled.div`
-  height: 30%;
-  color: ${textColor};
-  font-size: 1.5em;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-
-const Time = styled.div`
-  height: 70%;
-  color: ${textColor};
-  font-size: 7em;
-  text-align: center;
-`
 
 const mapStateToProps = state => {
   return {

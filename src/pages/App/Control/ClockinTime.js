@@ -9,6 +9,22 @@ import { borderColor, textColor } from '../../../css'
 import { calcTotalTime } from '../../../util'
 import type { CurrentTime } from '../../../types/CurrentTime'
 
+const Container = styled.div`
+  flex-basics: max-content;
+  flex-grow: 3;
+  color: ${textColor};
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid ${borderColor};
+  border-radius: 5px;
+  margin: 0 10px;
+`
+
+const Text = styled.div``
+
 type User = {
   id: string,
   clocks: Array<{
@@ -85,22 +101,6 @@ const query = gql`
     }
   }
 `
-
-const Container = styled.div`
-  flex-basics: max-content;
-  flex-grow: 3;
-  color: ${textColor};
-  font-size: 1.1em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid ${borderColor};
-  border-radius: 5px;
-  margin: 0 10px;
-`
-
-const Text = styled.div``
 
 const mapStateToProps = state => {
   return {

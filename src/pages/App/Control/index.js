@@ -7,6 +7,20 @@ import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutButton from './ClockoutButton'
 
+const ClockoutContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+`
+
+const ClockinContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 20px;
+`
+
 type User = {
   id: string,
   isDuringClockIn: boolean
@@ -51,20 +65,6 @@ const query = gql`
       isDuringClockIn
     }
   }
-`
-
-const ClockoutContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0 20px;
-`
-
-const ClockinContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 20px;
 `
 
 export default graphql(query)(Control)

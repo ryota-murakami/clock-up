@@ -12,6 +12,24 @@ import { Select } from '../../elements/Select'
 import type { HistoryQueryParameter } from '../../types/HistoryQueryParameter'
 import type { ReduxState } from '../../types/ReduxState'
 
+const Container = styled.div`
+  color: ${textColor};
+`
+
+const SelectBoxWrapper = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
+
+const Header = styled.div`
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.2em;
+  border-bottom: 1px solid ${borderColor};
+`
+
 type Clocks = Array<{
   id: string,
   clockIn: string,
@@ -123,24 +141,6 @@ const UserClocksQuery = gql`
       }
     }
   }
-`
-
-const Container = styled.div`
-  color: ${textColor};
-`
-
-const SelectBoxWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`
-
-const Header = styled.div`
-  padding: 10px 0;
-  text-align: center;
-  font-size: 1.2em;
-  border-bottom: 1px solid ${borderColor};
 `
 
 const mapStateToProps = (state: ReduxState) => {
