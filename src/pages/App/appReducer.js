@@ -25,6 +25,29 @@ export default function appReducer(
       const currentTime: CurrentTime = action.currentTime
       return { ...state, currentTime: currentTime }
 
+    // TODO date period
+    case 'CHANGE_HISTORY':
+      let first = ''
+      switch (action.period) {
+        case '1week':
+          first = 7
+          break
+        case '1month':
+          first = 30
+          break
+        case 'all':
+          first = 100
+          break
+        default:
+          first = 7
+          break
+      }
+      const historyQueryParameter: HistoryQueryParameter = {
+        first: first,
+        orderBy: 'createdAt_DESC'
+      }
+      return { ...state, historyQueryParameter: historyQueryParameter }
+
     default:
       return state
   }

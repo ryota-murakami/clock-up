@@ -20,8 +20,10 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
       >
         1month
       </option>
-      <option>
-        2018/01
+      <option
+        value="all"
+      >
+        all
       </option>
     </Select>
   </History__SelectBoxWrapper>
@@ -80,8 +82,10 @@ exports[`<History /> pass first time clock in data should be match snapshot 1`] 
       >
         1month
       </option>
-      <option>
-        2018/01
+      <option
+        value="all"
+      >
+        all
       </option>
     </Select>
   </History__SelectBoxWrapper>

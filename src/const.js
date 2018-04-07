@@ -11,3 +11,4 @@ export const AUTH0_ID_TOKEN = 'auth0IdToken'
  * Redux Action
  */
 export const SYNC_DATE = 'SYNC_DATE'
+export const CHANGE_HISTORY = 'CHANGE_HISTORY'

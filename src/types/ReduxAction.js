@@ -1,13 +1,15 @@
 // @flow
 
 import type { CurrentTime } from './CurrentTime'
-import { SYNC_DATE } from '../const'
+import { SYNC_DATE, CHANGE_HISTORY } from '../const'
 
-export type SyncDateAction = {| type: SYNC_DATE, currentTime: CurrentTime |}
+export type SyncDateAction = { type: SYNC_DATE, currentTime: CurrentTime }
 
-type InteractHistorySelectboxAction = {|
-  type: 'INTEract_HistorySelectbox',
-  foo: number
-|}
+export type Period = '1week' | '1month' | 'all'
 
-export type ReduxAction = SyncDateAction | InteractHistorySelectboxAction
+type ChangeHistoryAction = {
+  type: CHANGE_HISTORY,
+  period: Period
+}
+
+export type ReduxAction = SyncDateAction | ChangeHistoryAction

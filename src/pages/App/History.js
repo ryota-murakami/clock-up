@@ -9,8 +9,11 @@ import { borderColor, textColor } from '../../css'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../util'
 import { Table, Tr, Td, Tbody, Th } from '../../elements/Table'
 import { Select } from '../../elements/Select'
+import { CHANGE_HISTORY } from '../../const'
+import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../types/HistoryQueryParameter'
-import type { ReduxState } from '../../types/ReduxState'
+import type { RootReduxState } from '../../types/RootReduxState'
+import type { Period, ReduxAction } from '../../types/ReduxAction'
 
 const Container = styled.div`
   color: ${textColor};
@@ -49,13 +52,16 @@ type GraqhQLData = {
 
 type Props = {
   data: GraqhQLData,
-  historyQueryParameter: HistoryQueryParameter
+  historyQueryParameter: HistoryQueryParameter,
+  dispatch: Dispatch<ReduxAction>
 }
 
 export class History extends Component<Props> {
-  // TODO to be implement
-  renewGQL() {
-    console.log('renewGQL')
+  renewGQL(value: Period) {
+    this.props.dispatch({
+      type: CHANGE_HISTORY,
+      period: value
+    })
   }
 
   render() {
@@ -106,10 +112,13 @@ export class History extends Component<Props> {
       <Container>
         <Header>History</Header>
         <SelectBoxWrapper>
-          <Select onChange={this.renewGQL} defaultValue={'1week'}>
+          <Select
+            onChange={e => this.renewGQL(e.target.value)}
+            defaultValue={'1week'}
+          >
             <option value="1week">1week</option>
             <option value="1month">1month</option>
-            <option>2018/01</option>
+            <option value="all">all</option>
           </Select>
         </SelectBoxWrapper>
         <Table>
@@ -143,7 +152,7 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state: ReduxState) => {
+const mapStateToProps = (state: RootReduxState) => {
   return { historyQueryParameter: state.app.historyQueryParameter }
 }
 
