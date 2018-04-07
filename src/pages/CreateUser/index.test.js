@@ -28,7 +28,7 @@ describe('<CreateUser />', () => {
 
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.InsertUserDataToAuth0 = emptyMock
+        CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnTrueMock
         const wrapper = shallow(<CreateUser data={data} />)
 
@@ -63,7 +63,7 @@ describe('<CreateUser />', () => {
 
       function setup() {
         const data = { loading: false }
-        CreateUser.prototype.InsertUserDataToAuth0 = emptyMock
+        CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnFalseMock
         const wrapper = shallow(<CreateUser data={data} />)
 

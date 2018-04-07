@@ -19,7 +19,7 @@ export class CreateUser extends React.Component<Props> {
     return !data.user || window.localStorage.getItem(AUTH0_ID_TOKEN) !== null
   }
 
-  InsertUserDataToAuth0(): void {
+  insertUserDataToAuth0(): void {
     const { createUser } = this.props
 
     const variables = {
@@ -44,7 +44,7 @@ export class CreateUser extends React.Component<Props> {
     }
 
     if (this.isNotExistUserInAuth0()) {
-      this.InsertUserDataToAuth0()
+      this.insertUserDataToAuth0()
     }
 
     return (
