@@ -2,11 +2,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { borderColor, textColor } from '../../../css'
 import { calcTotalTime } from '../../../util'
-import type { CurrentTime } from '../../types/CurrentTime'
+import type { CurrentTime } from '../../../types/CurrentTime'
 
 type User = {
   id: string,

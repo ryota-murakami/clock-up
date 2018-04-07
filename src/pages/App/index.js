@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { connect } from 'react-redux'
 import Loading from '../../elements/Loading'
@@ -15,7 +16,7 @@ import Control from './Control/index'
 import { syncDate } from './actionCreator'
 import type { Match, Location, RouterHistory } from 'react-router'
 import type { Dispatch } from 'redux'
-import type { ReduxAction } from '../types/ReduxAction'
+import type { ReduxAction } from '../../types/ReduxAction'
 
 type User = {
   id: string

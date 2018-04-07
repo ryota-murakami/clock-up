@@ -3,13 +3,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import gql from 'graphql-tag'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { compose } from 'redux'
 import { borderColor, textColor } from '../../css'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../util'
 import { Table, Tr, Td, Tbody, Th } from '../../elements/Table'
 import { Select } from '../../elements/Select'
-import type { HistoryQueryParameter } from '../types/HistoryQueryParameter'
-import type { ReduxState } from '../types/ReduxState'
+import type { HistoryQueryParameter } from '../../types/HistoryQueryParameter'
+import type { ReduxState } from '../../types/ReduxState'
 
 type Clocks = Array<{
   id: string,

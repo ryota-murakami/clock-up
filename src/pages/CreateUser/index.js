@@ -1,7 +1,8 @@
 // @flow
 import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../../const'
 import Loading from '../../elements/Loading'
@@ -77,5 +78,6 @@ export default compose(
   graphql(userQuery, {
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
   }),
+  // $FlowFixMe @see https://github.com/flowtype/flow-typed/issues/1914
   withRouter
 )(CreateUser)

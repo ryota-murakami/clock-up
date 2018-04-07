@@ -1,10 +1,11 @@
 // @flow
 import React, { Component } from 'react'
-import { graphql, compose } from 'react-apollo'
+import { graphql } from 'react-apollo'
+import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
 import { green } from '../../../css'
-import type { GraphQLMutation } from '../../types/GraphQLMutation'
+import type { GraphQLMutation } from '../../../types/GraphQLMutation'
 
 type User = {
   id: string

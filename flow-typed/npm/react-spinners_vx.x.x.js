@@ -326,19 +326,19 @@ declare module 'react-spinners/docs/vendor.js' {
   declare module.exports: $Exports<'react-spinners/docs/vendor'>;
 }
 declare module 'react-spinners/examples/components/code.jsx' {
-  declare module.exports: $Exports<'react-spinners/examples/elements/code'>;
+  declare module.exports: $Exports<'react-spinners/examples/components/code'>;
 }
 declare module 'react-spinners/examples/components/color_picker.jsx' {
-  declare module.exports: $Exports<'react-spinners/examples/elements/color_picker'>;
+  declare module.exports: $Exports<'react-spinners/examples/components/color_picker'>;
 }
 declare module 'react-spinners/examples/components/form.jsx' {
-  declare module.exports: $Exports<'react-spinners/examples/elements/form'>;
+  declare module.exports: $Exports<'react-spinners/examples/components/form'>;
 }
 declare module 'react-spinners/examples/components/index.js' {
-  declare module.exports: $Exports<'react-spinners/examples/elements/index'>;
+  declare module.exports: $Exports<'react-spinners/examples/components/index'>;
 }
 declare module 'react-spinners/examples/components/loader_item.jsx' {
-  declare module.exports: $Exports<'react-spinners/examples/elements/loader_item'>;
+  declare module.exports: $Exports<'react-spinners/examples/components/loader_item'>;
 }
 declare module 'react-spinners/examples/index.jsx' {
   declare module.exports: $Exports<'react-spinners/examples/index'>;
