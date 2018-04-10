@@ -1,4 +1,5 @@
 // @flow
+import { routerReducer } from 'react-router-redux'
 
 export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
 
@@ -54,4 +55,10 @@ export type CurrentTime = {
 export type AppReduxState = {
   currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter
+}
+
+type RouterReducer = routerReducer
+export type RootReduxState = {
+  app: AppReduxState,
+  router: RouterReducer
 }
