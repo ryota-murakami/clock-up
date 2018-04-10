@@ -16,6 +16,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
       "!src/index.js",
+      "!src/index.css.js",
       "!src/registerServiceWorker.js",
       "!src/globalCSS.js",
       "!src/types/**/*"
