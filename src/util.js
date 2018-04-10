@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from './types/AppReduxState'
+import type { CurrentTime } from './types/ReduxState'
 
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
   const days = []

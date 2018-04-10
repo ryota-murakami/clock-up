@@ -1,9 +1,9 @@
 // @flow
 import { parseTime } from '../../util'
-import type { CurrentTime } from '../../types/AppReduxState'
-import type { AppReduxState } from '../../types/AppReduxState'
+import type { CurrentTime } from '../../types/ReduxState'
+import type { ReduxState } from '../../types/ReduxState'
 import type { ReduxAction } from '../../types/ReduxAction'
-import type { HistoryQueryParameter } from '../../types/AppReduxState'
+import type { HistoryQueryParameter } from '../../types/ReduxState'
 
 const currentTime: CurrentTime = parseTime(new Date())
 const historyQueryParameter: HistoryQueryParameter = {
@@ -11,15 +11,15 @@ const historyQueryParameter: HistoryQueryParameter = {
   orderBy: 'createdAt_DESC'
 }
 
-const initialState: AppReduxState = {
+const initialState: ReduxState = {
   currentTime: currentTime,
   historyQueryParameter: historyQueryParameter
 }
 
 export default function appReducer(
-  state: AppReduxState = initialState,
+  state: ReduxState = initialState,
   action: ReduxAction
-): AppReduxState {
+): ReduxState {
   switch (action.type) {
     case 'SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime

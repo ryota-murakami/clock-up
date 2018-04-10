@@ -1,6 +1,6 @@
 // @flow
 
-import type { CurrentTime } from './AppReduxState'
+import type { CurrentTime } from './ReduxState'
 import { SYNC_DATE, CHANGE_HISTORY } from '../const'
 
 export type SyncDateAction = { type: SYNC_DATE, currentTime: CurrentTime }
