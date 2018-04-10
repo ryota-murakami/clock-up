@@ -11,7 +11,7 @@ import { Table, Tr, Td, Tbody, Th } from '../../elements/Table'
 import { Select } from '../../elements/Select'
 import { CHANGE_HISTORY } from '../../const'
 import type { Dispatch } from 'redux'
-import type { HistoryQueryParameter } from '../../types/HistoryQueryParameter'
+import type { HistoryQueryParameter } from '../../types/AppReduxState'
 import type { RootReduxState } from '../../types/RootReduxState'
 import type { Period, ReduxAction } from '../../types/ReduxAction'
 

@@ -3,7 +3,7 @@ import { parseTime } from '../../util'
 import type { CurrentTime } from '../../types/CurrentTime'
 import type { AppReduxState } from '../../types/AppReduxState'
 import type { ReduxAction } from '../../types/ReduxAction'
-import type { HistoryQueryParameter } from '../../types/HistoryQueryParameter'
+import type { HistoryQueryParameter } from '../../types/AppReduxState'
 
 const currentTime: CurrentTime = parseTime(new Date())
 const historyQueryParameter: HistoryQueryParameter = {

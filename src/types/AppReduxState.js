@@ -1,7 +1,11 @@
 // @flow
 import type { CurrentTime } from './CurrentTime'
-import type { HistoryQueryParameter } from './HistoryQueryParameter'
 
+type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
+export type HistoryQueryParameter = {
+  first: number,
+  orderBy: OrderBy
+}
 /**
  * ↓↓ is entire Redux State tree.
  * app is whole of end-developer land.(it means code of src/**)
