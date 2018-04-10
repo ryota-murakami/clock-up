@@ -1,6 +1,6 @@
 // @flow
 import { parseTime } from '../../util'
-import type { CurrentTime } from '../../types/CurrentTime'
+import type { CurrentTime } from '../../types/AppReduxState'
 import type { AppReduxState } from '../../types/AppReduxState'
 import type { ReduxAction } from '../../types/ReduxAction'
 import type { HistoryQueryParameter } from '../../types/AppReduxState'
