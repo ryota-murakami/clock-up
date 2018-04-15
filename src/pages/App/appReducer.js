@@ -21,6 +21,7 @@ export default function appReducer(
   switch (action.type) {
     case type.SYNC_DATE:
       const currentTime: CurrentTime = action.currentTime
+
       return { ...state, currentTime: currentTime }
 
     // TODO date period
