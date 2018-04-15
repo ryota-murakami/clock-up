@@ -1,12 +1,12 @@
 // @flow
 import { parseTime } from '../../util'
 import { type } from '../../types/ReduxAction'
-import type { CurrentTime } from '../../types/ReduxState'
-import type { ReduxState } from '../../types/ReduxState'
+import type { CurrentTime } from '../../types/AppState'
+import type { AppState } from '../../types/AppState'
 import type { ReduxAction } from '../../types/ReduxAction'
-import type { HistoryQueryParameter } from '../../types/ReduxState'
+import type { HistoryQueryParameter } from '../../types/AppState'
 
-const initialState: ReduxState = {
+const initialState: AppState = {
   currentTime: parseTime(new Date()),
   historyQueryParameter: {
     first: 7,
@@ -15,9 +15,9 @@ const initialState: ReduxState = {
 }
 
 export default function reducer(
-  state: ReduxState = initialState,
+  state: AppState = initialState,
   action: ReduxAction
-): ReduxState {
+): AppState {
   switch (action.type) {
     case type.SYNC_DATE:
       const currentTime: CurrentTime = action.currentTime

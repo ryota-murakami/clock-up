@@ -1,13 +1,13 @@
 // @flow
 
-import type { CurrentTime } from './ReduxState'
+import type { CurrentTime } from './AppState'
 
 /**
- * Redux Action
+ * Action Type Strings
  */
 export const type = {
-  SYNC_DATE: 'SYNC_DATE',
-  CHANGE_HISTORY: 'CHANGE_HISTORY'
+  SYNC_DATE: '@@/App/SYNC_DATE',
+  CHANGE_HISTORY: '@@/App/CHANGE_HISTORY'
 }
 
 export type SyncDateAction = {
