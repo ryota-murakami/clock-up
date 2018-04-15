@@ -6,15 +6,12 @@ import type { ReduxState } from '../../types/ReduxState'
 import type { ReduxAction } from '../../types/ReduxAction'
 import type { HistoryQueryParameter } from '../../types/ReduxState'
 
-const currentTime: CurrentTime = parseTime(new Date())
-const historyQueryParameter: HistoryQueryParameter = {
-  first: 7,
-  orderBy: 'createdAt_DESC'
-}
-
 const initialState: ReduxState = {
-  currentTime: currentTime,
-  historyQueryParameter: historyQueryParameter
+  currentTime: parseTime(new Date()),
+  historyQueryParameter: {
+    first: 7,
+    orderBy: 'createdAt_DESC'
+  }
 }
 
 export default function appReducer(
