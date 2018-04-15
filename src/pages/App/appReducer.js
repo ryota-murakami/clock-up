@@ -1,5 +1,6 @@
 // @flow
 import { parseTime } from '../../util'
+import { type } from '../../types/ReduxAction'
 import type { CurrentTime } from '../../types/ReduxState'
 import type { ReduxState } from '../../types/ReduxState'
 import type { ReduxAction } from '../../types/ReduxAction'
@@ -21,12 +22,12 @@ export default function appReducer(
   action: ReduxAction
 ): ReduxState {
   switch (action.type) {
-    case 'SYNC_DATE':
+    case type.SYNC_DATE:
       const currentTime: CurrentTime = action.currentTime
       return { ...state, currentTime: currentTime }
 
     // TODO date period
-    case 'CHANGE_HISTORY':
+    case type.CHANGE_HISTORY:
       let first = ''
       switch (action.period) {
         case '1week':

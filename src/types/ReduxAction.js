@@ -1,14 +1,24 @@
 // @flow
 
 import type { CurrentTime } from './ReduxState'
-import { SYNC_DATE, CHANGE_HISTORY } from '../const'
 
-export type SyncDateAction = { type: SYNC_DATE, currentTime: CurrentTime }
+/**
+ * Redux Action
+ */
+export const type = {
+  SYNC_DATE: 'SYNC_DATE',
+  CHANGE_HISTORY: 'CHANGE_HISTORY'
+}
+
+export type SyncDateAction = {
+  type: typeof type.SYNC_DATE,
+  currentTime: CurrentTime
+}
 
 export type Period = '1week' | '1month' | 'all'
 
 type ChangeHistoryAction = {
-  type: CHANGE_HISTORY,
+  type: typeof type.CHANGE_HISTORY,
   period: Period
 }
 
