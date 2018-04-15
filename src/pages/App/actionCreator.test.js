@@ -1,8 +1,9 @@
 import { syncDate } from './actionCreator'
+import { type } from '../../types/ReduxAction'
 
 describe('App/actions', () => {
   it('should be create action.type SYNC_DATE', () => {
-    expect(syncDate().type).toBe('SYNC_DATE')
+    expect(syncDate().type).toBe(type.SYNC_DATE)
   })
 
   it('should be create correct datetime response', () => {

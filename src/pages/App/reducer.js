@@ -14,7 +14,7 @@ const initialState: ReduxState = {
   }
 }
 
-export default function appReducer(
+export default function reducer(
   state: ReduxState = initialState,
   action: ReduxAction
 ): ReduxState {

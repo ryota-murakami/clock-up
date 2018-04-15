@@ -1,9 +1,9 @@
-import appReducer from './appReducer'
-import { SYNC_DATE } from '../../const'
+import reducer from './reducer'
+import { type } from '../../types/ReduxAction'
 
 describe('App/reducers', () => {
   it('should be return the initial state', () => {
-    const res = appReducer(undefined, {})
+    const res = reducer(undefined, {})
 
     expect(typeof res === 'object').toBe(true)
     expect(res.hasOwnProperty('currentTime')).toBe(true)
@@ -18,7 +18,7 @@ describe('App/reducers', () => {
 
   it('should be correct work SYNC_DATE', () => {
     const action = {
-      type: SYNC_DATE,
+      type: type.SYNC_DATE,
       currentTime: {
         dateObject: {},
         year: '2018',
@@ -30,7 +30,7 @@ describe('App/reducers', () => {
         seconds: '13'
       }
     }
-    const res = appReducer(undefined, action)
+    const res = reducer(undefined, action)
     const expectedState = {
       currentTime: {
         date: '30',

@@ -20,7 +20,7 @@ import {
 } from 'react-router-redux'
 import { AUTH0_ID_TOKEN } from './const'
 import './index.css.js'
-import appReducer from './pages/App/appReducer'
+import reducer from './pages/App/reducer'
 import registerServiceWorker from './registerServiceWorker'
 
 // react-router
@@ -31,7 +31,7 @@ const middleware = routerMiddleware(history)
 const store = createStore(
   combineReducers({
     router: routerReducer,
-    app: appReducer
+    app: reducer
   }),
   compose(
     applyMiddleware(middleware),
