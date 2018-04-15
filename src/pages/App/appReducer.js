@@ -39,12 +39,12 @@ export default function appReducer(
       } else {
         first = 7
       }
-      const historyQueryParameter: HistoryQueryParameter = {
+      const newValue: HistoryQueryParameter = {
         first: first,
         orderBy: 'createdAt_DESC'
       }
 
-      return { ...state, historyQueryParameter: historyQueryParameter }
+      return { ...state, historyQueryParameter: newValue }
 
     default:
       return state
