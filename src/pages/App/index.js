@@ -73,7 +73,7 @@ export class App extends Component<Props> {
   }
 
   componentDidMount() {
-    setInterval(this.props.dispatch(this.syncDate()), 1000)
+    setInterval(() => this.props.dispatch(this.syncDate()), 1000)
   }
 
   render() {
