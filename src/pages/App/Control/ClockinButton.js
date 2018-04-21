@@ -5,7 +5,6 @@ import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
 import { theme } from '../../../const'
-import type { GraphQL } from '../../../types/GraphQL'
 
 type Props = {
   data: {
@@ -14,7 +13,7 @@ type Props = {
       id: string
     }
   },
-  mutation: GraphQL
+  mutation: Function
 }
 
 export class ClockinButton extends Component<Props> {

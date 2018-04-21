@@ -5,7 +5,6 @@ import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
 import { theme } from '../../../const'
-import type { GraphQL } from '../../../types/GraphQL'
 
 type User = {
   id: string,
@@ -13,7 +12,6 @@ type User = {
     id: string
   }>
 }
-
 type GraphQLData = {
   user: User,
   loading: boolean
@@ -21,7 +19,7 @@ type GraphQLData = {
 
 type Props = {
   data: GraphQLData,
-  mutation: GraphQL
+  mutation: Function
 }
 
 export class ClockoutButton extends Component<Props> {
