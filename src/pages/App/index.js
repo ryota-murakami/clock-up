@@ -12,11 +12,12 @@ import LogoutBtn from './LogoutButton'
 import styled from 'styled-components'
 import History from './History'
 import { borderColor } from '../../css'
-import Control from './Control/index'
-import { syncDate } from './actionCreator'
-import type { Match, Location, RouterHistory } from 'react-router'
+import { type } from '../../types/ReduxAction'
+import Control from './Control'
 import type { Dispatch } from 'redux'
-import type { ReduxAction } from '../../types/ReduxAction'
+import type { Match, Location, RouterHistory } from 'react-router'
+import type { SyncDateAction } from '../../types/ReduxAction'
+import { parseTime } from '../../util'
 
 const Container = styled.main`
   width: 100%;
@@ -44,40 +45,41 @@ const Left = styled.div`
   border: 1px solid ${borderColor};
 `
 
-type User = {
-  id: string
-}
-
-type GraphQLData = {
-  user: User,
-  loading: boolean
-}
-
 type Props = {
-  data: GraphQLData,
-  syncDate: Function,
+  data: {
+    user: {
+      id: string
+    },
+    loading: boolean
+  },
+  // TODO Router Shape
   match: Match,
   location: Location,
-  history: RouterHistory
+  history: RouterHistory,
+  dispatch: Dispatch
 }
 
 export class App extends Component<Props> {
-  syncDate: IntervalID
+  syncDate = (): SyncDateAction => {
+    const time: CurrentTime = parseTime(new Date())
+    return {
+      type: type.SYNC_DATE,
+      currentTime: time
+    }
+  }
 
   isAuthenticated(user: User): boolean {
     return !!user
   }
 
   componentDidMount() {
-    this.syncDate = setInterval(this.props.syncDate, 1000)
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.syncDate)
+    setInterval(this.props.dispatch(this.syncDate()), 1000)
   }
 
   render() {
-    const { loading, user } = this.props.data
+    const {
+      data: { loading, user }
+    } = this.props
 
     if (loading) {
       return <Loading />
@@ -112,16 +114,4 @@ export const query = gql`
   }
 `
 
-const mapDispatchToProps = (dispatch: Dispatch<ReduxAction>) => {
-  return {
-    syncDate: () => {
-      dispatch(syncDate())
-    }
-  }
-}
-
-export default compose(
-  connect(null, mapDispatchToProps),
-  graphql(query),
-  withRouter
-)(App)
+export default compose(connect(), graphql(query), withRouter)(App)

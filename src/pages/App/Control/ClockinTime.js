@@ -7,7 +7,7 @@ import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { borderColor, textColor } from '../../../css'
 import { calcTotalTime } from '../../../util'
-import type { CurrentTime } from '../../../types/AppState'
+import type { CurrentTime } from '../../../types/ReduxState'
 
 const Container = styled.div`
   flex-basics: max-content;

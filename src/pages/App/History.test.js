@@ -1,7 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import { createStore } from 'redux'
 import { History } from './History'
+
+const dispatch = createStore(f => f).dispatch
 
 describe('<History />', () => {
   describe('pass empty array', () => {
@@ -12,7 +15,7 @@ describe('<History />', () => {
         },
         loading: false
       }
-      const wrapper = shallow(<History data={data} />)
+      const wrapper = shallow(<History data={data} dispatch={dispatch} />)
       return wrapper
     }
 
@@ -65,7 +68,7 @@ describe('<History />', () => {
       loading: false
     }
     function setup() {
-      const wrapper = shallow(<History data={data} />)
+      const wrapper = shallow(<History data={data} dispatch={dispatch} />)
       return wrapper
     }
 
@@ -120,7 +123,7 @@ describe('<History />', () => {
       loading: false
     }
     function setup() {
-      const wrapper = shallow(<History data={data} />)
+      const wrapper = shallow(<History data={data} dispatch={dispatch} />)
       return wrapper
     }
 

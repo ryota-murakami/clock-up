@@ -1,6 +1,6 @@
 // @flow
 
-import type { CurrentTime } from './AppState'
+import type { CurrentTime } from './ReduxState'
 
 /**
  * Action Type Strings

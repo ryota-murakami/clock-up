@@ -9,23 +9,21 @@ import { borderColor, textColor } from '../../css'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../util'
 import { Table, Tr, Td, Tbody, Th } from '../../elements/Table'
 import { Select } from '../../elements/Select'
-import { CHANGE_HISTORY } from '../../const'
+import { type } from '../../types/ReduxAction'
 import type { Dispatch } from 'redux'
-import type { HistoryQueryParameter } from '../../types/AppState'
-import type { RootReduxState } from '../../types/AppState'
+import type { HistoryQueryParameter } from '../../types/ReduxState'
+import type { RootReduxState } from '../../types/ReduxState'
 import type { Period, ReduxAction } from '../../types/ReduxAction'
 
 const Container = styled.div`
   color: ${textColor};
 `
-
 const SelectBoxWrapper = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 `
-
 const Header = styled.div`
   padding: 10px 0;
   text-align: center;
@@ -41,17 +39,11 @@ type Clocks = Array<{
   updatedAt: string
 }>
 
-type User = {
-  clocks: Clocks
-}
-
-type GraqhQLData = {
-  user: User,
-  loading: boolean
-}
-
 type Props = {
-  data: GraqhQLData,
+  data: {
+    user: { clocks: Clocks },
+    loading: boolean
+  },
   historyQueryParameter: HistoryQueryParameter,
   dispatch: Dispatch<ReduxAction>
 }
@@ -59,7 +51,7 @@ type Props = {
 export class History extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
-      type: CHANGE_HISTORY,
+      type: type.CHANGE_HISTORY,
       period: value
     })
   }

@@ -52,13 +52,13 @@ export type CurrentTime = {
  *  }
  *}
  */
-export type AppState = {
+export type ReduxState = {
   currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter
 }
 
 type RouterReducer = routerReducer
 export type RootReduxState = {
-  app: AppState,
+  app: ReduxState,
   router: RouterReducer
 }
