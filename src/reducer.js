@@ -1,10 +1,10 @@
 // @flow
-import { parseTime } from '../../function'
-import { type } from '../../types/ReduxAction'
-import type { CurrentTime } from '../../types/ReduxState'
-import type { ReduxState } from '../../types/ReduxState'
-import type { ReduxAction } from '../../types/ReduxAction'
-import type { HistoryQueryParameter } from '../../types/ReduxState'
+import { parseTime } from './function'
+import { type } from './types/ReduxAction'
+import type { CurrentTime } from './types/ReduxState'
+import type { ReduxState } from './types/ReduxState'
+import type { ReduxAction } from './types/ReduxAction'
+import type { HistoryQueryParameter } from './types/ReduxState'
 
 const initialState: ReduxState = {
   currentTime: parseTime(new Date()),

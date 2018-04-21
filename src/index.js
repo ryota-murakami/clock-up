@@ -20,7 +20,7 @@ import {
 } from 'react-router-redux'
 import { AUTH0_ID_TOKEN } from './const'
 import './index.css.js'
-import reducer from './pages/App/reducer'
+import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 
 // react-router

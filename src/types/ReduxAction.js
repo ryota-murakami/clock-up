@@ -2,9 +2,6 @@
 
 import type { CurrentTime } from './ReduxState'
 
-/**
- * Action Type Strings
- */
 export const type = {
   SYNC_DATE: '@@/App/SYNC_DATE',
   CHANGE_HISTORY: '@@/App/CHANGE_HISTORY'

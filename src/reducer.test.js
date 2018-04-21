@@ -1,5 +1,5 @@
 import reducer from './reducer'
-import { type } from '../../types/ReduxAction'
+import { type } from './types/ReduxAction'
 
 describe('App/reducers', () => {
   it('should be return the initial state', () => {
