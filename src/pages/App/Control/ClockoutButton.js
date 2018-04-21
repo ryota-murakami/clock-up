@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
-import { red } from '../../../css'
+import { theme } from '../../../const'
 import type { GraphQL } from '../../../types/GraphQL'
 
 type User = {
@@ -57,7 +57,7 @@ export class ClockoutButton extends Component<Props> {
     return (
       <Button
         primary
-        color={red}
+        color={theme.red}
         onClick={this.gqlLogic}
         data-test="clock-out-btn"
       >

@@ -1,5 +1,5 @@
 // @flow
-import { parseTime } from '../../util'
+import { parseTime } from '../../function'
 import { type } from '../../types/ReduxAction'
 import type { CurrentTime } from '../../types/ReduxState'
 import type { ReduxState } from '../../types/ReduxState'

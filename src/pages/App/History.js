@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import { compose } from 'redux'
-import { borderColor, textColor } from '../../css'
-import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../util'
+import { theme } from '../../const'
+import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../function'
 import { Table, Tr, Td, Tbody, Th } from '../../elements/Table'
 import { Select } from '../../elements/Select'
 import { type } from '../../types/ReduxAction'
@@ -16,7 +16,7 @@ import type { RootReduxState } from '../../types/ReduxState'
 import type { Period, ReduxAction } from '../../types/ReduxAction'
 
 const Container = styled.div`
-  color: ${textColor};
+  color: ${theme.textColor};
 `
 const SelectBoxWrapper = styled.div`
   padding: 10px;
@@ -28,7 +28,7 @@ const Header = styled.div`
   padding: 10px 0;
   text-align: center;
   font-size: 1.2em;
-  border-bottom: 1px solid ${borderColor};
+  border-bottom: 1px solid ${theme.borderColor};
 `
 
 type Clocks = Array<{

@@ -1,13 +1,13 @@
 // @flow
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { borderColor, textColor } from '../../css'
+import { theme } from '../../const'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../../types/ReduxState'
 
 const Container = styled.div`
   height: 25%;
-  border: 1px solid ${borderColor};
+  border: 1px solid ${theme.borderColor};
   margin: 20px;
   padding: 60px;
   border-radius: 5px;
@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Day = styled.div`
   height: 30%;
-  color: ${textColor};
+  color: ${theme.textColor};
   font-size: 1.5em;
   text-align: center;
   display: flex;
@@ -25,7 +25,7 @@ const Day = styled.div`
 
 const Time = styled.div`
   height: 70%;
-  color: ${textColor};
+  color: ${theme.textColor};
   font-size: 7em;
   text-align: center;
 `

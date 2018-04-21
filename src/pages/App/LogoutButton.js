@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { AUTH0_ID_TOKEN } from '../../const'
 import { Button } from '../../elements/Button'
-import { gray } from '../../css'
+import { theme } from '../../const'
 
-type Props = {}
+type Props = {||}
 
 export class LogoutButton extends Component<Props> {
   logout = () => {
@@ -14,7 +14,7 @@ export class LogoutButton extends Component<Props> {
 
   render() {
     return (
-      <Button color={gray} onClick={this.logout} data-test="logout-btn">
+      <Button color={theme.gray} onClick={this.logout} data-test="logout-btn">
         Logout
       </Button>
     )

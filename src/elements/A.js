@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { textColor } from '../css'
+import { theme } from '../const'
 
 export const A = styled.a`
   text-decoration: none;
-  color: ${textColor};
+  color: ${theme.textColor};
 `

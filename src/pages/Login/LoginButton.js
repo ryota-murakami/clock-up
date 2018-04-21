@@ -4,7 +4,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../const'
 import { Button } from '../../elements/Button'
-import { green } from '../../css'
+import { theme } from '../../const'
 import type { Match, Location, RouterHistory } from 'react-router'
 
 const StyledButton = Button.extend`
@@ -50,7 +50,7 @@ export class LoginButton extends Component<Props> {
   render() {
     return (
       <StyledButton
-        color={green}
+        color={theme.green}
         onClick={this.showAuth0LoginModal}
         data-test="login-btn"
       >

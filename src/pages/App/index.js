@@ -11,13 +11,13 @@ import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
 import styled from 'styled-components'
 import History from './History'
-import { borderColor } from '../../css'
+import { theme } from '../../const'
 import { type } from '../../types/ReduxAction'
 import Control from './Control'
 import type { Dispatch } from 'redux'
 import type { Match, Location, RouterHistory } from 'react-router'
 import type { SyncDateAction } from '../../types/ReduxAction'
-import { parseTime } from '../../util'
+import { parseTime } from '../../function'
 
 const Container = styled.main`
   width: 100%;
@@ -35,14 +35,14 @@ const Right = styled.div`
   grid-area: right;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid ${borderColor};
+  border: 1px solid ${theme.borderColor};
 `
 
 const Left = styled.div`
   grid-area: left;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid ${borderColor};
+  border: 1px solid ${theme.borderColor};
 `
 
 type Props = {

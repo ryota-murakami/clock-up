@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import { borderColor } from '../css'
+import { theme } from '../const'
 
 const tableBorder = css`
-  border: 1px solid ${borderColor};
+  border: 1px solid ${theme.borderColor};
   border-collapse: collapse;
 `
 
