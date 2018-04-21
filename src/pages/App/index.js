@@ -14,10 +14,11 @@ import History from './History'
 import { theme } from '../../const'
 import { type } from '../../types/ReduxAction'
 import Control from './Control'
+import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
 import type { Match, Location, RouterHistory } from 'react-router'
-import type { SyncDateAction } from '../../types/ReduxAction'
-import { parseTime } from '../../function'
+import type { ReduxAction, SyncDateAction } from '../../types/ReduxAction'
+import type { CurrentTime } from '../../types/ReduxState'
 
 const Container = styled.main`
   width: 100%;
@@ -56,7 +57,7 @@ type Props = {
   match: Match,
   location: Location,
   history: RouterHistory,
-  dispatch: Dispatch
+  dispatch: Dispatch<ReduxAction>
 }
 
 export class App extends Component<Props> {
@@ -68,7 +69,7 @@ export class App extends Component<Props> {
     }
   }
 
-  isAuthenticated(user: User): boolean {
+  isAuthenticated(user: any): boolean {
     return !!user
   }
 

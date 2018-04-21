@@ -9,8 +9,10 @@ import type { GraphQL } from '../../../types/GraphQL'
 
 type Props = {
   data: {
-    id: string,
-    loading: boolean
+    loading: boolean,
+    user: {
+      id: string
+    }
   },
   mutation: GraphQL
 }
