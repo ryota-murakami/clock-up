@@ -2512,11 +2512,11 @@ dom-serializer@0, dom-serializer@~0.1.0:
     domelementtype "~1.1.1"
     entities "~1.1.1"
 
-dom-testing-library@^1.0.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-1.4.0.tgz#bd531f1313c0ff7b314a7f42e8ddbdae610cabd8"
+dom-testing-library@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-2.2.0.tgz#f9affe83a3566a80af7e01db4f329d65ccf93418"
   dependencies:
-    jest-matcher-utils "^22.4.3"
+    jest-dom "^1.0.0"
     mutationobserver-shim "^0.3.2"
     pretty-format "^22.4.3"
     wait-for-expect "^0.4.0"
@@ -3473,9 +3473,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-flow-bin@^0.70.0:
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.70.0.tgz#080ae83a997f2b4ddb3dc2649bf13336825292b5"
+flow-bin@^0.71.0:
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.71.0.tgz#fd1b27a6458c3ebaa5cb811853182ed631918b70"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -4686,6 +4686,12 @@ jest-docblock@^20.0.3:
 jest-docblock@^21.0.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-21.2.0.tgz#51529c3b30d5fd159da60c27ceedc195faf8d414"
+
+jest-dom@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/jest-dom/-/jest-dom-1.0.0.tgz#775bbfc532e72adf6dfa589fc7cb057e196faff5"
+  dependencies:
+    jest-matcher-utils "^22.4.3"
 
 jest-environment-jsdom@^20.0.3:
   version "20.0.3"
@@ -6735,12 +6741,12 @@ react-test-renderer@^16.3.2:
     prop-types "^15.6.0"
     react-is "^16.3.2"
 
-react-testing-library@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-2.1.1.tgz#1d7eb5002823eeedca4c247cdfe8450cfbd4f3b8"
+react-testing-library@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-3.0.2.tgz#03ffe4b8c1b408e7c010ce910a63edefbe843f28"
   dependencies:
-    dom-testing-library "^1.0.0"
-    wait-for-expect "0.4.0"
+    dom-testing-library "^2.0.0"
+    wait-for-expect "^0.5.0"
 
 react-transition-group@^2.2.1:
   version "2.2.1"
@@ -8234,9 +8240,13 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-wait-for-expect@0.4.0, wait-for-expect@^0.4.0:
+wait-for-expect@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-0.4.0.tgz#341c96ab89d6102a0169a9be6cd0de354de92c17"
+
+wait-for-expect@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-0.5.0.tgz#cc935a94c6039967bd7760c9e9cc557f4674887a"
 
 walker@~1.0.5:
   version "1.0.7"
