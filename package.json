@@ -100,7 +100,7 @@
     "apollo-link-http": "^1.5.4",
     "auth0-lock": "^11.6.1",
     "graphql": "0.13.0",
-    "graphql-tag": "^2.8.0",
+    "graphql-tag": "^2.9.2",
     "history": "^4.7.2",
     "object-assign": "4.1.1",
     "promise": "8.0.1",
