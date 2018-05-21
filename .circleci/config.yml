@@ -39,3 +39,4 @@ jobs:
       - run: yarn test:cov
       - run: yarn codecov
       - run: yarn lint
+      - run: yarn flow
