@@ -34,16 +34,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
   test:
     steps:
       - run: yarn test:cov
       - run: yarn codecov
-
   lint:
     steps:
       - run: yarn lint
-
   flow:
     steps:
       - run: yarn flow
@@ -53,12 +50,12 @@ workflows:
   myworkflow:
     jobs:
       - build
-      - test
+      - test:
         requires:
           - build
-      - lint
+      - lint:
         requires:
           - build
-      - flow
+      - flow:
         requires:
           - build
