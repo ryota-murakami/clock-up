@@ -40,3 +40,9 @@ jobs:
       - run: yarn codecov
       - run: yarn lint
       - run: yarn flow
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
