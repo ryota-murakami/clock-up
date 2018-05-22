@@ -30,9 +30,10 @@ const Time = styled.div`
   text-align: center;
 `
 
-type Props = {
+type StateProps = {|
   currentTime: CurrentTime
-}
+|}
+type Props = StateProps
 
 export class CurrentDateTime extends Component<Props> {
   flush(seconds: string): boolean {
