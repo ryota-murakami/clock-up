@@ -9,12 +9,13 @@ import { theme } from '../../../const'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../function'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import { Select } from '../../../elements/Select'
+import InTime from './InTime'
+import OutTime from './OutTime'
 import { type } from '../../../types/ReduxAction'
 import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../../types/ReduxState'
 import type { RootReduxState } from '../../../types/ReduxState'
 import type { Period, ReduxAction } from '../../../types/ReduxAction'
-import InTime from './InTime'
 
 const Container = styled.div`
   color: ${theme.textColor};
@@ -83,7 +84,7 @@ export class History extends Component<Props> {
               <Td>{ISOtoYmd(createdAt)}</Td>
               <Td>{total}</Td>
               <InTime date={ISOtoHm(clockIn)} />
-              <Td>{ISOtoHm(clockout)}</Td>
+              <OutTime date={ISOtoHm(clockout)} />
             </tr>
           )
         })
