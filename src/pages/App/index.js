@@ -69,7 +69,7 @@ export class App extends Component<Props> {
     }
   }
 
-  isAuthenticated(user: any): boolean {
+  isAuthenticated(user: Object): boolean {
     return !!user
   }
 
