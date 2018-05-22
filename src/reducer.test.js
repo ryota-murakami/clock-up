@@ -1,10 +1,9 @@
 import reducer from './reducer'
 import { type } from './types/ReduxAction'
 
-describe('App/reducers', () => {
+describe('reducer', () => {
   it('should be return the initial state', () => {
     const res = reducer(undefined, {})
-
     expect(typeof res === 'object').toBe(true)
     expect(res.hasOwnProperty('currentTime')).toBe(true)
     expect(res.currentTime.hasOwnProperty('year')).toBe(true)
@@ -44,7 +43,6 @@ describe('App/reducers', () => {
       },
       historyQueryParameter: { first: 7, orderBy: 'createdAt_DESC' }
     }
-
     expect(res).toEqual(expectedState)
   })
 })
