@@ -9,42 +9,15 @@ import Loading from '../../elements/Loading'
 import { Header } from '../../elements/Header'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
-import styled from 'styled-components'
 import History from './History/index'
-import { theme } from '../../const'
 import { type } from '../../types/ReduxAction'
 import Control from './Control'
+import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
 import type { Match, Location, RouterHistory } from 'react-router'
 import type { ReduxAction, SyncDateAction } from '../../types/ReduxAction'
 import type { CurrentTime } from '../../types/ReduxState'
-
-const Container = styled.main`
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 50px 1fr;
-  grid-template-areas:
-    'header header header'
-    'left left right';
-  grid-column-gap: 10px;
-`
-
-const Right = styled.div`
-  grid-area: right;
-  margin: 10px;
-  border-radius: 5px;
-  border: 1px solid ${theme.borderColor};
-`
-
-const Left = styled.div`
-  grid-area: left;
-  margin: 10px;
-  border-radius: 5px;
-  border: 1px solid ${theme.borderColor};
-`
 
 type Props = {
   data: {
