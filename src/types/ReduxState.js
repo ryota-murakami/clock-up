@@ -1,6 +1,9 @@
 // @flow
 import { routerReducer } from 'react-router-redux'
 
+/**
+ * <Domain Date Type>
+ */
 export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
 
 export type HistoryQueryParameter = {
@@ -23,6 +26,10 @@ export type CurrentTime = {
   minutes: string,
   seconds: string
 }
+/**
+ * </Domain Date Type>
+ */
+
 /**
  * ↓↓ is entire Redux State tree.
  * app is whole of end-developer land.(it means code of src/**)

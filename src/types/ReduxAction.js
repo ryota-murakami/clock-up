@@ -8,14 +8,14 @@ export const type = {
 }
 
 export type SyncDateAction = {
-  type: typeof type.SYNC_DATE,
+  type: '@@/App/SYNC_DATE',
   currentTime: CurrentTime
 }
 
 export type Period = '1week' | '1month' | 'all'
 
 type ChangeHistoryAction = {
-  type: typeof type.CHANGE_HISTORY,
+  type: '@@/App/CHANGE_HISTORY',
   period: Period
 }
 

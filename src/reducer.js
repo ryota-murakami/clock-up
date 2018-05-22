@@ -3,7 +3,7 @@ import { parseTime } from './function'
 import { type } from './types/ReduxAction'
 import type { CurrentTime } from './types/ReduxState'
 import type { ReduxState } from './types/ReduxState'
-import type { ReduxAction } from './types/ReduxAction'
+import type { Period, ReduxAction } from './types/ReduxAction'
 import type { HistoryQueryParameter } from './types/ReduxState'
 
 const initialState: ReduxState = {
@@ -27,7 +27,7 @@ export default function reducer(
     // TODO date period
     case type.CHANGE_HISTORY:
       let first = ''
-      const p = action.period
+      const p: Period = action.period
       if (p === '1week') {
         first = 7
       } else if (p === '1month') {
