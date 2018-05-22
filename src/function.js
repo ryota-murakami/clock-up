@@ -1,6 +1,7 @@
 // @flow
 import type { CurrentTime } from './types/ReduxState'
 
+// TODO explain
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
   const days = []
   days[0] = 'Sunday'
@@ -40,7 +41,7 @@ export function parseTime(dateObj: Date = new Date()): CurrentTime {
 /**
  * 8 to 08
  * @param str
- * @returns {string}
+ * @return string
  */
 export function pad2(str: string): string {
   return ('00' + str).slice(-2)
@@ -50,7 +51,7 @@ export function pad2(str: string): string {
  * millisecounds to 00h00m
  * @param now
  * @param past
- * @returns {string}
+ * @return string
  */
 export function calcTotalTime(now: Date, past: Date): string {
   // always now > past
@@ -71,8 +72,8 @@ export function calcTotalTime(now: Date, past: Date): string {
 
 /**
  * ISO to 2017/12/15
- * @param iso
- * @constructor
+ * @param string
+ * @return string
  */
 export function ISOtoYmd(iso: string): string {
   const dateObj = new Date(iso)
@@ -85,8 +86,8 @@ export function ISOtoYmd(iso: string): string {
 
 /**
  * ISO to 12:35
- * @param iso
- * @constructor
+ * @param string
+ * @return string
  */
 export function ISOtoHm(iso: string): string {
   const dateObj = new Date(iso)
