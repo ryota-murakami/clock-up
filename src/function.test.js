@@ -21,7 +21,6 @@ describe('parseTime()', () => {
       seconds: '0'
     }
     const actual = parseTime(date)
-
     expect(actual).toEqual(expected)
   })
 })
@@ -41,7 +40,6 @@ describe('calcTotalTime()', () => {
     const now = new Date('2017/01/01 12:00:00')
     const past = new Date('2017/01/01 11:00:00')
     const res = calcTotalTime(now, past)
-
     expect(res).toBe('01h00m')
   })
 
@@ -49,7 +47,6 @@ describe('calcTotalTime()', () => {
     const past = new Date('2017/01/01 12:00:00')
     const now = new Date('2017/01/01 11:00:00')
     const res = calcTotalTime(now, past)
-
     expect(res).toBe('00h00m')
   })
 })
@@ -57,45 +54,38 @@ describe('calcTotalTime()', () => {
 describe('ISOtoYmd()', () => {
   it('should be return yyyy/mm/dd', () => {
     const res = ISOtoYmd(new Date('2017/01/01 12:00:00'))
-
     expect(res).toBe('2017/01/01')
   })
 })
 
 describe('ISOtoHm()', () => {
   const res = ISOtoHm(new Date('2017/01/01 12:00:00'))
-
   expect(res).toBe('12:00')
 })
 
 describe('getObjectType()', () => {
   it('should be return Date', () => {
     const date = new Date()
-
     expect(getObjectType(date)).toBe('Date')
   })
 
   it('should be return Array', () => {
     const array = []
-
     expect(getObjectType(array)).toBe('Array')
   })
 
   it('should be return String', () => {
     const string = ''
-
     expect(getObjectType(string)).toBe('String')
   })
 
   it('should be return Boolean', () => {
     const boolean = true
-
     expect(getObjectType(boolean)).toBe('Boolean')
   })
 
   it('should be return Number', () => {
     const number = 1
-
     expect(getObjectType(number)).toBe('Number')
   })
 
