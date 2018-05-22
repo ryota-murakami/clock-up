@@ -14,6 +14,7 @@ import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../../types/ReduxState'
 import type { RootReduxState } from '../../../types/ReduxState'
 import type { Period, ReduxAction } from '../../../types/ReduxAction'
+import InTime from './InTime'
 
 const Container = styled.div`
   color: ${theme.textColor};
@@ -81,7 +82,7 @@ export class History extends Component<Props> {
             <tr key={i}>
               <Td>{ISOtoYmd(createdAt)}</Td>
               <Td>{total}</Td>
-              <Td>{ISOtoHm(clockIn)}</Td>
+              <InTime date={ISOtoHm(clockIn)} />
               <Td>{ISOtoHm(clockout)}</Td>
             </tr>
           )
