@@ -96,6 +96,7 @@ export function ISOtoHm(iso: string): string {
   return hour + ':' + minutes
 }
 
+// TODO explain
 export function getObjectType(object: any): string {
   return Object.prototype.toString.call(object).slice(8, -1)
 }
