@@ -7,6 +7,9 @@
  */
 export const AUTH0_ID_TOKEN = 'auth0IdToken'
 
+/**
+ * CSS color theme
+ */
 export const theme = {
   borderColor: '#efefef',
   textColor: '#616161',
