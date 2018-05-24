@@ -1,37 +1,20 @@
 // @flow
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import { compose } from 'redux'
-import { theme } from '../../../const'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../function'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import { Select } from '../../../elements/Select'
 import InTime from './InTime'
 import OutTime from './OutTime'
+import { Container, SelectBoxWrapper, Header } from './index.style'
 import { type } from '../../../types/ReduxAction'
 import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../../types/ReduxState'
 import type { RootReduxState } from '../../../types/ReduxState'
 import type { Period, ReduxAction } from '../../../types/ReduxAction'
-
-const Container = styled.div`
-  color: ${theme.textColor};
-`
-const SelectBoxWrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`
-const Header = styled.div`
-  padding: 10px 0;
-  text-align: center;
-  font-size: 1.2em;
-  border-bottom: 1px solid ${theme.borderColor};
-`
 
 type Clocks = Array<{
   id: string,

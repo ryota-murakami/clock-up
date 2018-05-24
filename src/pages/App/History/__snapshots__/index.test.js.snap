@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<History /> pass empty array should match to snapshot 1`] = `
-<History__Container>
-  <History__Header>
+<indexstyle__Container>
+  <indexstyle__Header>
     History
-  </History__Header>
-  <History__SelectBoxWrapper>
+  </indexstyle__Header>
+  <indexstyle__SelectBoxWrapper>
     <Select
       defaultValue="1week"
       onChange={[Function]}
@@ -26,7 +26,7 @@ exports[`<History /> pass empty array should match to snapshot 1`] = `
         all
       </option>
     </Select>
-  </History__SelectBoxWrapper>
+  </indexstyle__SelectBoxWrapper>
   <Table>
     <Table__Tbody>
       <Table__Tr>
@@ -59,15 +59,15 @@ exports[`<History /> pass empty array should match to snapshot 1`] = `
       </Table__Tr>
     </Table__Tbody>
   </Table>
-</History__Container>
+</indexstyle__Container>
 `;
 
 exports[`<History /> pass first time clock in data should match to snapshot 1`] = `
-<History__Container>
-  <History__Header>
+<indexstyle__Container>
+  <indexstyle__Header>
     History
-  </History__Header>
-  <History__SelectBoxWrapper>
+  </indexstyle__Header>
+  <indexstyle__SelectBoxWrapper>
     <Select
       defaultValue="1week"
       onChange={[Function]}
@@ -88,7 +88,7 @@ exports[`<History /> pass first time clock in data should match to snapshot 1`] 
         all
       </option>
     </Select>
-  </History__SelectBoxWrapper>
+  </indexstyle__SelectBoxWrapper>
   <Table>
     <Table__Tbody>
       <Table__Tr>
@@ -121,5 +121,5 @@ exports[`<History /> pass first time clock in data should match to snapshot 1`] 
       </Table__Tr>
     </Table__Tbody>
   </Table>
-</History__Container>
+</indexstyle__Container>
 `;
