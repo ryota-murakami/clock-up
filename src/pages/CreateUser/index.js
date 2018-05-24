@@ -40,7 +40,7 @@ export class CreateUser extends React.Component<Props> {
     const { data } = this.props
 
     if (data.loading) {
-      return <Loading />
+      return <Loading data-testid="Loading" />
     }
 
     if (this.isNotExistUserInAuth0()) {

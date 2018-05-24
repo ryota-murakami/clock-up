@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { CreateUser } from './index'
+import { sel } from '../../testutil'
 
 describe('<CreateUser />', () => {
   describe('data.loading == true', () => {
@@ -16,8 +17,7 @@ describe('<CreateUser />', () => {
 
     it('should displayed Loading', () => {
       const wrapper = setup()
-
-      expect(wrapper.find('Loading').exists()).toEqual(true)
+      expect(wrapper.find(sel('Loading')).exists()).toEqual(true)
     })
   })
   describe('data.loading == false', () => {
