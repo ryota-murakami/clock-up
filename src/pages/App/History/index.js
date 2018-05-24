@@ -76,7 +76,7 @@ export class History extends Component<Props> {
     // clocks.length == 0 or clocks.lengh ===1 and clocks.[0] only has clockIn value without clockOut.
     if (history.length === 0) {
       history = (
-        <Tr>
+        <Tr enzyme-testid="history-table-na">
           <Td>N/A</Td>
           <Td>N/A</Td>
           <Td>N/A</Td>

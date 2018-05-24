@@ -45,7 +45,9 @@ exports[`<History /> pass empty array should match to snapshot 1`] = `
           out
         </Table__Th>
       </Table__Tr>
-      <Table__Tr>
+      <Table__Tr
+        enzyme-testid="history-table-na"
+      >
         <Table__Td>
           N/A
         </Table__Td>
@@ -109,7 +111,9 @@ exports[`<History /> pass first time clock in data should match to snapshot 1`] 
           out
         </Table__Th>
       </Table__Tr>
-      <Table__Tr>
+      <Table__Tr
+        enzyme-testid="history-table-na"
+      >
         <Table__Td>
           N/A
         </Table__Td>
