@@ -45,19 +45,19 @@ describe('<App />', () => {
       })
     })
     describe('data.loading == false', () => {
-      it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+      it('should render only passing [data]props without error', () => {
         const data = { loading: false, user: null }
         expect(() => setup(data)).not.toThrow()
       })
 
-      it('loadingが表示されないこと', () => {
+      it('should not dispalyed Loading', () => {
         const data = { loading: false, user: null }
         const wrapper = setup(data)
         expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
       describe('isAuthenticated() == false', () => {
-        it('ログイン画面へリダイレクトされること', () => {
+        it('should redirected Login page', () => {
           const data = { loading: false, user: null }
           const wrapper = setup(data)
           expect(wrapper.find('Redirect').exists()).toEqual(true)
@@ -78,7 +78,7 @@ describe('<App />', () => {
           expect(wrapper.find(sel('app-page')).exists()).toEqual(true)
         })
 
-        it('ログアウトボタンが表示されること', () => {
+        it('should displayed LogoutButton', () => {
           const wrapper = setup(data)
           expect(wrapper.find('LogoutButton').exists()).toEqual(true)
         })
