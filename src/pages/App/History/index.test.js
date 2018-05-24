@@ -36,6 +36,7 @@ describe('<History />', () => {
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   })
+
   describe('pass first time clock in data', () => {
     const data = {
       user: {
@@ -60,7 +61,7 @@ describe('<History />', () => {
     it('should render with N/A', () => {
       const wrapper = setup()
 
-      expect(wrapper.find('Table__Td').exists()).toBe(true)
+      expect(wrapper.find(sel('history-table')).exists()).toBe(true)
       expect(
         wrapper
           .find('Table__Td')
@@ -82,6 +83,7 @@ describe('<History />', () => {
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   })
+
   describe('pass complete data', () => {
     const data = {
       user: {
