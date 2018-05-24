@@ -53,7 +53,7 @@ describe('<App />', () => {
       it('should not dispalyed Loading', () => {
         const data = { loading: false, user: null }
         const wrapper = setup(data)
-        expect(wrapper.find('Loading').exists()).toEqual(false)
+        expect(wrapper.find(sel('app-loading')).exists()).toEqual(false)
       })
 
       describe('isAuthenticated() == false', () => {
