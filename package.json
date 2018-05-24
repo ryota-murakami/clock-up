@@ -17,8 +17,9 @@
       "src/**/*.{js,jsx,mjs}",
       "!src/index.js",
       "!src/registerServiceWorker.js",
-      "!src/globalCSS.js",
-      "!src/types/**/*"
+      "!src/index.css.js",
+      "!src/types/**/*",
+      "!src/testutil.js"
     ],
     "setupFiles": [
       "<rootDir>/config/shims.js",
