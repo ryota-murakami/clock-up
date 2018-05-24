@@ -46,9 +46,8 @@ describe('<CreateUser />', () => {
         expect(emptyMock).toBeCalled()
       })
 
-      it("<Redirect to={{ pathname: '/' }} /> がreturnされること", () => {
+      it("should return <Redirect to={{ pathname: '/' }} />", () => {
         const wrapper = setup()
-
         expect(wrapper.find('Redirect').exists()).toEqual(true)
       })
     })
