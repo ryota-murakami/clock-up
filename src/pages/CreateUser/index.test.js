@@ -34,14 +34,14 @@ describe('<CreateUser />', () => {
         return wrapper
       }
 
-      it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+      it('shoud render only passing [data]props without error', () => {
         expect(() => setup()).not.toThrow()
       })
 
-      it('Loadingが表示されないこと', () => {
+      it('should not displayed Loading', () => {
         const wrapper = setup()
 
-        expect(wrapper.find('Loading').exists()).toEqual(false)
+        expect(wrapper.find(sel('Loading')).exists()).toEqual(false)
       })
 
       it('sould be fire InsertUserDataToAuth0()', () => {
