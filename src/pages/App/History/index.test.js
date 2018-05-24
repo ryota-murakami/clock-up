@@ -101,7 +101,7 @@ describe('<History />', () => {
 
     it('should render TotalTime', () => {
       const wrapper = setup()
-      expect(wrapper.find('tr').exists()).toBe(true)
+      expect(wrapper.find(sel('history-table-time-0')).exists()).toBe(true)
       expect(wrapper.html().includes('2017/12/21')).toBe(true) // "date" column
       expect(wrapper.html().includes('14h41m')).toBe(true) // "total" column
       expect(

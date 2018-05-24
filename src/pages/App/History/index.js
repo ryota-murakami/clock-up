@@ -63,7 +63,7 @@ export class History extends Component<Props> {
           const total = calcTotalTime(large, small)
 
           return (
-            <tr key={i}>
+            <tr key={i} enzyme-testid={`history-table-time-${i}`}>
               <Td>{ISOtoYmd(createdAt)}</Td>
               <Td>{total}</Td>
               <InTime date={ISOtoHm(clockIn)} />
