@@ -7,15 +7,14 @@ describe('<CreateUser />', () => {
     function setup() {
       const data = { loading: true }
       const wrapper = shallow(<CreateUser data={data} />)
-
       return wrapper
     }
 
-    it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+    it('shoud render only passing [data]props without error', () => {
       expect(() => setup()).not.toThrow()
     })
 
-    it('Loadingが表示されること', () => {
+    it('should displayed Loading', () => {
       const wrapper = setup()
 
       expect(wrapper.find('Loading').exists()).toEqual(true)

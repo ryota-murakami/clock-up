@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import LoginButton from './LoginButton'
 import { A } from '../../elements/A'
-import { Container } from './index.style'
 import type { Match, Location, RouterHistory } from 'react-router'
 
 type Props = {
@@ -30,5 +30,14 @@ export class Login extends Component<Props> {
     )
   }
 }
+
+export const Container = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 export default withRouter(Login)
