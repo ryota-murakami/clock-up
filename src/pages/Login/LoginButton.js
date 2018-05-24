@@ -5,12 +5,10 @@ import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../const'
 import { Button } from '../../elements/Button'
 import { theme } from '../../const'
-import type { Match, Location, RouterHistory } from 'react-router'
+import type { RouterHistory } from 'react-router'
 
 type Props = {
   lock: Auth0Lock,
-  match: Match,
-  location: Location,
   history: RouterHistory
 }
 
