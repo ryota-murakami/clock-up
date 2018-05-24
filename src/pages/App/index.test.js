@@ -18,7 +18,6 @@ describe('<App />', () => {
 
       it('should be create correct datetime response', () => {
         const action = instance.syncDate()
-
         expect(action.hasOwnProperty('currentTime')).toBe(true)
         expect(action.currentTime.hasOwnProperty('dateObject')).toBe(true)
         expect(action.currentTime.hasOwnProperty('year')).toBe(true)
@@ -39,24 +38,21 @@ describe('<App />', () => {
         expect(() => setup(data)).not.toThrow()
       })
 
-      it('loadingが表示されること', () => {
+      it('should displayed Loading', () => {
         const data = { loading: true }
         const wrapper = setup(data)
-
-        expect(wrapper.find('Loading').exists()).toEqual(true)
+        expect(wrapper.find(sel('app-loading')).exists()).toEqual(true)
       })
     })
     describe('data.loading == false', () => {
       it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
         const data = { loading: false, user: null }
-
         expect(() => setup(data)).not.toThrow()
       })
 
       it('loadingが表示されないこと', () => {
         const data = { loading: false, user: null }
         const wrapper = setup(data)
-
         expect(wrapper.find('Loading').exists()).toEqual(false)
       })
 
@@ -64,7 +60,6 @@ describe('<App />', () => {
         it('ログイン画面へリダイレクトされること', () => {
           const data = { loading: false, user: null }
           const wrapper = setup(data)
-
           expect(wrapper.find('Redirect').exists()).toEqual(true)
           expect(wrapper.find('Redirect').props()).toEqual({
             to: '/login',
@@ -85,13 +80,11 @@ describe('<App />', () => {
 
         it('ログアウトボタンが表示されること', () => {
           const wrapper = setup(data)
-
           expect(wrapper.find('LogoutButton').exists()).toEqual(true)
         })
 
-        it('should be display control', () => {
+        it('should displayed control', () => {
           const wrapper = setup(data)
-
           expect(wrapper.find('Apollo(Control)').exists()).toEqual(true)
         })
       })

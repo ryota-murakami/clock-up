@@ -55,7 +55,7 @@ export class App extends Component<Props> {
     } = this.props
 
     if (loading) {
-      return <Loading />
+      return <Loading enzyme-testid="app-loading" />
     }
 
     if (!this.isAuthenticated(user)) {
