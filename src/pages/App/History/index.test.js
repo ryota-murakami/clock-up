@@ -19,12 +19,12 @@ describe('<History />', () => {
       return wrapper
     }
 
-    it('should be render without error', () => {
+    it('should render without error', () => {
       const wrapper = setup()
       expect(wrapper.exists()).toBe(true)
     })
 
-    it('should be render with N/A', () => {
+    it('should render with N/A', () => {
       const wrapper = setup()
       expect(wrapper.find('Table__Td').exists()).toBe(true)
       expect(
