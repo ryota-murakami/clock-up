@@ -24,13 +24,11 @@ describe('<CreateUser />', () => {
     describe('isNotExistUserInAuth0() == true', () => {
       const emptyMock = jest.fn()
       const returnTrueMock = jest.fn().mockReturnValue(true)
-
       function setup() {
         const data = { loading: false }
         CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnTrueMock
         const wrapper = shallow(<CreateUser data={data} />)
-
         return wrapper
       }
 
@@ -40,13 +38,11 @@ describe('<CreateUser />', () => {
 
       it('should not displayed Loading', () => {
         const wrapper = setup()
-
         expect(wrapper.find(sel('Loading')).exists()).toEqual(false)
       })
 
       it('sould be fire InsertUserDataToAuth0()', () => {
         setup()
-
         expect(emptyMock).toBeCalled()
       })
 
