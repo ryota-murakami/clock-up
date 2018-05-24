@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginButton /> snapshotが一致すること 1`] = `
+exports[`<LoginButton /> should match to snapshot 1`] = `
 <Button
   color="#66bb6a"
   data-testid="login-btn"
