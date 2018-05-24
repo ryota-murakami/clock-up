@@ -60,10 +60,11 @@ describe('<App />', () => {
         it('should redirected Login page', () => {
           const data = { loading: false, user: null }
           const wrapper = setup(data)
-          expect(wrapper.find('Redirect').exists()).toEqual(true)
-          expect(wrapper.find('Redirect').props()).toEqual({
+          expect(wrapper.find(sel('app-redirect')).exists()).toEqual(true)
+          expect(wrapper.find(sel('app-redirect')).props()).toEqual({
             to: '/login',
-            push: false
+            push: false,
+            'enzyme-testid': 'app-redirect'
           })
         })
       })

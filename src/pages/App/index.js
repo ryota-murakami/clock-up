@@ -59,7 +59,7 @@ export class App extends Component<Props> {
     }
 
     if (!this.isAuthenticated(user)) {
-      return <Redirect to="/login" />
+      return <Redirect to="/login" enzyme-testid="app-redirect" />
     }
 
     return (
