@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Table /> toMatchSnapshot 1`] = `
+exports[`<Table /> should match to spapshot 1`] = `
 <table
   className="Table-evpfJW ekcGgi"
 />
 `;
 
-exports[`<Tbody /> toMatchSnapshot 1`] = `
+exports[`<Tbody /> should match to spapshot 1`] = `
 <tbody
   className="Table__Tbody-coKAkO dHtLHf"
 />
 `;
 
-exports[`<Td /> toMatchSnapshot 1`] = `
+exports[`<Td /> should match to spapshot 1`] = `
 <td
   className="Table__Td-rXNav LRKLc"
 />
 `;
 
-exports[`<Th /> toMatchSnapshot 1`] = `
+exports[`<Th /> should match to spapshot 1`] = `
 <th
   className="Table__Th-eisASl fdsIwX"
 />

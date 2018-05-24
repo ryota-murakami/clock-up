@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> toMatchSnapshot 1`] = `
+exports[`<Header /> should match to spapshot 1`] = `
 <div
   className="Header-bKPLEa eAZYFB"
 />

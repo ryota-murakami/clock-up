@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Select /> toMatchSnapshot 1`] = `
+exports[`<Select /> should match to spapshot 1`] = `
 <select
   className="Select-eZBaHc lmGDrE"
 >

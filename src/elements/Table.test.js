@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json'
 import { Table, Th, Tbody, Td } from './Table'
 
 describe('<Table />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(<Table />)
 
     expect(toJson(wrapper)).toMatchSnapshot()
@@ -12,7 +12,7 @@ describe('<Table />', () => {
 })
 
 describe('<Th />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(<Th />)
 
     expect(toJson(wrapper)).toMatchSnapshot()
@@ -20,7 +20,7 @@ describe('<Th />', () => {
 })
 
 describe('<Tbody />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(<Tbody />)
 
     expect(toJson(wrapper)).toMatchSnapshot()
@@ -28,7 +28,7 @@ describe('<Tbody />', () => {
 })
 
 describe('<Td />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(<Td />)
 
     expect(toJson(wrapper)).toMatchSnapshot()

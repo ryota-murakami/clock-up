@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json'
 import { Select } from './Select'
 
 describe('<Select />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(
       <Select>
         <option value="1">1</option>

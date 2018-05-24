@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> toMatchSnapshot 1`] = `
+exports[`<Button /> should match to spapshot 1`] = `
 <button
   className="Button-kDSBcD cGlyDV"
 />

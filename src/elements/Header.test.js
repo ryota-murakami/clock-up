@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json'
 import { Header } from './Header'
 
 describe('<Header />', () => {
-  it('toMatchSnapshot', () => {
+  it('should match to spapshot', () => {
     const wrapper = shallow(<Header />)
 
     expect(toJson(wrapper)).toMatchSnapshot()
