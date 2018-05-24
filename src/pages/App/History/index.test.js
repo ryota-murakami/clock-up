@@ -21,13 +21,11 @@ describe('<History />', () => {
 
     it('should be render without error', () => {
       const wrapper = setup()
-
       expect(wrapper.exists()).toBe(true)
     })
 
     it('should be render with N/A', () => {
       const wrapper = setup()
-
       expect(wrapper.find('Table__Td').exists()).toBe(true)
       expect(
         wrapper
@@ -45,9 +43,8 @@ describe('<History />', () => {
       ).toBe('N/A')
     })
 
-    it('should be match snapshot', () => {
+    it('should match to snapshot', () => {
       const wrapper = setup()
-
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   })
@@ -72,7 +69,7 @@ describe('<History />', () => {
       return wrapper
     }
 
-    it('should be render with N/A', () => {
+    it('should render with N/A', () => {
       const wrapper = setup()
 
       expect(wrapper.find('Table__Td').exists()).toBe(true)
@@ -92,9 +89,8 @@ describe('<History />', () => {
       ).toBe('N/A')
     })
 
-    it('should be match snapshot', () => {
+    it('should match to snapshot', () => {
       const wrapper = setup()
-
       expect(toJson(wrapper)).toMatchSnapshot()
     })
   })
@@ -127,9 +123,8 @@ describe('<History />', () => {
       return wrapper
     }
 
-    it('should be render TotalTime', () => {
+    it('should render TotalTime', () => {
       const wrapper = setup()
-
       expect(wrapper.find('tr').exists()).toBe(true)
       expect(wrapper.html().includes('2017/12/21')).toBe(true) // "date" column
       expect(wrapper.html().includes('14h41m')).toBe(true) // "total" column

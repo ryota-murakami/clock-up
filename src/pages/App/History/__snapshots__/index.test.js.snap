@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<History /> pass empty array should be match snapshot 1`] = `
+exports[`<History /> pass empty array should match to snapshot 1`] = `
 <History__Container>
   <History__Header>
     History
@@ -62,7 +62,7 @@ exports[`<History /> pass empty array should be match snapshot 1`] = `
 </History__Container>
 `;
 
-exports[`<History /> pass first time clock in data should be match snapshot 1`] = `
+exports[`<History /> pass first time clock in data should match to snapshot 1`] = `
 <History__Container>
   <History__Header>
     History
