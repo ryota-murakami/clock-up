@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { App } from './index'
 import { createStore } from 'redux'
 import { type } from '../../types/ReduxAction'
+import { sel } from '../../testutil'
 
 describe('<App />', () => {
   const setup = data =>
@@ -78,10 +79,9 @@ describe('<App />', () => {
           loading: false,
           user: { foo: 'bar', isDuringClockIn: false }
         }
-        it('メイン画面が表示されること', () => {
+        it('shoud render App Page', () => {
           const wrapper = setup(data)
-
-          expect(wrapper.find('App__Container').exists()).toEqual(true)
+          expect(wrapper.find(sel('app-page')).exists()).toEqual(true)
         })
 
         it('ログアウトボタンが表示されること', () => {

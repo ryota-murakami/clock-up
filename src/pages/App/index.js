@@ -64,7 +64,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <Container>
+      <Container data-testid="app-page">
         <Header>
           <LogoutBtn />
         </Header>
