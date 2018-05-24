@@ -98,7 +98,7 @@ export class History extends Component<Props> {
             <option value="all">all</option>
           </Select>
         </SelectBoxWrapper>
-        <Table>
+        <Table enzyme-testid="history-table">
           <Tbody>
             <Tr>
               <Th>date</Th>

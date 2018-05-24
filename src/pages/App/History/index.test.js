@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { createStore } from 'redux'
 import { History } from './index'
+import { sel } from '../../../testutil'
 
 const dispatch = createStore(f => f).dispatch
 
@@ -26,7 +27,7 @@ describe('<History />', () => {
 
     it('should render with N/A', () => {
       const wrapper = setup()
-      expect(wrapper.find('Table__Td').exists()).toBe(true)
+      expect(wrapper.find(sel('history-table')).exists()).toBe(true)
       expect(
         wrapper
           .find('Table__Td')
