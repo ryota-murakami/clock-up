@@ -9,11 +9,10 @@ describe('<Login />', () => {
     const domain = 'eeee'
     const lock = new Auth0Lock(clientId, domain)
     const wrapper = shallow(<Login lock={lock} />)
-
     return wrapper
   }
 
-  it('[lock]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+  it('shoud render only passing [lock]props without error', () => {
     expect(() => setup()).not.toThrow()
   })
 })
