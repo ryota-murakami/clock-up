@@ -48,7 +48,7 @@ describe('<CreateUser />', () => {
 
       it("should return <Redirect to={{ pathname: '/' }} />", () => {
         const wrapper = setup()
-        expect(wrapper.find('Redirect').exists()).toEqual(true)
+        expect(wrapper.find(sel('Redirect')).exists()).toEqual(true)
       })
     })
     describe('isNotExistUserInAuth0() == false', () => {

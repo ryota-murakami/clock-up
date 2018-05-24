@@ -52,6 +52,7 @@ export class CreateUser extends React.Component<Props> {
         to={{
           pathname: '/'
         }}
+        data-testid="Redirect"
       />
     )
   }
