@@ -1,5 +1,4 @@
 // @flow
-
 import type { CurrentTime } from './ReduxState'
 
 export const type = {
