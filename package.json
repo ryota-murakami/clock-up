@@ -19,7 +19,8 @@
       "!src/registerServiceWorker.js",
       "!src/index.css.js",
       "!src/types/**/*",
-      "!src/testutil.js"
+      "!src/testutil.js",
+      "!src/const.js"
     ],
     "setupFiles": [
       "<rootDir>/config/shims.js",
