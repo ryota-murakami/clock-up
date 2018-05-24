@@ -44,6 +44,7 @@ describe('<App />', () => {
         expect(wrapper.find(sel('app-loading')).exists()).toEqual(true)
       })
     })
+
     describe('data.loading == false', () => {
       it('should render only passing [data]props without error', () => {
         const data = { loading: false, user: null }
