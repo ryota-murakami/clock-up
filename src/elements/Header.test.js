@@ -6,7 +6,6 @@ import { Header } from './Header'
 describe('<Header />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<Header />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

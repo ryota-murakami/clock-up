@@ -6,7 +6,6 @@ import { A } from './A'
 describe('<A />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<A />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

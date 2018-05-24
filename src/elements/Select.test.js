@@ -10,7 +10,6 @@ describe('<Select />', () => {
         <option value="1">1</option>
       </Select>
     )
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

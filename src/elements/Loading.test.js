@@ -16,7 +16,6 @@ describe('<Loading />', () => {
 
   it('should be match snapshot', () => {
     const wrapper = setup()
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

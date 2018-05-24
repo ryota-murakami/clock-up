@@ -6,7 +6,6 @@ import { Table, Th, Tbody, Td } from './Table'
 describe('<Table />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<Table />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
@@ -14,7 +13,6 @@ describe('<Table />', () => {
 describe('<Th />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<Th />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
@@ -22,7 +20,6 @@ describe('<Th />', () => {
 describe('<Tbody />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<Tbody />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
@@ -30,7 +27,6 @@ describe('<Tbody />', () => {
 describe('<Td />', () => {
   it('should match to spapshot', () => {
     const wrapper = shallow(<Td />)
-
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
