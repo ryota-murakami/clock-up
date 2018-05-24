@@ -65,7 +65,7 @@ export class App extends Component<Props> {
     return (
       <Container enzyme-testid="app-page">
         <Header>
-          <LogoutBtn />
+          <LogoutBtn enzyme-testid="app-logoutBtn" />
         </Header>
         <Left>
           <CurrentDateTime />

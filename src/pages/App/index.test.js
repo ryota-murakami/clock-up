@@ -81,7 +81,7 @@ describe('<App />', () => {
 
         it('should displayed LogoutButton', () => {
           const wrapper = setup(data)
-          expect(wrapper.find('LogoutButton').exists()).toEqual(true)
+          expect(wrapper.find(sel('app-logoutBtn')).exists()).toEqual(true)
         })
 
         it('should displayed control', () => {
