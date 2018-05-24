@@ -18,7 +18,6 @@ const Container = styled.main`
 
 type Props = {
   lock: Auth0Lock,
-  // TODO define router shape
   match: Match,
   location: Location,
   history: RouterHistory

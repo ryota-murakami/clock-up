@@ -26,7 +26,6 @@ type Props = {
     },
     loading: boolean
   },
-  // TODO Router Shape
   match: Match,
   location: Location,
   history: RouterHistory,
