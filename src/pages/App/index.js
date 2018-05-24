@@ -15,7 +15,6 @@ import Control from './Control'
 import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
-import type { Match, Location, RouterHistory } from 'react-router'
 import type { ReduxAction, SyncDateAction } from '../../types/ReduxAction'
 import type { CurrentTime } from '../../types/ReduxState'
 
@@ -26,9 +25,6 @@ type Props = {
     },
     loading: boolean
   },
-  match: Match,
-  location: Location,
-  history: RouterHistory,
   dispatch: Dispatch<ReduxAction>
 }
 
