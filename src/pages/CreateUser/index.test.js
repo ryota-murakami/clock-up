@@ -54,24 +54,21 @@ describe('<CreateUser />', () => {
     describe('isNotExistUserInAuth0() == false', () => {
       const emptyMock = jest.fn()
       const returnFalseMock = jest.fn().mockReturnValue(false)
-
       function setup() {
         const data = { loading: false }
         CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnFalseMock
         const wrapper = shallow(<CreateUser data={data} />)
-
         return wrapper
       }
 
-      it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+      it('shoud render only passing [data]props without error', () => {
         expect(() => setup()).not.toThrow()
       })
 
-      it('Loadingが表示されないこと', () => {
+      it('should not displayed Loading', () => {
         const wrapper = setup()
-
-        expect(wrapper.find('Loading').exists()).toEqual(false)
+        expect(wrapper.find(sel('Loading')).exists()).toEqual(false)
       })
 
       it('should not fire InsertUserDataToAuth0()', () => {
