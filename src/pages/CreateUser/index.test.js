@@ -20,6 +20,7 @@ describe('<CreateUser />', () => {
       expect(wrapper.find(sel('Loading')).exists()).toEqual(true)
     })
   })
+
   describe('data.loading == false', () => {
     describe('isNotExistUserInAuth0() == true', () => {
       const emptyMock = jest.fn()
@@ -51,6 +52,7 @@ describe('<CreateUser />', () => {
         expect(wrapper.find(sel('Redirect')).exists()).toEqual(true)
       })
     })
+
     describe('isNotExistUserInAuth0() == false', () => {
       const emptyMock = jest.fn()
       const returnFalseMock = jest.fn().mockReturnValue(false)

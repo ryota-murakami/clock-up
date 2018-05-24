@@ -34,9 +34,8 @@ describe('<App />', () => {
 
   describe('render', () => {
     describe('data.loading == true', () => {
-      it('[data]propsのみの受け渡しでErrorなくレンダリングされること', () => {
+      it('shoud render only passing [data]props without error', () => {
         const data = { loading: true }
-
         expect(() => setup(data)).not.toThrow()
       })
 
