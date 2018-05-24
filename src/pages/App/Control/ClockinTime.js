@@ -80,7 +80,7 @@ export class ClockinTime extends Component<Props> {
     const TotalTime = calcTotalTime(now, past)
 
     return (
-      <Container data-test="clock-in-time">
+      <Container data-testid="clock-in-time">
         <Text>ClockIn</Text>
         <Text>{this.formatDate(ClockinTimeISO)}</Text>
         <Text>TotalTime</Text>

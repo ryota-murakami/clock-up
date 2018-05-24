@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { createStore } from 'redux'
-import { History } from './History'
+import { History } from './index'
 
 const dispatch = createStore(f => f).dispatch
 

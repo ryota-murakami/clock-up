@@ -52,7 +52,7 @@ export class LoginButton extends Component<Props> {
       <StyledButton
         color={theme.green}
         onClick={this.showAuth0LoginModal}
-        data-test="login-btn"
+        data-testid="login-btn"
       >
         Login
       </StyledButton>

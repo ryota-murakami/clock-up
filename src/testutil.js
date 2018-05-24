@@ -1,5 +1,5 @@
 // @flow
 
 export function sel(id: string): string {
-  return `[data-test="${id}"]`
+  return `[data-testid="${id}"]`
 }

@@ -57,7 +57,7 @@ export class ClockoutButton extends Component<Props> {
         primary
         color={theme.red}
         onClick={this.gqlLogic}
-        data-test="clock-out-btn"
+        data-testid="clock-out-btn"
       >
         clock out
       </Button>
