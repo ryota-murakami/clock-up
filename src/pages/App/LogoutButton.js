@@ -14,7 +14,11 @@ export class LogoutButton extends Component<Props> {
 
   render() {
     return (
-      <Button color={theme.gray} onClick={this.logout} enzyme-testid="logout-btn">
+      <Button
+        color={theme.gray}
+        onClick={this.logout}
+        enzyme-testid="logout-btn"
+      >
         Logout
       </Button>
     )
