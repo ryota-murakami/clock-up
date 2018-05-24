@@ -1,5 +1,6 @@
 // @flow
 
+// for enzyme
 export function sel(id: string): string {
-  return `[data-testid="${id}"]`
+  return `[enzyme-testid="${id}"]`
 }

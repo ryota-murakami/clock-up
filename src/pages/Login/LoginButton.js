@@ -45,7 +45,7 @@ export class LoginButton extends Component<Props> {
       <StyledButton
         color={theme.green}
         onClick={this.showAuth0LoginModal}
-        data-testid="login-btn"
+        enzyme-testid="login-btn"
       >
         Login
       </StyledButton>

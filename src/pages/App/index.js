@@ -63,7 +63,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <Container data-testid="app-page">
+      <Container enzyme-testid="app-page">
         <Header>
           <LogoutBtn />
         </Header>

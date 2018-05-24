@@ -44,7 +44,7 @@ export class ClockinButton extends Component<Props> {
         primary
         color={theme.green}
         onClick={this.gqlLogic}
-        data-testid="clock-in-btn"
+        enzyme-testid="clock-in-btn"
       >
         Clock In
       </Button>

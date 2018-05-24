@@ -3,7 +3,7 @@
 exports[`<LoginButton /> should match to snapshot 1`] = `
 <Button
   color="#66bb6a"
-  data-testid="login-btn"
+  enzyme-testid="login-btn"
   onClick={[Function]}
 >
   Login
