@@ -10,6 +10,7 @@ type StateProps = {|
 type Props = StateProps
 
 export class CurrentDateTime extends Component<Props> {
+  // TODO write test
   flush(seconds: string): boolean {
     if (Number.parseInt(seconds, 10) % 2 === 0) {
       return true
