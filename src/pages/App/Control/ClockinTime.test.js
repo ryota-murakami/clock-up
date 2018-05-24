@@ -37,7 +37,6 @@ describe('<ClockinTime / >', () => {
     const wrapper = shallow(
       <ClockinTime data={correctData} currentTime={currentTime} />
     )
-
     expect(wrapper.exists()).toBe(true)
   })
 
@@ -45,7 +44,6 @@ describe('<ClockinTime / >', () => {
     const wrapper = shallow(
       <ClockinTime data={correctData} currentTime={currentTime} />
     )
-
     expect(
       wrapper.html().includes('2:15 AM') || wrapper.html().includes('5:15 PM')
     ).toBe(true)
