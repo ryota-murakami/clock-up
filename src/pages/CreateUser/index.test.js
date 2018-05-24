@@ -11,7 +11,7 @@ describe('<CreateUser />', () => {
       return wrapper
     }
 
-    it('shoud render only passing [data]props without error', () => {
+    it('should render only passing [data]props without error', () => {
       expect(() => setup()).not.toThrow()
     })
 
@@ -33,7 +33,7 @@ describe('<CreateUser />', () => {
         return wrapper
       }
 
-      it('shoud render only passing [data]props without error', () => {
+      it('should render only passing [data]props without error', () => {
         expect(() => setup()).not.toThrow()
       })
 
@@ -64,7 +64,7 @@ describe('<CreateUser />', () => {
         return wrapper
       }
 
-      it('shoud render only passing [data]props without error', () => {
+      it('should render only passing [data]props without error', () => {
         expect(() => setup()).not.toThrow()
       })
 

@@ -12,7 +12,7 @@ describe('<Login />', () => {
     return wrapper
   }
 
-  it('shoud render only passing [lock]props without error', () => {
+  it('should render only passing [lock]props without error', () => {
     expect(() => setup()).not.toThrow()
   })
 })

@@ -33,7 +33,7 @@ describe('<App />', () => {
 
   describe('render', () => {
     describe('data.loading == true', () => {
-      it('shoud render only passing [data]props without error', () => {
+      it('should render only passing [data]props without error', () => {
         const data = { loading: true }
         expect(() => setup(data)).not.toThrow()
       })
@@ -73,7 +73,7 @@ describe('<App />', () => {
           loading: false,
           user: { foo: 'bar', isDuringClockIn: false }
         }
-        it('shoud render App Page', () => {
+        it('should render App Page', () => {
           const wrapper = setup(data)
           expect(wrapper.find(sel('app-page')).exists()).toEqual(true)
         })
