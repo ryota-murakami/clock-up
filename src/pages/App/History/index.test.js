@@ -60,22 +60,8 @@ describe('<History />', () => {
 
     it('should render with N/A', () => {
       const wrapper = setup()
-
       expect(wrapper.find(sel('history-table')).exists()).toBe(true)
-      expect(
-        wrapper
-          .find('Table__Td')
-          .first()
-          .dive()
-          .exists()
-      ).toBe(true)
-      expect(
-        wrapper
-          .find('Table__Td')
-          .first()
-          .dive()
-          .text()
-      ).toBe('N/A')
+      expect(wrapper.find(sel('history-table-na')).exists()).toBe(true)
     })
 
     it('should match to snapshot', () => {
