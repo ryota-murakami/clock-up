@@ -69,7 +69,7 @@ export class App extends Component<Props> {
         </Header>
         <Left>
           <CurrentDateTime />
-          <Control />
+          <Control enzyme-testid="app-control" />
         </Left>
         <Right>
           <History />

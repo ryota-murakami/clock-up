@@ -86,7 +86,7 @@ describe('<App />', () => {
 
         it('should displayed control', () => {
           const wrapper = setup(data)
-          expect(wrapper.find('Apollo(Control)').exists()).toEqual(true)
+          expect(wrapper.find(sel('app-control')).exists()).toEqual(true)
         })
       })
     })
