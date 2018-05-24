@@ -7,13 +7,12 @@ import { parseTime } from '../../function'
 describe('<CurrentDateTime />', () => {
   const currentTime: CurrentTime = parseTime(new Date())
 
-  it('should be error without currentTime props', () => {
-    expect(() => shallow(<CurrentDateTime />)).toThrow()
+  it('should render', () => {
+    const wrapper = shallow(<CurrentDateTime currentTime={currentTime} />)
+    expect(wrapper.exists()).toBe(true)
   })
 
-  it('should be render', () => {
-    const wrapper = shallow(<CurrentDateTime currentTime={currentTime} />)
-
-    expect(wrapper.exists()).toBe(true)
+  it('should error without currentTime props', () => {
+    expect(() => shallow(<CurrentDateTime />)).toThrow()
   })
 })
