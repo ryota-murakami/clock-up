@@ -79,7 +79,7 @@
     "eslint-plugin-react": "^7.8.2",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "^1.1.11",
-    "flow-bin": "^0.72.0",
+    "flow-bin": "^0.73.0",
     "fs-extra": "^6.0.1",
     "html-webpack-plugin": "^3.0.0",
     "jest-localstorage-mock": "^2.1.0",
