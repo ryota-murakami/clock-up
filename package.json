@@ -54,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^8.5.0",
+    "autoprefixer": "^8.5.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
@@ -117,6 +117,6 @@
     "react-scripts": "^1.1.4",
     "react-spinners": "^0.3.2",
     "redux": "^4.0.0",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.3.0"
   }
 }
