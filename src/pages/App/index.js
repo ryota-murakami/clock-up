@@ -83,4 +83,8 @@ export const query = gql`
   }
 `
 
-export default compose(connect(), graphql(query), withRouter)(App)
+export default compose(
+  connect(),
+  graphql(query),
+  withRouter
+)(App)

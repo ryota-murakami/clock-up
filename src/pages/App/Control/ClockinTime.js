@@ -108,4 +108,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default compose(connect(mapStateToProps), graphql(query))(ClockinTime)
+export default compose(
+  connect(mapStateToProps),
+  graphql(query)
+)(ClockinTime)
