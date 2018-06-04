@@ -117,6 +117,6 @@
     "react-scripts": "^1.1.4",
     "react-spinners": "^0.3.2",
     "redux": "^4.0.0",
-    "styled-components": "^2.4.1"
+    "styled-components": "^3.3.2"
   }
 }
