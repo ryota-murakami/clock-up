@@ -3,14 +3,63 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.2",
+    "apollo-client": "^2.3.2",
+    "apollo-link-http": "^1.5.4",
+    "auth0-lock": "^11.7.2",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "history": "^4.7.2",
     "react": "^16.4.0",
+    "react-apollo": "^2.1.4",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "1.1.4",
+    "react-spinners": "^0.3.2",
+    "redux": "^4.0.0",
+    "styled-components": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test:cov": "react-scripts test --env=jsdom --collectCoverage",
+    "eject": "react-scripts eject",
+    "codecov": "codecov -t $CODECOV_TOKEN",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/index.css.js",
+      "!src/types/**/*",
+      "!.flsrc/testutil.js",
+      "!src/const.js"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-styled-components": "^1.5.1",
+    "dotenv": "^6.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^4.19.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
+    "flow-bin": "^0.74.0",
+    "prettier": "^1.13.5",
+    "react-app-rewired": "^1.5.2",
+    "react-test-renderer": "^16.4.0"
   }
 }

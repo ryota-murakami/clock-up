@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> should match to spapshot 1`] = `
+<table
+  className="sc-bdVaJa jegAFh"
+/>
+`;
+
+exports[`<Tbody /> should match to spapshot 1`] = `
+<tbody
+  className="sc-ifAKCX iULWd"
+/>
+`;
+
+exports[`<Td /> should match to spapshot 1`] = `
+<td
+  className="sc-bxivhb eQhubw"
+/>
+`;
+
+exports[`<Th /> should match to spapshot 1`] = `
+<th
+  className="sc-htpNat ihDaPZ"
+/>
+`;

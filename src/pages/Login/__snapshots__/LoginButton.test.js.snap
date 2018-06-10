@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginButton /> should match to snapshot 1`] = `
+<styled.button
+  color="#66bb6a"
+  enzyme-testid="login-btn"
+  onClick={[Function]}
+>
+  Login
+</styled.button>
+`;
