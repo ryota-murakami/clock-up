@@ -1,7 +1,7 @@
 // @flow
 import { parseTime } from './function'
 import { routerReducer } from 'react-router-redux'
-import type { Period, ReduxAction } from './action'
+import type { ReduxAction } from './action'
 
 /**
  * all of current new Date() related data.
@@ -45,6 +45,8 @@ const initialState: AppState = {
     orderBy: 'createdAt_DESC'
   }
 }
+
+export type Period = '1week' | '1month' | 'all'
 
 export default function reducer(
   state: AppState = initialState,
