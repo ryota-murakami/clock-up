@@ -1,41 +1,15 @@
 // @flow
 import { parseTime } from './function'
-import { routerReducer } from 'react-router-redux'
 import type { ReduxAction } from './action'
-
-/**
- * all of current new Date() related data.
- * use to ReduxState.
- * update every 1 second by setInterval() dispached "SYNC_DATE" action.
- */
-export type CurrentTime = {
-  dateObject: Date, // typcally use to calculate TotalTime.
-  year: string,
-  month: string,
-  days: string,
-  date: string,
-  hour: string,
-  minutes: string,
-  seconds: string
-}
-
-export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
-
-export type HistoryQueryParameter = {
-  first: number,
-  orderBy: OrderBy
-}
+import type { CurrentTime, HistoryQueryParameter, Period } from './domainType'
 
 export type AppState = {
   currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter
 }
 
-type RouterReducer = routerReducer
-
-export type RootReduxState = {
-  app: AppState,
-  router: RouterReducer
+export type ReduxState = {
+  app: AppState
 }
 
 const initialState: AppState = {
@@ -45,8 +19,6 @@ const initialState: AppState = {
     orderBy: 'createdAt_DESC'
   }
 }
-
-export type Period = '1week' | '1month' | 'all'
 
 export default function reducer(
   state: AppState = initialState,

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Container, Day, Time } from './CurrentDateTime.style'
 import { connect } from 'react-redux'
-import type { CurrentTime } from '../../reducer'
+import type { CurrentTime } from '../../domainType'
 
 type StateProps = {|
   currentTime: CurrentTime

@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from './reducer'
+import type { CurrentTime } from './domainType'
 
 // TODO explain
 export function parseTime(dateObj: Date = new Date()): CurrentTime {

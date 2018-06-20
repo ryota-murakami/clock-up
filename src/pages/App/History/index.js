@@ -11,9 +11,10 @@ import InTime from './InTime'
 import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
 import type { Dispatch } from 'redux'
-import type { HistoryQueryParameter, Period } from '../../../reducer'
-import type { RootReduxState } from '../../../reducer'
+import type { Period } from '../../../domainType'
+import type { ReduxState } from '../../../reducer'
 import type { ReduxAction } from '../../../action'
+import type { HistoryQueryParameter } from '../../../domainType'
 
 type Clocks = Array<{
   id: string,
@@ -128,7 +129,7 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state: RootReduxState) => {
+const mapStateToProps = (state: ReduxState) => {
   return { historyQueryParameter: state.app.historyQueryParameter }
 }
 

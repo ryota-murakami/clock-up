@@ -9,36 +9,23 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloLink } from 'apollo-link'
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { createStore, combineReducers} from 'redux'
 import { Provider } from 'react-redux'
-import createHistory from 'history/createBrowserHistory'
-import { Route } from 'react-router-dom'
-import {
-  ConnectedRouter,
-  routerReducer,
-  routerMiddleware
-} from 'react-router-redux'
+import { BrowserRouter, Route } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from './const'
 import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 
-// react-router
-const history = createHistory()
-const middleware = routerMiddleware(history)
-
 // redux
 const store = createStore(
+  // TODO remove combine
   combineReducers({
-    router: routerReducer,
     app: reducer
   }),
-  compose(
-    applyMiddleware(middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ === undefined
-      ? window.__REDUX_DEVTOOLS_EXTENSION__()
-      : f => f
-  )
+  window.__REDUX_DEVTOOLS_EXTENSION__ === undefined
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : f => f
 )
 
 // apollo-client
@@ -76,13 +63,13 @@ const lock = new Auth0Lock(clientId, domain, option)
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
-      <ConnectedRouter history={history}>
+      <BrowserRouter>
         <div>
           <Route exact path="/" component={App} />
           <Route path="/login" component={() => <Login lock={lock} />} />
           <Route path="/createuser" component={CreateUser} />
         </div>
-      </ConnectedRouter>
+      </BrowserRouter>
     </ApolloProvider>
   </Provider>,
   document.getElementById('root')

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { compose } from 'redux'
 import { theme } from '../../../const'
 import { calcTotalTime } from '../../../function'
-import type { CurrentTime } from '../../../reducer'
+import type { CurrentTime } from '../../../domainType'
 
 const Container = styled.div`
   flex-basics: max-content;
