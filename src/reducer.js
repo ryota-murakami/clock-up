@@ -3,12 +3,12 @@ import { parseTime } from './function'
 import type { ReduxAction } from './action'
 import type { CurrentTime, HistoryQueryParameter, Period } from './domainType'
 
-export type AppState = {
+export type ReduxState = {
   currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter
 }
 
-const initialState: AppState = {
+const initialState: ReduxState = {
   currentTime: parseTime(new Date()),
   historyQueryParameter: {
     first: 7,
@@ -17,9 +17,9 @@ const initialState: AppState = {
 }
 
 export default function reducer(
-  state: AppState = initialState,
+  state: ReduxState = initialState,
   action: ReduxAction
-): AppState {
+): ReduxState {
   switch (action.type) {
     case '@@/App/SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime
