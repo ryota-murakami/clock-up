@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Container, Day, Time } from './CurrentDateTime.style'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../../domainType'
+import type { ReduxState } from '../../reducer'
 
 type StateProps = {|
   currentTime: CurrentTime
@@ -42,7 +43,7 @@ export class CurrentDateTime extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ReduxState) => {
   return {
     currentTime: state.currentTime
   }

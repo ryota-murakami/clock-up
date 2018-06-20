@@ -14,6 +14,7 @@ import type { Dispatch } from 'redux'
 import type { Period } from '../../../domainType'
 import type { ReduxAction } from '../../../action'
 import type { HistoryQueryParameter } from '../../../domainType'
+import type { ReduxState } from '../../../reducer'
 
 type Clocks = Array<{
   id: string,
@@ -128,7 +129,7 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: ReduxState) => {
   return { historyQueryParameter: state.historyQueryParameter }
 }
 

@@ -6,6 +6,7 @@ import { compose } from 'redux'
 import { theme } from '../../../const'
 import { calcTotalTime } from '../../../function'
 import type { CurrentTime } from '../../../domainType'
+import type { ReduxState } from '../../../reducer'
 
 const Container = styled.div`
   flex-basics: max-content;
@@ -88,7 +89,7 @@ export class ClockinTime extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ReduxState) => {
   return {
     currentTime: state.currentTime
   }
