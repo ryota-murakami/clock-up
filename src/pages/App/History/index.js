@@ -11,9 +11,9 @@ import InTime from './InTime'
 import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
 import type { Dispatch } from 'redux'
-import type { Period } from '../../../domainType'
+import type { Period } from '../../../dataType'
 import type { ReduxAction } from '../../../action'
-import type { HistoryQueryParameter } from '../../../domainType'
+import type { HistoryQueryParameter } from '../../../dataType'
 import type { ReduxState } from '../../../reducer'
 
 type Clocks = Array<{

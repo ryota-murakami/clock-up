@@ -1,6 +1,6 @@
 // @flow
-import type { Period } from './domainType'
-import type { CurrentTime } from './domainType'
+import type { Period } from './dataType'
+import type { CurrentTime } from './dataType'
 
 export type SyncDateAction = {
   type: 'SYNC_DATE',

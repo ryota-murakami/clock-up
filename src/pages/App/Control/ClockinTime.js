@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { compose } from 'redux'
 import { theme } from '../../../const'
 import { calcTotalTime } from '../../../function'
-import type { CurrentTime } from '../../../domainType'
+import type { CurrentTime } from '../../../dataType'
 import type { ReduxState } from '../../../reducer'
 
 const Container = styled.div`
