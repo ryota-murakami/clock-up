@@ -1,5 +1,4 @@
 import reducer from './reducer'
-import { type } from './types/ReduxAction'
 
 describe('reducer', () => {
   it('should be return the initial state', () => {
@@ -17,7 +16,7 @@ describe('reducer', () => {
 
   it('should be correct work SYNC_DATE', () => {
     const action = {
-      type: type.SYNC_DATE,
+      type: '@@/App/SYNC_DATE',
       currentTime: {
         dateObject: {},
         year: '2018',

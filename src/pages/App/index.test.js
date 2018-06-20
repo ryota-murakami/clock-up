@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { App } from './index'
 import { createStore } from 'redux'
-import { type } from '../../types/ReduxAction'
 import { sel } from '../../testutil'
 
 describe('<App />', () => {
@@ -13,7 +12,7 @@ describe('<App />', () => {
     const instance = new App()
     describe('syncDate()', () => {
       it('should be create action.type SYNC_DATE', () => {
-        expect(instance.syncDate().type).toBe(type.SYNC_DATE)
+        expect(instance.syncDate().type).toBe('@@/App/SYNC_DATE')
       })
 
       it('should be create correct datetime response', () => {

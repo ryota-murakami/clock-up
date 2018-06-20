@@ -2,7 +2,6 @@
 import { parseTime } from './function'
 import { routerReducer } from 'react-router-redux'
 import type { Period, ReduxAction } from './types/ReduxAction'
-import { type } from './types/ReduxAction'
 
 /**
  * <Domain Date Type>
@@ -83,13 +82,13 @@ export default function reducer(
   action: ReduxAction
 ): AppState {
   switch (action.type) {
-    case type.SYNC_DATE:
+    case '@@/App/SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime
 
       return { ...state, currentTime: currentTime }
 
     // TODO date period
-    case type.CHANGE_HISTORY:
+    case '@@/App/CHANGE_HISTORY':
       let first = ''
       const p: Period = action.period
       if (p === '1week') {

@@ -1,11 +1,6 @@
 // @flow
 import type { CurrentTime } from '../reducer'
 
-export const type = {
-  SYNC_DATE: '@@/App/SYNC_DATE',
-  CHANGE_HISTORY: '@@/App/CHANGE_HISTORY'
-}
-
 export type SyncDateAction = {
   type: '@@/App/SYNC_DATE',
   currentTime: CurrentTime

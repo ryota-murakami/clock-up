@@ -10,7 +10,6 @@ import { Select } from '../../../elements/Select'
 import InTime from './InTime'
 import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
-import { type } from '../../../types/ReduxAction'
 import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../../reducer'
 import type { RootReduxState } from '../../../reducer'
@@ -36,7 +35,7 @@ type Props = {
 export class History extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
-      type: type.CHANGE_HISTORY,
+      type: '@@/App/CHANGE_HISTORY',
       period: value
     })
   }

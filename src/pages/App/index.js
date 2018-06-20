@@ -10,7 +10,6 @@ import { Header } from '../../elements/Header'
 import CurrentDateTime from './CurrentDateTime'
 import LogoutBtn from './LogoutButton'
 import History from './History/index'
-import { type } from '../../types/ReduxAction'
 import Control from './Control'
 import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../function'
@@ -32,7 +31,7 @@ export class App extends Component<Props> {
   syncDate = (): SyncDateAction => {
     const time: CurrentTime = parseTime(new Date())
     return {
-      type: type.SYNC_DATE,
+      type: '@@/App/SYNC_DATE',
       currentTime: time
     }
   }
