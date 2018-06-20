@@ -44,7 +44,7 @@ export class CurrentDateTime extends Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    currentTime: state.app.currentTime
+    currentTime: state.currentTime
   }
 }
 

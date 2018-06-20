@@ -12,7 +12,6 @@ import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
 import type { Dispatch } from 'redux'
 import type { Period } from '../../../domainType'
-import type { ReduxState } from '../../../reducer'
 import type { ReduxAction } from '../../../action'
 import type { HistoryQueryParameter } from '../../../domainType'
 
@@ -129,8 +128,8 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state: ReduxState) => {
-  return { historyQueryParameter: state.app.historyQueryParameter }
+const mapStateToProps = (state) => {
+  return { historyQueryParameter: state.historyQueryParameter }
 }
 
 export default compose(

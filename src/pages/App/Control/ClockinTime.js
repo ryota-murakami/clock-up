@@ -90,7 +90,7 @@ export class ClockinTime extends Component<Props> {
 
 const mapStateToProps = state => {
   return {
-    currentTime: state.app.currentTime
+    currentTime: state.currentTime
   }
 }
 

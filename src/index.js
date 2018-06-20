@@ -9,7 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloLink } from 'apollo-link'
-import { createStore, combineReducers} from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from './const'
@@ -19,10 +19,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 // redux
 const store = createStore(
-  // TODO remove combine
-  combineReducers({
-    app: reducer
-  }),
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ === undefined
     ? window.__REDUX_DEVTOOLS_EXTENSION__()
     : f => f
@@ -47,6 +44,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache().restore({})
 })
 
+// auth0
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const redirectUrl =

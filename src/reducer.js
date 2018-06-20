@@ -8,10 +8,6 @@ export type AppState = {
   historyQueryParameter: HistoryQueryParameter
 }
 
-export type ReduxState = {
-  app: AppState
-}
-
 const initialState: AppState = {
   currentTime: parseTime(new Date()),
   historyQueryParameter: {
