@@ -37,9 +37,12 @@ type GraphQLdata = {
   loading: boolean
 }
 
-type Props = {
-  data: GraphQLdata,
+type StateToProps = {|
   currentTime: CurrentTime
+|}
+
+type Props = StateToProps & {
+  data: GraphQLdata
 }
 
 export class ClockinTime extends Component<Props> {
@@ -89,7 +92,7 @@ export class ClockinTime extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState) => {
+const mapStateToProps = (state: ReduxState): StateToProps => {
   return {
     currentTime: state.currentTime
   }

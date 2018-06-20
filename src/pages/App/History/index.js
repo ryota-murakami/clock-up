@@ -24,12 +24,15 @@ type Clocks = Array<{
   updatedAt: string
 }>
 
-type Props = {
+type StateToProps = {|
+  historyQueryParameter: HistoryQueryParameter
+|}
+
+type Props = StateToProps & {
   data: {
     user: { clocks: Clocks },
     loading: boolean
   },
-  historyQueryParameter: HistoryQueryParameter,
   dispatch: Dispatch<ReduxAction>
 }
 
@@ -129,7 +132,7 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state: ReduxState) => {
+const mapStateToProps = (state: ReduxState): StateToProps => {
   return { historyQueryParameter: state.historyQueryParameter }
 }
 
