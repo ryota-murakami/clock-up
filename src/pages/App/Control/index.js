@@ -8,10 +8,11 @@ import ClockinTime from './ClockinTime'
 import ClockoutButton from './ClockoutButton'
 
 const ClockoutContainer = styled.div`
+  width: 93.4%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 20px;
+  justify-content: center;
+  margin: 0 20px;
 `
 
 const ClockinContainer = styled.div`

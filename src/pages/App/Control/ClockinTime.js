@@ -20,7 +20,7 @@ const Container = styled.div`
   justify-content: space-around;
   border: 1px solid ${theme.borderColor};
   border-radius: 5px;
-  margin: 0 10px;
+  margin-right: 10px;
 `
 
 const Text = styled.div``
@@ -68,7 +68,7 @@ export class ClockinTime extends Component<Props> {
 
   render() {
     const { data } = this.props
-    if (data.loading) return null
+    if (data.loading) return <div style={{ minWidth: '450px' }} />
 
     const { user } = data
     const currentTime: CurrentTime = this.props.currentTime // from redux
