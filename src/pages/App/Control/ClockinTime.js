@@ -2,9 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { graphql } from 'react-apollo'
 import { compose } from 'redux'
-import gql from 'graphql-tag'
 import { theme } from '../../../const'
 import { calcTotalTime } from '../../../function'
 import type { CurrentTime } from '../../../types/ReduxState'
@@ -68,7 +66,7 @@ export class ClockinTime extends Component<Props> {
 
   render() {
     const { data } = this.props
-    if (data.loading) return <div style={{ minWidth: '450px' }} />
+    if (data.loading) return null
 
     const { user } = data
     const currentTime: CurrentTime = this.props.currentTime // from redux
@@ -90,25 +88,10 @@ export class ClockinTime extends Component<Props> {
   }
 }
 
-const query = gql`
-  query {
-    user {
-      id
-      clocks(last: 1) {
-        id
-        clockIn
-      }
-    }
-  }
-`
-
 const mapStateToProps = state => {
   return {
     currentTime: state.app.currentTime
   }
 }
 
-export default compose(
-  connect(mapStateToProps),
-  graphql(query)
-)(ClockinTime)
+export default compose(connect(mapStateToProps))(ClockinTime)

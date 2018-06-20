@@ -1,26 +1,37 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Control } from './index'
+import { sel } from "../../../testutil";
 
 describe('<Control />', () => {
   describe('incorrect data', () => {
     const incorrectData = {}
-    it('should be throw error', () => {
+    it('should throw error', () => {
       expect(() => shallow(<Control data={incorrectData} />)).toThrow()
     })
   })
 
   describe('during clock-in', () => {
     const data = {
-      user: { foo: 'bar', isDuringClockIn: true }
+      user: {
+        foo: 'bar',
+        isDuringClockIn: true,
+        clocks: [
+          {
+            id: 'fwjiofjweiofjiwoj32233209jiosf',
+            clockIn: '2017-12-12T17:15:01.814Z',
+            clockOut: '2017-12-12T17:15:02.349Z'
+          }
+        ]
+      }
     }
-    it('should be show ClockoutButton', () => {
+    it('should show ClockoutButton', () => {
       const wrapper = shallow(<Control data={data} />)
       expect(wrapper.find('Apollo(Apollo(ClockoutButton))').exists()).toBe(true)
     })
-    it('should be show ClokinTime', () => {
+    it('should show ClokinTime', () => {
       const wrapper = shallow(<Control data={data} />)
-      expect(wrapper.find('Connect(Apollo(ClockinTime))').exists()).toBe(true)
+      expect(wrapper.find(sel('clock-in-time')).exists()).toBe(true)
     })
   })
 
@@ -28,7 +39,7 @@ describe('<Control />', () => {
     const data = {
       user: { foo: 'bar', isDuringClockIn: false }
     }
-    it('should be show ClockinButton', () => {
+    it('should show ClockinButton', () => {
       const wrapper = shallow(<Control data={data} />)
       expect(wrapper.find('Apollo(Apollo(ClockinButton))').exists()).toBe(true)
     })

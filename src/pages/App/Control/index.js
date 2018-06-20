@@ -45,7 +45,7 @@ export class Control extends Component<Props> {
     if (data.user.isDuringClockIn) {
       return (
         <ClockoutContainer>
-          <ClockinTime />
+          <ClockinTime enzyme-testid="clock-in-time" data={data} />
           <ClockoutButton />
         </ClockoutContainer>
       )
@@ -64,6 +64,10 @@ const query = gql`
     user {
       id
       isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+      }
     }
   }
 `
