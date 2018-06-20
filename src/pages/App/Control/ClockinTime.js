@@ -22,8 +22,6 @@ const Container = styled.div`
   margin-right: 10px;
 `
 
-const Text = styled.div``
-
 type User = {
   id: string,
   clocks: Array<{
@@ -83,10 +81,10 @@ export class ClockinTime extends Component<Props> {
 
     return (
       <Container enzyme-testid="clock-in-time">
-        <Text>ClockIn</Text>
-        <Text>{this.formatDate(ClockinTimeISO)}</Text>
-        <Text>TotalTime</Text>
-        <Text>{TotalTime}</Text>
+        <div>ClockIn</div>
+        <div>{this.formatDate(ClockinTimeISO)}</div>
+        <div>TotalTime</div>
+        <div>{TotalTime}</div>
       </Container>
     )
   }
