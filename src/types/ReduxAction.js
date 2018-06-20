@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from './ReduxState'
+import type { CurrentTime } from '../reducer'
 
 export const type = {
   SYNC_DATE: '@@/App/SYNC_DATE',

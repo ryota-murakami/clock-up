@@ -16,7 +16,7 @@ import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
 import type { ReduxAction, SyncDateAction } from '../../types/ReduxAction'
-import type { CurrentTime } from '../../types/ReduxState'
+import type { CurrentTime } from '../../reducer'
 
 type Props = {
   data: {

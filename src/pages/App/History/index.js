@@ -12,8 +12,8 @@ import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
 import { type } from '../../../types/ReduxAction'
 import type { Dispatch } from 'redux'
-import type { HistoryQueryParameter } from '../../../types/ReduxState'
-import type { RootReduxState } from '../../../types/ReduxState'
+import type { HistoryQueryParameter } from '../../../reducer'
+import type { RootReduxState } from '../../../reducer'
 import type { Period, ReduxAction } from '../../../types/ReduxAction'
 
 type Clocks = Array<{

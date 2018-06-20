@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from './types/ReduxState'
+import type { CurrentTime } from './reducer'
 
 // TODO explain
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
