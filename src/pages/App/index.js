@@ -31,7 +31,7 @@ export class App extends Component<Props> {
   syncDate = (): SyncDateAction => {
     const time: CurrentTime = parseTime(new Date())
     return {
-      type: '@@/App/SYNC_DATE',
+      type: 'SYNC_DATE',
       currentTime: time
     }
   }

@@ -16,7 +16,7 @@ describe('reducer', () => {
 
   it('should be correct work SYNC_DATE', () => {
     const action = {
-      type: '@@/App/SYNC_DATE',
+      type: 'SYNC_DATE',
       currentTime: {
         dateObject: {},
         year: '2018',

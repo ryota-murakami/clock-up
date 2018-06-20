@@ -12,7 +12,7 @@ describe('<App />', () => {
     const instance = new App()
     describe('syncDate()', () => {
       it('should be create action.type SYNC_DATE', () => {
-        expect(instance.syncDate().type).toBe('@@/App/SYNC_DATE')
+        expect(instance.syncDate().type).toBe('SYNC_DATE')
       })
 
       it('should be create correct datetime response', () => {

@@ -21,13 +21,13 @@ export default function reducer(
   action: ReduxAction
 ): ReduxState {
   switch (action.type) {
-    case '@@/App/SYNC_DATE':
+    case 'SYNC_DATE':
       const currentTime: CurrentTime = action.currentTime
 
       return { ...state, currentTime: currentTime }
 
     // TODO date period
-    case '@@/App/CHANGE_HISTORY':
+    case 'CHANGE_HISTORY':
       let first = ''
       const p: Period = action.period
       if (p === '1week') {

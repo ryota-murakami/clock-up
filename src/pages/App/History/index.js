@@ -36,7 +36,7 @@ type Props = {
 export class History extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
-      type: '@@/App/CHANGE_HISTORY',
+      type: 'CHANGE_HISTORY',
       period: value
     })
   }
