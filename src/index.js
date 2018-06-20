@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import App from './pages/App'
 import CreateUser from './pages/CreateUser'
@@ -62,11 +62,11 @@ ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <div>
+        <Fragment>
           <Route exact path="/" component={App} />
           <Route path="/login" component={() => <Login lock={lock} />} />
           <Route path="/createuser" component={CreateUser} />
-        </div>
+        </Fragment>
       </BrowserRouter>
     </ApolloProvider>
   </Provider>,
