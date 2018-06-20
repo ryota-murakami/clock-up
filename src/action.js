@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from '../reducer'
+import type { CurrentTime } from './reducer'
 
 export type SyncDateAction = {
   type: '@@/App/SYNC_DATE',

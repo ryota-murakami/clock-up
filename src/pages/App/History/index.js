@@ -13,7 +13,7 @@ import { Container, SelectBoxWrapper, Header } from './index.style'
 import type { Dispatch } from 'redux'
 import type { HistoryQueryParameter } from '../../../reducer'
 import type { RootReduxState } from '../../../reducer'
-import type { Period, ReduxAction } from '../../../types/ReduxAction'
+import type { Period, ReduxAction } from '../../../action'
 
 type Clocks = Array<{
   id: string,

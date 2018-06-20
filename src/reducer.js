@@ -1,16 +1,7 @@
 // @flow
 import { parseTime } from './function'
 import { routerReducer } from 'react-router-redux'
-import type { Period, ReduxAction } from './types/ReduxAction'
-
-/**
- * <Domain Date Type>
- */
-export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
-export type HistoryQueryParameter = {
-  first: number,
-  orderBy: OrderBy
-}
+import type { Period, ReduxAction } from './action'
 
 /**
  * all of current new Date() related data.
@@ -27,35 +18,13 @@ export type CurrentTime = {
   minutes: string,
   seconds: string
 }
-/**
- * ↓↓ is entire Redux State tree.
- * app is whole of end-developer land.(it means code of src/**)
- * router is react-router-redux liblary land.
- *
- * {
- *  router: {
- *    location: {
- *      pathname: '/',
- *      search: '',
- *      hash: '',
- *      key: '2chitk'
- *    }
- *  },
- *  app: {
- *    currentTime: {
- *      dateObject: '2017-12-25T09:54:44.207Z',
- *      year: '2017',
- *      month: 'December',
- *      days: 'Monday',
- *      date: '25',
- *      hour: '18',
- *      minutes: '54',
- *      seconds: '44'
- *    },
- *    historySelectQuery: "first: 7, orderBy: createdAt_DESC"
- *  }
- *}
- */
+
+export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
+
+export type HistoryQueryParameter = {
+  first: number,
+  orderBy: OrderBy
+}
 
 export type AppState = {
   currentTime: CurrentTime,
