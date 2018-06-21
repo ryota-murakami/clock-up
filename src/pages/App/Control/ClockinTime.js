@@ -8,6 +8,7 @@ import type { ReduxState } from '../../../reducer'
 
 type User = {
   id: string,
+  isDuringClockIn: boolean,
   clocks: Array<{
     id: string,
     clockIn: string

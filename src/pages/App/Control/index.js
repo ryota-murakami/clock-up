@@ -9,7 +9,11 @@ import { ClockinContainer, ClockoutContainer } from './index.style'
 
 type User = {
   id: string,
-  isDuringClockIn: boolean
+  isDuringClockIn: boolean,
+  clocks: Array<{
+    id: string,
+    clockIn: string
+  }>
 }
 
 type GraphQLData = {
@@ -30,6 +34,7 @@ export class Control extends Component<Props> {
     if (data.user.isDuringClockIn) {
       return (
         <ClockoutContainer>
+          {/* $FlowIssue */}
           <ClockinTime enzyme-testid="clock-in-time" data={data} />
           <ClockoutButton />
         </ClockoutContainer>
