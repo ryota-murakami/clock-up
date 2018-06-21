@@ -23,7 +23,7 @@ describe('<ClockinTime / >', () => {
 
   const currentTime: CurrentTime = parseTime(new Date())
 
-  it('should be error without currentTime props', () => {
+  it('should error without currentTime props', () => {
     expect(() => shallow(<ClockinTime data={correctData} />)).toThrow()
   })
 
@@ -33,7 +33,7 @@ describe('<ClockinTime / >', () => {
     ).toThrow()
   })
 
-  it('should be render', () => {
+  it('should render without error', () => {
     const wrapper = shallow(
       <ClockinTime data={correctData} currentTime={currentTime} />
     )

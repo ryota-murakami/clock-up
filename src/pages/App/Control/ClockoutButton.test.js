@@ -16,12 +16,12 @@ describe('<ClockoutButton />', () => {
     loading: false
   }
 
-  it('should be render', () => {
+  it('should render without error', () => {
     const wrapper = shallow(<ClockoutButton data={data} />)
     expect(wrapper.exists()).toBe(true)
   })
 
-  it('should be invoke recordClockoutTimeToGraphcool() when clicked', () => {
+  it('should invoke recordClockoutTimeToGraphcool() when clicked', () => {
     const mockFunc = jest.fn()
     ClockoutButton.prototype.gqlLogic = mockFunc
     const wrapper = shallow(<ClockoutButton data={data} />)

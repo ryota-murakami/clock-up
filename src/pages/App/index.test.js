@@ -11,11 +11,11 @@ describe('<App />', () => {
   describe('Logic Methods', () => {
     const instance = new App()
     describe('syncDate()', () => {
-      it('should be create action.type SYNC_DATE', () => {
+      it('should create action.type SYNC_DATE', () => {
         expect(instance.syncDate().type).toBe('SYNC_DATE')
       })
 
-      it('should be create correct datetime response', () => {
+      it('should create correct datetime response', () => {
         const action = instance.syncDate()
         expect(action.hasOwnProperty('currentTime')).toBe(true)
         expect(action.currentTime.hasOwnProperty('dateObject')).toBe(true)
