@@ -1,26 +1,11 @@
 // @flow
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutButton from './ClockoutButton'
-
-const ClockoutContainer = styled.div`
-  width: 93.4%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 20px;
-`
-
-const ClockinContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 0 20px;
-`
+import { ClockinContainer, ClockoutContainer } from './index.style'
 
 type User = {
   id: string,
