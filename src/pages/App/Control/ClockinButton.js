@@ -30,8 +30,6 @@ export class ClockinButton extends Component<Props> {
 
     mutation({
       variables: { userId: userId, clockIn: new Date().toISOString() }
-    }).then(response => {
-      console.log(response)
     })
   }
 
