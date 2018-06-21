@@ -2,7 +2,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
-import { compose } from 'redux'
 import { theme } from '../../../const'
 import { calcTotalTime } from '../../../function'
 import type { CurrentTime } from '../../../dataType'
@@ -96,4 +95,4 @@ const mapStateToProps = (state: ReduxState): StateToProps => {
   }
 }
 
-export default compose(connect(mapStateToProps))(ClockinTime)
+export default connect(mapStateToProps)(ClockinTime)
