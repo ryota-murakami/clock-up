@@ -70,7 +70,7 @@ export class ClockinTime extends Component<Props> {
     if (data.loading) return null
 
     const { user } = data
-    const currentTime: CurrentTime = this.props.currentTime // from redux
+    const currentTime: CurrentTime = this.props.currentTime
 
     const now: Date = currentTime.dateObject
     const ClockinTimeISO: string = user.clocks[0].clockIn
