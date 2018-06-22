@@ -4,12 +4,14 @@ import { theme } from '../../../const'
 export const Container = styled.div`
   color: ${theme.textColor};
 `
+
 export const SelectBoxWrapper = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 `
+
 export const Header = styled.div`
   padding: 10px 0;
   text-align: center;
