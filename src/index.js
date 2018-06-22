@@ -20,9 +20,7 @@ import registerServiceWorker from './registerServiceWorker'
 // redux
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ === undefined
-    ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : f => f
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 // apollo-client
