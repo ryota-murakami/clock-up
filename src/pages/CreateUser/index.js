@@ -2,9 +2,9 @@
 import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
+import { CreateUserMutation } from '../../graphql/mutation'
 import { ClockBoardQuery } from '../../graphql/query'
 import { compose } from 'redux'
-import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../../const'
 import Loading from '../../elements/Loading'
 
@@ -60,16 +60,8 @@ export class CreateUser extends React.Component<Props> {
   }
 }
 
-const createUser = gql`
-  mutation($idToken: String!) {
-    createUser(authProvider: { auth0: { idToken: $idToken } }) {
-      id
-    }
-  }
-`
-
 export default compose(
-  graphql(createUser, { name: 'createUser' }),
+  graphql(CreateUserMutation, { name: 'createUser' }),
   graphql(ClockBoardQuery, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
