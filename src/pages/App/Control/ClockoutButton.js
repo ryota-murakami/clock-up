@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { ClockBoardQuery } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
+import { ClockOutMutation } from '../../../graphql/mutation'
 import { compose } from 'redux'
-import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
 import { theme } from '../../../const'
 
@@ -22,25 +22,6 @@ type Props = {
   data: GraphQLData,
   mutation: Function
 }
-
-const mutation = gql`
-  mutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
-    updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
-      id
-      clockIn
-      clockOut
-    }
-    updateUser(id: $userId, isDuringClockIn: false) {
-      id
-      isDuringClockIn
-      clocks(last: 1) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
 
 export class ClockoutButton extends Component<Props> {
   gqlLogic: Function
@@ -87,7 +68,7 @@ export class ClockoutButton extends Component<Props> {
 
 export default compose(
   graphql(ClockBoardQuery),
-  graphql(mutation, {
+  graphql(ClockOutMutation, {
     name: 'mutation'
   })
 )(ClockoutButton)

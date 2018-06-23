@@ -26,3 +26,22 @@ export const ClockInMutation = gql`
     }
   }
 `
+
+export const ClockOutMutation = gql`
+  mutation ClockOutMutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
+    updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
+      id
+      clockIn
+      clockOut
+    }
+    updateUser(id: $userId, isDuringClockIn: false) {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
+  }
+`
