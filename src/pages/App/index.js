@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
+import { getUserQuery } from '../../graphql/query'
 import { compose } from 'redux'
-import gql from 'graphql-tag'
 import { connect } from 'react-redux'
 import Loading from '../../elements/Loading'
 import { Header } from '../../elements/Header'
@@ -75,16 +75,8 @@ export class App extends Component<Props> {
   }
 }
 
-export const query = gql`
-  query {
-    user {
-      id
-    }
-  }
-`
-
 export default compose(
   connect(),
-  graphql(query),
+  graphql(getUserQuery),
   withRouter
 )(App)

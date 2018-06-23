@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
+import { getUserQuery } from '../../../graphql/query'
 import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
@@ -15,20 +16,6 @@ type Props = {
   },
   mutation: Function
 }
-
-const query = gql`
-  query getUserQuery {
-    user {
-      id
-      isDuringClockIn
-      clocks(last: 1) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
 
 const mutation = gql`
   mutation($userId: ID!, $clockIn: DateTime) {
@@ -64,9 +51,9 @@ export class ClockinButton extends Component<Props> {
     mutation({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (proxy, { data: { updateUser } }) => {
-        const data = proxy.readQuery({ query: query })
+        const data = proxy.readQuery({ query: getUserQuery })
         data.user = updateUser
-        proxy.writeQuery({ query: query, data })
+        proxy.writeQuery({ query: getUserQuery, data })
       }
     })
   }
@@ -89,7 +76,7 @@ export class ClockinButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(query),
+  graphql(getUserQuery),
   graphql(mutation, {
     name: 'mutation'
   })

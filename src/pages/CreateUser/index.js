@@ -2,6 +2,7 @@
 import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
+import { getUserQuery } from '../../graphql/query'
 import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { AUTH0_ID_TOKEN } from '../../const'
@@ -67,17 +68,9 @@ const createUser = gql`
   }
 `
 
-const userQuery = gql`
-  query {
-    user {
-      id
-    }
-  }
-`
-
 export default compose(
   graphql(createUser, { name: 'createUser' }),
-  graphql(userQuery, {
+  graphql(getUserQuery, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
   }),
