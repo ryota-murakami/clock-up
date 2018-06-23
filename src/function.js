@@ -1,7 +1,6 @@
 // @flow
 import type { CurrentTime } from './dataType'
 
-// TODO explain
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
   const days = []
   days[0] = 'Sunday'

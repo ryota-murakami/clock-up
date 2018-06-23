@@ -17,7 +17,7 @@ describe('<LoginButton />', () => {
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
-  it('sould authenticated eventlistener seted of Auth0 SDK Object', () => {
+  it('sould authenticated eventlistener is set of Auth0 SDK Object', () => {
     const wrapper = setup()
     const events = wrapper.instance().props.lock._events
     expect(Object.prototype.hasOwnProperty.call(events, 'authenticated')).toBe(

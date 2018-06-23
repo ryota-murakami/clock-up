@@ -24,11 +24,11 @@ type Clocks = Array<{
   updatedAt: string
 }>
 
-type StateToProps = {|
+type StateProps = {|
   historyQueryParameter: HistoryQueryParameter
 |}
 
-type Props = StateToProps & {
+type Props = StateProps & {
   data: {
     user: { clocks: Clocks },
     loading: boolean
@@ -132,12 +132,12 @@ const UserClocksQuery = gql`
   }
 `
 
-const mapStateToProps = (state: ReduxState): StateToProps => {
+const mapStateProps = (state: ReduxState): StateProps => {
   return { historyQueryParameter: state.historyQueryParameter }
 }
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateProps),
   graphql(UserClocksQuery, {
     options: ({ historyQueryParameter }) => {
       // $FlowFixMe

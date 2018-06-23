@@ -20,11 +20,11 @@ type GraphQLdata = {
   loading: boolean
 }
 
-type StateToProps = {|
+type StateProps = {|
   currentTime: CurrentTime
 |}
 
-type Props = StateToProps & {
+type Props = StateProps & {
   data: GraphQLdata
 }
 
@@ -75,10 +75,10 @@ export class ClockinTime extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): StateToProps => {
+const mapStateProps = (state: ReduxState): StateProps => {
   return {
     currentTime: state.currentTime
   }
 }
 
-export default connect(mapStateToProps)(ClockinTime)
+export default connect(mapStateProps)(ClockinTime)

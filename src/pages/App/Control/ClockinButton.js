@@ -17,7 +17,7 @@ type Props = {
 }
 
 const query = gql`
-  query {
+  query getUserQuery {
     user {
       id
       isDuringClockIn

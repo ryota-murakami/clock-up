@@ -7,6 +7,11 @@ import { Button } from '../../elements/Button'
 import { theme } from '../../const'
 import type { RouterHistory } from 'react-router'
 
+const StyledButton = Button.extend`
+  width: 200px;
+  height: 50px;
+`
+
 type Props = {
   lock: Auth0Lock,
   history: RouterHistory
@@ -52,10 +57,5 @@ export class LoginButton extends Component<Props> {
     )
   }
 }
-
-const StyledButton = Button.extend`
-  width: 200px;
-  height: 50px;
-`
 
 export default withRouter(LoginButton)

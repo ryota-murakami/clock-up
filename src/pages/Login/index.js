@@ -7,6 +7,15 @@ import LoginButton from './LoginButton'
 import { A } from '../../elements/A'
 import type { Match, Location, RouterHistory } from 'react-router'
 
+export const Container = styled.main`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 type Props = {
   lock: Auth0Lock,
   match: Match,
@@ -30,14 +39,5 @@ export class Login extends Component<Props> {
     )
   }
 }
-
-export const Container = styled.main`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
 
 export default withRouter(Login)

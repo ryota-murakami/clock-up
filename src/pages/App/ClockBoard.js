@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 import type { CurrentTime } from '../../dataType'
 import type { ReduxState } from '../../reducer'
 
-type StateToProps = {|
+type StateProps = {|
   currentTime: CurrentTime
 |}
-type Props = StateToProps
+
+type Props = StateProps
 
 export class ClockBoard extends Component<Props> {
   // TODO write test
@@ -43,10 +44,10 @@ export class ClockBoard extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): StateToProps => {
+const mapStateProps = (state: ReduxState): StateProps => {
   return {
     currentTime: state.currentTime
   }
 }
 
-export default connect(mapStateToProps)(ClockBoard)
+export default connect(mapStateProps)(ClockBoard)

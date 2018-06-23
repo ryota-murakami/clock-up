@@ -78,8 +78,9 @@ const userQuery = gql`
 export default compose(
   graphql(createUser, { name: 'createUser' }),
   graphql(userQuery, {
+    // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
   }),
-  // $FlowFixMe @see https://github.com/flowtype/flow-typed/issues/1914
+  // $FlowIssue @see https://github.com/flowtype/flow-typed/issues/1914
   withRouter
 )(CreateUser)
