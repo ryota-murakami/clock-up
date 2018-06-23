@@ -8,7 +8,7 @@ describe('<ClockinButton />', () => {
     loading: false
   }
 
-  it('should render', () => {
+  it('should render without error', () => {
     const wrapper = shallow(<ClockinButton data={data} />)
     expect(wrapper.exists()).toBe(true)
   })
