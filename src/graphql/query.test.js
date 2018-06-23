@@ -7,5 +7,7 @@ describe('ClockBoardQuery', () => {
 })
 
 describe('HistoryBoardQuery', () => {
-  expect(HistoryBoardQuery).toMatchSnapshot()
+  it('should AST is not regression', () => {
+    expect(HistoryBoardQuery).toMatchSnapshot()
+  })
 })
