@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { getUserQuery } from '../../../graphql/query'
+import { ClockBoardQuery } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
 import { compose } from 'redux'
 import gql from 'graphql-tag'
@@ -86,7 +86,7 @@ export class ClockoutButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(getUserQuery),
+  graphql(ClockBoardQuery),
   graphql(mutation, {
     name: 'mutation'
   })

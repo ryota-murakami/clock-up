@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
-import { getUserQuery } from '../../../graphql/query'
+import { ClockBoardQuery } from '../../../graphql/query'
 import { compose } from 'redux'
 import gql from 'graphql-tag'
 import { Button } from '../../../elements/Button'
@@ -51,9 +51,9 @@ export class ClockinButton extends Component<Props> {
     mutation({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (proxy, { data: { updateUser } }) => {
-        const data = proxy.readQuery({ query: getUserQuery })
+        const data = proxy.readQuery({ query: ClockBoardQuery })
         data.user = updateUser
-        proxy.writeQuery({ query: getUserQuery, data })
+        proxy.writeQuery({ query: ClockBoardQuery, data })
       }
     })
   }
@@ -76,7 +76,7 @@ export class ClockinButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(getUserQuery),
+  graphql(ClockBoardQuery),
   graphql(mutation, {
     name: 'mutation'
   })

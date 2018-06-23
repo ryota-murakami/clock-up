@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
+import { HistoryBoardQuery } from '../../../graphql/query'
 import { compose } from 'redux'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../function'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
@@ -117,28 +117,13 @@ export class History extends Component<Props> {
   }
 }
 
-const UserClocksQuery = gql`
-  query FetchUserClocks($first: Int, $orderBy: ClockOrderBy) {
-    user {
-      id
-      clocks(first: $first, orderBy: $orderBy) {
-        id
-        clockIn
-        clockOut
-        createdAt
-        updatedAt
-      }
-    }
-  }
-`
-
 const mapStateProps = (state: ReduxState): StateProps => {
   return { historyQueryParameter: state.historyQueryParameter }
 }
 
 export default compose(
   connect(mapStateProps),
-  graphql(UserClocksQuery, {
+  graphql(HistoryBoardQuery, {
     options: ({ historyQueryParameter }) => {
       // $FlowFixMe
       return {

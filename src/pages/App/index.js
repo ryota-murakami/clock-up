@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { graphql } from 'react-apollo'
-import { getUserQuery } from '../../graphql/query'
+import { ClockBoardQuery } from '../../graphql/query'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import Loading from '../../elements/Loading'
@@ -77,6 +77,6 @@ export class App extends Component<Props> {
 
 export default compose(
   connect(),
-  graphql(getUserQuery),
+  graphql(ClockBoardQuery),
   withRouter
 )(App)

@@ -8,7 +8,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "getUserQuery",
+        "value": "ClockBoardQuery",
       },
       "operation": "query",
       "selectionSet": Object {
@@ -118,7 +118,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 152,
+    "end": 155,
     "start": 0,
   },
 }
