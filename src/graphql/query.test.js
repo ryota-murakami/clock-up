@@ -1,7 +1,11 @@
-import { ClockBoardQuery } from './query'
+import { ClockBoardQuery, HistoryBoardQuery } from './query'
 
-describe('getUserQuery', () => {
+describe('ClockBoardQuery', () => {
   it('should AST is not regression', () => {
     expect(ClockBoardQuery).toMatchSnapshot()
   })
+})
+
+describe('HistoryBoardQuery', () => {
+  expect(HistoryBoardQuery).toMatchSnapshot()
 })
