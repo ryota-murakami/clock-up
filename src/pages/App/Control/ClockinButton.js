@@ -16,6 +16,39 @@ type Props = {
   mutation: Function
 }
 
+const query = gql`
+  query {
+    user {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
+  }
+`
+
+const mutation = gql`
+  mutation($userId: ID!, $clockIn: DateTime) {
+    createClock(userId: $userId, clockIn: $clockIn) {
+      id
+      clockIn
+      clockOut
+    }
+    updateUser(id: $userId, isDuringClockIn: true) {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
+  }
+`
+
 export class ClockinButton extends Component<Props> {
   gqlLogic: Function
 
@@ -29,7 +62,12 @@ export class ClockinButton extends Component<Props> {
     const userId = data.user.id
 
     mutation({
-      variables: { userId: userId, clockIn: new Date().toISOString() }
+      variables: { userId: userId, clockIn: new Date().toISOString() },
+      update: (proxy, { data: { updateUser } }) => {
+        const data = proxy.readQuery({ query: query })
+        data.user = updateUser
+        proxy.writeQuery({ query: query, data })
+      }
     })
   }
 
@@ -49,33 +87,6 @@ export class ClockinButton extends Component<Props> {
     )
   }
 }
-
-const query = gql`
-  query {
-    user {
-      id
-    }
-  }
-`
-
-const mutation = gql`
-  mutation($userId: ID!, $clockIn: DateTime) {
-    createClock(userId: $userId, clockIn: $clockIn) {
-      id
-      clockIn
-      clockOut
-    }
-    updateUser(id: $userId, isDuringClockIn: true) {
-      id
-      isDuringClockIn
-      clocks(first: 1, orderBy: createdAt_DESC) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
 
 export default compose(
   graphql(query),

@@ -57,6 +57,7 @@ const query = gql`
       clocks(last: 1) {
         id
         clockIn
+        clockOut
       }
     }
   }

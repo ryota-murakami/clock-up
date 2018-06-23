@@ -22,6 +22,39 @@ type Props = {
   mutation: Function
 }
 
+const query = gql`
+  query {
+    user {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
+  }
+`
+
+const mutation = gql`
+  mutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
+    updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
+      id
+      clockIn
+      clockOut
+    }
+    updateUser(id: $userId, isDuringClockIn: false) {
+      id
+      isDuringClockIn
+      clocks(last: 1) {
+        id
+        clockIn
+        clockOut
+      }
+    }
+  }
+`
+
 export class ClockoutButton extends Component<Props> {
   gqlLogic: Function
 
@@ -64,38 +97,6 @@ export class ClockoutButton extends Component<Props> {
     )
   }
 }
-
-const query = gql`
-  query {
-    user {
-      id
-      clocks(first: 1, orderBy: createdAt_DESC) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
-
-const mutation = gql`
-  mutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
-    updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
-      id
-      clockIn
-      clockOut
-    }
-    updateUser(id: $userId, isDuringClockIn: false) {
-      id
-      isDuringClockIn
-      clocks(first: 1, orderBy: createdAt_DESC) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
 
 export default compose(
   graphql(query),
