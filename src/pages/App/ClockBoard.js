@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Container, Day, Time } from './ClockBoard.style'
 import { connect } from 'react-redux'
-import type { CurrentTime } from '../../dataType'
+import type { CurrentTime } from '../../DataType'
 import type { ReduxState } from '../../reducer'
 
 type StateProps = {|

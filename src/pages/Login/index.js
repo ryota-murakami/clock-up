@@ -5,7 +5,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import LoginButton from './LoginButton'
 import { A } from '../../elements/A'
-import type { Match, Location, RouterHistory } from 'react-router'
+import type { WithRouterProps } from '../../PropsType'
 
 export const Container = styled.main`
   width: 100%;
@@ -17,11 +17,8 @@ export const Container = styled.main`
 `
 
 type Props = {
-  lock: Auth0Lock,
-  match: Match,
-  location: Location,
-  history: RouterHistory
-}
+  lock: Auth0Lock
+} & WithRouterProps
 
 export class Login extends Component<Props> {
   render() {

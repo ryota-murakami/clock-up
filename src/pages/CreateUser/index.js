@@ -7,11 +7,12 @@ import { ClockBoardQuery } from '../../graphql/query'
 import { compose } from 'redux'
 import { AUTH0_ID_TOKEN } from '../../const'
 import Loading from '../../elements/Loading'
+import type { WithRouterProps } from '../../PropsType'
 
 type Props = {
   data: Object,
   createUser: Function
-}
+} & WithRouterProps
 
 export class CreateUser extends React.Component<Props> {
   isNotExistUserInAuth0(): boolean {

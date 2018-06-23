@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { calcTotalTime } from '../../../function'
 import { Container } from './ClockinTime.style'
-import type { CurrentTime } from '../../../dataType'
+import type { CurrentTime } from '../../../DataType'
 import type { ReduxState } from '../../../reducer'
 
 type User = {
