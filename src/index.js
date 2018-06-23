@@ -16,6 +16,8 @@ import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 
+export const AUTH0_ID_TOKEN = 'auth0IdToken'
+
 // redux
 const store = createStore(
   reducer,
@@ -42,7 +44,6 @@ const client = new ApolloClient({
 })
 
 // auth0
-export const AUTH0_ID_TOKEN = 'auth0IdToken'
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const redirectUrl =
