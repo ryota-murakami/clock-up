@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo'
 import { CreateUserMutation } from '../../graphql/mutation'
 import { ClockBoardQuery } from '../../graphql/query'
 import { compose } from 'redux'
-import { AUTH0_ID_TOKEN } from '../../color'
+import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../PropsType'
 

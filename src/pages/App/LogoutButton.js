@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { AUTH0_ID_TOKEN } from '../../color'
+import { AUTH0_ID_TOKEN } from '../../index'
 import { Button } from '../../elements/Button'
 import { theme } from '../../color'
 

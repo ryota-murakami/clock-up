@@ -12,7 +12,6 @@ import { ApolloLink } from 'apollo-link'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { AUTH0_ID_TOKEN } from './color'
 import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
@@ -43,6 +42,7 @@ const client = new ApolloClient({
 })
 
 // auth0
+export const AUTH0_ID_TOKEN = 'auth0IdToken'
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const redirectUrl =
