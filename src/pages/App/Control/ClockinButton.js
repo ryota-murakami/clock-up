@@ -5,7 +5,7 @@ import { ClockInMutation } from '../../../graphql/mutation'
 import { ClockBoardQuery } from '../../../graphql/query'
 import { compose } from 'redux'
 import { Button } from '../../../elements/Button'
-import { theme } from '../../../const'
+import { theme } from '../../../constant'
 
 type Props = {
   data: {

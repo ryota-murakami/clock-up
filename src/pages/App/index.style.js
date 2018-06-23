@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../const'
+import { theme } from '../../constant'
 
 export const Container = styled.main`
   width: 100%;
