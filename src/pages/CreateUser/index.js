@@ -11,7 +11,7 @@ import type { WithRouterProps } from '../../PropsType'
 
 type Props = {
   data: Object,
-  createUser: Function
+  CreateUserMutation: Function
 } & WithRouterProps
 
 export class CreateUser extends React.Component<Props> {
@@ -22,13 +22,13 @@ export class CreateUser extends React.Component<Props> {
   }
 
   insertUserDataToAuth0(): void {
-    const { createUser } = this.props
+    const { CreateUserMutation } = this.props
 
     const variables = {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
-    createUser({ variables }).catch(e => {
+    CreateUserMutation({ variables }).catch(e => {
       if (
         e.message === 'GraphQL error: User already exists with that information'
       )
@@ -62,7 +62,7 @@ export class CreateUser extends React.Component<Props> {
 }
 
 export default compose(
-  graphql(CreateUserMutation, { name: 'createUser' }),
+  graphql(CreateUserMutation, { name: 'CreateUserMutation' }),
   graphql(ClockBoardQuery, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
