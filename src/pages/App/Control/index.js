@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
-import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
+import { getUserQuery } from '../../../graphql/query'
 import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutButton from './ClockoutButton'
@@ -49,18 +49,4 @@ export class Control extends Component<Props> {
   }
 }
 
-const query = gql`
-  query {
-    user {
-      id
-      isDuringClockIn
-      clocks(last: 1) {
-        id
-        clockIn
-        clockOut
-      }
-    }
-  }
-`
-
-export default graphql(query)(Control)
+export default graphql(getUserQuery)(Control)
