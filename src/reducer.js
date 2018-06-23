@@ -1,6 +1,6 @@
 // @flow
 import { parseTime } from './function'
-import type { ReduxAction } from './action'
+import type { ReduxAction } from './ActionType'
 import type { CurrentTime, HistoryQueryParameter, Period } from './DataType'
 
 export type ReduxState = {

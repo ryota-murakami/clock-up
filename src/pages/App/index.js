@@ -14,7 +14,7 @@ import Control from './Control'
 import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
-import type { ReduxAction, SyncDateAction } from '../../action'
+import type { ReduxAction, SyncDateAction } from '../../ActionType'
 import type { CurrentTime } from '../../DataType'
 
 type Props = {

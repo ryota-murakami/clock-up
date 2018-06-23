@@ -12,7 +12,7 @@ import OutTime from './OutTime'
 import { Container, SelectBoxWrapper, Header } from './index.style'
 import type { Dispatch } from 'redux'
 import type { Period } from '../../../DataType'
-import type { ReduxAction } from '../../../action'
+import type { ReduxAction } from '../../../ActionType'
 import type { HistoryQueryParameter } from '../../../DataType'
 import type { ReduxState } from '../../../reducer'
 
