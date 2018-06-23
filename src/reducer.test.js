@@ -1,7 +1,7 @@
 import reducer from './reducer'
 
 describe('reducer', () => {
-  it('should be return the initial state', () => {
+  it('should return the initial state', () => {
     const res = reducer(undefined, {})
     expect(typeof res === 'object').toBe(true)
     expect(res.hasOwnProperty('currentTime')).toBe(true)
@@ -14,7 +14,7 @@ describe('reducer', () => {
     expect(res.currentTime.hasOwnProperty('seconds')).toBe(true)
   })
 
-  it('should be correct work SYNC_DATE', () => {
+  it('should correct work SYNC_DATE', () => {
     const action = {
       type: 'SYNC_DATE',
       currentTime: {
