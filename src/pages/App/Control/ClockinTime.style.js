@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../../constant'
+import { theme } from '../../../color'
 
 export const Container = styled.div`
   flex-basics: max-content;

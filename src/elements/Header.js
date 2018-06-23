@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../constant'
+import { theme } from '../color'
 
 export const Header = styled.div`
   padding: 0 30px;

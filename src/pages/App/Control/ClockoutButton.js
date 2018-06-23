@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo'
 import { ClockOutMutation } from '../../../graphql/mutation'
 import { compose } from 'redux'
 import { Button } from '../../../elements/Button'
-import { theme } from '../../../constant'
+import { theme } from '../../../color'
 
 type User = {
   id: string,

@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
-import { AUTH0_ID_TOKEN } from '../../constant'
+import { AUTH0_ID_TOKEN } from '../../color'
 import { Button } from '../../elements/Button'
-import { theme } from '../../constant'
+import { theme } from '../../color'
 import type { RouterHistory } from 'react-router'
 
 const StyledButton = Button.extend`
