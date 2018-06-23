@@ -140,6 +140,7 @@ export default compose(
   connect(mapStateToProps),
   graphql(UserClocksQuery, {
     options: ({ historyQueryParameter }) => {
+      // $FlowFixMe
       return {
         variables: {
           first: historyQueryParameter.first,
