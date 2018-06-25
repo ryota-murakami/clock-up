@@ -27,7 +27,9 @@ describe('<Control />', () => {
     }
     it('should show ClockoutButton', () => {
       const wrapper = shallow(<Control data={data} />)
-      expect(wrapper.find('Apollo(Apollo(ClockoutButton))').exists()).toBe(true)
+      expect(
+        wrapper.find('Apollo(Apollo(pure(ClockoutButton)))').exists()
+      ).toBe(true)
     })
     it('should show ClokinTime', () => {
       const wrapper = shallow(<Control data={data} />)
@@ -41,7 +43,9 @@ describe('<Control />', () => {
     }
     it('should show ClockinButton', () => {
       const wrapper = shallow(<Control data={data} />)
-      expect(wrapper.find('Apollo(Apollo(ClockinButton))').exists()).toBe(true)
+      expect(wrapper.find('Apollo(Apollo(pure(ClockinButton)))').exists()).toBe(
+        true
+      )
     })
   })
 })
