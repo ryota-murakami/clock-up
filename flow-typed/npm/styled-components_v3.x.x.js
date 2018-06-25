@@ -356,7 +356,7 @@ declare module 'styled-components' {
   declare export var ThemeProvider: typeof Npm$StyledComponents$ThemeProvider;
 
   declare export default {
-    $call: $npm$styledComponents$Call<ComponentListKeys>,
+    [[call]]: $npm$styledComponents$Call<ComponentListKeys>,
     css: TaggedTemplateLiteral<Array<Interpolation>>,
     ...$npm$styledComponents$StyledComponentsComponentList,
     ...$npm$styledComponents$StyledComponentsNativeComponentList,
@@ -385,7 +385,7 @@ declare module 'styled-components/native' {
   declare export var withTheme: $npm$styledComponents$WithTheme;
   declare export var ThemeProvider: typeof Npm$StyledComponents$ThemeProvider;
   declare export default {
-    $call: $npm$styledComponents$Call<NativeComponentListKeys>,
+    [[call]]: $npm$styledComponents$Call<NativeComponentListKeys>,
     css: TaggedTemplateLiteral<Array<Interpolation>>,
     ...$npm$styledComponents$StyledComponentsNativeComponentList,
   }
