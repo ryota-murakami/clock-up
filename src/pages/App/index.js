@@ -18,10 +18,10 @@ import type { ReduxAction, SyncDateAction } from '../../ActionType'
 import type { CurrentTime } from '../../DataType'
 import type { ClockBoardQueryType } from '../../graphql/query'
 
-type Props = {
+type Props = {|
   data: ClockBoardQueryType,
   dispatch: Dispatch<ReduxAction>
-}
+|}
 
 export class App extends Component<Props> {
   syncDate = (): SyncDateAction => {
