@@ -17,6 +17,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-spinners": "^0.3.2",
+    "recompose": "^0.27.1",
     "redux": "^4.0.0",
     "styled-components": "^3.3.2"
   },
@@ -31,7 +32,9 @@
     "lint:fix": "eslint --fix src"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
       "!src/**/*.style.js",
