@@ -16,9 +16,9 @@ export const Container = styled.main`
   align-items: center;
 `
 
-type Props = {
+type Props = WithRouterProps & {
   lock: Auth0Lock
-} & WithRouterProps
+}
 
 export class Login extends Component<Props> {
   render() {

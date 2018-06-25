@@ -9,10 +9,10 @@ import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../PropsType'
 
-type Props = {
+type Props = WithRouterProps & {
   data: Object,
   CreateUserMutation: Function
-} & WithRouterProps
+}
 
 export class CreateUser extends React.Component<Props> {
   isNotExistUserInAuth0(): boolean {
