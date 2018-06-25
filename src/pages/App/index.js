@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
+import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import { ClockBoardQuery } from '../../graphql/query'
-import { compose } from 'redux'
 import { connect } from 'react-redux'
 import Loading from '../../elements/Loading'
 import { Header } from '../../elements/Header'
@@ -74,5 +74,6 @@ export class App extends Component<Props> {
 export default compose(
   connect(),
   graphql(ClockBoardQuery),
-  withRouter
+  withRouter,
+  pure
 )(App)

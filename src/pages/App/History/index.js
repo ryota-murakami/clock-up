@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 import { HistoryBoardQuery } from '../../../graphql/query'
-import { compose } from 'redux'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../function'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import { Select } from '../../../elements/Select'
@@ -123,5 +123,6 @@ export default compose(
         }
       }
     }
-  })
+  }),
+  pure
 )(History)

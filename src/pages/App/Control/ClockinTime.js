@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { calcTotalTime } from '../../../function'
 import { Container } from './ClockinTime.style'
@@ -68,4 +69,7 @@ const mapStateProps = (state: ReduxState): StateProps => {
   }
 }
 
-export default connect(mapStateProps)(ClockinTime)
+export default compose(
+  connect(mapStateProps),
+  pure
+)(ClockinTime)

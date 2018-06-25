@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { Td } from '../../../elements/Table'
 
 type Props = {|
@@ -19,4 +20,4 @@ export class InTime extends Component<Props> {
   }
 }
 
-export default InTime
+export default compose(pure)(InTime)

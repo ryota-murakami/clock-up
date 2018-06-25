@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { pure, compose } from 'recompose'
 import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
@@ -37,4 +38,7 @@ export class Login extends Component<Props> {
   }
 }
 
-export default withRouter(Login)
+export default compose(
+  withRouter,
+  pure
+)(Login)

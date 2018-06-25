@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import { ClockBoardQuery } from '../../../graphql/query'
 import ClockinButton from './ClockinButton'
@@ -35,4 +36,7 @@ export class Control extends Component<Props> {
   }
 }
 
-export default graphql(ClockBoardQuery)(Control)
+export default compose(
+  graphql(ClockBoardQuery),
+  pure
+)(Control)

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { Container, Day, Time } from './ClockBoard.style'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../../DataType'
@@ -50,4 +51,7 @@ const mapStateProps = (state: ReduxState): StateProps => {
   }
 }
 
-export default connect(mapStateProps)(ClockBoard)
+export default compose(
+  connect(mapStateProps),
+  pure
+)(ClockBoard)

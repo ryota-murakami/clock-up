@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { pure, compose } from 'recompose'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../index'
@@ -58,4 +59,7 @@ export class LoginButton extends Component<Props> {
   }
 }
 
-export default withRouter(LoginButton)
+export default compose(
+  withRouter,
+  pure
+)(LoginButton)

@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
+import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import { CreateUserMutation } from '../../graphql/mutation'
 import { ClockBoardQuery } from '../../graphql/query'
-import { compose } from 'redux'
 import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../PropsType'
@@ -69,5 +69,6 @@ export default compose(
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
   }),
   // $FlowIssue @see https://github.com/flowtype/flow-typed/issues/1914
-  withRouter
+  withRouter,
+  pure
 )(CreateUser)

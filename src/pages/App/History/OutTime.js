@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import { Td } from '../../../elements/Table'
 
 type Props = {|
@@ -19,4 +20,4 @@ export class OutTime extends Component<Props> {
   }
 }
 
-export default OutTime
+export default compose(pure)(OutTime)

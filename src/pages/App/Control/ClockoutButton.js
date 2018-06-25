@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react'
+import { compose, pure } from 'recompose'
 import type { MutationFunc } from 'react-apollo'
 import { ClockBoardQuery } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
 import { ClockOutMutation } from '../../../graphql/mutation'
-import { compose } from 'redux'
 import { StyledButton } from './ClockoutButton.style'
 import { theme } from '../../../color'
 import type { ClockBoardQueryType } from '../../../graphql/query'
@@ -62,5 +62,6 @@ export default compose(
   graphql(ClockBoardQuery),
   graphql(ClockOutMutation, {
     name: 'ClockOutMutation'
-  })
+  }),
+  pure
 )(ClockoutButton)
