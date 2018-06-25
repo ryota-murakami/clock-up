@@ -4,8 +4,8 @@ import { graphql } from 'react-apollo'
 import type { MutationFunc } from 'react-apollo'
 import { ClockInMutation } from '../../../graphql/mutation'
 import { ClockBoardQuery } from '../../../graphql/query'
+import { StyledButton } from './ClockinButton.style'
 import { compose } from 'redux'
-import { Button } from '../../../elements/Button'
 import { theme } from '../../../color'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
@@ -43,14 +43,14 @@ export class ClockinButton extends Component<Props> {
     if (loading) return null
 
     return (
-      <Button
+      <StyledButton
         primary
         color={theme.green}
         onClick={this.gqlLogic}
         enzyme-testid="clock-in-btn"
       >
         Clock In
-      </Button>
+      </StyledButton>
     )
   }
 }

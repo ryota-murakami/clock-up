@@ -5,7 +5,7 @@ import { ClockBoardQuery } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
 import { ClockOutMutation } from '../../../graphql/mutation'
 import { compose } from 'redux'
-import { Button } from '../../../elements/Button'
+import { StyledButton } from './ClockoutButton.style'
 import { theme } from '../../../color'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
@@ -46,14 +46,14 @@ export class ClockoutButton extends Component<Props> {
     if (data.loading) return null
 
     return (
-      <Button
+      <StyledButton
         primary
         color={theme.red}
         onClick={this.gqlLogic}
         enzyme-testid="clock-out-btn"
       >
         clock out
-      </Button>
+      </StyledButton>
     )
   }
 }
