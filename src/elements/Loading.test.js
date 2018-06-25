@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { Loading } from './Loading'
 
 describe('<Loading />', () => {
@@ -9,13 +8,13 @@ describe('<Loading />', () => {
     return wrapper
   }
 
-  it('should be render', () => {
+  it('should render', () => {
     const wrapper = setup()
     expect(wrapper.exists()).toBe(true)
   })
 
-  it('should be match snapshot', () => {
+  it('should match snapshot', () => {
     const wrapper = setup()
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

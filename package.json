@@ -31,6 +31,7 @@
     "lint:fix": "eslint --fix src"
   },
   "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
       "!src/**/*.style.js",

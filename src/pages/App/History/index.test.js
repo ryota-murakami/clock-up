@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { createStore } from 'redux'
 import { History } from './index'
 import { sel } from '../../../testutil'
@@ -33,7 +33,7 @@ describe('<History />', () => {
 
     it('should match to snapshot', () => {
       const wrapper = setup()
-      expect(toJson(wrapper)).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 
@@ -66,7 +66,7 @@ describe('<History />', () => {
 
     it('should match to snapshot', () => {
       const wrapper = setup()
-      expect(toJson(wrapper)).toMatchSnapshot()
+      expect(wrapper).toMatchSnapshot()
     })
   })
 

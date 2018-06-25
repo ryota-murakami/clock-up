@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { LoginButton } from './LoginButton'
 import Auth0Lock from 'auth0-lock'
 import { sel } from '../../testutil'
@@ -14,7 +14,7 @@ describe('<LoginButton />', () => {
 
   it('should match to snapshot', () => {
     const wrapper = setup()
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('sould authenticated eventlistener is set of Auth0 SDK Object', () => {

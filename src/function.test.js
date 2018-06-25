@@ -8,7 +8,7 @@ import {
 } from './function'
 
 describe('parseTime()', () => {
-  it('should be return CurrentDate when passed Date', () => {
+  it('should return CurrentDate when passed Date', () => {
     const date = new Date('2017/1/1 12:00:00')
     const expected = {
       dateObject: date,
@@ -26,17 +26,17 @@ describe('parseTime()', () => {
 })
 
 describe('pad2()', () => {
-  it('should be return 2digit-zero-paddinged string when passing 1digit string', () => {
+  it('should return 2digit-zero-paddinged string when passing 1digit string', () => {
     expect(pad2('1')).toBe('01')
   })
 
-  it('should be return raw string when passing 2digit string', () => {
+  it('should return raw string when passing 2digit string', () => {
     expect(pad2('20')).toBe('20')
   })
 })
 
 describe('calcTotalTime()', () => {
-  it('should be return time diff string', () => {
+  it('should return time diff string', () => {
     const now = new Date('2017/01/01 12:00:00')
     const past = new Date('2017/01/01 11:00:00')
     const res = calcTotalTime(now, past)
@@ -52,7 +52,7 @@ describe('calcTotalTime()', () => {
 })
 
 describe('ISOtoYmd()', () => {
-  it('should be return yyyy/mm/dd', () => {
+  it('should return yyyy/mm/dd', () => {
     const res = ISOtoYmd(new Date('2017/01/01 12:00:00'))
     expect(res).toBe('2017/01/01')
   })
@@ -64,44 +64,44 @@ describe('ISOtoHm()', () => {
 })
 
 describe('getObjectType()', () => {
-  it('should be return Date', () => {
+  it('should return Date', () => {
     const date = new Date()
     expect(getObjectType(date)).toBe('Date')
   })
 
-  it('should be return Array', () => {
+  it('should return Array', () => {
     const array = []
     expect(getObjectType(array)).toBe('Array')
   })
 
-  it('should be return String', () => {
+  it('should return String', () => {
     const string = ''
     expect(getObjectType(string)).toBe('String')
   })
 
-  it('should be return Boolean', () => {
+  it('should return Boolean', () => {
     const boolean = true
     expect(getObjectType(boolean)).toBe('Boolean')
   })
 
-  it('should be return Number', () => {
+  it('should return Number', () => {
     const number = 1
     expect(getObjectType(number)).toBe('Number')
   })
 
-  it('should be return Error', () => {
+  it('should return Error', () => {
     expect(getObjectType(new Error())).toBe('Error')
   })
 
-  it('should be return Function', () => {
+  it('should return Function', () => {
     expect(getObjectType(() => {})).toBe('Function')
   })
 
-  it('should be return Null', () => {
+  it('should return Null', () => {
     expect(getObjectType(null)).toBe('Null')
   })
 
-  it('should be return Undefined', () => {
+  it('should return Undefined', () => {
     expect(getObjectType(undefined)).toBe('Undefined')
   })
 })
