@@ -8,9 +8,10 @@ import { compose } from 'redux'
 import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../PropsType'
+import type { ClockBoardQueryType } from '../../graphql/query'
 
 type Props = WithRouterProps & {
-  data: Object,
+  data: ClockBoardQueryType,
   CreateUserMutation: Function
 }
 

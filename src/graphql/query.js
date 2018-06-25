@@ -1,4 +1,17 @@
 import gql from 'graphql-tag'
+import type { GraphqlQueryControls } from 'react-apollo'
+
+export type ClockBoardQueryType = GraphqlQueryControls & {|
+  user: ?{
+    id: string,
+    isDuringClockIn: boolean,
+    clocks: Array<{
+      id: string,
+      clockIn: string,
+      clockOut: string
+    }>
+  }
+|}
 
 export const ClockBoardQuery = gql`
   query ClockBoardQuery {
@@ -13,6 +26,19 @@ export const ClockBoardQuery = gql`
     }
   }
 `
+
+export type HistoryBoardQueryType = GraphqlQueryControls & {|
+  user: ?{
+    id: string,
+    clocks: Array<{
+      id: string,
+      clockIn: string,
+      clockOut: string,
+      createdAt: string,
+      updatedAt: string
+    }>
+  }
+|}
 
 export const HistoryBoardQuery = gql`
   query HistoryBoardQuery($first: Int, $orderBy: ClockOrderBy) {

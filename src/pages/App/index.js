@@ -16,14 +16,10 @@ import { parseTime } from '../../function'
 import type { Dispatch } from 'redux'
 import type { ReduxAction, SyncDateAction } from '../../ActionType'
 import type { CurrentTime } from '../../DataType'
+import type { ClockBoardQueryType } from '../../graphql/query'
 
 type Props = {
-  data: {
-    user: {
-      id: string
-    },
-    loading: boolean
-  },
+  data: ClockBoardQueryType,
   dispatch: Dispatch<ReduxAction>
 }
 

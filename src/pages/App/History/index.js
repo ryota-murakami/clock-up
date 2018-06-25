@@ -15,26 +15,16 @@ import type { Period } from '../../../DataType'
 import type { ReduxAction } from '../../../ActionType'
 import type { HistoryQueryParameter } from '../../../DataType'
 import type { ReduxState } from '../../../reducer'
-
-type Clocks = Array<{
-  id: string,
-  clockIn: string,
-  clockOut: string,
-  createdAt: string,
-  updatedAt: string
-}>
+import type { HistoryBoardQueryType } from '../../../graphql/query'
 
 type StateProps = {|
   historyQueryParameter: HistoryQueryParameter
 |}
 
-type Props = StateProps & {
-  data: {
-    user: { clocks: Clocks },
-    loading: boolean
-  },
+type Props = StateProps & {|
+  data: HistoryBoardQueryType,
   dispatch: Dispatch<ReduxAction>
-}
+|}
 
 export class History extends Component<Props> {
   renewGQL(value: Period) {

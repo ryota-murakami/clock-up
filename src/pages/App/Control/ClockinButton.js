@@ -1,21 +1,18 @@
 // @flow
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
+import type { MutationFunc } from 'react-apollo'
 import { ClockInMutation } from '../../../graphql/mutation'
 import { ClockBoardQuery } from '../../../graphql/query'
 import { compose } from 'redux'
 import { Button } from '../../../elements/Button'
 import { theme } from '../../../color'
+import type { ClockBoardQueryType } from '../../../graphql/query'
 
-type Props = {
-  data: {
-    loading: boolean,
-    user: {
-      id: string
-    }
-  },
-  mutation: Function
-}
+type Props = {|
+  data: ClockBoardQueryType,
+  ClockInMutation: MutationFunc<*, *>
+|}
 
 export class ClockinButton extends Component<Props> {
   gqlLogic: Function
@@ -26,13 +23,15 @@ export class ClockinButton extends Component<Props> {
   }
 
   gqlLogic(): void {
-    const { data, mutation } = this.props
+    const { data, ClockInMutation } = this.props
     const userId = data.user.id
 
-    mutation({
+    // $FlowIssue
+    ClockInMutation({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (proxy, { data: { updateUser } }) => {
         const data = proxy.readQuery({ query: ClockBoardQuery })
+        // $FlowIssue
         data.user = updateUser
         proxy.writeQuery({ query: ClockBoardQuery, data })
       }
@@ -59,6 +58,6 @@ export class ClockinButton extends Component<Props> {
 export default compose(
   graphql(ClockBoardQuery),
   graphql(ClockInMutation, {
-    name: 'mutation'
+    name: 'ClockInMutation'
   })
 )(ClockinButton)

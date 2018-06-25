@@ -5,28 +5,15 @@ import { calcTotalTime } from '../../../function'
 import { Container } from './ClockinTime.style'
 import type { CurrentTime } from '../../../DataType'
 import type { ReduxState } from '../../../reducer'
-
-type User = {
-  id: string,
-  isDuringClockIn: boolean,
-  clocks: Array<{
-    id: string,
-    clockIn: string
-  }>
-}
-
-type GraphQLdata = {
-  user: User,
-  loading: boolean
-}
+import type { ClockBoardQueryType } from '../../../graphql/query'
 
 type StateProps = {|
   currentTime: CurrentTime
 |}
 
-type Props = StateProps & {
-  data: GraphQLdata
-}
+type Props = StateProps & {|
+  data: ClockBoardQueryType
+|}
 
 export class ClockinTime extends Component<Props> {
   formatDate: Function

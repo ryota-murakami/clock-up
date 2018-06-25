@@ -6,24 +6,11 @@ import ClockinButton from './ClockinButton'
 import ClockinTime from './ClockinTime'
 import ClockoutButton from './ClockoutButton'
 import { ClockinContainer, ClockoutContainer } from './index.style'
+import type { ClockBoardQueryType } from '../../../graphql/query'
 
-type User = {
-  id: string,
-  isDuringClockIn: boolean,
-  clocks: Array<{
-    id: string,
-    clockIn: string
-  }>
-}
-
-type GraphQLData = {
-  user: User,
-  loading: boolean
-}
-
-type Props = {
-  data: GraphQLData
-}
+type Props = {|
+  data: ClockBoardQueryType
+|}
 
 export class Control extends Component<Props> {
   render() {
