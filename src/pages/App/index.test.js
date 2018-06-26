@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { App } from './index'
 import { createStore } from 'redux'
-import { sel } from '../../testutil'
+import { sel } from '../../setupTests'
 
 describe('<App />', () => {
   const setup = data =>

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import { createStore } from 'redux'
 import { History } from './index'
-import { sel } from '../../../testutil'
+import { sel } from '../../../setupTests'
 
 const dispatch = createStore(f => f).dispatch
 

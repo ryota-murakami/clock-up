@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Control } from './index'
-import { sel } from '../../../testutil'
+import { sel } from '../../../setupTests'
 
 describe('<Control />', () => {
   describe('incorrect data', () => {
