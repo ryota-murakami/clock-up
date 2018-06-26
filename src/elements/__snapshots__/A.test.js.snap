@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<A /> should match to spapshot 1`] = `
-<a
-  className="sc-bdVaJa hRCBNk"
-/>
-`;
+exports[`<A /> should match to spapshot 1`] = `[Function]`;
