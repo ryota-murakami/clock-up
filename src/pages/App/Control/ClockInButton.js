@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo'
 import type { MutationFunc } from 'react-apollo'
 import { ClockInMutation } from '../../../graphql/mutation'
 import { ClockBoardQuery } from '../../../graphql/query'
-import { StyledButton } from './ClockinButton.style'
+import { StyledButton } from './ClockInButton.style'
 import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
@@ -14,7 +14,7 @@ type Props = {
   ClockInMutation: MutationFunc<*, *>
 }
 
-export class ClockinButton extends Component<Props> {
+export class ClockInButton extends Component<Props> {
   gqlLogic: Function
 
   constructor(props: Props) {
@@ -61,4 +61,4 @@ export default compose(
     name: 'ClockInMutation'
   }),
   pure
-)(ClockinButton)
+)(ClockInButton)

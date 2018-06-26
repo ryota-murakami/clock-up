@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ClockinButton } from './ClockinButton'
+import { ClockInButton } from './ClockInButton'
 import { sel } from '../../../setupTests'
 
 describe('<ClockinButton />', () => {
@@ -9,14 +9,14 @@ describe('<ClockinButton />', () => {
   }
 
   it('should render without error', () => {
-    const wrapper = shallow(<ClockinButton data={data} />)
+    const wrapper = shallow(<ClockInButton data={data} />)
     expect(wrapper.exists()).toBe(true)
   })
 
   it('should invoke recordClockinTimeToGraphcool() when clicked', () => {
     const mockFunc = jest.fn()
-    ClockinButton.prototype.gqlLogic = mockFunc
-    const wrapper = shallow(<ClockinButton data={data} />)
+    ClockInButton.prototype.gqlLogic = mockFunc
+    const wrapper = shallow(<ClockInButton data={data} />)
     wrapper.find(sel('clock-in-btn')).simulate('click')
     expect(mockFunc).toBeCalled()
   })

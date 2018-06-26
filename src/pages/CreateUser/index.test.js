@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from 'react-testing-library'
 import { CreateUser } from './index'
 import { sel } from '../../setupTests'
 
@@ -7,8 +7,8 @@ describe('<CreateUser />', () => {
   describe('data.loading == true', () => {
     function setup() {
       const data = { loading: true }
-      const wrapper = shallow(<CreateUser data={data} />)
-      return wrapper
+      const { debug } = render(<CreateUser data={data} />)
+      return debug
     }
 
     it('should render only passing [data]props without error', () => {
@@ -29,7 +29,7 @@ describe('<CreateUser />', () => {
         const data = { loading: false }
         CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnTrueMock
-        const wrapper = shallow(<CreateUser data={data} />)
+        const wrapper = render(<CreateUser data={data} />)
         return wrapper
       }
 
@@ -60,8 +60,8 @@ describe('<CreateUser />', () => {
         const data = { loading: false }
         CreateUser.prototype.insertUserDataToAuth0 = emptyMock
         CreateUser.prototype.isNotExistUserInAuth0 = returnFalseMock
-        const wrapper = shallow(<CreateUser data={data} />)
-        return wrapper
+        const { debug } = render(<CreateUser data={data} />)
+        return debug
       }
 
       it('should render only passing [data]props without error', () => {
