@@ -5,7 +5,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../index'
 import { Button } from '../../elements/Button'
-import { theme } from '../../color'
+import { theme } from '../../theme'
 import type { RouterHistory } from 'react-router'
 
 const StyledButton = Button.extend`

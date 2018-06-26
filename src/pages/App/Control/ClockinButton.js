@@ -6,7 +6,7 @@ import type { MutationFunc } from 'react-apollo'
 import { ClockInMutation } from '../../../graphql/mutation'
 import { ClockBoardQuery } from '../../../graphql/query'
 import { StyledButton } from './ClockinButton.style'
-import { theme } from '../../../color'
+import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
 type Props = {|

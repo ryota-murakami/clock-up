@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockBoard } from './ClockBoard'
 import type { CurrentTime } from '../types/CurrentTime'
-import { parseTime } from '../../function'
+import { parseTime } from '../../functions'
 
 describe('<CurrentDateTime />', () => {
   const currentTime: CurrentTime = parseTime(new Date())

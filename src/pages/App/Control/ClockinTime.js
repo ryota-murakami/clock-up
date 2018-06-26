@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
-import { calcTotalTime } from '../../../function'
+import { calcTotalTime } from '../../../functions'
 import { Container } from './ClockinTime.style'
-import type { CurrentTime } from '../../../DataType'
+import type { CurrentTime } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 

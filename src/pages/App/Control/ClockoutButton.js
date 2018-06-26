@@ -6,7 +6,7 @@ import { ClockBoardQuery } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
 import { ClockOutMutation } from '../../../graphql/mutation'
 import { StyledButton } from './ClockoutButton.style'
-import { theme } from '../../../color'
+import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
 type Props = {|

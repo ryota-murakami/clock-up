@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockinTime } from './ClockinTime'
 import type { CurrentTime } from '../../types/CurrentTime'
-import { parseTime } from '../../../function'
+import { parseTime } from '../../../functions'
 
 describe('<ClockinTime / >', () => {
   const correctData = {

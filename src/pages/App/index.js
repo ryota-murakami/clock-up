@@ -12,10 +12,10 @@ import LogoutBtn from './LogoutButton'
 import History from './History/index'
 import Control from './Control'
 import { Container, Left, Right } from './index.style'
-import { parseTime } from '../../function'
+import { parseTime } from '../../functions'
 import type { Dispatch } from 'redux'
-import type { ReduxAction, SyncDateAction } from '../../ActionType'
-import type { CurrentTime } from '../../DataType'
+import type { ReduxAction, SyncDateAction } from '../../actionTypes'
+import type { CurrentTime } from '../../dataTypes'
 import type { ClockBoardQueryType } from '../../graphql/query'
 
 type Props = {|

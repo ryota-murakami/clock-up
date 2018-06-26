@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { AUTH0_ID_TOKEN } from '../../index'
 import { Button } from '../../elements/Button'
-import { theme } from '../../color'
+import { theme } from '../../theme'
 
 type Props = {}
 

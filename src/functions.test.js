@@ -5,7 +5,7 @@ import {
   ISOtoYmd,
   ISOtoHm,
   getObjectType
-} from './function'
+} from './functions'
 
 describe('parseTime()', () => {
   it('should return CurrentDate when passed Date', () => {

@@ -1,7 +1,7 @@
 // @flow
-import { parseTime } from './function'
-import type { ReduxAction } from './ActionType'
-import type { CurrentTime, HistoryQueryParameter, Period } from './DataType'
+import { parseTime } from './functions'
+import type { ReduxAction } from './actionTypes'
+import type { CurrentTime, HistoryQueryParameter, Period } from './dataTypes'
 
 export type ReduxState = {
   currentTime: CurrentTime,

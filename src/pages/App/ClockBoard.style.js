@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../color'
+import { theme } from '../../theme'
 
 export const Container = styled.div`
   @media (min-width: 768px) {

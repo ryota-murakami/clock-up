@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { Container, Day, Time } from './ClockBoard.style'
 import { connect } from 'react-redux'
-import type { CurrentTime } from '../../DataType'
+import type { CurrentTime } from '../../dataTypes'
 import type { ReduxState } from '../../reducer'
 
 type StateProps = {|
