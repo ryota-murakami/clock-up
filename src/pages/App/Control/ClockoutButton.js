@@ -9,10 +9,10 @@ import { StyledButton } from './ClockoutButton.style'
 import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
-type Props = {|
+type Props = {
   data: ClockBoardQueryType,
   ClockOutMutation: MutationFunc<*, *>
-|}
+}
 
 export class ClockoutButton extends Component<Props> {
   gqlLogic: Function

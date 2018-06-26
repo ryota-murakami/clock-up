@@ -3,6 +3,7 @@ import React from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
+import type { MutationFunc } from 'react-apollo'
 import { CreateUserMutation } from '../../graphql/mutation'
 import { ClockBoardQuery } from '../../graphql/query'
 import { AUTH0_ID_TOKEN } from '../../index'
@@ -10,9 +11,10 @@ import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../propTypes'
 import type { ClockBoardQueryType } from '../../graphql/query'
 
-type Props = WithRouterProps & {
+type Props = {
+  ...WithRouterProps,
   data: ClockBoardQueryType,
-  CreateUserMutation: Function
+  CreateUserMutation: MutationFunc<*, *>
 }
 
 export class CreateUser extends React.Component<Props> {
@@ -29,6 +31,7 @@ export class CreateUser extends React.Component<Props> {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
+    // $FlowIssue
     CreateUserMutation({ variables }).catch(e => {
       if (
         e.message === 'GraphQL error: User already exists with that information'

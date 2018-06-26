@@ -17,7 +17,8 @@ export const Container = styled.main`
   align-items: center;
 `
 
-type Props = WithRouterProps & {
+type Props = {
+  ...WithRouterProps,
   lock: Auth0Lock
 }
 

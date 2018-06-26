@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../index'
 import { Button } from '../../elements/Button'
 import { theme } from '../../theme'
-import type { RouterHistory } from 'react-router'
+import type { WithRouterProps } from './../../propTypes'
 
 const StyledButton = Button.extend`
   width: 200px;
@@ -14,8 +14,8 @@ const StyledButton = Button.extend`
 `
 
 type Props = {
-  lock: Auth0Lock,
-  history: RouterHistory
+  ...WithRouterProps,
+  lock: Auth0Lock
 }
 
 export class LoginButton extends Component<Props> {

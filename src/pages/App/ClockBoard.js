@@ -10,7 +10,9 @@ type StateProps = {|
   currentTime: CurrentTime
 |}
 
-type Props = StateProps
+type Props = {
+  ...StateProps
+}
 
 export class ClockBoard extends Component<Props> {
   // TODO write test

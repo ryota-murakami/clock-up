@@ -12,9 +12,10 @@ type StateProps = {|
   currentTime: CurrentTime
 |}
 
-type Props = StateProps & {|
+type Props = {
+  ...StateProps,
   data: ClockBoardQueryType
-|}
+}
 
 export class ClockinTime extends Component<Props> {
   formatDate: Function

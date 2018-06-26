@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { Td } from '../../../elements/Table'
 
-type Props = {|
+type Props = {
   date: string
-|}
+}
 
 export class OutTime extends Component<Props> {
   handleClick() {

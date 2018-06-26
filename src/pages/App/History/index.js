@@ -21,10 +21,11 @@ type StateProps = {|
   historyQueryParameter: HistoryQueryParameter
 |}
 
-type Props = StateProps & {|
+type Props = {
+  ...StateProps,
   data: HistoryBoardQueryType,
   dispatch: Dispatch<ReduxAction>
-|}
+}
 
 export class History extends Component<Props> {
   renewGQL(value: Period) {
