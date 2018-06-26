@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import { ClockBoardQuery } from '../../../graphql/query'
-import ClockinButton from './ClockInButton'
-import ClockinTime from './ClockinTime'
-import ClockoutButton from './ClockOutButton'
+import ClockInButton from './ClockInButton'
+import InTime from './InTime'
+import ClockOutButton from './ClockOutButton'
 import { ClockInContainer, ClockOutContainer } from './index.style'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
@@ -22,14 +22,14 @@ export class Control extends Component<Props> {
       return (
         <ClockOutContainer>
           {/* $FlowIssue */}
-          <ClockinTime enzyme-testid="clock-in-time" data={data} />
-          <ClockoutButton />
+          <InTime enzyme-testid="clock-in-time" data={data} />
+          <ClockOutButton />
         </ClockOutContainer>
       )
     } else {
       return (
         <ClockInContainer>
-          <ClockinButton />
+          <ClockInButton />
         </ClockInContainer>
       )
     }

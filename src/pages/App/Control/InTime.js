@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { calcTotalTime } from '../../../functions'
-import { Container } from './ClockinTime.style'
+import { Container } from './InTime.style'
 import type { CurrentTime } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
 import type { ClockBoardQueryType } from '../../../graphql/query'
@@ -17,7 +17,7 @@ type Props = {
   data: ClockBoardQueryType
 }
 
-export class ClockinTime extends Component<Props> {
+export class InTime extends Component<Props> {
   formatDate: Function
 
   constructor(props: Props) {
@@ -73,4 +73,4 @@ const mapStateProps = (state: ReduxState): StateProps => {
 export default compose(
   connect(mapStateProps),
   pure
-)(ClockinTime)
+)(InTime)
