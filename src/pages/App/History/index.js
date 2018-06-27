@@ -15,7 +15,7 @@ import type { Period } from '../../../dataTypes'
 import type { ReduxAction } from '../../../actionTypes'
 import type { HistoryQueryParameter } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
-import type { HistoryBoardQueryType } from '../../../graphql/query'
+import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
   historyQueryParameter: HistoryQueryParameter
@@ -23,7 +23,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  ...HistoryBoardQueryType,
+  ...HISTORY_BOARD_QUERY_TYPE,
   dispatch: Dispatch<ReduxAction>
 }
 

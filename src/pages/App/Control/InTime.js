@@ -6,7 +6,7 @@ import { calcTotalTime } from '../../../functions'
 import { Container } from './InTime.style'
 import type { CurrentTime } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
-import type { ClockBoardQueryType } from '../../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
   currentTime: CurrentTime
@@ -14,7 +14,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  ...ClockBoardQueryType
+  ...CLOCK_BOARD_QUERY_TYPE
 }
 
 export class InTime extends Component<Props> {

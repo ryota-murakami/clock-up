@@ -7,10 +7,10 @@ import { graphql } from 'react-apollo'
 import { CLOCK_OUT_MUTATION } from '../../../graphql/mutation'
 import { StyledButton } from './ClockOutButton.style'
 import { theme } from '../../../theme'
-import type { ClockBoardQueryType } from '../../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
-  ...ClockBoardQueryType,
+  ...CLOCK_BOARD_QUERY_TYPE,
   ClockOutMutation: MutationFunc<*, *>
 }
 

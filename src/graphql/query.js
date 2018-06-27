@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 import type { GraphqlQueryControls } from 'react-apollo'
 
-export type ClockBoardQueryType = {|
+export type CLOCK_BOARD_QUERY_TYPE = {|
   data: {
     ...GraphqlQueryControls,
     user: ?{
@@ -30,7 +30,7 @@ export const CLOCK_BOARD_QUERY = gql`
   }
 `
 
-export type HistoryBoardQueryType = {|
+export type HISTORY_BOARD_QUERY_TYPE = {|
   data: {
     ...GraphqlQueryControls,
     user: ?{

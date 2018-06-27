@@ -7,10 +7,10 @@ import ClockInButton from './ClockInButton'
 import InTime from './InTime'
 import ClockOutButton from './ClockOutButton'
 import { ClockInContainer, ClockOutContainer } from './index.style'
-import type { ClockBoardQueryType } from '../../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
-  ...ClockBoardQueryType
+  ...CLOCK_BOARD_QUERY_TYPE
 }
 
 export class Control extends Component<Props> {

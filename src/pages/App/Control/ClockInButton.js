@@ -7,10 +7,10 @@ import { CLOCK_IN_MUTATION } from '../../../graphql/mutation'
 import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import { StyledButton } from './ClockInButton.style'
 import { theme } from '../../../theme'
-import type { ClockBoardQueryType } from '../../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
-  ...ClockBoardQueryType,
+  ...CLOCK_BOARD_QUERY_TYPE,
   ClockInMutation: MutationFunc<*, *>
 }
 

@@ -9,11 +9,11 @@ import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../propTypes'
-import type { ClockBoardQueryType } from '../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 
 type Props = {
   ...WithRouterProps,
-  ...ClockBoardQueryType,
+  ...CLOCK_BOARD_QUERY_TYPE,
   CreateUserMutation: MutationFunc<*, *>
 }
 
