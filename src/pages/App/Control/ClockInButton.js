@@ -10,7 +10,7 @@ import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
 type Props = {
-  data: ClockBoardQueryType,
+  ...ClockBoardQueryType,
   ClockInMutation: MutationFunc<*, *>
 }
 

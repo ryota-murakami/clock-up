@@ -10,7 +10,7 @@ import { ClockInContainer, ClockOutContainer } from './index.style'
 import type { ClockBoardQueryType } from '../../../graphql/query'
 
 type Props = {
-  data: ClockBoardQueryType
+  ...ClockBoardQueryType
 }
 
 export class Control extends Component<Props> {

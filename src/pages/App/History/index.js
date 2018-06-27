@@ -23,7 +23,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  data: HistoryBoardQueryType,
+  ...HistoryBoardQueryType,
   dispatch: Dispatch<ReduxAction>
 }
 

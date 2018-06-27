@@ -19,7 +19,7 @@ import type { CurrentTime } from '../../dataTypes'
 import type { ClockBoardQueryType } from '../../graphql/query'
 
 type Props = {
-  data: ClockBoardQueryType,
+  ...ClockBoardQueryType,
   dispatch: Dispatch<ReduxAction>
 }
 

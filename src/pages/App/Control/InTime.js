@@ -14,7 +14,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  data: ClockBoardQueryType
+  ...ClockBoardQueryType
 }
 
 export class InTime extends Component<Props> {

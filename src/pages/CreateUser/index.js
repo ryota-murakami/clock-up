@@ -13,7 +13,7 @@ import type { ClockBoardQueryType } from '../../graphql/query'
 
 type Props = {
   ...WithRouterProps,
-  data: ClockBoardQueryType,
+  ...ClockBoardQueryType,
   CreateUserMutation: MutationFunc<*, *>
 }
 
