@@ -1,23 +1,23 @@
 import {
-  CreateUserMutation,
-  ClockInMutation,
-  ClockOutMutation
+  CREATE_USER_MUTATION,
+  CLOCK_IN_MUTATION,
+  CLOCK_OUT_MUTATION
 } from './mutation'
 
 describe('CreateUserMutation', () => {
   it('should AST is not regression', () => {
-    expect(CreateUserMutation).toMatchSnapshot()
+    expect(CREATE_USER_MUTATION).toMatchSnapshot()
   })
 })
 
 describe('ClockInMutation', () => {
   it('should AST is not regression', () => {
-    expect(ClockInMutation).toMatchSnapshot()
+    expect(CLOCK_IN_MUTATION).toMatchSnapshot()
   })
 })
 
 describe('ClockOutMutation', () => {
   it('should AST is not regression', () => {
-    expect(ClockOutMutation).toMatchSnapshot()
+    expect(CLOCK_OUT_MUTATION).toMatchSnapshot()
   })
 })

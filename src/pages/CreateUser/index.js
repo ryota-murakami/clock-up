@@ -4,8 +4,8 @@ import { withRouter, Redirect } from 'react-router-dom'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import type { MutationFunc } from 'react-apollo'
-import { CreateUserMutation } from '../../graphql/mutation'
-import { ClockBoardQuery } from '../../graphql/query'
+import { CREATE_USER_MUTATION } from '../../graphql/mutation'
+import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { AUTH0_ID_TOKEN } from '../../index'
 import Loading from '../../elements/Loading'
 import type { WithRouterProps } from '../../propTypes'
@@ -66,8 +66,8 @@ export class CreateUser extends React.Component<Props> {
 }
 
 export default compose(
-  graphql(CreateUserMutation, { name: 'CreateUserMutation' }),
-  graphql(ClockBoardQuery, {
+  graphql(CREATE_USER_MUTATION, { name: 'CreateUserMutation' }),
+  graphql(CLOCK_BOARD_QUERY, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }
   }),

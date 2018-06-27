@@ -13,7 +13,7 @@ export type ClockBoardQueryType = GraphqlQueryControls & {|
   }
 |}
 
-export const ClockBoardQuery = gql`
+export const CLOCK_BOARD_QUERY = gql`
   query ClockBoardQuery {
     user {
       id
@@ -40,7 +40,7 @@ export type HistoryBoardQueryType = GraphqlQueryControls & {|
   }
 |}
 
-export const HistoryBoardQuery = gql`
+export const HISTORY_BOARD_QUERY = gql`
   query HistoryBoardQuery($first: Int, $orderBy: ClockOrderBy) {
     user {
       id

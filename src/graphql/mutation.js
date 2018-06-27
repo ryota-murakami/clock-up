@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export const CreateUserMutation = gql`
+export const CREATE_USER_MUTATION = gql`
   mutation CreateUserMutation($idToken: String!) {
     createUser(authProvider: { auth0: { idToken: $idToken } }) {
       id
@@ -8,7 +8,7 @@ export const CreateUserMutation = gql`
   }
 `
 
-export const ClockInMutation = gql`
+export const CLOCK_IN_MUTATION = gql`
   mutation ClockInMutation($userId: ID!, $clockIn: DateTime) {
     createClock(userId: $userId, clockIn: $clockIn) {
       id
@@ -27,7 +27,7 @@ export const ClockInMutation = gql`
   }
 `
 
-export const ClockOutMutation = gql`
+export const CLOCK_OUT_MUTATION = gql`
   mutation ClockOutMutation($clockId: ID!, $userId: ID!, $clockOut: DateTime) {
     updateClock(id: $clockId, userId: $userId, clockOut: $clockOut) {
       id

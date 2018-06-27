@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import type { MutationFunc } from 'react-apollo'
-import { ClockBoardQuery } from '../../../graphql/query'
+import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import { graphql } from 'react-apollo'
-import { ClockOutMutation } from '../../../graphql/mutation'
+import { CLOCK_OUT_MUTATION } from '../../../graphql/mutation'
 import { StyledButton } from './ClockOutButton.style'
 import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
@@ -59,8 +59,8 @@ export class ClockOutButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(ClockBoardQuery),
-  graphql(ClockOutMutation, {
+  graphql(CLOCK_BOARD_QUERY),
+  graphql(CLOCK_OUT_MUTATION, {
     name: 'ClockOutMutation'
   }),
   pure

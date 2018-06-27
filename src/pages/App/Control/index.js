@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
-import { ClockBoardQuery } from '../../../graphql/query'
+import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import ClockInButton from './ClockInButton'
 import InTime from './InTime'
 import ClockOutButton from './ClockOutButton'
@@ -37,6 +37,6 @@ export class Control extends Component<Props> {
 }
 
 export default compose(
-  graphql(ClockBoardQuery),
+  graphql(CLOCK_BOARD_QUERY),
   pure
 )(Control)

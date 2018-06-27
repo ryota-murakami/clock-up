@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
-import { HistoryBoardQuery } from '../../../graphql/query'
+import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../functions'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import { Select } from '../../../elements/Select'
@@ -114,7 +114,7 @@ const mapStateProps = (state: ReduxState): StateProps => {
 
 export default compose(
   connect(mapStateProps),
-  graphql(HistoryBoardQuery, {
+  graphql(HISTORY_BOARD_QUERY, {
     options: ({ historyQueryParameter }) => {
       // $FlowFixMe
       return {

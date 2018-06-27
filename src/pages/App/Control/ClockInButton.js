@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import type { MutationFunc } from 'react-apollo'
-import { ClockInMutation } from '../../../graphql/mutation'
-import { ClockBoardQuery } from '../../../graphql/query'
+import { CLOCK_IN_MUTATION } from '../../../graphql/mutation'
+import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import { StyledButton } from './ClockInButton.style'
 import { theme } from '../../../theme'
 import type { ClockBoardQueryType } from '../../../graphql/query'
@@ -30,10 +30,10 @@ export class ClockInButton extends Component<Props> {
     ClockInMutation({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (proxy, { data: { updateUser } }) => {
-        const data = proxy.readQuery({ query: ClockBoardQuery })
+        const data = proxy.readQuery({ query: CLOCK_BOARD_QUERY })
         // $FlowIssue
         data.user = updateUser
-        proxy.writeQuery({ query: ClockBoardQuery, data })
+        proxy.writeQuery({ query: CLOCK_BOARD_QUERY, data })
       }
     })
   }
@@ -56,8 +56,8 @@ export class ClockInButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(ClockBoardQuery),
-  graphql(ClockInMutation, {
+  graphql(CLOCK_BOARD_QUERY),
+  graphql(CLOCK_IN_MUTATION, {
     name: 'ClockInMutation'
   }),
   pure
