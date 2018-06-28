@@ -5,8 +5,8 @@ import { A } from './A'
 
 describe('<A />', () => {
   it('should match to spapshot', () => {
-    const { debug } = render(<A />)
+    const { container } = render(<A />)
 
-    expect(debug).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
