@@ -24,3 +24,5 @@ export type HistoryQueryParameter = {
 }
 
 export type Period = '1week' | '1month' | 'all'
+
+export const AUTH0_ID_TOKEN = 'auth0IdToken'

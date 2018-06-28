@@ -15,8 +15,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
-
-export const AUTH0_ID_TOKEN = 'auth0IdToken'
+import { AUTH0_ID_TOKEN } from './dataTypes'
 
 // redux
 const store = createStore(
