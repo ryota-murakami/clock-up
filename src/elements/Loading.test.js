@@ -1,20 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from 'react-testing-library'
 import { Loading } from './Loading'
 
 describe('<Loading />', () => {
-  const setup = function() {
-    const wrapper = shallow(<Loading />)
-    return wrapper
-  }
-
-  it('should render', () => {
-    const wrapper = setup()
-    expect(wrapper.exists()).toBe(true)
-  })
-
   it('should match snapshot', () => {
-    const wrapper = setup()
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Loading />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

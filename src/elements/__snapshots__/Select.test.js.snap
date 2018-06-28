@@ -2,7 +2,7 @@
 
 exports[`<Select /> should match to spapshot 1`] = `
 <select
-  className="sc-bdVaJa bDWFJH"
+  class="sc-bdVaJa bDWFJH"
 >
   <option
     value="1"

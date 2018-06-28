@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from 'react-testing-library'
 import { Header } from './Header'
 
 describe('<Header />', () => {
   it('should match to spapshot', () => {
-    const wrapper = shallow(<Header />)
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Header />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

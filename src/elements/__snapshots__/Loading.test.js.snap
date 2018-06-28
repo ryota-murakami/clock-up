@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Loading /> should match snapshot 1`] = `
-<styled.div>
-  <onlyUpdateForKeys(Loader)
-    color="#36D7B7"
-    loading={true}
-    size={100}
-    sizeUnit="px"
-  />
-</styled.div>
+<div
+  class="sc-bdVaJa hVyMgC"
+>
+  <div
+    class="css-snl7ld"
+  >
+    <div
+      class="css-1ytdvxy"
+    />
+    <div
+      class="css-z5y9wx"
+    />
+  </div>
+</div>
 `;

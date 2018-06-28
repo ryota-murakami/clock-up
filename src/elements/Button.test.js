@@ -1,10 +1,10 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from 'react-testing-library'
 import { Button } from './Button'
 
 describe('<Button />', () => {
   it('should match to spapshot', () => {
-    const wrapper = shallow(<Button />)
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Button />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

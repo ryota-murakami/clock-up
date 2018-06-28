@@ -2,6 +2,6 @@
 
 exports[`<Button /> should match to spapshot 1`] = `
 <button
-  className="sc-bdVaJa cWuFCf"
+  class="sc-bdVaJa cWuFCf"
 />
 `;
