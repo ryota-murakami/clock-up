@@ -17,7 +17,7 @@ type Props = {
   CreateUserMutation: MutationFunc<*, *>
 }
 
-export class CreateUser extends React.Component<Props> {
+class CreateUser extends React.Component<Props> {
   isNotExistUserInAuth0(): boolean {
     const { data } = this.props
 
