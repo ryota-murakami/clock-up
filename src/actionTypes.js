@@ -12,4 +12,16 @@ type ChangeHistoryAction = {
   period: Period
 }
 
-export type ReduxAction = SyncDateAction | ChangeHistoryAction
+type EditInTimeInputAction = {
+  type: 'EDIT_IN_TIME_INPUT'
+}
+
+type FinishInTimeInputAction = {
+  type: 'FINISH_IN_TIME_INPUT'
+}
+
+export type ReduxAction =
+  | SyncDateAction
+  | ChangeHistoryAction
+  | EditInTimeInputAction
+  | FinishInTimeInputAction

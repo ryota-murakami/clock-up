@@ -5,7 +5,8 @@ import type { CurrentTime, HistoryQueryParameter, Period } from './dataTypes'
 
 export type ReduxState = {
   currentTime: CurrentTime,
-  historyQueryParameter: HistoryQueryParameter
+  historyQueryParameter: HistoryQueryParameter,
+  isInTimeEditing: boolean
 }
 
 const initialState: ReduxState = {
@@ -13,7 +14,8 @@ const initialState: ReduxState = {
   historyQueryParameter: {
     first: 7,
     orderBy: 'createdAt_DESC'
-  }
+  },
+  isInTimeEditing: false
 }
 
 export default function reducer(
@@ -45,6 +47,12 @@ export default function reducer(
       }
 
       return { ...state, historyQueryParameter: newValue }
+
+    case 'EDIT_IN_TIME_INPUT':
+      return { ...state, isInTimeEditing: true }
+
+    case 'FINISH_IN_TIME_INPUT':
+      return { ...state, isInTimeEditing: false }
 
     default:
       return state

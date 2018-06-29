@@ -17,9 +17,15 @@ import type { Dispatch } from 'redux'
 import type { ReduxAction, SyncDateAction } from '../../actionTypes'
 import type { CurrentTime } from '../../dataTypes'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
+import type { ReduxState } from '../../reducer'
+
+type StateProps = {
+  isInTimeEditing: boolean
+}
 
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
+  ...StateProps,
   dispatch: Dispatch<ReduxAction>
 }
 
@@ -40,6 +46,13 @@ export class App extends Component<Props> {
     setInterval(() => this.props.dispatch(this.syncDate()), 1000)
   }
 
+  handleOnClick = () => {
+    const { isInTimeEditing, dispatch } = this.props
+    if (!isInTimeEditing) return
+
+    dispatch({ type: 'FINISH_IN_TIME_INPUT' })
+  }
+
   render() {
     const {
       data: { loading, user }
@@ -55,7 +68,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <Container enzyme-testid="app-page">
+      <Container onClick={this.handleOnClick} enzyme-testid="app-page">
         <Header>
           <LogoutBtn enzyme-testid="app-logoutBtn" />
         </Header>
@@ -71,8 +84,12 @@ export class App extends Component<Props> {
   }
 }
 
+const mapStateToProps = (state: ReduxState): StateProps => {
+  return { isInTimeEditing: state.isInTimeEditing }
+}
+
 export default compose(
-  connect(),
+  connect(mapStateToProps),
   graphql(CLOCK_BOARD_QUERY),
   withRouter,
   pure
