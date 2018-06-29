@@ -3,20 +3,37 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { Td } from '../../../elements/Table'
 
+type State = {
+  onInput: boolean
+}
+
 type Props = {
   date: string
 }
 
-export class InTime extends Component<Props> {
-  handleClick() {
-    // TODO show nunber input & timepicker
-    return () => alert('click')
-    // TODO when decided, throw gql mutation
+export class InTime extends Component<Props, State> {
+  state = {
+    onInput: false
+  }
+
+  handleClick = () => {
+    this.setState({ onInput: true })
+  }
+
+  mutation = () => {
+    this.setState({ onInput: false })
   }
 
   render() {
     const { date } = this.props
-    return <Td onClick={this.handleClick()}>{date}</Td>
+    return this.state.onInput ? (
+      <input
+        type="time"
+        onKeyPress={e => e.key === 'Enter' && this.mutation()}
+      />
+    ) : (
+      <Td onClick={() => this.setState({ onInput: true })}>{date}</Td>
+    )
   }
 }
 
