@@ -46,9 +46,15 @@ export class App extends Component<Props> {
     setInterval(() => this.props.dispatch(this.syncDate()), 1000)
   }
 
-  handleOnClick = () => {
+  handleOnClick = (e: SyntheticEvent<HTMLElement>) => {
     const { isInTimeEditing, dispatch } = this.props
     if (!isInTimeEditing) return
+    if (
+      // $FlowIssue
+      typeof e.target.className === 'string' &&
+      e.target.className.includes('in-time-input')
+    )
+      return
 
     dispatch({ type: 'FINISH_IN_TIME_INPUT' })
   }
@@ -68,7 +74,7 @@ export class App extends Component<Props> {
     }
 
     return (
-      <Container onClick={this.handleOnClick} enzyme-testid="app-page">
+      <Container onClick={e => this.handleOnClick(e)} enzyme-testid="app-page">
         <Header>
           <LogoutBtn enzyme-testid="app-logoutBtn" />
         </Header>

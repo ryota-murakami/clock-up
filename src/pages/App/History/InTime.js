@@ -26,7 +26,8 @@ export class InTime extends Component<Props, State> {
     onInput: false
   }
 
-  mutation = () => {
+  mutation = (value: string) => {
+    if (value.length === 0) return
     this.props.dispatch({ type: 'FINISH_IN_TIME_INPUT' })
   }
 
@@ -49,10 +50,14 @@ export class InTime extends Component<Props, State> {
     const { date } = this.props
 
     return this.state.onInput ? (
-      <input
-        type="time"
-        onKeyPress={e => e.key === 'Enter' && this.mutation()}
-      />
+      <Td>
+        <input
+          type="time"
+          autoFocus
+          className="in-time-input"
+          onKeyPress={e => e.key === 'Enter' && this.mutation(e.target.value)}
+        />
+      </Td>
     ) : (
       <Td onClick={this.handleClick}>{date}</Td>
     )
