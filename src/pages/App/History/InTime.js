@@ -31,18 +31,19 @@ export class InTime extends Component<Props, State> {
     this.props.dispatch({ type: 'FINISH_IN_TIME_INPUT' })
   }
 
-  handleClick = () => {
+  startEdit = () => {
     this.props.dispatch({ type: 'EDIT_IN_TIME_INPUT' })
     this.setState({ onInput: true })
   }
 
   componentDidUpdate(prevProps: Props) {
-    if (prevProps.isInTimeEditing === true) {
-      if (this.props.isInTimeEditing === false) {
-        if (this.state.onInput === true) {
-          this.setState({ onInput: false })
-        }
-      }
+    // Clicked anywhere of view during editing, app should decide "user discontinued update InTime".
+    if (
+      prevProps.isInTimeEditing === true &&
+      this.props.isInTimeEditing === false &&
+      this.state.onInput === true
+    ) {
+      this.setState({ onInput: false })
     }
   }
 
@@ -59,7 +60,7 @@ export class InTime extends Component<Props, State> {
         />
       </Td>
     ) : (
-      <Td onClick={this.handleClick}>{date}</Td>
+      <Td onClick={this.startEdit}>{date}</Td>
     )
   }
 }
