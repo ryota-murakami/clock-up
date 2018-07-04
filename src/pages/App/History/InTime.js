@@ -34,19 +34,22 @@ export class InTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
-    const s = value.split(':')
-    const time = new Date(
-      // $FlowIssue
-      new Date(this.props.clockIn).setHours(s[0], [1])
-    ).toISOString()
     this.props.dispatch({ type: 'FINISH_IN_TIME_INPUT' })
-    // $FlowIssue
-    this.props.EditClockInMutation({
-      variable: {
-        time: time,
-        clockId: this.props.clockId
-      }
-    })
+
+    this.props
+      // $FlowIssue
+      .EditClockInMutation({
+        variables: {
+          clockIn: new Date( // $FlowIssue
+            new Date(this.props.clockIn).setHours(...value.split(':'))
+          ).toISOString(),
+          clockId: this.props.clockId
+        }
+      })
+      .then()
+      .catch(e => {
+        console.log(e)
+      })
   }
 
   startEdit = () => {
