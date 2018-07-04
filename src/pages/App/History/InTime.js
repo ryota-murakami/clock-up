@@ -2,8 +2,12 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
+import { graphql } from 'react-apollo'
+import { EDIT_CLOCK_IN_MUTATON } from '../../../graphql/mutation'
+import { ISOtoHm } from '../../../functions'
 import { Td } from '../../../elements/Table'
 import type { Dispatch } from 'redux'
+import type { MutationFunc } from 'react-apollo'
 import type { ReduxAction } from '../../../actionTypes'
 import type { ReduxState } from '../../../reducer'
 
@@ -16,8 +20,10 @@ type StateProps = {
 }
 
 type Props = {
-  date: string,
+  clockIn: string,
+  clockId: string,
   ...StateProps,
+  EditClockInMutation: MutationFunc<*, *>,
   dispatch: Dispatch<ReduxAction>
 }
 
@@ -28,7 +34,19 @@ export class InTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
+    const s = value.split(':')
+    const time = new Date(
+      // $FlowIssue
+      new Date(this.props.clockIn).setHours(s[0], [1])
+    ).toISOString()
     this.props.dispatch({ type: 'FINISH_IN_TIME_INPUT' })
+    // $FlowIssue
+    this.props.EditClockInMutation({
+      variable: {
+        time: time,
+        clockId: this.props.clockId
+      }
+    })
   }
 
   startEdit = () => {
@@ -48,7 +66,7 @@ export class InTime extends Component<Props, State> {
   }
 
   render() {
-    const { date } = this.props
+    const { clockIn } = this.props
 
     return this.state.onInput ? (
       <Td>
@@ -56,11 +74,14 @@ export class InTime extends Component<Props, State> {
           type="time"
           autoFocus
           className="in-time-input"
-          onKeyPress={e => e.key === 'Enter' && this.mutation(e.target.value)}
+          onKeyPress={(
+            e // $FlowIssue
+          ) => e.key === 'Enter' && this.mutation(e.target.value)}
         />
       </Td>
     ) : (
-      <Td onClick={this.startEdit}>{date}</Td>
+      // $FlowIssue
+      <Td onClick={this.startEdit}>{ISOtoHm(clockIn)}</Td>
     )
   }
 }
@@ -70,6 +91,9 @@ const mapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export default compose(
+  graphql(EDIT_CLOCK_IN_MUTATON, {
+    name: 'EditClockInMutation'
+  }),
   connect(mapStateToProps),
   pure
 )(InTime)

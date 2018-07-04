@@ -52,6 +52,7 @@ export class History extends Component<Props> {
           const clockIn = v.clockIn
           const clockout = v.clockOut
           const createdAt = v.createdAt
+          const clockId = v.id
           const small = new Date(clockIn)
           const large = new Date(clockout)
           const total = calcTotalTime(large, small)
@@ -60,7 +61,7 @@ export class History extends Component<Props> {
             <tr key={i} enzyme-testid={`history-table-time-${i}`}>
               <Td>{ISOtoYmd(createdAt)}</Td>
               <Td>{total}</Td>
-              <InTime date={ISOtoHm(clockIn)} />
+              <InTime clockIn={clockIn} clockId={clockId} />
               <OutTime date={ISOtoHm(clockout)} />
             </tr>
           )
