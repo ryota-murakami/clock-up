@@ -32,6 +32,10 @@ export const Right = styled.div`
   margin: 10px;
   border-radius: 5px;
   border: 1px solid ${theme.borderColor};
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
 
 export const Left = styled.div`

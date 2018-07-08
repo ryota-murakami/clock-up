@@ -9,4 +9,8 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
