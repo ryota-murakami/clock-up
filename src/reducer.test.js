@@ -40,7 +40,8 @@ describe('reducer', () => {
         seconds: '13',
         year: '2018'
       },
-      historyQueryParameter: { first: 7, orderBy: 'createdAt_DESC' }
+      historyQueryParameter: { first: 7, orderBy: 'createdAt_DESC' },
+      isInTimeEditing: false
     }
     expect(res).toEqual(expectedState)
   })

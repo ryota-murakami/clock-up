@@ -27,7 +27,7 @@ type Props = {
   dispatch: Dispatch<ReduxAction>
 }
 
-export class History extends Component<Props> {
+class History extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
       type: 'CHANGE_HISTORY',
