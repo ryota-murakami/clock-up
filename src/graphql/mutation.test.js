@@ -1,7 +1,8 @@
 import {
   CREATE_USER_MUTATION,
   CLOCK_IN_MUTATION,
-  CLOCK_OUT_MUTATION
+  CLOCK_OUT_MUTATION,
+  EDIT_CLOCK_IN_MUTATON
 } from './mutation'
 
 describe('CreateUserMutation', () => {
@@ -19,5 +20,11 @@ describe('ClockInMutation', () => {
 describe('ClockOutMutation', () => {
   it('should AST is not regression', () => {
     expect(CLOCK_OUT_MUTATION).toMatchSnapshot()
+  })
+})
+
+describe('EditClockInMutation', () => {
+  it('should AST is not regression', () => {
+    expect(EDIT_CLOCK_IN_MUTATON).toMatchSnapshot()
   })
 })
