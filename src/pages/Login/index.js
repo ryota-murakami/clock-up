@@ -6,7 +6,7 @@ import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import LoginButton from './LoginButton'
 import { A } from '../../elements/A'
-import type { WithRouterProps } from '../../propTypes'
+import type { ContextRouter } from 'react-router'
 
 export const Container = styled.main`
   width: 100%;
@@ -18,7 +18,7 @@ export const Container = styled.main`
 `
 
 type Props = {
-  ...WithRouterProps,
+  ...ContextRouter,
   lock: Auth0Lock
 }
 

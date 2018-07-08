@@ -8,11 +8,11 @@ import { CREATE_USER_MUTATION } from '../../graphql/mutation'
 import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { AUTH0_ID_TOKEN } from '../../dataTypes'
 import Loading from '../../elements/Loading'
-import type { WithRouterProps } from '../../propTypes'
+import type { ContextRouter } from 'react-router'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 
 type Props = {
-  ...WithRouterProps,
+  ...ContextRouter,
   ...CLOCK_BOARD_QUERY_TYPE,
   CreateUserMutation: MutationFunc<*, *>
 }

@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../dataTypes'
 import { Button } from '../../elements/Button'
 import { theme } from '../../theme'
-import type { WithRouterProps } from './../../propTypes'
+import type { ContextRouter } from 'react-router'
 
 const StyledButton = Button.extend`
   width: 200px;
@@ -14,7 +14,7 @@ const StyledButton = Button.extend`
 `
 
 type Props = {
-  ...WithRouterProps,
+  ...ContextRouter,
   lock: Auth0Lock
 }
 
