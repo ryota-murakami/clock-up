@@ -47,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "babel-plugin-styled-components": "^1.5.1",
     "codecov": "^3.0.4",
     "dotenv": "^6.0.0",
