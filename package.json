@@ -6,7 +6,7 @@
     "apollo-cache-inmemory": "^1.2.2",
     "apollo-client": "^2.3.6",
     "apollo-link-http": "^1.5.4",
-    "auth0-lock": "^11.7.2",
+    "auth0-lock": "^11.8.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.4.0",
