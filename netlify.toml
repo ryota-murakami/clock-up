@@ -9,8 +9,5 @@
   publish = "build"
   command = "yarn build"
 
-# Production context: All deploys to the main
-# repository branch will inherit these settings.
-[context.production]
-  [context.production.environment]
+  [build.environment]
     NODE_VERSION = "9.11.1"
