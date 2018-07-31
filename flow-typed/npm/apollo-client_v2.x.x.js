@@ -1,5 +1,5 @@
-// flow-typed signature: 0d02f15b125c45c1078bc160f58c9a9d
-// flow-typed version: 9ed2af6be6/apollo-client_v2.x.x/flow_>=v0.57.x
+// flow-typed signature: ae6dd2fff7718a6434052f6830bf129b
+// flow-typed version: 2cbae06e0e/apollo-client_v2.x.x/flow_>=v0.57.x
 
 declare module "apollo-client" {
   /**
@@ -301,6 +301,8 @@ declare module "apollo-client" {
     errorPolicy?: ErrorPolicy;
     variables?: any;
   }
+
+  declare export type MutationOperation<T = Object> = (options: MutationBaseOptions<T>) => Promise<FetchResult<T>>
 
   declare export interface MutationOptions<T = { [key: string]: any }>
     extends MutationBaseOptions<T> {
