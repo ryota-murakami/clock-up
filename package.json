@@ -65,6 +65,6 @@
     "prettier": "^1.14.0",
     "react-app-rewired": "^1.5.2",
     "react-test-renderer": "^16.4.2",
-    "react-testing-library": "^4.1.6"
+    "react-testing-library": "^4.1.7"
   }
 }
