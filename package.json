@@ -62,7 +62,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.9.1",
     "flow-bin": "^0.77.0",
-    "prettier": "^1.14.0",
+    "prettier": "^1.14.1",
     "react-app-rewired": "^1.5.2",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^4.1.7"
