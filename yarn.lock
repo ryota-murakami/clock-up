@@ -6657,9 +6657,9 @@ react-test-renderer@^16.4.2:
     prop-types "^15.6.0"
     react-is "^16.4.2"
 
-react-testing-library@^4.1.7:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-4.1.7.tgz#1b13b8e38e2a66beea23d03326b3a143019d1d27"
+react-testing-library@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-4.1.8.tgz#9356f451da152387139fbcbd9cf3099cc8bf628b"
   dependencies:
     dom-testing-library "^3.1.0"
     wait-for-expect "^1.0.0"
