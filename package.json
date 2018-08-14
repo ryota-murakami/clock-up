@@ -15,9 +15,9 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "2.0.0-next.3e165448",
     "react-spinners": "^0.3.3",
-    "recompose": "^0.28.2",
+    "recompose": "^0.27.0",
     "redux": "^4.0.0",
     "styled-components": "^3.4.2"
   },
@@ -54,7 +54,7 @@
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.3.0",
+    "eslint": "4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
@@ -66,5 +66,17 @@
     "react-app-rewired": "^1.5.2",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^4.1.8"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
   }
 }

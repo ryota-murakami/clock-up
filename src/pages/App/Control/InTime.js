@@ -18,18 +18,11 @@ type Props = {
 }
 
 export class InTime extends Component<Props> {
-  formatDate: Function
-
-  constructor(props: Props) {
-    super(props)
-    this.formatDate = this.formatDate.bind(this)
-  }
-
   /**
    * @param str ISOString. e.g. '2017-12-10T14:31:10.501Z'
    * @returns {string} human readable string. e.g. '11:31 PM'
    */
-  formatDate(str: string): string {
+  formatDate = (str: string): string => {
     const dateObj = new Date(str)
 
     const options = {
