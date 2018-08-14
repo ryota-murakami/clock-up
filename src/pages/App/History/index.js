@@ -9,7 +9,15 @@ import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import { Select } from '../../../elements/Select'
 import InTime from './InTime'
 import OutTime from './OutTime'
-import { Container, SelectBoxWrapper, Header } from './index.style'
+import {
+  Container,
+  SelectBoxWrapper,
+  Header,
+  DeleteCheckbox,
+  DeleteCheckboxTr,
+  DeleteCheckboxTd,
+  TrContainer
+} from './index.style'
 import type { Dispatch } from 'redux'
 import type { Period } from '../../../dataTypes'
 import type { ReduxAction } from '../../../actionTypes'
@@ -59,6 +67,9 @@ class History extends Component<Props> {
 
           return (
             <tr key={i} enzyme-testid={`history-table-time-${i}`}>
+              <DeleteCheckboxTd>
+                <DeleteCheckbox />
+              </DeleteCheckboxTd>
               <Td>{ISOtoYmd(createdAt)}</Td>
               <Td>{total}</Td>
               <InTime clockIn={clockIn} clockId={clockId} />
@@ -96,6 +107,7 @@ class History extends Component<Props> {
         <Table enzyme-testid="history-table">
           <Tbody>
             <Tr>
+              <DeleteCheckboxTr> </DeleteCheckboxTr>
               <Th>date</Th>
               <Th>total</Th>
               <Th>in</Th>
