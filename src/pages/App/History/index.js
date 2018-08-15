@@ -15,8 +15,7 @@ import {
   Header,
   DeleteCheckbox,
   DeleteCheckboxTr,
-  DeleteCheckboxTd,
-  TrContainer
+  DeleteCheckboxTd
 } from './index.style'
 import type { Dispatch } from 'redux'
 import type { Period } from '../../../dataTypes'

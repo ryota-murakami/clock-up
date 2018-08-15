@@ -35,8 +35,3 @@ export const DeleteCheckboxTr = styled.div`
 export const DeleteCheckboxTd = styled.div`
   border-width: 0;
 `
-
-export const TrContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`
