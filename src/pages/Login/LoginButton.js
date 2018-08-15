@@ -19,13 +19,6 @@ type Props = {
 }
 
 export class LoginButton extends Component<Props> {
-  showAuth0LoginModal: Function
-
-  constructor(props: Props) {
-    super(props)
-    this.showAuth0LoginModal = this.showAuth0LoginModal.bind(this)
-  }
-
   componentDidMount() {
     const { lock } = this.props
     // success Auth0 modal authentication -> come back to callback url from auth0
@@ -35,7 +28,7 @@ export class LoginButton extends Component<Props> {
     })
   }
 
-  showAuth0LoginModal() {
+  showAuth0LoginModal = () => {
     const { lock } = this.props
     lock.show({
       auth: {
