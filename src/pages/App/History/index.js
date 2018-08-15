@@ -14,7 +14,7 @@ import {
   SelectBoxWrapper,
   Header,
   DeleteCheckbox,
-  DeleteCheckboxTr,
+  DeleteCheckboxTh,
   DeleteCheckboxTd
 } from './index.style'
 import type { Dispatch } from 'redux'
@@ -106,7 +106,7 @@ class History extends Component<Props> {
         <Table enzyme-testid="history-table">
           <Tbody>
             <Tr>
-              <DeleteCheckboxTr> </DeleteCheckboxTr>
+              <DeleteCheckboxTh> </DeleteCheckboxTh>
               <Th>date</Th>
               <Th>total</Th>
               <Th>in</Th>

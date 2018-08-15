@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
+import { Td, Th } from '../../../elements/Table'
 
 export const Container = styled.div`
   color: ${theme.textColor};
@@ -26,12 +27,22 @@ export const DeleteCheckbox = styled.div`
   border-style: solid;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #000;
+  }
 `
 
-export const DeleteCheckboxTr = styled.div`
+export const DeleteCheckboxTh = styled(Th)`
+  width: 30px;
   border-width: 0;
 `
 
-export const DeleteCheckboxTd = styled.div`
+export const DeleteCheckboxTd = styled(Td)`
+  width: 30px;
   border-width: 0;
+  background-color: #fff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
