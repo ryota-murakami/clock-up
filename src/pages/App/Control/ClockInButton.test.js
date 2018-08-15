@@ -12,12 +12,4 @@ describe('<ClockinButton />', () => {
     const wrapper = shallow(<ClockInButton data={data} />)
     expect(wrapper.exists()).toBe(true)
   })
-
-  it('should invoke recordClockinTimeToGraphcool() when clicked', () => {
-    const mockFunc = jest.fn()
-    ClockInButton.prototype.gqlLogic = mockFunc
-    const wrapper = shallow(<ClockInButton data={data} />)
-    wrapper.find(sel('clock-in-btn')).simulate('click')
-    expect(mockFunc).toBeCalled()
-  })
 })

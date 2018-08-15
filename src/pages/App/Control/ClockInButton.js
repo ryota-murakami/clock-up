@@ -15,14 +15,7 @@ type Props = {
 }
 
 export class ClockInButton extends Component<Props> {
-  gqlLogic: Function
-
-  constructor(props: Props) {
-    super(props)
-    this.gqlLogic = this.gqlLogic.bind(this) // avoid Class properties arrow function bind in order to test mocking
-  }
-
-  gqlLogic(): void {
+  gqlLogic = () => {
     const { data, ClockInMutation } = this.props
     const userId = data.user.id
 
