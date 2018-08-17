@@ -16,6 +16,7 @@ import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 import { AUTH0_ID_TOKEN } from './dataTypes'
+import ErrorBoudary from './pages/Error/ErrorBoudary'
 
 // redux
 const store = createStore(
@@ -57,17 +58,19 @@ const option = {
 const lock = new Auth0Lock(clientId, domain, option)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Fragment>
-          <Route exact path="/" component={App} />
-          <Route path="/login" component={() => <Login lock={lock} />} />
-          <Route path="/createuser" component={CreateUser} />
-        </Fragment>
-      </BrowserRouter>
-    </ApolloProvider>
-  </Provider>,
+  <ErrorBoudary>
+    <Provider store={store}>
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+          <Fragment>
+            <Route exact path="/" component={App} />
+            <Route path="/login" component={() => <Login lock={lock} />} />
+            <Route path="/createuser" component={CreateUser} />
+          </Fragment>
+        </BrowserRouter>
+      </ApolloProvider>
+    </Provider>
+  </ErrorBoudary>,
   document.getElementById('root')
 )
 
