@@ -42,10 +42,6 @@ export class App extends Component<Props> {
     return !!user
   }
 
-  componentDidMount() {
-    setInterval(() => this.props.dispatch(this.syncDate()), 1000)
-  }
-
   handleOnClick = (e: SyntheticEvent<HTMLElement>) => {
     const { isInTimeEditing, dispatch } = this.props
     if (!isInTimeEditing) return
@@ -57,6 +53,10 @@ export class App extends Component<Props> {
       return
 
     dispatch({ type: 'FINISH_IN_TIME_INPUT' })
+  }
+
+  componentDidMount() {
+    setInterval(() => this.props.dispatch(this.syncDate()), 1000)
   }
 
   render() {
