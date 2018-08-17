@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 
 import { LoginButton } from './LoginButton'
 import Auth0Lock from 'auth0-lock'
-import { sel } from '../../setupTests'
 
 describe('<LoginButton />', () => {
   function setup() {

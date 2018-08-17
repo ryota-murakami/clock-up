@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ClockInButton } from './ClockInButton'
-import { sel } from '../../../setupTests'
 
 describe('<ClockinButton />', () => {
   const data = {
