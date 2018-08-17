@@ -14,8 +14,7 @@ const Checkbox = styled.div`
     props.clicked &&
     css`
       background-color: ${theme.red};
-    `} &:hover {
-    background-color: ${theme.red};
+    `}
   }
 `
 type Props = {
