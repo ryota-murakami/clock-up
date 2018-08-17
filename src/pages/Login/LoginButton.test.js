@@ -25,14 +25,4 @@ describe('<LoginButton />', () => {
     )
     expect(typeof events.authenticated).toEqual('function')
   })
-
-  it('should fire showLogin() when clicked', () => {
-    // mock of LoginBtn.showLogin()
-    const lock = new Auth0Lock('story', 'book')
-    const mockFunc = jest.fn()
-    LoginButton.prototype.showAuth0LoginModal = mockFunc
-    const wrapper = shallow(<LoginButton lock={lock} />)
-    wrapper.find(sel('login-btn')).simulate('click')
-    expect(mockFunc).toBeCalled()
-  })
 })
