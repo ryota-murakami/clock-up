@@ -22,14 +22,9 @@ class ErrorBoudary extends Component<Props, State> {
   }
 
   render() {
-    const { error, info } = this.state
+    const { error } = this.state
     if (error) {
-      return (
-        <ErrorBoundaryFallbackComponent
-          componentStack={info ? info.componentStack : ''}
-          error={error}
-        />
-      )
+      return <ErrorBoundaryFallbackComponent />
     }
     return this.props.children
   }

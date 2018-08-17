@@ -13,10 +13,10 @@ import {
   Container,
   SelectBoxWrapper,
   Header,
-  DeleteCheckbox,
   DeleteCheckboxTh,
   DeleteCheckboxTd
 } from './index.style'
+import DeleteCheckbox from './DeleteCheckbox'
 import type { Dispatch } from 'redux'
 import type { Period } from '../../../dataTypes'
 import type { ReduxAction } from '../../../actionTypes'
@@ -41,6 +41,8 @@ class History extends Component<Props> {
       period: value
     })
   }
+
+  onClickDeleteCheckbox = (clockId: string) => {}
 
   render() {
     const { loading } = this.props.data
@@ -69,7 +71,7 @@ class History extends Component<Props> {
         return (
           <tr style={this.bottomBoerderEliminator(length, i)} key={i}>
             <DeleteCheckboxTd style={this.bottomBoerderEliminator(length, i)}>
-              <DeleteCheckbox />
+              <DeleteCheckbox clockId={clockId} />
             </DeleteCheckboxTd>
             <Td>{ISOtoYmd(createdAt)}</Td>
             <Td>{total}</Td>

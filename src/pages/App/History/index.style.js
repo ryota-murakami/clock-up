@@ -22,19 +22,6 @@ export const Header = styled.div`
   border-bottom: 1px solid ${theme.borderColor};
 `
 
-export const DeleteCheckbox = styled.div`
-  width: 16px;
-  height: 16px;
-  border-radius: 100%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.2);
-
-  &:hover {
-    background-color: #000;
-  }
-`
-
 export const DeleteCheckboxTh = styled(Th)`
   width: 30px;
   border-width: 0;
