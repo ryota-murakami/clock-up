@@ -6,7 +6,8 @@ import type { CurrentTime, HistoryQueryParameter, Period } from './dataTypes'
 export type ReduxState = {
   currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter,
-  isInTimeEditing: boolean
+  isInTimeEditing: boolean,
+  deleteClickIds: Array<string>
 }
 
 const initialState: ReduxState = {
@@ -15,7 +16,8 @@ const initialState: ReduxState = {
     first: 7,
     orderBy: 'createdAt_DESC'
   },
-  isInTimeEditing: false
+  isInTimeEditing: false,
+  deleteClickIds: []
 }
 
 export default function reducer(
@@ -47,6 +49,19 @@ export default function reducer(
       }
 
       return { ...state, historyQueryParameter: newValue }
+
+    case 'ADD_DElETE_CLOCK_ID':
+      return {
+        ...state,
+        deleteClickIds: [...state.deleteClickIds, action.clockId]
+      }
+
+    case 'REMOVE_DElETE_CLOCK_ID':
+      const freshDeleteClickIds = state.deleteClickIds.filter(
+        // $FlowIssue
+        v => v !== action.clockId
+      )
+      return { ...state, deleteClickIds: freshDeleteClickIds }
 
     case 'EDIT_IN_TIME_INPUT':
       return { ...state, isInTimeEditing: true }

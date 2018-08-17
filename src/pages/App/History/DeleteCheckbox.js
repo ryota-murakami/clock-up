@@ -1,7 +1,11 @@
 // @flow
 import React, { Component } from 'react'
+import { pure, compose } from 'recompose'
+import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
 import { theme } from '../../../theme'
+import type { Dispatch } from 'redux'
+import type { AddDeleteClockIdAction } from '../../../actionTypes'
 
 const Checkbox = styled.div`
   width: 16px;
@@ -17,8 +21,10 @@ const Checkbox = styled.div`
     `}
   }
 `
+
 type Props = {
-  clockId: string
+  clockId: string,
+  dispatch: Dispatch<AddDeleteClockIdAction>
 }
 
 type State = {
@@ -31,7 +37,22 @@ class DeleteCheckbox extends Component<Props, State> {
   }
 
   handleClick = () => {
-    this.setState({ clicked: !this.state.clicked })
+    const { dispatch } = this.props
+    const clicked = this.state.clicked
+
+    this.setState({ clicked: !clicked })
+
+    if (clicked) {
+      dispatch({
+        type: 'REMOVE_DElETE_CLOCK_ID',
+        clockId: this.props.clockId
+      })
+    } else {
+      dispatch({
+        type: 'ADD_DElETE_CLOCK_ID',
+        clockId: this.props.clockId
+      })
+    }
   }
 
   render() {
@@ -39,4 +60,7 @@ class DeleteCheckbox extends Component<Props, State> {
   }
 }
 
-export default DeleteCheckbox
+export default compose(
+  connect(),
+  pure
+)(DeleteCheckbox)

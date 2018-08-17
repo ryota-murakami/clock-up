@@ -7,16 +7,26 @@ export type SyncDateAction = {
   currentTime: CurrentTime
 }
 
-type ChangeHistoryAction = {
+export type ChangeHistoryAction = {
   type: 'CHANGE_HISTORY',
   period: Period
 }
 
-type EditInTimeInputAction = {
+export type AddDeleteClockIdAction = {
+  type: 'ADD_DElETE_CLOCK_ID',
+  clockId: string
+}
+
+export type RemoveDeleteClockIdAction = {
+  type: 'REMOVE_DElETE_CLOCK_ID',
+  clockId: string
+}
+
+export type EditInTimeInputAction = {
   type: 'EDIT_IN_TIME_INPUT'
 }
 
-type FinishInTimeInputAction = {
+export type FinishInTimeInputAction = {
   type: 'FINISH_IN_TIME_INPUT'
 }
 
@@ -25,3 +35,5 @@ export type ReduxAction =
   | ChangeHistoryAction
   | EditInTimeInputAction
   | FinishInTimeInputAction
+  | AddDeleteClockIdAction
+  | RemoveDeleteClockIdAction

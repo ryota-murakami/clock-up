@@ -1,7 +1,10 @@
+// @flow
 import reducer from './reducer'
+import type { ReduxState } from './reducer'
 
 describe('reducer', () => {
   it('should return the initial state', () => {
+    // $FlowIssue
     const res = reducer(undefined, {})
     expect(typeof res === 'object').toBe(true)
     expect(res.hasOwnProperty('currentTime')).toBe(true)
@@ -28,10 +31,12 @@ describe('reducer', () => {
         seconds: '13'
       }
     }
+    // $FlowIssue
     const res = reducer(undefined, action)
-    const expectedState = {
+    const expectedState: ReduxState = {
       currentTime: {
         date: '30',
+        // $FlowIssue
         dateObject: {},
         days: 'Wednesday',
         hour: '6',
@@ -41,7 +46,8 @@ describe('reducer', () => {
         year: '2018'
       },
       historyQueryParameter: { first: 7, orderBy: 'createdAt_DESC' },
-      isInTimeEditing: false
+      isInTimeEditing: false,
+      deleteClickIds: []
     }
     expect(res).toEqual(expectedState)
   })

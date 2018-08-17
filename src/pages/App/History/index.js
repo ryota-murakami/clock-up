@@ -42,8 +42,6 @@ class History extends Component<Props> {
     })
   }
 
-  onClickDeleteCheckbox = (clockId: string) => {}
-
   render() {
     const { loading } = this.props.data
     if (loading) return null
