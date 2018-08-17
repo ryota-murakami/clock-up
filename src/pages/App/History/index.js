@@ -50,32 +50,38 @@ class History extends Component<Props> {
 
     var history = []
     if (clocks.length) {
-      history = clocks
+      const filtered = clocks
         // must have complate clock in/out. not allow only clock in data of first time.
         .filter(v => {
           return v.clockOut !== null // during clock-in data. can not calculate totalTime when clockout was null.
         })
-        .map((v, i) => {
-          const clockIn = v.clockIn
-          const clockout = v.clockOut
-          const createdAt = v.createdAt
-          const clockId = v.id
-          const small = new Date(clockIn)
-          const large = new Date(clockout)
-          const total = calcTotalTime(large, small)
+      const length = filtered.length
 
-          return (
-            <tr key={i} enzyme-testid={`history-table-time-${i}`}>
-              <DeleteCheckboxTd>
-                <DeleteCheckbox />
-              </DeleteCheckboxTd>
-              <Td>{ISOtoYmd(createdAt)}</Td>
-              <Td>{total}</Td>
-              <InTime clockIn={clockIn} clockId={clockId} />
-              <OutTime date={ISOtoHm(clockout)} />
-            </tr>
-          )
-        })
+      history = filtered.map((v, i) => {
+        const clockIn = v.clockIn
+        const clockout = v.clockOut
+        const createdAt = v.createdAt
+        const clockId = v.id
+        const small = new Date(clockIn)
+        const large = new Date(clockout)
+        const total = calcTotalTime(large, small)
+
+        return (
+          <tr
+            style={this.bottomBoerderEliminator(length, i)}
+            key={i}
+            enzyme-testid={`history-table-time-${i}`}
+          >
+            <DeleteCheckboxTd style={this.bottomBoerderEliminator(length, i)}>
+              <DeleteCheckbox />
+            </DeleteCheckboxTd>
+            <Td>{ISOtoYmd(createdAt)}</Td>
+            <Td>{total}</Td>
+            <InTime clockIn={clockIn} clockId={clockId} />
+            <OutTime date={ISOtoHm(clockout)} />
+          </tr>
+        )
+      })
     }
 
     // clocks.length == 0 or clocks.lengh ===1 and clocks.[0] only has clockIn value without clockOut.
@@ -103,7 +109,7 @@ class History extends Component<Props> {
             <option value="all">all</option>
           </Select>
         </SelectBoxWrapper>
-        <Table enzyme-testid="history-table">
+        <Table style={{ borderLeftWidth: 0 }} enzyme-testid="history-table">
           <Tbody>
             <Tr>
               <DeleteCheckboxTh> </DeleteCheckboxTh>
@@ -117,6 +123,16 @@ class History extends Component<Props> {
         </Table>
       </Container>
     )
+  }
+
+  bottomBoerderEliminator(length: number, i: number): Object {
+    return length === i + 1
+      ? {
+          borderBottomWidth: 1,
+          borderBottomColor: '#fff',
+          borderBottomStyle: 'solid'
+        }
+      : {}
   }
 }
 

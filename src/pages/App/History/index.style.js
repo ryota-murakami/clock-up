@@ -4,6 +4,8 @@ import { Td, Th } from '../../../elements/Table'
 
 export const Container = styled.div`
   color: ${theme.textColor};
+  padding-left: 5px;
+  padding-right: 5px;
 `
 
 export const SelectBoxWrapper = styled.div`
@@ -36,6 +38,9 @@ export const DeleteCheckbox = styled.div`
 export const DeleteCheckboxTh = styled(Th)`
   width: 30px;
   border-width: 0;
+  border-top-width: 1px;
+  border-top-color: #fff;
+  border-top-style: solid;
 `
 
 export const DeleteCheckboxTd = styled(Td)`
