@@ -67,11 +67,7 @@ class History extends Component<Props> {
         const total = calcTotalTime(large, small)
 
         return (
-          <tr
-            style={this.bottomBoerderEliminator(length, i)}
-            key={i}
-            enzyme-testid={`history-table-time-${i}`}
-          >
+          <tr style={this.bottomBoerderEliminator(length, i)} key={i}>
             <DeleteCheckboxTd style={this.bottomBoerderEliminator(length, i)}>
               <DeleteCheckbox />
             </DeleteCheckboxTd>
@@ -87,7 +83,7 @@ class History extends Component<Props> {
     // clocks.length == 0 or clocks.lengh ===1 and clocks.[0] only has clockIn value without clockOut.
     if (history.length === 0) {
       history = (
-        <Tr enzyme-testid="history-table-na">
+        <Tr>
           <Td>N/A</Td>
           <Td>N/A</Td>
           <Td>N/A</Td>
@@ -109,7 +105,7 @@ class History extends Component<Props> {
             <option value="all">all</option>
           </Select>
         </SelectBoxWrapper>
-        <Table style={{ borderLeftWidth: 0 }} enzyme-testid="history-table">
+        <Table style={{ borderLeftWidth: 0 }}>
           <Tbody>
             <Tr>
               <DeleteCheckboxTh> </DeleteCheckboxTh>
