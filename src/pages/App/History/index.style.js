@@ -8,11 +8,12 @@ export const Container = styled.div`
   padding-right: 5px;
 `
 
-export const SelectBoxWrapper = styled.div`
+export const ControlArea = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 `
 
 export const Header = styled.div`

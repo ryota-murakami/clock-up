@@ -6,26 +6,27 @@ import { graphql } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import { calcTotalTime, ISOtoYmd, ISOtoHm } from '../../../functions'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
-import { Select } from '../../../elements/Select'
 import InTime from './InTime'
 import OutTime from './OutTime'
+import Select from './Select'
+import DeleteCheckbox from './DeleteCheckbox'
+import DeleteButton from './DeleteButton'
 import {
   Container,
-  SelectBoxWrapper,
+  ControlArea,
   Header,
   DeleteCheckboxTh,
   DeleteCheckboxTd
 } from './index.style'
-import DeleteCheckbox from './DeleteCheckbox'
 import type { Dispatch } from 'redux'
-import type { Period } from '../../../dataTypes'
 import type { ReduxAction } from '../../../actionTypes'
 import type { HistoryQueryParameter } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
 import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
-  historyQueryParameter: HistoryQueryParameter
+  historyQueryParameter: HistoryQueryParameter,
+  deleteClickIds: Array<string>
 |}
 
 type Props = {
@@ -35,13 +36,6 @@ type Props = {
 }
 
 class History extends Component<Props> {
-  renewGQL(value: Period) {
-    this.props.dispatch({
-      type: 'CHANGE_HISTORY',
-      period: value
-    })
-  }
-
   render() {
     const { loading } = this.props.data
     if (loading) return null
@@ -95,16 +89,10 @@ class History extends Component<Props> {
     return (
       <Container>
         <Header>History</Header>
-        <SelectBoxWrapper>
-          <Select
-            onChange={e => this.renewGQL(e.target.value)}
-            defaultValue={'1week'}
-          >
-            <option value="1week">1week</option>
-            <option value="1month">1month</option>
-            <option value="all">all</option>
-          </Select>
-        </SelectBoxWrapper>
+        <ControlArea>
+          <Select />
+          <DeleteButton deleteClickIds={this.props.deleteClickIds} />
+        </ControlArea>
         <Table style={{ borderLeftWidth: 0 }}>
           <Tbody>
             <Tr>
@@ -133,7 +121,10 @@ class History extends Component<Props> {
 }
 
 const mapStateProps = (state: ReduxState): StateProps => {
-  return { historyQueryParameter: state.historyQueryParameter }
+  return {
+    historyQueryParameter: state.historyQueryParameter,
+    deleteClickIds: state.deleteClickIds
+  }
 }
 
 export default compose(

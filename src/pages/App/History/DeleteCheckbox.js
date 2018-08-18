@@ -5,7 +5,10 @@ import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
 import { theme } from '../../../theme'
 import type { Dispatch } from 'redux'
-import type { AddDeleteClockIdAction } from '../../../actionTypes'
+import type {
+  AddDeleteClockIdAction,
+  RemoveDeleteClockIdAction
+} from '../../../actionTypes'
 
 const Checkbox = styled.div`
   width: 16px;
@@ -24,7 +27,7 @@ const Checkbox = styled.div`
 
 type Props = {
   clockId: string,
-  dispatch: Dispatch<AddDeleteClockIdAction>
+  dispatch: Dispatch<AddDeleteClockIdAction | RemoveDeleteClockIdAction>
 }
 
 type State = {
