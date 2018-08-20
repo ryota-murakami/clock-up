@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
-import { Container, Day, Time } from './ClockBoard.style'
+import { Container, Day, Time } from './Clock.style'
 import { connect } from 'react-redux'
 import type { CurrentTime } from '../../dataTypes'
 import type { ReduxState } from '../../reducer'
@@ -14,7 +14,7 @@ type Props = {
   ...StateProps
 }
 
-export class ClockBoard extends Component<Props> {
+export class Clock extends Component<Props> {
   // TODO write test
   flush(seconds: string): boolean {
     if (Number.parseInt(seconds, 10) % 2 === 0) {
@@ -56,4 +56,4 @@ const mapStateToProps = (state: ReduxState): StateProps => {
 export default compose(
   connect(mapStateToProps),
   pure
-)(ClockBoard)
+)(Clock)
