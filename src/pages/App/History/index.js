@@ -36,6 +36,16 @@ type Props = {
 }
 
 class History extends Component<Props> {
+  bottomBoerderEliminator(length: number, i: number): Object {
+    return length === i + 1
+      ? {
+          borderBottomWidth: 1,
+          borderBottomColor: '#fff',
+          borderBottomStyle: 'solid'
+        }
+      : {}
+  }
+
   render() {
     const { loading } = this.props.data
     if (loading) return null
@@ -63,6 +73,7 @@ class History extends Component<Props> {
         return (
           <tr style={this.bottomBoerderEliminator(length, i)} key={i}>
             <DeleteCheckboxTd style={this.bottomBoerderEliminator(length, i)}>
+              {/*TODO delete checkbox UI*/}
               <DeleteCheckbox clockId={clockId} />
             </DeleteCheckboxTd>
             <Td>{ISOtoYmd(createdAt)}</Td>
@@ -107,16 +118,6 @@ class History extends Component<Props> {
         </Table>
       </Container>
     )
-  }
-
-  bottomBoerderEliminator(length: number, i: number): Object {
-    return length === i + 1
-      ? {
-          borderBottomWidth: 1,
-          borderBottomColor: '#fff',
-          borderBottomStyle: 'solid'
-        }
-      : {}
   }
 }
 
