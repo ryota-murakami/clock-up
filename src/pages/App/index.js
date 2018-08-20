@@ -10,7 +10,7 @@ import { Header } from '../../elements/Header'
 import Clock from './Clock'
 import LogoutBtn from './LogoutButton'
 import History from './History/index'
-import Control from './Control'
+import ClockIn_ClockOut_Button from './ClockIn_ClockOut_Button'
 import { Container, Left, Right } from './index.style'
 import { parseTime } from '../../functions'
 import type { Dispatch } from 'redux'
@@ -80,7 +80,7 @@ export class App extends Component<Props> {
         </Header>
         <Left>
           <Clock />
-          <Control enzyme-testid="app-control" />
+          <ClockIn_ClockOut_Button enzyme-testid="app-control" />
         </Left>
         <Right>
           <History />

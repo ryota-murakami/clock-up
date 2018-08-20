@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Control } from './index'
 import { sel } from '../../../setupTests'
 
-describe('<Control />', () => {
+describe('<ClockIn_ClockOut_Button />', () => {
   describe('incorrect data', () => {
     const incorrectData = {}
     it('should throw error', () => {
@@ -26,7 +26,7 @@ describe('<Control />', () => {
       }
     }
     it('should show ClockoutButton', () => {
-      // const wrapper = shallow(<Control data={data} />)
+      // const wrapper = shallow(<ClockIn_ClockOut_Button data={data} />)
       // expect(
       //   wrapper.find('Apollo(Apollo(pure(ClockoutButton)))').exists()
       // ).toBe(true)
@@ -44,7 +44,7 @@ describe('<Control />', () => {
     //   user: { foo: 'bar', isDuringClockIn: false }
     // }
     it('should show ClockinButton', () => {
-      // const wrapper = shallow(<Control data={data} />)
+      // const wrapper = shallow(<ClockIn_ClockOut_Button data={data} />)
       // expect(wrapper.find('Apollo(Apollo(pure(ClockinButton)))').exists()).toBe(
       //   true
       // )
