@@ -4,7 +4,7 @@ import { ClockBoard } from './ClockBoard'
 import type { CurrentTime } from '../types/CurrentTime'
 import { parseTime } from '../../functions'
 
-describe('<CurrentDateTime />', () => {
+describe('<Clock />', () => {
   const currentTime: CurrentTime = parseTime(new Date())
 
   it('should render without error', () => {

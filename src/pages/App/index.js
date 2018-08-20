@@ -7,7 +7,7 @@ import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { connect } from 'react-redux'
 import Loading from '../../elements/Loading'
 import { Header } from '../../elements/Header'
-import CurrentDateTime from './ClockBoard'
+import Clock from './ClockBoard'
 import LogoutBtn from './LogoutButton'
 import History from './History/index'
 import Control from './Control'
@@ -79,7 +79,7 @@ export class App extends Component<Props> {
           <LogoutBtn enzyme-testid="app-logoutBtn" />
         </Header>
         <Left>
-          <CurrentDateTime />
+          <Clock />
           <Control enzyme-testid="app-control" />
         </Left>
         <Right>
