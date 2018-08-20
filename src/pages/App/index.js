@@ -18,6 +18,7 @@ import type { ReduxAction, SyncDateAction } from '../../actionTypes'
 import type { CurrentTime } from '../../dataTypes'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
+import type { ContextRouter } from 'react-router-dom'
 
 type StateProps = {
   isInTimeEditing: boolean
@@ -26,6 +27,7 @@ type StateProps = {
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
   ...StateProps,
+  ...ContextRouter,
   dispatch: Dispatch<ReduxAction>
 }
 
