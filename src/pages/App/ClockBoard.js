@@ -47,13 +47,13 @@ export class ClockBoard extends Component<Props> {
   }
 }
 
-const mapStateProps = (state: ReduxState): StateProps => {
+const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     currentTime: state.currentTime
   }
 }
 
 export default compose(
-  connect(mapStateProps),
+  connect(mapStateToProps),
   pure
 )(ClockBoard)
