@@ -10,6 +10,7 @@ export const Container = styled.div`
 
 export const ControlArea = styled.div`
   padding: 10px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;

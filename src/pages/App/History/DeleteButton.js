@@ -1,10 +1,16 @@
 // @flow
 import React, { Component } from 'react'
-import { graphql } from 'react-apollo'
+import { connect } from 'react-redux'
+import { graphql, withApollo } from 'react-apollo'
 import { pure, compose } from 'recompose'
 import styled from 'styled-components'
 import { Button } from '../../../elements/Button'
 import { theme } from '../../../theme'
+import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
+import type { MutationFunc } from 'react-apollo'
+import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
+import type { ReduxState } from '../../../reducer'
+import type { HistoryQueryParameter } from '../../../dataTypes'
 
 const Container = styled.div`
   flex: 1;
@@ -13,24 +19,90 @@ const Container = styled.div`
   align-items: center;
 `
 
+type StateProps = {|
+  historyQueryParameter: HistoryQueryParameter
+|}
+
 type Props = {
-  deleteClickIds: Array<string>
+  ...StateProps,
+  deleteClickIds: Array<string>,
+  DeleteClockMutation: MutationFunc<*, *>
 }
 
-type State = {}
+class DeleteButton extends Component<Props> {
+  handleClick = () => {
+    const {
+      deleteClickIds,
+      DeleteClockMutation,
+      historyQueryParameter
+    } = this.props
+    deleteClickIds.forEach(id => {
+      // $FlowIssue
+      DeleteClockMutation({
+        variables: { clockId: id },
 
-class DeleteButton extends Component<Props, State> {
+        /**
+         * START: refrect mutation to UI
+         */
+        update: (cache, { data: { deleteClock } }) => {
+          const data = cache.readQuery({
+            query: HISTORY_BOARD_QUERY,
+            variables: {
+              first: historyQueryParameter.first,
+              orderBy: historyQueryParameter.orderBy
+            }
+          })
+          // $FlowIssue
+          const oldClicks = data.user.clocks
+          const newClocks = oldClicks.filter(v => v.id !== id)
+
+          // hack https://stackoverflow.com/questions/27519836/uncaught-typeerror-cannot-assign-to-read-only-property
+          // $FlowIssue
+          const newUser = { ...data.user, writable: true }
+          const newData = { user: newUser }
+          newData.user.clocks = newClocks
+          // hack https://stackoverflow.com/questions/27519836/uncaught-typeerror-cannot-assign-to-read-only-property
+
+          cache.writeQuery({
+            query: HISTORY_BOARD_QUERY,
+            variables: {
+              first: historyQueryParameter.first,
+              orderBy: historyQueryParameter.orderBy
+            },
+            data: newData
+          })
+          /**
+           * END: refrect mutation to UI
+           */
+        }
+      })
+    })
+  }
+
   render() {
     const { deleteClickIds } = this.props
 
     return (
       <Container>
         {deleteClickIds.length ? (
-          <Button color={theme.red}>Delete</Button>
+          <Button onClick={this.handleClick} color={theme.red}>
+            Delete
+          </Button>
         ) : null}
       </Container>
     )
   }
 }
 
-export default compose(pure)(DeleteButton)
+const mapStateToProps = (state: ReduxState): StateProps => {
+  return {
+    historyQueryParameter: state.historyQueryParameter
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  withApollo,
+  graphql(DELETE_CLOCK_MUTATION, { name: 'DeleteClockMutation' }),
+  pure
+)(DeleteButton)

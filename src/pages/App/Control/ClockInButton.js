@@ -22,11 +22,11 @@ export class ClockInButton extends Component<Props> {
     // $FlowIssue
     ClockInMutation({
       variables: { userId: userId, clockIn: new Date().toISOString() },
-      update: (proxy, { data: { updateUser } }) => {
-        const data = proxy.readQuery({ query: CLOCK_BOARD_QUERY })
+      update: (cache, { data: { updateUser } }) => {
+        const data = cache.readQuery({ query: CLOCK_BOARD_QUERY })
         // $FlowIssue
         data.user = updateUser
-        proxy.writeQuery({ query: CLOCK_BOARD_QUERY, data })
+        cache.writeQuery({ query: CLOCK_BOARD_QUERY, data })
       }
     })
   }

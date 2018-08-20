@@ -34,11 +34,12 @@ class CreateUser extends React.Component<Props> {
     // $FlowIssue
     CreateUserMutation({ variables }).catch(e => {
       if (
+        // supress
         e.message === 'GraphQL error: User already exists with that information'
       )
         return
 
-      alert('error occurred when createUser')
+      throw e
     })
   }
 

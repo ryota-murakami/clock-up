@@ -54,3 +54,11 @@ export const EDIT_CLOCK_IN_MUTATON = gql`
     }
   }
 `
+
+export const DELETE_CLOCK_MUTATION = gql`
+  mutation DeleteClockMutation($clockId: ID!) {
+    deleteClock(id: $clockId) {
+      id
+    }
+  }
+`

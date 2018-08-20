@@ -411,7 +411,7 @@ declare module "react-apollo" {
     defaultOptions?: DefaultOptions
   };
 
-  declare class ApolloClient<TCacheShape> {
+  declare export class ApolloClient<TCacheShape> {
     link: ApolloLink;
     store: DataStore<TCacheShape>;
     cache: ApolloCache<TCacheShape>;
