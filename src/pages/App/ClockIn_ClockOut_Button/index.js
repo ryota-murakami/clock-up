@@ -8,12 +8,14 @@ import InTime from './InTime'
 import ClockOutButton from './ClockOutButton'
 import { ClockInContainer, ClockOutContainer } from './index.style'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
+import type { CurrentTime } from '../../../dataTypes'
 
 type Props = {
-  ...CLOCK_BOARD_QUERY_TYPE
+  ...CLOCK_BOARD_QUERY_TYPE,
+  currentTime: CurrentTime
 }
 
-export class Control extends Component<Props> {
+export class ClockIn_ClockOut_Button extends Component<Props> {
   render() {
     const { data } = this.props
     if (data.loading) return null
@@ -22,7 +24,7 @@ export class Control extends Component<Props> {
       return (
         <ClockOutContainer>
           {/* $FlowIssue */}
-          <InTime data={data} />
+          <InTime data={data} currentTime={this.props.currentTime} />
           <ClockOutButton />
         </ClockOutContainer>
       )
@@ -39,4 +41,4 @@ export class Control extends Component<Props> {
 export default compose(
   graphql(CLOCK_BOARD_QUERY),
   pure
-)(Control)
+)(ClockIn_ClockOut_Button)

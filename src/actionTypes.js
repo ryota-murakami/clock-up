@@ -1,11 +1,5 @@
 // @flow
 import type { Period } from './dataTypes'
-import type { CurrentTime } from './dataTypes'
-
-export type SyncDateAction = {
-  type: 'SYNC_DATE',
-  currentTime: CurrentTime
-}
 
 export type ChangeHistoryAction = {
   type: 'CHANGE_HISTORY',
@@ -35,7 +29,6 @@ export type PushHistoryDeleteButton = {
 }
 
 export type ReduxAction =
-  | SyncDateAction
   | ChangeHistoryAction
   | EditInTimeInputAction
   | FinishInTimeInputAction

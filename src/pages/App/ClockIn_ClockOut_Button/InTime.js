@@ -1,20 +1,14 @@
 // @flow
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
-import { connect } from 'react-redux'
 import { calcTotalTime } from '../../../functions'
 import { Container } from './InTime.style'
 import type { CurrentTime } from '../../../dataTypes'
-import type { ReduxState } from '../../../reducer'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
-type StateProps = {|
-  currentTime: CurrentTime
-|}
-
 type Props = {
-  ...StateProps,
-  ...CLOCK_BOARD_QUERY_TYPE
+  ...CLOCK_BOARD_QUERY_TYPE,
+  currentTime: CurrentTime
 }
 
 export class InTime extends Component<Props> {
@@ -57,13 +51,4 @@ export class InTime extends Component<Props> {
   }
 }
 
-const mapStateProps = (state: ReduxState): StateProps => {
-  return {
-    currentTime: state.currentTime
-  }
-}
-
-export default compose(
-  connect(mapStateProps),
-  pure
-)(InTime)
+export default compose(pure)(InTime)

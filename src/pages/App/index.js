@@ -12,13 +12,11 @@ import LogoutBtn from './LogoutButton'
 import History from './History/index'
 import ClockIn_ClockOut_Button from './ClockIn_ClockOut_Button'
 import { Container, Left, Right } from './index.style'
-import { parseTime } from '../../functions'
-import type { Dispatch } from 'redux'
-import type { ReduxAction, SyncDateAction } from '../../actionTypes'
-import type { CurrentTime } from '../../dataTypes'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
 import type { ContextRouter } from 'react-router-dom'
+import { parseTime } from '../../functions'
+import type { CurrentTime } from '../../dataTypes'
 
 type StateProps = {
   isInTimeEditing: boolean
@@ -27,17 +25,23 @@ type StateProps = {
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
   ...StateProps,
-  ...ContextRouter,
-  dispatch: Dispatch<ReduxAction>
+  ...ContextRouter
 }
 
-export class App extends Component<Props> {
-  syncDate = (): SyncDateAction => {
-    const time: CurrentTime = parseTime(new Date())
-    return {
-      type: 'SYNC_DATE',
-      currentTime: time
-    }
+type State = {
+  currentTime: CurrentTime
+}
+
+export class App extends Component<Props, State> {
+  state = {
+    currentTime: parseTime(new Date())
+  }
+
+  componentDidMount() {
+    setInterval(
+      () => this.setState({ currentTime: parseTime(new Date()) }),
+      1000
+    )
   }
 
   isAuthenticated(user: Object): boolean {
@@ -55,10 +59,6 @@ export class App extends Component<Props> {
       return
 
     dispatch({ type: 'FINISH_IN_TIME_INPUT' })
-  }
-
-  componentDidMount() {
-    setInterval(() => this.props.dispatch(this.syncDate()), 1000)
   }
 
   render() {
@@ -81,9 +81,9 @@ export class App extends Component<Props> {
           <LogoutBtn />
         </Header>
         <Left>
-          <Clock />
+          <Clock currentTime={this.state.currentTime} />
           {/*eslint-disable react/jsx-pascal-case*/}
-          <ClockIn_ClockOut_Button />
+          <ClockIn_ClockOut_Button currentTime={this.state.currentTime} />
         </Left>
         <Right>
           <History />

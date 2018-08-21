@@ -2,20 +2,14 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { Container, Day, Time } from './Clock.style'
-import { connect } from 'react-redux'
 import type { CurrentTime } from '../../dataTypes'
-import type { ReduxState } from '../../reducer'
-
-type StateProps = {|
-  currentTime: CurrentTime
-|}
 
 type Props = {
-  ...StateProps
+  currentTime: CurrentTime
 }
 
 export class Clock extends Component<Props> {
-  // TODO write test
+
   flush(seconds: string): boolean {
     if (Number.parseInt(seconds, 10) % 2 === 0) {
       return true
@@ -47,13 +41,4 @@ export class Clock extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): StateProps => {
-  return {
-    currentTime: state.currentTime
-  }
-}
-
-export default compose(
-  connect(mapStateToProps),
-  pure
-)(Clock)
+export default compose(pure)(Clock)

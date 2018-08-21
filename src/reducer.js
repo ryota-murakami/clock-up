@@ -1,17 +1,14 @@
 // @flow
-import { parseTime } from './functions'
 import type { ReduxAction } from './actionTypes'
-import type { CurrentTime, HistoryQueryParameter, Period } from './dataTypes'
+import type { HistoryQueryParameter, Period } from './dataTypes'
 
 export type ReduxState = {
-  currentTime: CurrentTime,
   historyQueryParameter: HistoryQueryParameter,
   isInTimeEditing: boolean,
   deleteClickIds: Array<string>
 }
 
 const initialState: ReduxState = {
-  currentTime: parseTime(new Date()),
   historyQueryParameter: {
     first: 7,
     orderBy: 'createdAt_DESC'
@@ -25,11 +22,6 @@ export default function reducer(
   action: ReduxAction
 ): ReduxState {
   switch (action.type) {
-    case 'SYNC_DATE':
-      const currentTime: CurrentTime = action.currentTime
-
-      return { ...state, currentTime: currentTime }
-
     // TODO date period
     case 'CHANGE_HISTORY':
       let first = ''

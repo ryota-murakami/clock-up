@@ -36,11 +36,7 @@ export class ClockInButton extends Component<Props> {
     if (loading) return null
 
     return (
-      <StyledButton
-        primary
-        color={theme.green}
-        onClick={this.gqlLogic}
-      >
+      <StyledButton primary color={theme.green} onClick={this.gqlLogic}>
         Clock In
       </StyledButton>
     )

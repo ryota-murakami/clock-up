@@ -39,11 +39,7 @@ export class ClockOutButton extends Component<Props> {
     if (data.loading) return null
 
     return (
-      <StyledButton
-        primary
-        color={theme.red}
-        onClick={this.gqlLogic}
-      >
+      <StyledButton primary color={theme.red} onClick={this.gqlLogic}>
         clock out
       </StyledButton>
     )
