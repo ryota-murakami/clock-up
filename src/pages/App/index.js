@@ -82,6 +82,7 @@ export class App extends Component<Props> {
         </Header>
         <Left>
           <Clock />
+          {/*eslint-disable react/jsx-pascal-case*/}
           <ClockIn_ClockOut_Button enzyme-testid="app-control" />
         </Left>
         <Right>
