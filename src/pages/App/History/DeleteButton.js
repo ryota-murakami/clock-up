@@ -11,6 +11,8 @@ import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
 import type { HistoryQueryParameter } from '../../../dataTypes'
+import type { Dispatch } from 'redux'
+import type { PushHistoryDeleteButton } from '../../../actionTypes'
 
 const Container = styled.div`
   flex: 1;
@@ -25,6 +27,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
+  dispatch: Dispatch<PushHistoryDeleteButton>,
   deleteClickIds: Array<string>,
   DeleteClockMutation: MutationFunc<*, *>
 }
@@ -34,8 +37,11 @@ class DeleteButton extends Component<Props> {
     const {
       deleteClickIds,
       DeleteClockMutation,
-      historyQueryParameter
+      historyQueryParameter,
+      dispatch
     } = this.props
+    dispatch({ type: 'PUSH_HISTORY_DELETE_BUTTON' })
+
     deleteClickIds.forEach(id => {
       // $FlowIssue
       DeleteClockMutation({

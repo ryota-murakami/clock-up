@@ -30,6 +30,10 @@ export type FinishInTimeInputAction = {
   type: 'FINISH_IN_TIME_INPUT'
 }
 
+export type PushHistoryDeleteButton = {
+  type: 'PUSH_HISTORY_DELETE_BUTTON'
+}
+
 export type ReduxAction =
   | SyncDateAction
   | ChangeHistoryAction
@@ -37,3 +41,4 @@ export type ReduxAction =
   | FinishInTimeInputAction
   | AddDeleteClockIdAction
   | RemoveDeleteClockIdAction
+  | PushHistoryDeleteButton

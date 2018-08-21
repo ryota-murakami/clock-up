@@ -50,18 +50,24 @@ export default function reducer(
 
       return { ...state, historyQueryParameter: newValue }
 
+    // Toggle Delete Checkbox
     case 'ADD_DElETE_CLOCK_ID':
       return {
         ...state,
         deleteClickIds: [...state.deleteClickIds, action.clockId]
       }
 
+    // Toggle Delete Checkbox
     case 'REMOVE_DElETE_CLOCK_ID':
       const freshDeleteClickIds = state.deleteClickIds.filter(
         // $FlowIssue
         v => v !== action.clockId
       )
       return { ...state, deleteClickIds: freshDeleteClickIds }
+
+    // Refresh checked id list
+    case 'PUSH_HISTORY_DELETE_BUTTON':
+      return { ...state, deleteClickIds: [] }
 
     case 'EDIT_IN_TIME_INPUT':
       return { ...state, isInTimeEditing: true }
