@@ -32,9 +32,6 @@
     "lint:fix": "eslint --fix src"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
       "!src/**/*.style.js",
@@ -51,9 +48,6 @@
     "babel-plugin-styled-components": "^1.5.1",
     "codecov": "^3.0.4",
     "dotenv": "^6.0.0",
-    "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme-to-json": "^3.3.4",
     "eslint": "4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.0",

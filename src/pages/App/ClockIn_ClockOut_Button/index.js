@@ -22,7 +22,7 @@ export class Control extends Component<Props> {
       return (
         <ClockOutContainer>
           {/* $FlowIssue */}
-          <InTime enzyme-testid="clock-in-time" data={data} />
+          <InTime data={data} />
           <ClockOutButton />
         </ClockOutContainer>
       )

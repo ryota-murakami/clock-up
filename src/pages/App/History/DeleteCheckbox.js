@@ -34,6 +34,7 @@ type State = {
   clicked: boolean
 }
 
+// TODO unmount?
 class DeleteCheckbox extends Component<Props, State> {
   state = {
     clicked: false

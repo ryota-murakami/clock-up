@@ -41,11 +41,7 @@ export class LoginButton extends Component<Props> {
 
   render() {
     return (
-      <StyledButton
-        color={theme.green}
-        onClick={this.showAuth0LoginModal}
-        enzyme-testid="login-btn"
-      >
+      <StyledButton color={theme.green} onClick={this.showAuth0LoginModal}>
         Login
       </StyledButton>
     )

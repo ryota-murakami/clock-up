@@ -47,7 +47,7 @@ export class InTime extends Component<Props> {
     const TotalTime = calcTotalTime(now, past)
 
     return (
-      <Container enzyme-testid="clock-in-time">
+      <Container>
         <div>ClockIn</div>
         <div>{this.formatDate(ClockinTimeISO)}</div>
         <div>TotalTime</div>

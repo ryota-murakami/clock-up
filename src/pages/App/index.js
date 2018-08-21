@@ -67,23 +67,23 @@ export class App extends Component<Props> {
     } = this.props
 
     if (loading) {
-      return <Loading enzyme-testid="app-loading" />
+      return <Loading />
     }
 
     if (!this.isAuthenticated(user)) {
       // $FlowIssue
-      return <Redirect to="/login" enzyme-testid="app-redirect" />
+      return <Redirect to="/login" />
     }
 
     return (
-      <Container onClick={e => this.handleOnClick(e)} enzyme-testid="app-page">
+      <Container onClick={e => this.handleOnClick(e)}>
         <Header>
-          <LogoutBtn enzyme-testid="app-logoutBtn" />
+          <LogoutBtn />
         </Header>
         <Left>
           <Clock />
           {/*eslint-disable react/jsx-pascal-case*/}
-          <ClockIn_ClockOut_Button enzyme-testid="app-control" />
+          <ClockIn_ClockOut_Button />
         </Left>
         <Right>
           <History />

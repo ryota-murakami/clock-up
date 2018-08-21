@@ -47,7 +47,7 @@ class CreateUser extends React.Component<Props> {
     const { data } = this.props
 
     if (data.loading) {
-      return <Loading enzyme-testid="Loading" />
+      return <Loading />
     }
 
     if (this.isNotExistUserInAuth0()) {
@@ -60,7 +60,6 @@ class CreateUser extends React.Component<Props> {
         to={{
           pathname: '/'
         }}
-        enzyme-testid="Redirect"
       />
     )
   }
