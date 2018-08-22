@@ -22,7 +22,7 @@ export default function reducer(
   action: ReduxAction
 ): ReduxState {
   switch (action.type) {
-    case 'CHANGE_HISTORY':
+    case 'CHANGE_HISTORY_FILTER':
       let first = ''
       const p: Period = action.period
       if (p === '1week') {

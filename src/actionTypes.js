@@ -2,7 +2,7 @@
 import type { Period } from './dataTypes'
 
 export type ChangeHistoryAction = {
-  type: 'CHANGE_HISTORY',
+  type: 'CHANGE_HISTORY_FILTER',
   period: Period
 }
 

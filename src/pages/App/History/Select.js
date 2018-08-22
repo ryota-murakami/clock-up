@@ -23,7 +23,7 @@ type Props = {
 class Select extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
-      type: 'CHANGE_HISTORY',
+      type: 'CHANGE_HISTORY_FILTER',
       period: value
     })
   }
