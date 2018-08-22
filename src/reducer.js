@@ -4,7 +4,7 @@ import type { HistoryQueryParameter, Period } from './dataTypes'
 
 export type ReduxState = {
   historyQueryParameter: HistoryQueryParameter,
-  isInTimeEditing: boolean,
+  EditHistoryInTime: boolean,
   deleteClickIds: Array<string>
 }
 
@@ -13,7 +13,7 @@ const initialState: ReduxState = {
     first: 7,
     orderBy: 'createdAt_DESC'
   },
-  isInTimeEditing: false,
+  EditHistoryInTime: false,
   deleteClickIds: []
 }
 
@@ -61,10 +61,10 @@ export default function reducer(
       return { ...state, deleteClickIds: [] }
 
     case 'START_EDIT_HISTORY_IN_TIME':
-      return { ...state, isInTimeEditing: true }
+      return { ...state, EditHistoryInTime: true }
 
     case 'FINISH_EDIT_HISTORY_IN_TIME':
-      return { ...state, isInTimeEditing: false }
+      return { ...state, EditHistoryInTime: false }
 
     default:
       return state
