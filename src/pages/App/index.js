@@ -58,7 +58,7 @@ export class App extends Component<Props, State> {
     )
       return
 
-    dispatch({ type: 'FINISH_IN_TIME_INPUT' })
+    dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
   }
 
   render() {

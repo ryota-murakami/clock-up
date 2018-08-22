@@ -17,11 +17,11 @@ export type RemoveDeleteClockIdAction = {
 }
 
 export type EditInTimeInputAction = {
-  type: 'EDIT_IN_TIME_INPUT'
+  type: 'START_EDIT_HISTORY_IN_TIME'
 }
 
 export type FinishInTimeInputAction = {
-  type: 'FINISH_IN_TIME_INPUT'
+  type: 'FINISH_EDIT_HISTORY_IN_TIME'
 }
 
 export type PushHistoryDeleteButton = {
