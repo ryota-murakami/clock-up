@@ -22,7 +22,6 @@ export default function reducer(
   action: ReduxAction
 ): ReduxState {
   switch (action.type) {
-    // TODO date period
     case 'CHANGE_HISTORY':
       let first = ''
       const p: Period = action.period
