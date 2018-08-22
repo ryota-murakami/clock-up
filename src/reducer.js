@@ -42,7 +42,7 @@ export default function reducer(
       return { ...state, historyQueryParameter: newValue }
 
     // Toggle Delete Checkbox
-    case 'ADD_DElETE_CLOCK_ID':
+    case 'CHECK_DELETE_HISTORY':
       return {
         ...state,
         deleteClickIds: [...state.deleteClickIds, action.clockId]

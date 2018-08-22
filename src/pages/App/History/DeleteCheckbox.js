@@ -53,7 +53,7 @@ class DeleteCheckbox extends Component<Props, State> {
       })
     } else {
       dispatch({
-        type: 'ADD_DElETE_CLOCK_ID',
+        type: 'CHECK_DELETE_HISTORY',
         clockId: this.props.clockId
       })
     }

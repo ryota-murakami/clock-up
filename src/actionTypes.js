@@ -7,7 +7,7 @@ export type ChangeHistoryAction = {
 }
 
 export type AddDeleteClockIdAction = {
-  type: 'ADD_DElETE_CLOCK_ID',
+  type: 'CHECK_DELETE_HISTORY',
   clockId: string
 }
 
