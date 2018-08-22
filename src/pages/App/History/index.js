@@ -20,12 +20,12 @@ import {
 } from './index.style'
 import type { Dispatch } from 'redux'
 import type { ReduxAction } from '../../../actionTypes'
-import type { HistoryQueryParameter } from '../../../dataTypes'
+import type { HistoryGQLParam } from '../../../dataTypes'
 import type { ReduxState } from '../../../reducer'
 import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
-  historyQueryParameter: HistoryQueryParameter,
+  historyGQLParam: HistoryGQLParam,
   checkedDeleteHistoryIdList: Array<string>
 |}
 
@@ -123,7 +123,7 @@ class History extends Component<Props> {
 
 const mapStateProps = (state: ReduxState): StateProps => {
   return {
-    historyQueryParameter: state.historyQueryParameter,
+    historyGQLParam: state.historyGQLParam,
     checkedDeleteHistoryIdList: state.checkedDeleteHistoryIdList
   }
 }
@@ -131,12 +131,12 @@ const mapStateProps = (state: ReduxState): StateProps => {
 export default compose(
   connect(mapStateProps),
   graphql(HISTORY_BOARD_QUERY, {
-    options: ({ historyQueryParameter }) => {
+    options: ({ historyGQLParam }) => {
       // $FlowFixMe
       return {
         variables: {
-          first: historyQueryParameter.first,
-          orderBy: historyQueryParameter.orderBy
+          first: historyGQLParam.first,
+          orderBy: historyGQLParam.orderBy
         }
       }
     }

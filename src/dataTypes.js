@@ -18,7 +18,7 @@ export type CurrentTime = {
 
 export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
 
-export type HistoryQueryParameter = {
+export type HistoryGQLParam = {
   first: number,
   orderBy: OrderBy
 }

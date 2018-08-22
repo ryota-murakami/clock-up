@@ -1,15 +1,15 @@
 // @flow
 import type { ReduxAction } from './actionTypes'
-import type { HistoryQueryParameter, Period } from './dataTypes'
+import type { HistoryGQLParam, Period } from './dataTypes'
 
 export type ReduxState = {
-  historyQueryParameter: HistoryQueryParameter,
+  historyGQLParam: HistoryGQLParam,
   EditHistoryInTime: boolean,
   checkedDeleteHistoryIdList: Array<string>
 }
 
 const initialState: ReduxState = {
-  historyQueryParameter: {
+  historyGQLParam: {
     first: 7,
     orderBy: 'createdAt_DESC'
   },
@@ -34,12 +34,12 @@ export default function reducer(
       } else {
         first = 7
       }
-      const newValue: HistoryQueryParameter = {
+      const newValue: HistoryGQLParam = {
         first: first,
         orderBy: 'createdAt_DESC'
       }
 
-      return { ...state, historyQueryParameter: newValue }
+      return { ...state, historyGQLParam: newValue }
 
     // Toggle Delete Checkbox
     case 'CHECK_DELETE_HISTORY':

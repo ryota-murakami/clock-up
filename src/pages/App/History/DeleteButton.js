@@ -10,7 +10,7 @@ import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
-import type { HistoryQueryParameter } from '../../../dataTypes'
+import type { HistoryGQLParam } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
 import type { PushHistoryDeleteButton } from '../../../actionTypes'
 
@@ -22,7 +22,7 @@ const Container = styled.div`
 `
 
 type StateProps = {|
-  historyQueryParameter: HistoryQueryParameter
+  historyGQLParam: HistoryGQLParam
 |}
 
 type Props = {
@@ -37,7 +37,7 @@ class DeleteButton extends Component<Props> {
     const {
       checkedDeleteHistoryIdList,
       DeleteClockMutation,
-      historyQueryParameter,
+      historyGQLParam,
       dispatch
     } = this.props
     dispatch({ type: 'PUSH_HISTORY_DELETE_BUTTON' })
@@ -54,8 +54,8 @@ class DeleteButton extends Component<Props> {
           const data = cache.readQuery({
             query: HISTORY_BOARD_QUERY,
             variables: {
-              first: historyQueryParameter.first,
-              orderBy: historyQueryParameter.orderBy
+              first: historyGQLParam.first,
+              orderBy: historyGQLParam.orderBy
             }
           })
           // $FlowIssue
@@ -72,8 +72,8 @@ class DeleteButton extends Component<Props> {
           cache.writeQuery({
             query: HISTORY_BOARD_QUERY,
             variables: {
-              first: historyQueryParameter.first,
-              orderBy: historyQueryParameter.orderBy
+              first: historyGQLParam.first,
+              orderBy: historyGQLParam.orderBy
             },
             data: newData
           })
@@ -102,7 +102,7 @@ class DeleteButton extends Component<Props> {
 
 const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    historyQueryParameter: state.historyQueryParameter
+    historyGQLParam: state.historyGQLParam
   }
 }
 
