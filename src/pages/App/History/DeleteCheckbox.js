@@ -9,6 +9,8 @@ import type {
   AddDeleteClockIdAction,
   RemoveDeleteClockIdAction
 } from '../../../actionTypes'
+import type { ReduxState } from '../../../reducer'
+import type { MapStateToProps } from '../../../dataTypes'
 
 const Checkbox = styled.div`
   width: 16px;
@@ -16,36 +18,36 @@ const Checkbox = styled.div`
   border-radius: 100%;
   border-style: solid;
   border-width: 1px;
-  border-color: ${props => (props.clicked ? theme.red : 'rgba(0, 0, 0, 0.2)')};
+  border-color: ${props => (props.checked ? theme.red : 'rgba(0, 0, 0, 0.2)')};
   ${props =>
-    props.clicked &&
+    props.checked &&
     css`
       background-color: ${theme.red};
     `}
   }
 `
 
+type StateProps = {
+  checkedHistoryIdList: Array<string>
+}
+
 type Props = {
+  ...StateProps,
   clockId: string,
   dispatch: Dispatch<AddDeleteClockIdAction | RemoveDeleteClockIdAction>
 }
 
-type State = {
-  clicked: boolean
-}
-
-class DeleteCheckbox extends Component<Props, State> {
-  state = {
-    clicked: false
+class DeleteCheckbox extends Component<Props> {
+  isChecked = (clockId: string): boolean => {
+    const { checkedHistoryIdList } = this.props
+    // $FlowIssue
+    return checkedHistoryIdList.includes(clockId)
   }
 
   handleClick = () => {
     const { dispatch, clockId } = this.props
-    const clicked = this.state.clicked
 
-    this.setState({ clicked: !clicked })
-
-    if (clicked) {
+    if (this.isChecked(clockId)) {
       dispatch({
         type: 'UNCHECK_DELETE_HISTORY',
         clockId: clockId
@@ -59,11 +61,22 @@ class DeleteCheckbox extends Component<Props, State> {
   }
 
   render() {
-    return <Checkbox onClick={this.handleClick} clicked={this.state.clicked} />
+    return (
+      <Checkbox
+        onClick={this.handleClick}
+        checked={this.isChecked(this.props.clockId)}
+      />
+    )
   }
 }
 
+const mapStateToProps: MapStateToProps<StateProps> = (
+  state: ReduxState
+): StateProps => {
+  return { checkedHistoryIdList: state.checkedHistoryIdList }
+}
+
 export default compose(
-  connect(),
+  connect(mapStateToProps),
   pure
 )(DeleteCheckbox)

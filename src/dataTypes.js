@@ -5,6 +5,8 @@
  * use to ReduxState.
  * update every 1 second by setInterval() dispached "SYNC_DATE" action.
  */
+import type { ReduxState } from './reducer'
+
 export type CurrentTime = {
   dateObject: Date, // typcally use to calculate TotalTime.
   year: string,
@@ -26,3 +28,5 @@ export type HistoryGQLParam = {
 export type Period = '1week' | '1month' | 'all'
 
 export const AUTH0_ID_TOKEN = 'auth0IdToken'
+
+export type MapStateToProps<S> = (state: ReduxState) => S
