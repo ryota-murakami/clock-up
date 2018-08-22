@@ -28,21 +28,21 @@ type StateProps = {|
 type Props = {
   ...StateProps,
   dispatch: Dispatch<PushHistoryDeleteButton>,
-  deleteClickIds: Array<string>,
+  checkedDeleteHistoryIdList: Array<string>,
   DeleteClockMutation: MutationFunc<*, *>
 }
 
 class DeleteButton extends Component<Props> {
   handleClick = () => {
     const {
-      deleteClickIds,
+      checkedDeleteHistoryIdList,
       DeleteClockMutation,
       historyQueryParameter,
       dispatch
     } = this.props
     dispatch({ type: 'PUSH_HISTORY_DELETE_BUTTON' })
 
-    deleteClickIds.forEach(id => {
+    checkedDeleteHistoryIdList.forEach(id => {
       // $FlowIssue
       DeleteClockMutation({
         variables: { clockId: id },
@@ -86,11 +86,11 @@ class DeleteButton extends Component<Props> {
   }
 
   render() {
-    const { deleteClickIds } = this.props
+    const { checkedDeleteHistoryIdList } = this.props
 
     return (
       <Container>
-        {deleteClickIds.length ? (
+        {checkedDeleteHistoryIdList.length ? (
           <Button onClick={this.handleClick} color={theme.red}>
             Delete
           </Button>

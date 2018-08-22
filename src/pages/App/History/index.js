@@ -26,7 +26,7 @@ import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
   historyQueryParameter: HistoryQueryParameter,
-  deleteClickIds: Array<string>
+  checkedDeleteHistoryIdList: Array<string>
 |}
 
 type Props = {
@@ -102,7 +102,7 @@ class History extends Component<Props> {
         <Header>History</Header>
         <ControlArea>
           <Select />
-          <DeleteButton deleteClickIds={this.props.deleteClickIds} />
+          <DeleteButton checkedDeleteHistoryIdList={this.props.checkedDeleteHistoryIdList} />
         </ControlArea>
         <Table style={{ borderLeftWidth: 0 }}>
           <Tbody>
@@ -124,7 +124,7 @@ class History extends Component<Props> {
 const mapStateProps = (state: ReduxState): StateProps => {
   return {
     historyQueryParameter: state.historyQueryParameter,
-    deleteClickIds: state.deleteClickIds
+    checkedDeleteHistoryIdList: state.checkedDeleteHistoryIdList
   }
 }
 

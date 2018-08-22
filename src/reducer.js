@@ -5,7 +5,7 @@ import type { HistoryQueryParameter, Period } from './dataTypes'
 export type ReduxState = {
   historyQueryParameter: HistoryQueryParameter,
   EditHistoryInTime: boolean,
-  deleteClickIds: Array<string>
+  checkedDeleteHistoryIdList: Array<string>
 }
 
 const initialState: ReduxState = {
@@ -14,7 +14,7 @@ const initialState: ReduxState = {
     orderBy: 'createdAt_DESC'
   },
   EditHistoryInTime: false,
-  deleteClickIds: []
+  checkedDeleteHistoryIdList: []
 }
 
 export default function reducer(
@@ -45,20 +45,20 @@ export default function reducer(
     case 'CHECK_DELETE_HISTORY':
       return {
         ...state,
-        deleteClickIds: [...state.deleteClickIds, action.clockId]
+        checkedDeleteHistoryIdList: [...state.checkedDeleteHistoryIdList, action.clockId]
       }
 
     // Toggle Delete Checkbox
     case 'UNCHECK_DELETE_HISTORY':
-      const freshDeleteClickIds = state.deleteClickIds.filter(
+      const freshcheckedDeleteHistoryIdList = state.checkedDeleteHistoryIdList.filter(
         // $FlowIssue
         v => v !== action.clockId
       )
-      return { ...state, deleteClickIds: freshDeleteClickIds }
+      return { ...state, checkedDeleteHistoryIdList: freshcheckedDeleteHistoryIdList }
 
     // Refresh checked id list
     case 'PUSH_HISTORY_DELETE_BUTTON':
-      return { ...state, deleteClickIds: [] }
+      return { ...state, checkedDeleteHistoryIdList: [] }
 
     case 'START_EDIT_HISTORY_IN_TIME':
       return { ...state, EditHistoryInTime: true }
