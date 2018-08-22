@@ -34,14 +34,13 @@ type State = {
   clicked: boolean
 }
 
-// TODO unmount?
 class DeleteCheckbox extends Component<Props, State> {
   state = {
     clicked: false
   }
 
   handleClick = () => {
-    const { dispatch } = this.props
+    const { dispatch, clockId } = this.props
     const clicked = this.state.clicked
 
     this.setState({ clicked: !clicked })
@@ -49,12 +48,12 @@ class DeleteCheckbox extends Component<Props, State> {
     if (clicked) {
       dispatch({
         type: 'UNCHECK_DELETE_HISTORY',
-        clockId: this.props.clockId
+        clockId: clockId
       })
     } else {
       dispatch({
         type: 'CHECK_DELETE_HISTORY',
-        clockId: this.props.clockId
+        clockId: clockId
       })
     }
   }
