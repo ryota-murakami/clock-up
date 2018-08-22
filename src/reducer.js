@@ -49,7 +49,7 @@ export default function reducer(
       }
 
     // Toggle Delete Checkbox
-    case 'REMOVE_DElETE_CLOCK_ID':
+    case 'UNCHECK_DELETE_HISTORY':
       const freshDeleteClickIds = state.deleteClickIds.filter(
         // $FlowIssue
         v => v !== action.clockId
