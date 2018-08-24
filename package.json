@@ -19,7 +19,7 @@
     "react-spinners": "^0.4.4",
     "recompose": "^0.27.0",
     "redux": "^4.0.0",
-    "styled-components": "^3.4.4"
+    "styled-components": "^3.4.5"
   },
   "scripts": {
     "start": "react-app-rewired start",
