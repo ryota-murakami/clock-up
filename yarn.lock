@@ -7729,9 +7729,9 @@ react-scripts@2.0.0-next.a671462c:
   optionalDependencies:
     fsevents "1.2.0"
 
-react-spinners@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.4.4.tgz#15c29bdb5cfca361ec1b43f6c27bcc786e9cebe1"
+react-spinners@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/react-spinners/-/react-spinners-0.4.5.tgz#5622db96694517bd43ea0d5c37e9d7cee95c2bff"
   dependencies:
     emotion "^9.1.1"
     prop-types "^15.5.10"
