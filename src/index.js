@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
-import App from './pages/App'
-import CreateUser from './pages/CreateUser'
-import Login from './pages/Login'
+import Loadable from 'react-loadable'
 import Auth0Lock from 'auth0-lock'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -17,6 +15,21 @@ import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 import { AUTH0_ID_TOKEN } from './dataTypes'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
+import Loading from './elements/Loading'
+
+// react-loadable
+/* prettier-ignore */
+const App = Loadable({ loader: () => import('./pages/App'/* webpackChunkName: "App" */), loading: Loading })
+/* prettier-ignore */
+const CreateUser = Loadable({
+  loader: () => import('./pages/CreateUser'/* webpackChunkName: "CreateUser" */),
+  loading: Loading
+})
+/* prettier-ignore */
+const Login = Loadable({
+  loader: () => import('./pages/Login'/* webpackChunkName: "Login" */),
+  loading: Loading
+})
 
 // redux
 const store = createStore(
