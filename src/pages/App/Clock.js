@@ -9,7 +9,6 @@ type Props = {
 }
 
 export class Clock extends Component<Props> {
-
   flush(seconds: string): boolean {
     if (Number.parseInt(seconds, 10) % 2 === 0) {
       return true

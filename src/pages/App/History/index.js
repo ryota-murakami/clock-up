@@ -102,7 +102,9 @@ class History extends Component<Props> {
         <Header>History</Header>
         <ControlArea>
           <Select />
-          <DeleteButton checkedHistoryIdList={this.props.checkedHistoryIdList} />
+          <DeleteButton
+            checkedHistoryIdList={this.props.checkedHistoryIdList}
+          />
         </ControlArea>
         <Table style={{ borderLeftWidth: 0 }}>
           <Tbody>
