@@ -1873,11 +1873,12 @@ auth0-js@^9.7.3:
     url-join "^1.1.0"
     winchan "^0.2.0"
 
-auth0-lock@^11.8.1:
-  version "11.8.1"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.8.1.tgz#16570fd5fcbb0ebe58702d506ef52eaf8ef82d8f"
+auth0-lock@^11.9.0:
+  version "11.9.0"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.9.0.tgz#6c714ba60c44e19903da05501e2da5bc4615a0d4"
   dependencies:
     auth0-js "^9.7.3"
+    auth0-password-policies "github:auth0/auth0-password-policies#v1.0.1"
     blueimp-md5 "2.3.1"
     fbjs "^0.3.1"
     immutable "^3.7.3"
@@ -1889,6 +1890,13 @@ auth0-lock@^11.8.1:
     react-transition-group "^2.2.1"
     trim "0.0.1"
     url-join "^1.1.0"
+
+"auth0-password-policies@github:auth0/auth0-password-policies#v1.0.1":
+  version "1.0.1"
+  uid "0b3da9b369b122a8b294d496143abfd33311e6b2"
+  resolved "https://codeload.github.com/auth0/auth0-password-policies/tar.gz/0b3da9b369b122a8b294d496143abfd33311e6b2"
+  dependencies:
+    password-sheriff "^1.1.0"
 
 autoprefixer@8.5.0:
   version "8.5.0"
