@@ -9,7 +9,7 @@
     "auth0-lock": "^11.9.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
-    "react": "^16.4.2",
+    "react": "^16.5.0",
     "react-apollo": "^2.1.11",
     "react-dom": "^16.4.2",
     "react-loadable": "^5.5.0",
