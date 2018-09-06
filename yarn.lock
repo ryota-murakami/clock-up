@@ -2094,13 +2094,19 @@ babel-plugin-named-asset-import@1.0.0-next.a671462c:
   version "1.0.0-next.a671462c"
   resolved "https://registry.yarnpkg.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-1.0.0-next.a671462c.tgz#342dffbb4137876df9735e0fbb5d5ef05c416987"
 
-babel-plugin-styled-components@^1.1.4, babel-plugin-styled-components@^1.5.1:
+babel-plugin-styled-components@^1.1.4:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.5.1.tgz#31dbeb696d1354d1585e60d66c7905f5e474afcd"
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0-beta.37"
     babel-types "^6.26.0"
     stylis "^3.0.0"
+
+babel-plugin-styled-components@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.6.3.tgz#061712eeaf7b0a908015838e9791e3788f4ed2a7"
+  dependencies:
+    lodash "^4.17.10"
 
 babel-plugin-syntax-jsx@^6.18.0:
   version "6.18.0"
