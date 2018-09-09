@@ -59,7 +59,7 @@
     "flow-bin": "^0.80.0",
     "prettier": "^1.14.2",
     "react-app-rewire-styled-components": "^3.0.2",
-    "react-app-rewired": "^1.5.2",
+    "react-app-rewired": "^1.6.2",
     "react-test-renderer": "^16.5.0",
     "react-testing-library": "^5.0.1"
   },
