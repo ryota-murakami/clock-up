@@ -1873,9 +1873,9 @@ auth0-js@^9.7.3:
     url-join "^1.1.0"
     winchan "^0.2.0"
 
-auth0-lock@^11.9.0:
-  version "11.9.0"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.9.0.tgz#6c714ba60c44e19903da05501e2da5bc4615a0d4"
+auth0-lock@^11.9.1:
+  version "11.9.1"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.9.1.tgz#345f86b954eb98afa84558ab33e87c1aa2ff2765"
   dependencies:
     auth0-js "^9.7.3"
     auth0-password-policies "github:auth0/auth0-password-policies#v1.0.1"
