@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { pure, compose } from 'recompose'
+import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../dataTypes'
@@ -8,7 +9,7 @@ import { Button } from '../../elements/Button'
 import { theme } from '../../theme'
 import type { ContextRouter } from 'react-router'
 
-const StyledButton = Button.extend`
+const StyledButton = styled(Button)`
   width: 200px;
   height: 50px;
 `
