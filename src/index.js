@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import Loadable from 'react-loadable'
 import Auth0Lock from 'auth0-lock'
@@ -9,7 +9,7 @@ import { ApolloProvider } from 'react-apollo'
 import { ApolloLink } from 'apollo-link'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
@@ -75,11 +75,11 @@ ReactDOM.render(
     <Provider store={store}>
       <ApolloProvider client={client}>
         <BrowserRouter>
-          <Fragment>
+          <Switch>
             <Route exact path="/" component={App} />
             <Route path="/login" component={() => <Login lock={lock} />} />
             <Route path="/createuser" component={CreateUser} />
-          </Fragment>
+          </Switch>
         </BrowserRouter>
       </ApolloProvider>
     </Provider>
