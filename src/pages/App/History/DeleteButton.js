@@ -10,7 +10,7 @@ import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
-import type { HistoryGQLParam } from '../../../dataTypes'
+import type { HistoryGQLParam, MapStateToProps } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
 import type { PUSH_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
 
@@ -100,14 +100,14 @@ class DeleteButton extends Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): StateProps => {
+const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
   return {
     historyGQLParam: state.historyGQLParam
   }
 }
 
 export default compose(
-  connect(mapStateToProps),
+  connect(map),
   withApollo,
   graphql(DELETE_CLOCK_MUTATION, { name: 'DeleteClockMutation' }),
   pure

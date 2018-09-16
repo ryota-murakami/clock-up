@@ -31,4 +31,4 @@ export type ActionToggle = boolean
 
 export const AUTH0_ID_TOKEN = 'auth0IdToken'
 
-export type MapStateToProps<S> = (state: ReduxState) => S
+export type MapStateToProps<S: Object = {}> = (state: ReduxState) => S

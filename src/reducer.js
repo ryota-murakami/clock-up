@@ -5,6 +5,7 @@ import type { HistoryGQLParam, Period, ActionToggle } from './dataTypes'
 export type ReduxState = {
   historyGQLParam: HistoryGQLParam,
   DURING_EDIT_HISTORY_IN_TIME: ActionToggle,
+  DURING_EDIT_HISTORY_OUT_TIME: ActionToggle,
   checkedHistoryIdList: Array<string>
 }
 
@@ -14,6 +15,7 @@ const initialState: ReduxState = {
     orderBy: 'createdAt_DESC'
   },
   DURING_EDIT_HISTORY_IN_TIME: false,
+  DURING_EDIT_HISTORY_OUT_TIME: false,
   checkedHistoryIdList: []
 }
 
@@ -65,6 +67,12 @@ export default function reducer(
 
     case 'FINISH_EDIT_HISTORY_IN_TIME':
       return { ...state, DURING_EDIT_HISTORY_IN_TIME: false }
+
+    case 'DURING_EDIT_HISTORY_OUT_TIME':
+      return { ...state, DURING_EDIT_HISTORY_OUT_TIME: true }
+
+    case 'FINISH_EDIT_HISTORY_OUT_TIME':
+      return { ...state, DURING_EDIT_HISTORY_OUT_TIME: false }
 
     default:
       return state

@@ -70,13 +70,11 @@ class DeleteCheckbox extends Component<Props> {
   }
 }
 
-const mapStateToProps: MapStateToProps<StateProps> = (
-  state: ReduxState
-): StateProps => {
+const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
   return { checkedHistoryIdList: state.checkedHistoryIdList }
 }
 
 export default compose(
-  connect(mapStateToProps),
+  connect(map),
   pure
 )(DeleteCheckbox)

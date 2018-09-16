@@ -10,13 +10,14 @@ import type { Dispatch } from 'redux'
 import type { MutationFunc } from 'react-apollo'
 import type { ReduxAction } from '../../../actionTypes'
 import type { ReduxState } from '../../../reducer'
+import type { ActionToggle, MapStateToProps } from '../../../dataTypes'
 
 type State = {
   onInput: boolean
 }
 
 type StateProps = {
-  DURING_EDIT_HISTORY_IN_TIME: boolean
+  DURING_EDIT_HISTORY_IN_TIME: ActionToggle
 }
 
 type Props = {
@@ -89,7 +90,7 @@ export class InTime extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): StateProps => {
+const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
   return { DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME }
 }
 
@@ -97,6 +98,6 @@ export default compose(
   graphql(EDIT_CLOCK_IN_MUTATON, {
     name: 'EditClockInMutation'
   }),
-  connect(mapStateToProps),
+  connect(map),
   pure
 )(InTime)

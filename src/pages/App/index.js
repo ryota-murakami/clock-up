@@ -16,11 +16,12 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
 import type { ContextRouter } from 'react-router-dom'
 import { parseTime } from '../../functions'
-import type { CurrentTime } from '../../dataTypes'
+import type { ActionToggle, CurrentTime } from '../../dataTypes'
 
-type StateProps = {
-  DURING_EDIT_HISTORY_IN_TIME: boolean
-}
+type StateProps = {|
+  DURING_EDIT_HISTORY_IN_TIME: ActionToggle,
+  DURING_EDIT_HISTORY_OUT_TIME: ActionToggle
+|}
 
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
@@ -49,16 +50,34 @@ export class App extends Component<Props, State> {
   }
 
   handleOnClick = (e: SyntheticEvent<HTMLElement>) => {
-    const { DURING_EDIT_HISTORY_IN_TIME, dispatch } = this.props
-    if (!DURING_EDIT_HISTORY_IN_TIME) return
-    if (
-      // $FlowIssue
-      typeof e.target.className === 'string' &&
-      e.target.className.includes('in-time-input')
-    )
-      return
+    const {
+      DURING_EDIT_HISTORY_IN_TIME,
+      DURING_EDIT_HISTORY_OUT_TIME,
+      dispatch
+    } = this.props
+    if (!DURING_EDIT_HISTORY_IN_TIME && !DURING_EDIT_HISTORY_OUT_TIME) return
 
-    dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
+    if (DURING_EDIT_HISTORY_IN_TIME && !DURING_EDIT_HISTORY_OUT_TIME) {
+      if (
+        // $FlowIssue
+        typeof e.target.className === 'string' &&
+        e.target.className.includes('in-time-input')
+      )
+        return
+
+      dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
+    } else if (DURING_EDIT_HISTORY_OUT_TIME && !DURING_EDIT_HISTORY_IN_TIME) {
+      if (
+        // $FlowIssue
+        typeof e.target.className === 'string' &&
+        e.target.className.includes('out-time-input')
+      )
+        return
+
+      dispatch({ type: 'FINISH_EDIT_HISTORY_OUT_TIME' })
+    } else {
+      throw new Error('Logic Exception: EDIT TIME State Manage missing.')
+    }
   }
 
   render() {
@@ -94,7 +113,10 @@ export class App extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: ReduxState): StateProps => {
-  return { DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME }
+  return {
+    DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME,
+    DURING_EDIT_HISTORY_OUT_TIME: state.DURING_EDIT_HISTORY_OUT_TIME
+  }
 }
 
 export default compose(
