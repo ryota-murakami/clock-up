@@ -1,5 +1,6 @@
 {
   "name": "clock-up",
+  "homepage" : "https://clockup.malloc.tokyo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
