@@ -1,8 +1,8 @@
 // @flow
 import type { Period } from './dataTypes'
 
-export type CHANGE_HISTORY_FILTER = {
-  type: 'CHANGE_HISTORY_FILTER',
+export type ON_CHANGE_HISTORY_FILTER = {
+  type: 'ON_CHANGE_HISTORY_FILTER',
   period: Period
 }
 
@@ -37,7 +37,7 @@ export type PUSH_HISTORY_DELETE_BUTTON = {
 }
 
 export type ReduxAction =
-  | CHANGE_HISTORY_FILTER
+  | ON_CHANGE_HISTORY_FILTER
   | EDIT_IN_TIME
   | FINISH_EDIT_HISTORY_IN_TIME
   | CHECK_DELETE_HISTORY
