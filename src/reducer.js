@@ -1,21 +1,21 @@
 // @flow
 import type { ReduxAction } from './actionTypes'
-import type { HistoryGQLParam, Period, ActionToggle } from './dataTypes'
+import type { HistoryQueryArguments, Period, ActionToggle } from './dataTypes'
 
 export type ReduxState = {
-  historyGQLParam: HistoryGQLParam,
-  DURING_EDIT_HISTORY_IN_TIME: ActionToggle,
-  DURING_EDIT_HISTORY_OUT_TIME: ActionToggle,
+  historyQueryArguments: HistoryQueryArguments,
+  EDIT_IN_TIME: ActionToggle,
+  EDIT_OUT_TIME: ActionToggle,
   checkedHistoryIdList: Array<string>
 }
 
 const initialState: ReduxState = {
-  historyGQLParam: {
+  historyQueryArguments: {
     first: 7,
     orderBy: 'createdAt_DESC'
   },
-  DURING_EDIT_HISTORY_IN_TIME: false,
-  DURING_EDIT_HISTORY_OUT_TIME: false,
+  EDIT_IN_TIME: false,
+  EDIT_OUT_TIME: false,
   checkedHistoryIdList: []
 }
 
@@ -36,12 +36,12 @@ export default function reducer(
       } else {
         first = 7
       }
-      const newValue: HistoryGQLParam = {
+      const newValue: HistoryQueryArguments = {
         first: first,
         orderBy: 'createdAt_DESC'
       }
 
-      return { ...state, historyGQLParam: newValue }
+      return { ...state, historyQueryArguments: newValue }
 
     // Toggle Delete Checkbox
     case 'CHECK_DELETE_HISTORY':
@@ -62,17 +62,17 @@ export default function reducer(
     case 'PUSH_HISTORY_DELETE_BUTTON':
       return { ...state, checkedHistoryIdList: [] }
 
-    case 'DURING_EDIT_HISTORY_IN_TIME':
-      return { ...state, DURING_EDIT_HISTORY_IN_TIME: true }
+    case 'EDIT_IN_TIME':
+      return { ...state, EDIT_IN_TIME: true }
 
     case 'FINISH_EDIT_HISTORY_IN_TIME':
-      return { ...state, DURING_EDIT_HISTORY_IN_TIME: false }
+      return { ...state, EDIT_IN_TIME: false }
 
-    case 'DURING_EDIT_HISTORY_OUT_TIME':
-      return { ...state, DURING_EDIT_HISTORY_OUT_TIME: true }
+    case 'EDIT_OUT_TIME':
+      return { ...state, EDIT_OUT_TIME: true }
 
     case 'FINISH_EDIT_HISTORY_OUT_TIME':
-      return { ...state, DURING_EDIT_HISTORY_OUT_TIME: false }
+      return { ...state, EDIT_OUT_TIME: false }
 
     default:
       return state

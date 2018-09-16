@@ -10,7 +10,7 @@ import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
-import type { HistoryGQLParam, MapStateToProps } from '../../../dataTypes'
+import type { HistoryQueryArguments, MapStateToProps } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
 import type { PUSH_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
 
@@ -22,7 +22,7 @@ const Container = styled.div`
 `
 
 type StateProps = {|
-  historyGQLParam: HistoryGQLParam
+  historyQueryArguments: HistoryQueryArguments
 |}
 
 type Props = {
@@ -37,7 +37,7 @@ class DeleteButton extends Component<Props> {
     const {
       checkedHistoryIdList,
       DELETE_CLOCK_MUTATION,
-      historyGQLParam,
+      historyQueryArguments,
       dispatch
     } = this.props
     dispatch({ type: 'PUSH_HISTORY_DELETE_BUTTON' })
@@ -54,8 +54,8 @@ class DeleteButton extends Component<Props> {
           const data = cache.readQuery({
             query: HISTORY_BOARD_QUERY,
             variables: {
-              first: historyGQLParam.first,
-              orderBy: historyGQLParam.orderBy
+              first: historyQueryArguments.first,
+              orderBy: historyQueryArguments.orderBy
             }
           })
           // $FlowIssue
@@ -72,8 +72,8 @@ class DeleteButton extends Component<Props> {
           cache.writeQuery({
             query: HISTORY_BOARD_QUERY,
             variables: {
-              first: historyGQLParam.first,
-              orderBy: historyGQLParam.orderBy
+              first: historyQueryArguments.first,
+              orderBy: historyQueryArguments.orderBy
             },
             data: newData
           })
@@ -102,7 +102,7 @@ class DeleteButton extends Component<Props> {
 
 const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
   return {
-    historyGQLParam: state.historyGQLParam
+    historyQueryArguments: state.historyQueryArguments
   }
 }
 

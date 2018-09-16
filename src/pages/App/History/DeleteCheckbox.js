@@ -27,9 +27,9 @@ const Checkbox = styled.div`
   }
 `
 
-type StateProps = {
+type StateProps = {|
   checkedHistoryIdList: Array<string>
-}
+|}
 
 type Props = {
   ...StateProps,

@@ -17,7 +17,7 @@ type State = {|
 |}
 
 type StateProps = {|
-  DURING_EDIT_HISTORY_OUT_TIME: ActionToggle
+  EDIT_OUT_TIME: ActionToggle
 |}
 
 type Props = {
@@ -53,15 +53,15 @@ export class OutTime extends Component<Props, State> {
   }
 
   startEdit = () => {
-    this.props.dispatch({ type: 'DURING_EDIT_HISTORY_OUT_TIME' })
+    this.props.dispatch({ type: 'EDIT_OUT_TIME' })
     this.setState({ onInput: true })
   }
 
   componentDidUpdate(prevProps: Props) {
     // Clicked anywhere of view during editing, app should decide "user discontinued update OutTime".
     if (
-      prevProps.DURING_EDIT_HISTORY_OUT_TIME === true &&
-      this.props.DURING_EDIT_HISTORY_OUT_TIME === false &&
+      prevProps.EDIT_OUT_TIME === true &&
+      this.props.EDIT_OUT_TIME === false &&
       this.state.onInput === true
     ) {
       this.setState({ onInput: false })
@@ -88,7 +88,7 @@ export class OutTime extends Component<Props, State> {
 }
 
 const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
-  return { DURING_EDIT_HISTORY_OUT_TIME: state.DURING_EDIT_HISTORY_OUT_TIME }
+  return { EDIT_OUT_TIME: state.EDIT_OUT_TIME }
 }
 
 export default compose(

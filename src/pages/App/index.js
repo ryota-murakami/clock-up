@@ -19,8 +19,8 @@ import { parseTime } from '../../functions'
 import type { ActionToggle, CurrentTime } from '../../dataTypes'
 
 type StateProps = {|
-  DURING_EDIT_HISTORY_IN_TIME: ActionToggle,
-  DURING_EDIT_HISTORY_OUT_TIME: ActionToggle
+  EDIT_IN_TIME: ActionToggle,
+  EDIT_OUT_TIME: ActionToggle
 |}
 
 type Props = {
@@ -29,9 +29,9 @@ type Props = {
   ...ContextRouter
 }
 
-type State = {
+type State = {|
   currentTime: CurrentTime
-}
+|}
 
 export class App extends Component<Props, State> {
   state = {
@@ -50,14 +50,10 @@ export class App extends Component<Props, State> {
   }
 
   handleOnClick = (e: SyntheticEvent<HTMLInputElement>) => {
-    const {
-      DURING_EDIT_HISTORY_IN_TIME,
-      DURING_EDIT_HISTORY_OUT_TIME,
-      dispatch
-    } = this.props
-    if (!DURING_EDIT_HISTORY_IN_TIME && !DURING_EDIT_HISTORY_OUT_TIME) return
+    const { EDIT_IN_TIME, EDIT_OUT_TIME, dispatch } = this.props
+    if (!EDIT_IN_TIME && !EDIT_OUT_TIME) return
 
-    if (DURING_EDIT_HISTORY_IN_TIME && !DURING_EDIT_HISTORY_OUT_TIME) {
+    if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
       if (
         // $FlowIssue
         typeof e.target.className === 'string' &&
@@ -66,7 +62,7 @@ export class App extends Component<Props, State> {
         return
 
       dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
-    } else if (DURING_EDIT_HISTORY_OUT_TIME && !DURING_EDIT_HISTORY_IN_TIME) {
+    } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (
         // $FlowIssue
         typeof e.target.className === 'string' &&
@@ -114,8 +110,8 @@ export class App extends Component<Props, State> {
 
 const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME,
-    DURING_EDIT_HISTORY_OUT_TIME: state.DURING_EDIT_HISTORY_OUT_TIME
+    EDIT_IN_TIME: state.EDIT_IN_TIME,
+    EDIT_OUT_TIME: state.EDIT_OUT_TIME
   }
 }
 
