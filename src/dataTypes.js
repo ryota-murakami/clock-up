@@ -27,6 +27,8 @@ export type HistoryGQLParam = {
 
 export type Period = '1week' | '1month' | 'all'
 
+export type ActionToggle = boolean
+
 export const AUTH0_ID_TOKEN = 'auth0IdToken'
 
 export type MapStateToProps<S> = (state: ReduxState) => S

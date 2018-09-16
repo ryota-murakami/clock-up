@@ -6,8 +6,8 @@ import styled, { css } from 'styled-components'
 import { theme } from '../../../theme'
 import type { Dispatch } from 'redux'
 import type {
-  AddDeleteClockIdAction,
-  RemoveDeleteClockIdAction
+  CHECK_DELETE_HISTORY,
+  UNCHECK_DELETE_HISTORY
 } from '../../../actionTypes'
 import type { ReduxState } from '../../../reducer'
 import type { MapStateToProps } from '../../../dataTypes'
@@ -34,7 +34,7 @@ type StateProps = {
 type Props = {
   ...StateProps,
   clockId: string,
-  dispatch: Dispatch<AddDeleteClockIdAction | RemoveDeleteClockIdAction>
+  dispatch: Dispatch<CHECK_DELETE_HISTORY | UNCHECK_DELETE_HISTORY>
 }
 
 class DeleteCheckbox extends Component<Props> {

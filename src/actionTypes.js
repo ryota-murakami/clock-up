@@ -1,37 +1,37 @@
 // @flow
 import type { Period } from './dataTypes'
 
-export type ChangeHistoryAction = {
+export type CHANGE_HISTORY_FILTER = {
   type: 'CHANGE_HISTORY_FILTER',
   period: Period
 }
 
-export type AddDeleteClockIdAction = {
+export type CHECK_DELETE_HISTORY = {
   type: 'CHECK_DELETE_HISTORY',
   clockId: string
 }
 
-export type RemoveDeleteClockIdAction = {
+export type UNCHECK_DELETE_HISTORY = {
   type: 'UNCHECK_DELETE_HISTORY',
   clockId: string
 }
 
-export type EditInTimeInputAction = {
+export type DURING_EDIT_HISTORY_IN_TIME = {
   type: 'DURING_EDIT_HISTORY_IN_TIME'
 }
 
-export type FinishInTimeInputAction = {
+export type FINISH_EDIT_HISTORY_IN_TIME = {
   type: 'FINISH_EDIT_HISTORY_IN_TIME'
 }
 
-export type PushHistoryDeleteButton = {
+export type PUSH_HISTORY_DELETE_BUTTON = {
   type: 'PUSH_HISTORY_DELETE_BUTTON'
 }
 
 export type ReduxAction =
-  | ChangeHistoryAction
-  | EditInTimeInputAction
-  | FinishInTimeInputAction
-  | AddDeleteClockIdAction
-  | RemoveDeleteClockIdAction
-  | PushHistoryDeleteButton
+  | CHANGE_HISTORY_FILTER
+  | DURING_EDIT_HISTORY_IN_TIME
+  | FINISH_EDIT_HISTORY_IN_TIME
+  | CHECK_DELETE_HISTORY
+  | UNCHECK_DELETE_HISTORY
+  | PUSH_HISTORY_DELETE_BUTTON

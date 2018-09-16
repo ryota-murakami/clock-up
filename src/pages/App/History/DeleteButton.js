@@ -12,7 +12,7 @@ import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
 import type { HistoryGQLParam } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
-import type { PushHistoryDeleteButton } from '../../../actionTypes'
+import type { PUSH_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
 
 const Container = styled.div`
   flex: 1;
@@ -27,7 +27,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  dispatch: Dispatch<PushHistoryDeleteButton>,
+  dispatch: Dispatch<PUSH_HISTORY_DELETE_BUTTON>,
   checkedHistoryIdList: Array<string>,
   DeleteClockMutation: MutationFunc<*, *>
 }

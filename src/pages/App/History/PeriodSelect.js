@@ -5,7 +5,7 @@ import { pure, compose } from 'recompose'
 import styled from 'styled-components'
 import type { Period } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
-import type { ChangeHistoryAction } from '../../../actionTypes'
+import type { CHANGE_HISTORY_FILTER } from '../../../actionTypes'
 
 const Container = styled.div`
   flex: 1;
@@ -17,7 +17,7 @@ const Container = styled.div`
 const StyledSelect = styled.select``
 
 type Props = {
-  dispatch: Dispatch<ChangeHistoryAction>
+  dispatch: Dispatch<CHANGE_HISTORY_FILTER>
 }
 
 class PeriodSelect extends Component<Props> {

@@ -16,7 +16,7 @@ type State = {
 }
 
 type StateProps = {
-  EditHistoryInTime: boolean
+  DURING_EDIT_HISTORY_IN_TIME: boolean
 }
 
 type Props = {
@@ -60,8 +60,8 @@ export class InTime extends Component<Props, State> {
   componentDidUpdate(prevProps: Props) {
     // Clicked anywhere of view during editing, app should decide "user discontinued update InTime".
     if (
-      prevProps.EditHistoryInTime === true &&
-      this.props.EditHistoryInTime === false &&
+      prevProps.DURING_EDIT_HISTORY_IN_TIME === true &&
+      this.props.DURING_EDIT_HISTORY_IN_TIME === false &&
       this.state.onInput === true
     ) {
       this.setState({ onInput: false })
@@ -90,7 +90,7 @@ export class InTime extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: ReduxState): StateProps => {
-  return { EditHistoryInTime: state.EditHistoryInTime }
+  return { DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME }
 }
 
 export default compose(

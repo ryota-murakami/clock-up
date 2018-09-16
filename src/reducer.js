@@ -1,10 +1,10 @@
 // @flow
 import type { ReduxAction } from './actionTypes'
-import type { HistoryGQLParam, Period } from './dataTypes'
+import type { HistoryGQLParam, Period, ActionToggle } from './dataTypes'
 
 export type ReduxState = {
   historyGQLParam: HistoryGQLParam,
-  EditHistoryInTime: boolean,
+  DURING_EDIT_HISTORY_IN_TIME: ActionToggle,
   checkedHistoryIdList: Array<string>
 }
 
@@ -13,7 +13,7 @@ const initialState: ReduxState = {
     first: 7,
     orderBy: 'createdAt_DESC'
   },
-  EditHistoryInTime: false,
+  DURING_EDIT_HISTORY_IN_TIME: false,
   checkedHistoryIdList: []
 }
 
@@ -61,10 +61,10 @@ export default function reducer(
       return { ...state, checkedHistoryIdList: [] }
 
     case 'DURING_EDIT_HISTORY_IN_TIME':
-      return { ...state, EditHistoryInTime: true }
+      return { ...state, DURING_EDIT_HISTORY_IN_TIME: true }
 
     case 'FINISH_EDIT_HISTORY_IN_TIME':
-      return { ...state, EditHistoryInTime: false }
+      return { ...state, DURING_EDIT_HISTORY_IN_TIME: false }
 
     default:
       return state

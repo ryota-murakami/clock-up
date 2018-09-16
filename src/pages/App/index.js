@@ -19,7 +19,7 @@ import { parseTime } from '../../functions'
 import type { CurrentTime } from '../../dataTypes'
 
 type StateProps = {
-  EditHistoryInTime: boolean
+  DURING_EDIT_HISTORY_IN_TIME: boolean
 }
 
 type Props = {
@@ -49,8 +49,8 @@ export class App extends Component<Props, State> {
   }
 
   handleOnClick = (e: SyntheticEvent<HTMLElement>) => {
-    const { EditHistoryInTime, dispatch } = this.props
-    if (!EditHistoryInTime) return
+    const { DURING_EDIT_HISTORY_IN_TIME, dispatch } = this.props
+    if (!DURING_EDIT_HISTORY_IN_TIME) return
     if (
       // $FlowIssue
       typeof e.target.className === 'string' &&
@@ -94,7 +94,7 @@ export class App extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: ReduxState): StateProps => {
-  return { EditHistoryInTime: state.EditHistoryInTime }
+  return { DURING_EDIT_HISTORY_IN_TIME: state.DURING_EDIT_HISTORY_IN_TIME }
 }
 
 export default compose(
