@@ -49,7 +49,7 @@ export class App extends Component<Props, State> {
     return !!user
   }
 
-  handleOnClick = (e: SyntheticEvent<HTMLElement>) => {
+  handleOnClick = (e: SyntheticEvent<HTMLInputElement>) => {
     const {
       DURING_EDIT_HISTORY_IN_TIME,
       DURING_EDIT_HISTORY_OUT_TIME,
