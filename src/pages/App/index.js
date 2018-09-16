@@ -61,7 +61,7 @@ export class App extends Component<Props, State> {
       )
         return
 
-      dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
+      dispatch({ type: 'DONE_EDIT_IN_TIME' })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (
         // $FlowIssue
@@ -70,7 +70,7 @@ export class App extends Component<Props, State> {
       )
         return
 
-      dispatch({ type: 'FINISH_EDIT_HISTORY_OUT_TIME' })
+      dispatch({ type: 'DONE_EDIT_OUT_TIME' })
     } else {
       throw new Error('Logic Exception: EDIT TIME State Manage missing.')
     }

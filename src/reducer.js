@@ -58,22 +58,31 @@ export default function reducer(
       )
       return { ...state, checkedHistoryIdList: freshcheckedHistoryIdList }
 
-    // Refresh checked id list
-    case 'PUSH_HISTORY_DELETE_BUTTON':
+    // Sent GQL mutation after that Refresh checked id list
+    case 'ON_CLICK_HISTORY_DELETE_BUTTON':
       return { ...state, checkedHistoryIdList: [] }
 
+    /**
+     * Edit History InTime
+     */
     case 'EDIT_IN_TIME':
       return { ...state, EDIT_IN_TIME: true }
 
-    case 'FINISH_EDIT_HISTORY_IN_TIME':
+    case 'DONE_EDIT_IN_TIME':
       return { ...state, EDIT_IN_TIME: false }
 
+    /**
+     * Edit History OutTime
+     */
     case 'EDIT_OUT_TIME':
       return { ...state, EDIT_OUT_TIME: true }
 
-    case 'FINISH_EDIT_HISTORY_OUT_TIME':
+    case 'DONE_EDIT_OUT_TIME':
       return { ...state, EDIT_OUT_TIME: false }
 
+    /**
+     * Fallback
+     */
     default:
       return state
   }

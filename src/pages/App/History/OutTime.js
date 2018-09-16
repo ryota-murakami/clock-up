@@ -35,7 +35,7 @@ export class OutTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
-    this.props.dispatch({ type: 'FINISH_EDIT_HISTORY_OUT_TIME' })
+    this.props.dispatch({ type: 'DONE_EDIT_OUT_TIME' })
 
     this.props
       .EDIT_CLOCK_OUT_MUTATION({

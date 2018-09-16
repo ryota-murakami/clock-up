@@ -35,7 +35,7 @@ export class InTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
-    this.props.dispatch({ type: 'FINISH_EDIT_HISTORY_IN_TIME' })
+    this.props.dispatch({ type: 'DONE_EDIT_IN_TIME' })
 
     this.props
       // $FlowIssue

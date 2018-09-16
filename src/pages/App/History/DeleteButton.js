@@ -12,7 +12,7 @@ import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
 import type { HistoryQueryArguments, MapStateToProps } from '../../../dataTypes'
 import type { Dispatch } from 'redux'
-import type { PUSH_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
+import type { ON_CLICK_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
 
 const Container = styled.div`
   flex: 1;
@@ -27,7 +27,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  dispatch: Dispatch<PUSH_HISTORY_DELETE_BUTTON>,
+  dispatch: Dispatch<ON_CLICK_HISTORY_DELETE_BUTTON>,
   checkedHistoryIdList: Array<string>,
   DELETE_CLOCK_MUTATION: MutationFunc<*, *>
 }
@@ -40,7 +40,7 @@ class DeleteButton extends Component<Props> {
       historyQueryArguments,
       dispatch
     } = this.props
-    dispatch({ type: 'PUSH_HISTORY_DELETE_BUTTON' })
+    dispatch({ type: 'ON_CLICK_HISTORY_DELETE_BUTTON' })
 
     checkedHistoryIdList.forEach(id => {
       // $FlowIssue
