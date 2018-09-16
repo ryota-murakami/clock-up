@@ -24,7 +24,7 @@ describe('ClockOutMutation', () => {
   })
 })
 
-describe('EditClockInMutation', () => {
+describe('EDIT_CLOCK_IN_MUTATON', () => {
   it('should AST is not regression', () => {
     expect(EDIT_CLOCK_IN_MUTATON).toMatchSnapshot()
   })

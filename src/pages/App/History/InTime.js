@@ -24,7 +24,7 @@ type Props = {
   clockIn: string,
   clockId: string,
   ...StateProps,
-  EditClockInMutation: MutationFunc<*, *>,
+  EDIT_CLOCK_IN_MUTATON: MutationFunc<*, *>,
   dispatch: Dispatch<ReduxAction>
 }
 
@@ -39,7 +39,7 @@ export class InTime extends Component<Props, State> {
 
     this.props
       // $FlowIssue
-      .EditClockInMutation({
+      .EDIT_CLOCK_IN_MUTATON({
         variables: {
           clockIn: new Date( // $FlowIssue
             new Date(this.props.clockIn).setHours(...value.split(':'))
@@ -96,7 +96,7 @@ const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
 
 export default compose(
   graphql(EDIT_CLOCK_IN_MUTATON, {
-    name: 'EditClockInMutation'
+    name: 'EDIT_CLOCK_IN_MUTATON'
   }),
   connect(map),
   pure
