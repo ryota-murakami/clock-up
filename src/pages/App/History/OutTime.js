@@ -1,7 +1,21 @@
 // @flow
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
+import { connect } from 'react-redux'
+import { graphql } from 'react-apollo'
+import { EDIT_CLOCK_OUT_MUTATION } from '../../../graphql/mutation'
+import { ISOtoHm } from '../../../functions'
 import { Td } from '../../../elements/Table'
+import type { Dispatch } from 'redux'
+import type { MutationFunc } from 'react-apollo'
+import type { ReduxAction } from '../../../actionTypes'
+import type { ReduxState } from '../../../reducer'
+
+type State = {
+  onInput: boolean
+}
+
+type StateProps = {}
 
 type Props = {
   date: string

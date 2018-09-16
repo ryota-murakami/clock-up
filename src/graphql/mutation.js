@@ -55,6 +55,15 @@ export const EDIT_CLOCK_IN_MUTATON = gql`
   }
 `
 
+export const EDIT_CLOCK_OUT_MUTATION = gql`
+  mutation EditClockInMutation($clockId: ID!, $clockOut: DateTime) {
+    updateClock(id: $clockId, clockOut: $clockOut) {
+      id
+      clockOut
+    }
+  }
+`
+
 export const DELETE_CLOCK_MUTATION = gql`
   mutation DeleteClockMutation($clockId: ID!) {
     deleteClock(id: $clockId) {
