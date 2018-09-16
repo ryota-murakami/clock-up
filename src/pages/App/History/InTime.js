@@ -53,7 +53,7 @@ export class InTime extends Component<Props, State> {
   }
 
   startEdit = () => {
-    this.props.dispatch({ type: 'START_EDIT_HISTORY_IN_TIME' })
+    this.props.dispatch({ type: 'DURING_EDIT_HISTORY_IN_TIME' })
     this.setState({ onInput: true })
   }
 

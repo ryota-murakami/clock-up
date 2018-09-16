@@ -17,7 +17,7 @@ export type RemoveDeleteClockIdAction = {
 }
 
 export type EditInTimeInputAction = {
-  type: 'START_EDIT_HISTORY_IN_TIME'
+  type: 'DURING_EDIT_HISTORY_IN_TIME'
 }
 
 export type FinishInTimeInputAction = {

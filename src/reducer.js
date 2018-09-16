@@ -60,7 +60,7 @@ export default function reducer(
     case 'PUSH_HISTORY_DELETE_BUTTON':
       return { ...state, checkedHistoryIdList: [] }
 
-    case 'START_EDIT_HISTORY_IN_TIME':
+    case 'DURING_EDIT_HISTORY_IN_TIME':
       return { ...state, EditHistoryInTime: true }
 
     case 'FINISH_EDIT_HISTORY_IN_TIME':
