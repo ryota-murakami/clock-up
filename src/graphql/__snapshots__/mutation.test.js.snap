@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClockInMutation should AST is not regression 1`] = `
+exports[`CLOCK_IN_MUTATION should AST is not regression 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -8,7 +8,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "ClockInMutation",
+        "value": "CLOCK_IN_MUTATION",
       },
       "operation": "mutation",
       "selectionSet": Object {
@@ -261,13 +261,13 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 332,
+    "end": 334,
     "start": 0,
   },
 }
 `;
 
-exports[`ClockOutMutation should AST is not regression 1`] = `
+exports[`CLOCK_OUT_MUTATION should AST is not regression 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -275,7 +275,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "ClockOutMutation",
+        "value": "CLOCK_OUT_MUTATION",
       },
       "operation": "mutation",
       "selectionSet": Object {
@@ -563,13 +563,13 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 366,
+    "end": 382,
     "start": 0,
   },
 }
 `;
 
-exports[`CreateUserMutation should AST is not regression 1`] = `
+exports[`CREATE_USER_MUTATION should AST is not regression 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -577,7 +577,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "CreateUserMutation",
+        "value": "CREATE_USER_MUTATION",
       },
       "operation": "mutation",
       "selectionSet": Object {
@@ -677,13 +677,13 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 136,
+    "end": 138,
     "start": 0,
   },
 }
 `;
 
-exports[`DeleteClockMutation should AST is not regression 1`] = `
+exports[`DELETE_CLOCK_MUTATION should AST is not regression 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -691,7 +691,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "DeleteClockMutation",
+        "value": "DELETE_CLOCK_MUTATION",
       },
       "operation": "mutation",
       "selectionSet": Object {
@@ -767,13 +767,13 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 100,
+    "end": 102,
     "start": 0,
   },
 }
 `;
 
-exports[`EditClockInMutation should AST is not regression 1`] = `
+exports[`EDIT_CLOCK_IN_MUTATON should AST is not regression 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -781,7 +781,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "EditClockInMutation",
+        "value": "EDIT_CLOCK_IN_MUTATON",
       },
       "operation": "mutation",
       "selectionSet": Object {
@@ -900,7 +900,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 153,
+    "end": 155,
     "start": 0,
   },
 }

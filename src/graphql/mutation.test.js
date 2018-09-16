@@ -6,19 +6,19 @@ import {
   DELETE_CLOCK_MUTATION
 } from './mutation'
 
-describe('CreateUserMutation', () => {
+describe('CREATE_USER_MUTATION', () => {
   it('should AST is not regression', () => {
     expect(CREATE_USER_MUTATION).toMatchSnapshot()
   })
 })
 
-describe('ClockInMutation', () => {
+describe('CLOCK_IN_MUTATION', () => {
   it('should AST is not regression', () => {
     expect(CLOCK_IN_MUTATION).toMatchSnapshot()
   })
 })
 
-describe('ClockOutMutation', () => {
+describe('CLOCK_OUT_MUTATION', () => {
   it('should AST is not regression', () => {
     expect(CLOCK_OUT_MUTATION).toMatchSnapshot()
   })
@@ -30,7 +30,7 @@ describe('EDIT_CLOCK_IN_MUTATON', () => {
   })
 })
 
-describe('DeleteClockMutation', () => {
+describe('DELETE_CLOCK_MUTATION', () => {
   it('should AST is not regression', () => {
     expect(DELETE_CLOCK_MUTATION).toMatchSnapshot()
   })

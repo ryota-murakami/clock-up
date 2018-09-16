@@ -11,18 +11,18 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
-  ClockOutMutation: MutationFunc<*, *>
+  CLOCK_OUT_MUTATION: MutationFunc<*, *>
 }
 
 export class ClockOutButton extends Component<Props> {
   gqlLogic = () => {
-    const { data, ClockOutMutation } = this.props
+    const { data, CLOCK_OUT_MUTATION } = this.props
 
     const userId = data.user.id
     const clockId = data.user.clocks[0].id
 
     // $FlowIssue
-    ClockOutMutation({
+    CLOCK_OUT_MUTATION({
       variables: {
         clockId: clockId,
         userId: userId,
@@ -49,7 +49,7 @@ export class ClockOutButton extends Component<Props> {
 export default compose(
   graphql(CLOCK_BOARD_QUERY),
   graphql(CLOCK_OUT_MUTATION, {
-    name: 'ClockOutMutation'
+    name: 'CLOCK_OUT_MUTATION'
   }),
   pure
 )(ClockOutButton)

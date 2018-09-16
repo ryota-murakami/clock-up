@@ -14,7 +14,7 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 type Props = {
   ...ContextRouter,
   ...CLOCK_BOARD_QUERY_TYPE,
-  CreateUserMutation: MutationFunc<*, *>
+  CREATE_USER_MUTATION: MutationFunc<*, *>
 }
 
 class CreateUser extends React.Component<Props> {
@@ -25,14 +25,14 @@ class CreateUser extends React.Component<Props> {
   }
 
   insertUserDataToAuth0(): void {
-    const { CreateUserMutation } = this.props
+    const { CREATE_USER_MUTATION } = this.props
 
     const variables = {
       idToken: window.localStorage.getItem(AUTH0_ID_TOKEN)
     }
 
     // $FlowIssue
-    CreateUserMutation({ variables }).catch(e => {
+    CREATE_USER_MUTATION({ variables }).catch(e => {
       if (
         // supress
         e.message === 'GraphQL error: User already exists with that information'
@@ -66,7 +66,7 @@ class CreateUser extends React.Component<Props> {
 }
 
 export default compose(
-  graphql(CREATE_USER_MUTATION, { name: 'CreateUserMutation' }),
+  graphql(CREATE_USER_MUTATION, { name: 'CREATE_USER_MUTATION' }),
   graphql(CLOCK_BOARD_QUERY, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }

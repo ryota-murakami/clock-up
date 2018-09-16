@@ -11,16 +11,16 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
-  ClockInMutation: MutationFunc<*, *>
+  CLOCK_IN_MUTATION: MutationFunc<*, *>
 }
 
 export class ClockInButton extends Component<Props> {
   gqlLogic = () => {
-    const { data, ClockInMutation } = this.props
+    const { data, CLOCK_IN_MUTATION } = this.props
     const userId = data.user.id
 
     // $FlowIssue
-    ClockInMutation({
+    CLOCK_IN_MUTATION({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (cache, { data: { updateUser } }) => {
         const data = cache.readQuery({ query: CLOCK_BOARD_QUERY })
@@ -46,7 +46,7 @@ export class ClockInButton extends Component<Props> {
 export default compose(
   graphql(CLOCK_BOARD_QUERY),
   graphql(CLOCK_IN_MUTATION, {
-    name: 'ClockInMutation'
+    name: 'CLOCK_IN_MUTATION'
   }),
   pure
 )(ClockInButton)

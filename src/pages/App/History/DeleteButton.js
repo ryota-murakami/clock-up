@@ -29,14 +29,14 @@ type Props = {
   ...StateProps,
   dispatch: Dispatch<PUSH_HISTORY_DELETE_BUTTON>,
   checkedHistoryIdList: Array<string>,
-  DeleteClockMutation: MutationFunc<*, *>
+  DELETE_CLOCK_MUTATION: MutationFunc<*, *>
 }
 
 class DeleteButton extends Component<Props> {
   handleClick = () => {
     const {
       checkedHistoryIdList,
-      DeleteClockMutation,
+      DELETE_CLOCK_MUTATION,
       historyGQLParam,
       dispatch
     } = this.props
@@ -44,7 +44,7 @@ class DeleteButton extends Component<Props> {
 
     checkedHistoryIdList.forEach(id => {
       // $FlowIssue
-      DeleteClockMutation({
+      DELETE_CLOCK_MUTATION({
         variables: { clockId: id },
 
         /**
@@ -109,6 +109,6 @@ const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
 export default compose(
   connect(map),
   withApollo,
-  graphql(DELETE_CLOCK_MUTATION, { name: 'DeleteClockMutation' }),
+  graphql(DELETE_CLOCK_MUTATION, { name: 'DELETE_CLOCK_MUTATION' }),
   pure
 )(DeleteButton)
