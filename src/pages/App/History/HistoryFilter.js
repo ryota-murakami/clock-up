@@ -14,13 +14,14 @@ const Container = styled.div`
   align-items: center;
 `
 
+// TODO style
 const StyledSelect = styled.select``
 
 type Props = {
   dispatch: Dispatch<ON_CHANGE_HISTORY_FILTER>
 }
 
-class PeriodSelect extends Component<Props> {
+class HistoryFilter extends Component<Props> {
   renewGQL(value: Period) {
     this.props.dispatch({
       type: 'ON_CHANGE_HISTORY_FILTER',
@@ -47,4 +48,4 @@ class PeriodSelect extends Component<Props> {
 export default compose(
   connect(),
   pure
-)(PeriodSelect)
+)(HistoryFilter)

@@ -8,7 +8,7 @@ import { calcTotalTime, ISOtoYmd } from '../../../functions'
 import { Table, Tr, Td, Tbody, Th } from '../../../elements/Table'
 import InTime from './InTime'
 import OutTime from './OutTime'
-import Select from './PeriodSelect'
+import Select from './HistoryFilter'
 import DeleteCheckbox from './DeleteCheckbox'
 import DeleteButton from './DeleteButton'
 import {
