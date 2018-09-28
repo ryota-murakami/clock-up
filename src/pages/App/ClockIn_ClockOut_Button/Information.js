@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { compose, pure } from 'recompose'
 import { calcTotalTime } from '../../../functions'
 import { Container, Text, Time } from './Information.style'
@@ -41,12 +41,16 @@ export class Information extends Component<Props> {
     const TotalTime = calcTotalTime(now, past)
 
     return (
-      <Container>
-        <Text>ClockIn</Text>
-        <Time>{this.formatDate(ClockinTimeISO)}</Time>
-        <Text>TotalTime</Text>
-        <Time>{TotalTime}</Time>
-      </Container>
+      <Fragment>
+        <Container>
+          <Text>ClockIn</Text>
+          <Time>{this.formatDate(ClockinTimeISO)}</Time>
+        </Container>
+        <Container>
+          <Text>TotalTime</Text>
+          <Time>{TotalTime}</Time>
+        </Container>
+      </Fragment>
     )
   }
 }
