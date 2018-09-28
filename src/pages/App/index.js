@@ -60,18 +60,16 @@ export class App extends Component<Props, State> {
 
     if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
       if (
-        // $FlowIssue
-        typeof e.target.className === 'string' &&
-        e.target.className.includes('in-time-input')
+        typeof e.currentTarget.className === 'string' &&
+        e.currentTarget.className.includes('in-time-input')
       )
         return
 
       dispatch({ type: 'DONE_EDIT_IN_TIME' })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (
-        // $FlowIssue
-        typeof e.target.className === 'string' &&
-        e.target.className.includes('out-time-input')
+        typeof e.currentTarget.className === 'string' &&
+        e.currentTarget.className.includes('out-time-input')
       )
         return
 

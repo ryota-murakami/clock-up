@@ -52,9 +52,9 @@ export default function reducer(
 
     // Toggle Delete Checkbox
     case 'UNCHECK_DELETE_HISTORY':
+      const id = action.clockId
       const freshcheckedHistoryIdList = state.checkedHistoryIdList.filter(
-        // $FlowIssue
-        v => v !== action.clockId
+        v => v !== id
       )
       return { ...state, checkedHistoryIdList: freshcheckedHistoryIdList }
 

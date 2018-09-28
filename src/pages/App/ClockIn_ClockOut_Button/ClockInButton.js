@@ -19,12 +19,10 @@ export class ClockInButton extends Component<Props> {
     const { data, CLOCK_IN_MUTATION } = this.props
     const userId = data.user.id
 
-    // $FlowIssue
     CLOCK_IN_MUTATION({
       variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (cache, { data: { updateUser } }) => {
         const data = cache.readQuery({ query: CLOCK_BOARD_QUERY })
-        // $FlowIssue
         data.user = updateUser
         cache.writeQuery({ query: CLOCK_BOARD_QUERY, data })
       }
