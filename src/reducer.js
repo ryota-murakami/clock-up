@@ -63,7 +63,7 @@ export default function reducer(
       return { ...state, checkedHistoryIdList: [] }
 
     /**
-     * Edit History InTime
+     * Edit History Information
      */
     case 'EDIT_IN_TIME':
       return { ...state, EDIT_IN_TIME: true }

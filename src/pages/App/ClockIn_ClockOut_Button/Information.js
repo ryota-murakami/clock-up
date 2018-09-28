@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { calcTotalTime } from '../../../functions'
-import { Container, Text, Time } from './InTime.style'
+import { Container, Text, Time } from './Information.style'
 import type { CurrentTime } from '../../../types/data'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
@@ -11,7 +11,7 @@ type Props = {
   currentTime: CurrentTime
 }
 
-export class InTime extends Component<Props> {
+export class Information extends Component<Props> {
   /**
    * @param str ISOString. e.g. '2017-12-10T14:31:10.501Z'
    * @returns {string} human readable string. e.g. '11:31 PM'
@@ -51,4 +51,4 @@ export class InTime extends Component<Props> {
   }
 }
 
-export default compose(pure)(InTime)
+export default compose(pure)(Information)

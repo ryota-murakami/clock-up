@@ -59,7 +59,7 @@ export class InTime extends Component<Props, State> {
   }
 
   componentDidUpdate(prevProps: Props) {
-    // Clicked anywhere of view during editing, app should decide "user discontinued update InTime".
+    // Clicked anywhere of view during editing, app should decide "user discontinued update Information".
     if (
       prevProps.EDIT_IN_TIME === true &&
       this.props.EDIT_IN_TIME === false &&

@@ -4,7 +4,7 @@ import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
 import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import ClockInButton from './ClockInButton'
-import InTime from './InTime'
+import Information from './Information'
 import ClockOutButton from './ClockOutButton'
 import { ClockInContainer, ClockOutContainer } from './index.style'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
@@ -24,7 +24,7 @@ export class ClockIn_ClockOut_Button extends Component<Props> {
       return (
         <ClockOutContainer>
           {/* $FlowIssue */}
-          <InTime data={data} currentTime={this.props.currentTime} />
+          <Information data={data} currentTime={this.props.currentTime} />
           <ClockOutButton />
         </ClockOutContainer>
       )
