@@ -4,7 +4,7 @@ import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
-import { calcTotalTime, ISOtoYmd } from '../../../functions'
+import { calcTotalTimeWithoutSec, ISOtoYmd } from '../../../functions'
 import { Table, Tr, Td, Tbody, Th } from '../../../components/Table'
 import InTime from './InTime'
 import OutTime from './OutTime'
@@ -68,7 +68,7 @@ class History extends Component<Props> {
         const clockId = v.id
         const small = new Date(clockIn)
         const large = new Date(clockOut)
-        const total = calcTotalTime(large, small)
+        const total = calcTotalTimeWithoutSec(large, small)
 
         return (
           <tr style={this.bottomBoerderEliminator(length, i)} key={i}>

@@ -47,7 +47,7 @@ export function pad2(str: string): string {
 }
 
 /**
- * millisecounds to 00h00m
+ * millisecounds to 00h00m00s
  * @param now
  * @param past
  * @return string
@@ -58,15 +58,34 @@ export function calcTotalTime(now: Date, past: Date): string {
 
   // prevent sown minus e.g. -01h-59m
   if (diff <= 0) {
-    return '00h00m'
+    return '00h 00m 00s'
   }
 
   let msec = diff
-  let hh = Math.floor(msec / 1000 / 60 / 60)
+  const hh = Math.floor(msec / 1000 / 60 / 60)
   msec -= hh * 1000 * 60 * 60
-  let mm = Math.floor(msec / 1000 / 60)
+  const mm = Math.floor(msec / 1000 / 60)
+  msec -= mm * 1000 * 60
+  const ss = Math.floor(msec / 1000)
 
-  return pad2(hh.toString()) + 'h' + pad2(mm.toString()) + 'm'
+  return (
+    pad2(hh.toString()) +
+    'h ' +
+    pad2(mm.toString()) +
+    'm ' +
+    pad2(ss.toString()) +
+    's'
+  )
+}
+
+/**
+ * millisecounds to 00h00m
+ * @param now
+ * @param past
+ * @return string
+ */
+export function calcTotalTimeWithoutSec(now: Date, past: Date): string {
+  return calcTotalTime(now, past).slice(0, 7)
 }
 
 /**

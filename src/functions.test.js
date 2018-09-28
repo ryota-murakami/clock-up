@@ -4,7 +4,7 @@ import {
   calcTotalTime,
   ISOtoYmd,
   ISOtoHm,
-  getObjectType
+  getObjectType, calcTotalTimeWithoutSec
 } from './functions'
 
 describe('parseTime()', () => {
@@ -40,14 +40,23 @@ describe('calcTotalTime()', () => {
     const now = new Date('2017/01/01 12:00:00')
     const past = new Date('2017/01/01 11:00:00')
     const res = calcTotalTime(now, past)
-    expect(res).toBe('01h00m')
+    expect(res).toBe('01h 00m 00s')
   })
 
-  it('shoulb be return 00h00m when now < past', () => {
+  it('shoulb be return 00h00m00s when now < past', () => {
     const past = new Date('2017/01/01 12:00:00')
     const now = new Date('2017/01/01 11:00:00')
     const res = calcTotalTime(now, past)
-    expect(res).toBe('00h00m')
+    expect(res).toBe('00h 00m 00s')
+  })
+})
+
+describe('calcTotalTimeWithoutSec', () => {
+  it('should return time trimed string', () => {
+    const now = new Date('2017/01/01 12:00:00')
+    const past = new Date('2017/01/01 11:00:00')
+    const res = calcTotalTimeWithoutSec(now, past)
+    expect(res).toBe('01h 00m')
   })
 })
 
