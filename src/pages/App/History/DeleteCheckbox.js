@@ -8,9 +8,9 @@ import type { Dispatch } from 'redux'
 import type {
   CHECK_DELETE_HISTORY,
   UNCHECK_DELETE_HISTORY
-} from '../../../types/actionTypes'
+} from '../../../types/action'
 import type { ReduxState } from '../../../reducer'
-import type { MapStateToProps } from '../../../types/dataTypes'
+import type { MapStateToProps } from '../../../types/data'
 
 const Checkbox = styled.div`
   width: 16px;

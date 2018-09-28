@@ -1,5 +1,5 @@
 // @flow
-import type { CurrentTime } from './types/dataTypes'
+import type { CurrentTime } from './types/data'
 
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
   const days = []

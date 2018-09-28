@@ -1,5 +1,5 @@
 // @flow
-import type { Period } from './dataTypes'
+import type { Period } from './data'
 
 export type ON_CHANGE_HISTORY_FILTER = {
   type: 'ON_CHANGE_HISTORY_FILTER',

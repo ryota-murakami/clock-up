@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { Container, Day, Time } from './Clock.style'
-import type { CurrentTime } from '../../types/dataTypes'
+import type { CurrentTime } from '../../types/data'
 
 type Props = {
   currentTime: CurrentTime

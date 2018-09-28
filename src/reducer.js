@@ -1,6 +1,6 @@
 // @flow
-import type { ReduxAction } from './types/actionTypes'
-import type { HistoryQueryArguments, Period } from './types/dataTypes'
+import type { ReduxAction } from './types/action'
+import type { HistoryQueryArguments, Period } from './types/data'
 
 export type ReduxState = {
   historyQueryArguments: HistoryQueryArguments,

@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
-import { AUTH0_ID_TOKEN } from '../../types/dataTypes'
+import { AUTH0_ID_TOKEN } from '../../types/data'
 import { Button } from '../../components/Button'
 import { theme } from '../../theme'
 
