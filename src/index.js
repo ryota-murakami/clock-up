@@ -18,17 +18,20 @@ import ErrorBoudary from './pages/Error/ErrorBoudary'
 import Loading from './elements/Loading'
 
 // react-loadable
-/* prettier-ignore */
-const App = Loadable({ loader: () => import('./pages/App'/* webpackChunkName: "App" */), loading: Loading })
-/* prettier-ignore */
-const CreateUser = Loadable({
-  loader: () => import('./pages/CreateUser'/* webpackChunkName: "CreateUser" */),
-  loading: Loading
+const App = Loadable({
+  loader: () => import('./pages/App' /* webpackChunkName: "App" */),
+  loading: ({ isLoading }) => isLoading && Loading
 })
-/* prettier-ignore */
+
+const CreateUser = Loadable({
+  loader: () =>
+    import('./pages/CreateUser' /* webpackChunkName: "CreateUser" */),
+  loading: ({ isLoading }) => isLoading && Loading
+})
+
 const Login = Loadable({
-  loader: () => import('./pages/Login'/* webpackChunkName: "Login" */),
-  loading: Loading
+  loader: () => import('./pages/Login' /* webpackChunkName: "Login" */),
+  loading: ({ isLoading }) => isLoading && Loading
 })
 
 // redux
