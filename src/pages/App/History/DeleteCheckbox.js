@@ -40,7 +40,7 @@ type Props = {
 class DeleteCheckbox extends Component<Props> {
   isChecked = (clockId: string): boolean => {
     const { checkedHistoryIdList } = this.props
-    // $FlowIssue
+
     return checkedHistoryIdList.includes(clockId)
   }
 

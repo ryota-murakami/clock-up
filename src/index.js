@@ -17,10 +17,10 @@ import { AUTH0_ID_TOKEN } from './constants'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
 import Loading from './components/Loading'
 
-if (process.env.NODE_ENV !== 'production') {
-  const { whyDidYouUpdate } = require('why-did-you-update')
-  whyDidYouUpdate(React)
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update')
+//   whyDidYouUpdate(React)
+// }
 
 // react-loadable
 const App = Loadable({

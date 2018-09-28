@@ -21,7 +21,6 @@ export class ClockOutButton extends Component<Props> {
     const userId = data.user.id
     const clockId = data.user.clocks[0].id
 
-    // $FlowIssue
     CLOCK_OUT_MUTATION({
       variables: {
         clockId: clockId,
