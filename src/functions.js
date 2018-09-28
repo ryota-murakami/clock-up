@@ -47,7 +47,7 @@ export function pad2(str: string): string {
 }
 
 /**
- * millisecounds to 00h00m00s
+ * millisecounds to "00h 00m 00s"
  * @param now
  * @param past
  * @return string
@@ -79,7 +79,7 @@ export function calcTotalTime(now: Date, past: Date): string {
 }
 
 /**
- * millisecounds to 00h00m
+ * millisecounds to "00h 00m"
  * @param now
  * @param past
  * @return string
