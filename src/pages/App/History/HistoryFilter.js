@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { pure, compose } from 'recompose'
 import styled from 'styled-components'
-import type { Period } from '../../../dataTypes'
+import type { Period } from '../../../types/dataTypes'
 import type { Dispatch } from 'redux'
-import type { ON_CHANGE_HISTORY_FILTER } from '../../../actionTypes'
+import type { ON_CHANGE_HISTORY_FILTER } from '../../../types/actionTypes'
 
 const Container = styled.div`
   flex: 1;

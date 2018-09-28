@@ -8,9 +8,9 @@ import { ISOtoHm } from '../../../functions'
 import { Td } from '../../../components/Table'
 import type { Dispatch } from 'redux'
 import type { MutationFunc } from 'react-apollo'
-import type { ReduxAction } from '../../../actionTypes'
+import type { ReduxAction } from '../../../types/actionTypes'
 import type { ReduxState } from '../../../reducer'
-import type { MapStateToProps } from '../../../dataTypes'
+import type { MapStateToProps } from '../../../types/dataTypes'
 
 type State = {
   onInput: boolean

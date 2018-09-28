@@ -19,8 +19,8 @@ import {
   DeleteCheckboxTd
 } from './index.style'
 import type { Dispatch } from 'redux'
-import type { ReduxAction } from '../../../actionTypes'
-import type { HistoryQueryArguments } from '../../../dataTypes'
+import type { ReduxAction } from '../../../types/actionTypes'
+import type { HistoryQueryArguments } from '../../../types/dataTypes'
 import type { ReduxState } from '../../../reducer'
 import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 

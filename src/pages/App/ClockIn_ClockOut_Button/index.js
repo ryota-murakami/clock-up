@@ -8,7 +8,7 @@ import InTime from './InTime'
 import ClockOutButton from './ClockOutButton'
 import { ClockInContainer, ClockOutContainer } from './index.style'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
-import type { CurrentTime } from '../../../dataTypes'
+import type { CurrentTime } from '../../../types/dataTypes'
 
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,

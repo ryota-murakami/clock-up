@@ -5,7 +5,7 @@
  * use to ReduxState.
  * update every 1 second by setInterval() dispached "SYNC_DATE" action.
  */
-import type { ReduxState } from './reducer'
+import type { ReduxState } from '../reducer'
 
 export type CurrentTime = {
   dateObject: Date, // typcally use to calculate TotalTime.

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { calcTotalTime } from '../../../functions'
 import { Container } from './InTime.style'
-import type { CurrentTime } from '../../../dataTypes'
+import type { CurrentTime } from '../../../types/dataTypes'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {

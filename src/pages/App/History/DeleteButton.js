@@ -10,9 +10,9 @@ import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { ReduxState } from '../../../reducer'
-import type { HistoryQueryArguments, MapStateToProps } from '../../../dataTypes'
+import type { HistoryQueryArguments, MapStateToProps } from '../../../types/dataTypes'
 import type { Dispatch } from 'redux'
-import type { ON_CLICK_HISTORY_DELETE_BUTTON } from '../../../actionTypes'
+import type { ON_CLICK_HISTORY_DELETE_BUTTON } from '../../../types/actionTypes'
 
 const Container = styled.div`
   flex: 1;
