@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Auth0Lock from 'auth0-lock'
 import { withRouter } from 'react-router-dom'
 import { AUTH0_ID_TOKEN } from '../../dataTypes'
-import { Button } from '../../elements/Button'
+import { Button } from '../../components/Button'
 import { theme } from '../../theme'
 import type { ContextRouter } from 'react-router'
 

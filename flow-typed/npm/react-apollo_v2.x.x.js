@@ -1,5 +1,5 @@
-// flow-typed signature: e7ee55425852983ff28d36727ef4e26d
-// flow-typed version: 8840f4cb4b/react-apollo_v2.x.x/flow_>=v0.58.x
+// flow-typed signature: b00823afcd31d0a5c10e11f475f9ec7d
+// flow-typed version: adbbf6f8b2/react-apollo_v2.x.x/flow_>=v0.58.x
 
 declare module "react-apollo" {
   import type { ComponentType, Element, Node } from 'react';
@@ -807,7 +807,7 @@ declare module "react-apollo" {
 
   declare export interface OptionProps<TProps, TResult, TVariables> {
     ownProps: TProps;
-    data: GraphqlData<TResult, TVariables>;
+    data?: GraphqlData<TResult, TVariables>;
     mutate: MutationFunc<TResult, TVariables>;
   }
 
@@ -984,7 +984,7 @@ declare module "react-apollo" {
   declare export type MutationFunction<
     TData = any,
     TVariables = OperationVariables
-  > = (options: {
+  > = (options?: {
     variables?: TVariables,
     optimisticResponse?: Object,
     refetchQueries?: RefetchQueryDescription | RefetchQueriesProviderFn,

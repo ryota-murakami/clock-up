@@ -15,7 +15,7 @@ import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
 import { AUTH0_ID_TOKEN } from './dataTypes'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
-import Loading from './elements/Loading'
+import Loading from './components/Loading'
 
 // react-loadable
 const App = Loadable({

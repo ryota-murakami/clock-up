@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
-import { Td, Th } from '../../../elements/Table'
+import { Td, Th } from '../../../components/Table'
 
 export const Container = styled.div`
   color: ${theme.textColor};

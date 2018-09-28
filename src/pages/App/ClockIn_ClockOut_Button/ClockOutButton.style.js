@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Button } from '../../../elements/Button'
+import { Button } from '../../../components/Button'
 
 export const StyledButton = styled(Button)`
   @media (max-width: 767px) {

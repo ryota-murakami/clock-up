@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { AUTH0_ID_TOKEN } from '../../dataTypes'
-import { Button } from '../../elements/Button'
+import { Button } from '../../components/Button'
 import { theme } from '../../theme'
 
 type Props = {}
