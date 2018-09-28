@@ -1,11 +1,11 @@
 // @flow
 import type { ReduxAction } from './actionTypes'
-import type { HistoryQueryArguments, Period, ActionToggle } from './dataTypes'
+import type { HistoryQueryArguments, Period } from './dataTypes'
 
 export type ReduxState = {
   historyQueryArguments: HistoryQueryArguments,
-  EDIT_IN_TIME: ActionToggle,
-  EDIT_OUT_TIME: ActionToggle,
+  EDIT_IN_TIME: boolean,
+  EDIT_OUT_TIME: boolean,
   checkedHistoryIdList: Array<string>
 }
 

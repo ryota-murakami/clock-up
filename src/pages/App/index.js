@@ -16,11 +16,11 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
 import type { ContextRouter } from 'react-router-dom'
 import { parseTime } from '../../functions'
-import type { ActionToggle, CurrentTime } from '../../dataTypes'
+import type { CurrentTime } from '../../dataTypes'
 
 type StateProps = {|
-  EDIT_IN_TIME: ActionToggle,
-  EDIT_OUT_TIME: ActionToggle
+  EDIT_IN_TIME: boolean,
+  EDIT_OUT_TIME: boolean
 |}
 
 type Props = {

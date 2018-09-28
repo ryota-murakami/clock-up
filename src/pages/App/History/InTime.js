@@ -10,14 +10,14 @@ import type { Dispatch } from 'redux'
 import type { MutationFunc } from 'react-apollo'
 import type { ReduxAction } from '../../../actionTypes'
 import type { ReduxState } from '../../../reducer'
-import type { ActionToggle, MapStateToProps } from '../../../dataTypes'
+import type { MapStateToProps } from '../../../dataTypes'
 
 type State = {
   onInput: boolean
 }
 
 type StateProps = {
-  EDIT_IN_TIME: ActionToggle
+  EDIT_IN_TIME: boolean
 }
 
 type Props = {
