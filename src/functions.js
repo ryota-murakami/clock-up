@@ -38,7 +38,7 @@ export function parseTime(dateObj: Date = new Date()): CurrentTime {
 }
 
 /**
- * 8 to 08
+ * "8" to "08"
  * @param str
  * @return string
  */
@@ -70,7 +70,7 @@ export function calcTotalTime(now: Date, past: Date): string {
 }
 
 /**
- * ISO to 2017/12/15
+ * ISO to "2017/12/15"
  * @param string
  * @return string
  */
@@ -84,7 +84,7 @@ export function ISOtoYmd(iso: string): string {
 }
 
 /**
- * ISO to 12:35
+ * ISO to "12:35"
  * @param string
  * @return string
  */
@@ -97,7 +97,7 @@ export function ISOtoHm(iso: string): string {
 }
 
 /**
- * getObjectType(new Date) => 'Date'
+ * getObjectType(new Date) => "Date"
  * @param object
  * @returns string
  */
