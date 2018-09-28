@@ -46,7 +46,6 @@ class DeleteButton extends Component<Props> {
     dispatch({ type: 'ON_CLICK_HISTORY_DELETE_BUTTON' })
 
     checkedHistoryIdList.forEach(id => {
-      // $FlowIssue
       DELETE_CLOCK_MUTATION({
         variables: { clockId: id },
 
