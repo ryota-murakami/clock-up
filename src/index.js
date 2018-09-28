@@ -17,21 +17,26 @@ import { AUTH0_ID_TOKEN } from './constants'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
 import Loading from './components/Loading'
 
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update')
+  whyDidYouUpdate(React)
+}
+
 // react-loadable
 const App = Loadable({
   loader: () => import('./pages/App' /* webpackChunkName: "App" */),
-  loading: ({ isLoading }) => isLoading && Loading
+  loading: ({ isLoading }) => isLoading && <Loading />
 })
 
 const CreateUser = Loadable({
   loader: () =>
     import('./pages/CreateUser' /* webpackChunkName: "CreateUser" */),
-  loading: ({ isLoading }) => isLoading && Loading
+  loading: ({ isLoading }) => isLoading && <Loading />
 })
 
 const Login = Loadable({
   loader: () => import('./pages/Login' /* webpackChunkName: "Login" */),
-  loading: ({ isLoading }) => isLoading && Loading
+  loading: ({ isLoading }) => isLoading && <Loading />
 })
 
 // redux
@@ -73,6 +78,8 @@ const option = {
 }
 const lock = new Auth0Lock(clientId, domain, option)
 
+const LoginComponent = () => <Login lock={lock} />
+
 ReactDOM.render(
   <ErrorBoudary>
     <Provider store={store}>
@@ -80,7 +87,7 @@ ReactDOM.render(
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/login" component={() => <Login lock={lock} />} />
+            <Route path="/login" component={LoginComponent} />
             <Route path="/createuser" component={CreateUser} />
           </Switch>
         </BrowserRouter>

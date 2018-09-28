@@ -21,7 +21,8 @@
     "react-spinners": "^0.4.5",
     "recompose": "^0.27.0",
     "redux": "^4.0.0",
-    "styled-components": "^3.4.6"
+    "styled-components": "^3.4.6",
+    "why-did-you-update": "^0.1.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
