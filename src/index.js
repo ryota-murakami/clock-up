@@ -13,7 +13,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './index.css.js'
 import reducer from './reducer'
 import registerServiceWorker from './registerServiceWorker'
-import { AUTH0_ID_TOKEN } from './types/data'
+import { AUTH0_ID_TOKEN } from './constants'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
 import Loading from './components/Loading'
 
