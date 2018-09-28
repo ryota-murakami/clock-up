@@ -72,9 +72,8 @@
       "last 2 edge versions"
     ],
     "production": [
-      ">0.25%",
-      "not op_mini all",
-      "ie 11"
+      ">0.1%",
+      "not op_mini all"
     ]
   }
 }
