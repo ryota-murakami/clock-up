@@ -23,7 +23,6 @@ export class ClockIn_ClockOut_Button extends Component<Props> {
     if (data.user.isDuringClockIn) {
       return (
         <ClockOutContainer>
-          {/* $FlowIssue */}
           <Information data={data} currentTime={this.props.currentTime} />
           <ClockOutButton />
         </ClockOutContainer>
