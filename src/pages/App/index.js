@@ -39,6 +39,7 @@ export class App extends Component<Props, State> {
   }
 
   componentDidMount() {
+    // Main CLock Timer
     setInterval(
       () => this.setState({ currentTime: parseTime(new Date()) }),
       1000
@@ -49,6 +50,10 @@ export class App extends Component<Props, State> {
     return !!user
   }
 
+  /**
+   * this managing History Editing status.
+   * If user clicked somewhere on screen during editing html input, the function have to change status to EDIT_IN_TIME | EDIT_OUT_TIME === "false".
+   */
   handleOnClick = (e: SyntheticEvent<HTMLInputElement>) => {
     const { EDIT_IN_TIME, EDIT_OUT_TIME, dispatch } = this.props
     if (!EDIT_IN_TIME && !EDIT_OUT_TIME) return
