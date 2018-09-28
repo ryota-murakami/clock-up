@@ -4,7 +4,8 @@ import {
   calcTotalTime,
   ISOtoYmd,
   ISOtoHm,
-  getObjectType, calcTotalTimeWithoutSec
+  getObjectType,
+  calcTotalTimeWithoutSec
 } from './functions'
 
 describe('parseTime()', () => {
