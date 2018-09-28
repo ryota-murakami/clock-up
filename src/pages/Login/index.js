@@ -17,10 +17,10 @@ export const Container = styled.main`
   align-items: center;
 `
 
-type Props = {
+type Props = {|
   ...ContextRouter,
   lock: Auth0Lock
-}
+|}
 
 export class Login extends Component<Props> {
   render() {

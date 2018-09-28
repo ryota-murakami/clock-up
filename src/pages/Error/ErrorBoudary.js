@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import ErrorBoundaryFallbackComponent from './ErrorBoundaryFallbackComponent'
 
-type Props = {
+type Props = {|
   children: React$Node
-}
+|}
 
 type State = {|
   error: ?Error,

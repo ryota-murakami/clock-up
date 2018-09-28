@@ -91,7 +91,6 @@ export class App extends Component<Props, State> {
     }
 
     if (!this.isAuthenticated(user)) {
-      // $FlowIssue
       return <Redirect to="/login" />
     }
 

@@ -29,7 +29,7 @@ export class LoginButton extends Component<Props> {
     })
   }
 
-  showAuth0LoginModal = () => {
+  showAuth0LoginModal = (): void => {
     const { lock } = this.props
     lock.show({
       auth: {

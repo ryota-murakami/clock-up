@@ -1,5 +1,4 @@
-/** @flow */
-
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { theme } from './../../theme'
@@ -20,11 +19,11 @@ const Message = styled.div`
   color: ${theme.textColor};
 `
 
-const ErrorBoundaryFallbackComponent = () => (
+const ErrorBoundaryFallbackComponent = (): React$Node => (
   <Container>
     <Message>
       Something Error Ooccurring
-      <span role="img" aria-label="faceemoji">
+      <span role="img" aria-label="face-emoji">
         😞
       </span>
     </Message>

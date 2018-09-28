@@ -55,7 +55,6 @@ class CreateUser extends React.Component<Props> {
     }
 
     return (
-      // $FlowIssue
       <Redirect
         to={{
           pathname: '/'
