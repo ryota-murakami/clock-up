@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { calcTotalTime } from '../../../functions'
-import { Container } from './InTime.style'
+import { Container, Text, Time } from './InTime.style'
 import type { CurrentTime } from '../../../types/data'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
@@ -42,10 +42,10 @@ export class InTime extends Component<Props> {
 
     return (
       <Container>
-        <div>ClockIn</div>
-        <div>{this.formatDate(ClockinTimeISO)}</div>
-        <div>TotalTime</div>
-        <div>{TotalTime}</div>
+        <Text>ClockIn</Text>
+        <Time>{this.formatDate(ClockinTimeISO)}</Time>
+        <Text>TotalTime</Text>
+        <Time>{TotalTime}</Time>
       </Container>
     )
   }

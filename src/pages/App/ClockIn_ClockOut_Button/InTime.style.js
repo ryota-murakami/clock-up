@@ -26,3 +26,13 @@ export const Container = styled.div`
     justify-content: space-around;
   }
 `
+
+export const Text = styled.div`
+  flex: 0 1 auto;
+  color: ${theme.sharpTextColor};
+`
+
+export const Time = styled.div`
+  flex: 0 1 110px;
+  color: ${theme.sharpTextColor};
+`

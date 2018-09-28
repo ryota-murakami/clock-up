@@ -4,9 +4,10 @@
 export const theme = {
   borderColor: '#efefef',
   textColor: '#616161',
+  sharpTextColor: 'rgba(0, 0, 0, 0.87)',
 
   /*
-   * Base Color
+   * UI Base Color
    */
   green: '#66bb6a',
 
