@@ -17,7 +17,7 @@ export type UNCHECK_DELETE_HISTORY = {
 }
 
 /**
- * Edit Statetus of InTime
+ * Is Editting InTime?
  */
 export type EDIT_IN_TIME__TRUE = {
   type: 'EDIT_IN_TIME__TRUE'
@@ -27,7 +27,7 @@ export type EDIT_IN_TIME__FALSE = {
 }
 
 /**
- * Edit Statetus of OutTime
+ * Is Editting OutTime?
  */
 export type EDIT_OUT_TIME__TRUE = {
   type: 'EDIT_OUT_TIME__TRUE'

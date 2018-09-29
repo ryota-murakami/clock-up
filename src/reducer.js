@@ -70,7 +70,7 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
       return { ...state, checkedHistoryIdList: [] }
 
     /**
-     * Edit Statetus of InTime
+     * Is Editting InTime?
      */
     case ('EDIT_IN_TIME__TRUE': $PropertyType<EDIT_IN_TIME__TRUE, 'type'>):
       return { ...state, EDIT_IN_TIME: true }
@@ -79,7 +79,7 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
       return { ...state, EDIT_IN_TIME: false }
 
     /**
-     * Edit History OutTime
+     * Is Editting OutTime?
      */
     case ('EDIT_OUT_TIME__TRUE': $PropertyType<EDIT_OUT_TIME__TRUE, 'type'>):
       return { ...state, EDIT_OUT_TIME: true }
