@@ -40,7 +40,7 @@ export class InTime extends Component<Props, State> {
     this.props
       .EDIT_CLOCK_IN_MUTATON({
         variables: {
-          clockIn: new Date(
+          clockIn: new Date( // $FlowIssue https://github.com/ryota-murakami/clock-up/commit/29913707ee13460ed0112426ec6cf060f9751bb5
             new Date(this.props.clockIn).setHours(...value.split(':'))
           ).toISOString(),
           clockId: this.props.clockId
