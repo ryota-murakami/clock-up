@@ -35,7 +35,7 @@ export class InTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
-    this.props.dispatch({ type: 'DONE_EDIT_IN_TIME' })
+    this.props.dispatch({ type: 'EDIT_IN_TIME___FALSE' })
 
     this.props
       // $FlowIssue
@@ -54,7 +54,7 @@ export class InTime extends Component<Props, State> {
   }
 
   startEdit = () => {
-    this.props.dispatch({ type: 'EDIT_IN_TIME' })
+    this.props.dispatch({ type: 'EDIT_IN_TIME___TRUE' })
     this.setState({ onInput: true })
   }
 

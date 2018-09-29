@@ -1,5 +1,9 @@
 // @flow
-import type { ReduxAction } from './types/action'
+import type {
+  ReduxAction,
+  EDIT_IN_TIME___TRUE,
+  EDIT_IN_TIME___FALSE
+} from './types/action'
 import type { HistoryQueryArguments, Period } from './types/data'
 
 export type ReduxState = {
@@ -23,7 +27,7 @@ export default function reducer(
   state: ReduxState = initialState,
   action: ReduxAction
 ): ReduxState {
-  switch (action.type) {
+  switch (action) {
     case 'ON_CHANGE_HISTORY_FILTER':
       let first = ''
       const p: Period = action.period
@@ -63,12 +67,12 @@ export default function reducer(
       return { ...state, checkedHistoryIdList: [] }
 
     /**
-     * Edit History Information
+     * Edit Statetus of InTime
      */
-    case 'EDIT_IN_TIME':
+    case ('EDIT_IN_TIME___TRUE': $PropertyType<EDIT_IN_TIME___TRUE, 'type'>):
       return { ...state, EDIT_IN_TIME: true }
 
-    case 'DONE_EDIT_IN_TIME':
+    case ('EDIT_IN_TIME___FALSE': $PropertyType<EDIT_IN_TIME___FALSE, 'type'>):
       return { ...state, EDIT_IN_TIME: false }
 
     /**
