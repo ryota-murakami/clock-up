@@ -4,6 +4,7 @@ import type {
   EDIT_IN_TIME___TRUE,
   EDIT_IN_TIME___FALSE
 } from './types/action'
+import type { Reducer } from 'redux'
 import type { HistoryQueryArguments, Period } from './types/data'
 
 export type ReduxState = {
@@ -23,10 +24,10 @@ const initialState: ReduxState = {
   checkedHistoryIdList: []
 }
 
-export default function reducer(
-  state: ReduxState = initialState,
-  action: ReduxAction
-): ReduxState {
+const reducer: Reducer<ReduxState, ReduxAction> = (
+  state = initialState,
+  action
+) => {
   switch (action) {
     case 'ON_CHANGE_HISTORY_FILTER':
       let first = ''
@@ -91,3 +92,5 @@ export default function reducer(
       return state
   }
 }
+
+export default reducer
