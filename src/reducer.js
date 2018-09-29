@@ -2,7 +2,9 @@
 import type {
   ReduxAction,
   EDIT_IN_TIME__TRUE,
-  EDIT_IN_TIME__FALSE
+  EDIT_IN_TIME__FALSE,
+  EDIT_OUT_TIME__TRUE,
+  EDIT_OUT_TIME__FALSE
 } from './types/action'
 import type { Reducer } from 'redux'
 import type { HistoryQueryArguments, Period } from './types/data'
@@ -79,10 +81,10 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
     /**
      * Edit History OutTime
      */
-    case 'EDIT_OUT_TIME__TRUE':
+    case ('EDIT_OUT_TIME__TRUE': $PropertyType<EDIT_OUT_TIME__TRUE, 'type'>):
       return { ...state, EDIT_OUT_TIME: true }
 
-    case 'EDIT_OUT_TIME__FALSE':
+    case ('EDIT_OUT_TIME__FALSE': $PropertyType<EDIT_OUT_TIME__FALSE, 'type'>):
       return { ...state, EDIT_OUT_TIME: false }
 
     /**
