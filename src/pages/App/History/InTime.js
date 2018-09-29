@@ -20,13 +20,13 @@ type StateProps = {|
   EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>
 |}
 
-type Props = {|
+type Props = {
   clockIn: string,
   clockId: string,
   ...StateProps,
   EDIT_CLOCK_IN_MUTATON: MutationFunc<*, *>,
   dispatch: Dispatch<ReduxAction>
-|}
+}
 
 export class InTime extends Component<Props, State> {
   state = {
