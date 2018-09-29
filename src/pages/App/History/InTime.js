@@ -84,7 +84,6 @@ export class InTime extends Component<Props, State> {
         />
       </Td>
     ) : (
-      // $FlowIssue
       <Td onClick={this.startEdit}>{ISOtoHm(clockIn)}</Td>
     )
   }
