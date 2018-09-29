@@ -1,4 +1,4 @@
-# Clock Up ⏱
+# ⏱ Clock Up
 
 [![CircleCI](https://circleci.com/gh/ryota-murakami/clock-up.svg?style=svg)](https://circleci.com/gh/ryota-murakami/clock-up)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
