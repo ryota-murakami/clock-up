@@ -1,8 +1,8 @@
 // @flow
 import type {
   ReduxAction,
-  EDIT_IN_TIME___TRUE,
-  EDIT_IN_TIME___FALSE
+  EDIT_IN_TIME__TRUE,
+  EDIT_IN_TIME__FALSE
 } from './types/action'
 import type { Reducer } from 'redux'
 import type { HistoryQueryArguments, Period } from './types/data'
@@ -70,19 +70,19 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
     /**
      * Edit Statetus of InTime
      */
-    case ('EDIT_IN_TIME___TRUE': $PropertyType<EDIT_IN_TIME___TRUE, 'type'>):
+    case ('EDIT_IN_TIME__TRUE': $PropertyType<EDIT_IN_TIME__TRUE, 'type'>):
       return { ...state, EDIT_IN_TIME: true }
 
-    case ('EDIT_IN_TIME___FALSE': $PropertyType<EDIT_IN_TIME___FALSE, 'type'>):
+    case ('EDIT_IN_TIME__FALSE': $PropertyType<EDIT_IN_TIME__FALSE, 'type'>):
       return { ...state, EDIT_IN_TIME: false }
 
     /**
      * Edit History OutTime
      */
-    case 'EDIT_OUT_TIME':
+    case 'EDIT_OUT_TIME__TRUE':
       return { ...state, EDIT_OUT_TIME: true }
 
-    case 'DONE_EDIT_OUT_TIME':
+    case 'EDIT_OUT_TIME__FALSE':
       return { ...state, EDIT_OUT_TIME: false }
 
     /**

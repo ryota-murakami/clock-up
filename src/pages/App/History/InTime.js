@@ -12,36 +12,35 @@ import type { ReduxAction } from '../../../types/action'
 import type { ReduxState } from '../../../reducer'
 import type { MapStateToProps } from '../../../types/data'
 
-type State = {
+type State = {|
   onInput: boolean
-}
+|}
 
-type StateProps = {
-  EDIT_IN_TIME: boolean
-}
+type StateProps = {|
+  EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>
+|}
 
-type Props = {
+type Props = {|
   clockIn: string,
   clockId: string,
   ...StateProps,
   EDIT_CLOCK_IN_MUTATON: MutationFunc<*, *>,
   dispatch: Dispatch<ReduxAction>
-}
+|}
 
 export class InTime extends Component<Props, State> {
   state = {
     onInput: false
   }
 
-  mutation = (value: string) => {
+  mutation = (value: string): void => {
     if (value.length === 0) return
-    this.props.dispatch({ type: 'EDIT_IN_TIME___FALSE' })
+    this.props.dispatch({ type: 'EDIT_IN_TIME__FALSE' })
 
     this.props
-      // $FlowIssue
       .EDIT_CLOCK_IN_MUTATON({
         variables: {
-          clockIn: new Date( // $FlowIssue
+          clockIn: new Date(
             new Date(this.props.clockIn).setHours(...value.split(':'))
           ).toISOString(),
           clockId: this.props.clockId
@@ -54,7 +53,7 @@ export class InTime extends Component<Props, State> {
   }
 
   startEdit = () => {
-    this.props.dispatch({ type: 'EDIT_IN_TIME___TRUE' })
+    this.props.dispatch({ type: 'EDIT_IN_TIME__TRUE' })
     this.setState({ onInput: true })
   }
 

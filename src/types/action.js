@@ -19,22 +19,28 @@ export type UNCHECK_DELETE_HISTORY = {
 /**
  * Edit Statetus of InTime
  */
-export type EDIT_IN_TIME___TRUE = {
-  type: 'EDIT_IN_TIME___TRUE'
+export type EDIT_IN_TIME__TRUE = {
+  type: 'EDIT_IN_TIME__TRUE'
 }
-export type EDIT_IN_TIME___FALSE = {
-  type: 'EDIT_IN_TIME___FALSE'
-}
-
-export type ToggleAction = EDIT_IN_TIME___TRUE | EDIT_IN_TIME___FALSE
-
-export type EDIT_OUT_TIME = {
-  type: 'EDIT_OUT_TIME'
+export type EDIT_IN_TIME__FALSE = {
+  type: 'EDIT_IN_TIME__FALSE'
 }
 
-export type DONE_EDIT_OUT_TIME = {
-  type: 'DONE_EDIT_OUT_TIME'
+/**
+ * Edit Statetus of OutTime
+ */
+export type EDIT_OUT_TIME__TRUE = {
+  type: 'EDIT_OUT_TIME__TRUE'
 }
+export type EDIT_OUT_TIME__FALSE = {
+  type: 'EDIT_OUT_TIME__FALSE'
+}
+
+export type ToggleAction =
+  | EDIT_IN_TIME__TRUE
+  | EDIT_IN_TIME__FALSE
+  | EDIT_OUT_TIME__TRUE
+  | EDIT_OUT_TIME__FALSE
 
 export type ON_CLICK_HISTORY_DELETE_BUTTON = {
   type: 'ON_CLICK_HISTORY_DELETE_BUTTON'
@@ -42,10 +48,10 @@ export type ON_CLICK_HISTORY_DELETE_BUTTON = {
 
 export type ReduxAction =
   | ON_CHANGE_HISTORY_FILTER
-  | EDIT_IN_TIME___TRUE
-  | EDIT_IN_TIME___FALSE
+  | EDIT_IN_TIME__TRUE
+  | EDIT_IN_TIME__FALSE
   | CHECK_DELETE_HISTORY
   | UNCHECK_DELETE_HISTORY
   | ON_CLICK_HISTORY_DELETE_BUTTON
-  | EDIT_OUT_TIME
-  | DONE_EDIT_OUT_TIME
+  | EDIT_OUT_TIME__TRUE
+  | EDIT_OUT_TIME__FALSE

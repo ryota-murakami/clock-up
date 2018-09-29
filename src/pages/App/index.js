@@ -52,7 +52,7 @@ export class App extends Component<Props, State> {
 
   /**
    * this managing History Editing status.
-   * If user clicked somewhere on screen during editing html input, the function have to change status to EDIT_IN_TIME___TRUE | EDIT_OUT_TIME === "false".
+   * If user clicked somewhere on screen during editing html input, the function have to change status to EDIT_IN_TIME__TRUE | EDIT_OUT_TIME__TRUE === "false".
    */
   handleOnClick = (e: SyntheticEvent<HTMLInputElement>) => {
     const { EDIT_IN_TIME, EDIT_OUT_TIME, dispatch } = this.props
@@ -65,7 +65,7 @@ export class App extends Component<Props, State> {
       )
         return
 
-      dispatch({ type: 'EDIT_IN_TIME___FALSE' })
+      dispatch({ type: 'EDIT_IN_TIME__FALSE' })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (
         typeof e.currentTarget.className === 'string' &&
@@ -73,7 +73,7 @@ export class App extends Component<Props, State> {
       )
         return
 
-      dispatch({ type: 'DONE_EDIT_OUT_TIME' })
+      dispatch({ type: 'EDIT_OUT_TIME__FALSE' })
     } else {
       throw new Error('Logic Exception: EDIT TIME State Manage missing.')
     }

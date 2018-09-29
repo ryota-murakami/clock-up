@@ -35,7 +35,7 @@ export class OutTime extends Component<Props, State> {
 
   mutation = (value: string) => {
     if (value.length === 0) return
-    this.props.dispatch({ type: 'DONE_EDIT_OUT_TIME' })
+    this.props.dispatch({ type: 'EDIT_OUT_TIME__FALSE' })
 
     this.props
       .EDIT_CLOCK_OUT_MUTATION({
@@ -53,7 +53,7 @@ export class OutTime extends Component<Props, State> {
   }
 
   startEdit = () => {
-    this.props.dispatch({ type: 'EDIT_OUT_TIME' })
+    this.props.dispatch({ type: 'EDIT_OUT_TIME__TRUE' })
     this.setState({ onInput: true })
   }
 
