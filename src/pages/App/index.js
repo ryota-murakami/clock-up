@@ -12,11 +12,16 @@ import LogoutBtn from './LogoutButton'
 import History from './History/index'
 import ClockIn_ClockOut_Button from './ClockIn_ClockOut_Button'
 import { Container, Left, Right } from './index.style'
+import type { Dispatch } from 'redux'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
 import type { ContextRouter } from 'react-router-dom'
 import { parseTime } from '../../functions'
 import type { CurrentTime, MapStateToProps } from '../../types/data'
+import type {
+  EDIT_IN_TIME__FALSE,
+  EDIT_OUT_TIME__FALSE
+} from '../../types/action'
 
 type StateProps = {|
   EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
@@ -26,7 +31,8 @@ type StateProps = {|
 type Props = {
   ...CLOCK_BOARD_QUERY_TYPE,
   ...StateProps,
-  ...ContextRouter
+  ...ContextRouter,
+  dispatch: Dispatch<EDIT_IN_TIME__FALSE | EDIT_OUT_TIME__FALSE>
 }
 
 type State = {|
@@ -61,11 +67,21 @@ export class App extends Component<Props, State> {
     if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
       if (e.currentTarget.className.includes('in-time-input')) return
 
-      dispatch({ type: 'EDIT_IN_TIME__FALSE' })
+      dispatch({
+        type: ('EDIT_IN_TIME__FALSE': $PropertyType<
+          EDIT_IN_TIME__FALSE,
+          'type'
+        >)
+      })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (e.currentTarget.className.includes('out-time-input')) return
 
-      dispatch({ type: 'EDIT_OUT_TIME__FALSE' })
+      dispatch({
+        type: ('EDIT_OUT_TIME__FALSE': $PropertyType<
+          EDIT_OUT_TIME__FALSE,
+          'type'
+        >)
+      })
     } else {
       throw new Error('Logic Exception: EDIT TIME State Manage missing.')
     }
