@@ -85,7 +85,7 @@ export class App extends Component<Props, State> {
     }
 
     return (
-      <Container onClick={this.getOnClick()}>
+      <Container onClick={this.handleOnClick}>
         <Header>
           <LogoutBtn />
         </Header>
@@ -99,10 +99,6 @@ export class App extends Component<Props, State> {
         </Right>
       </Container>
     )
-  }
-
-  getOnClick() {
-    return e => this.handleOnClick(e)
   }
 }
 
