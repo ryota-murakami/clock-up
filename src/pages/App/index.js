@@ -19,8 +19,8 @@ import { parseTime } from '../../functions'
 import type { CurrentTime, MapStateToProps } from '../../types/data'
 
 type StateProps = {|
-  EDIT_IN_TIME: boolean,
-  EDIT_OUT_TIME: boolean
+  EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
+  EDIT_OUT_TIME: boolean & $PropertyType<ReduxState, 'EDIT_OUT_TIME'>
 |}
 
 type Props = {
@@ -54,24 +54,16 @@ export class App extends Component<Props, State> {
    * this managing History Editing status.
    * If user clicked somewhere on screen during editing html input, the function have to change status to EDIT_IN_TIME__TRUE | EDIT_OUT_TIME__TRUE === "false".
    */
-  handleOnClick = (e: SyntheticEvent<HTMLInputElement>) => {
+  handleOnClick = (e: SyntheticEvent<HTMLInputElement>): void => {
     const { EDIT_IN_TIME, EDIT_OUT_TIME, dispatch } = this.props
     if (!EDIT_IN_TIME && !EDIT_OUT_TIME) return
 
     if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
-      if (
-        typeof e.currentTarget.className === 'string' &&
-        e.currentTarget.className.includes('in-time-input')
-      )
-        return
+      if (e.currentTarget.className.includes('in-time-input')) return
 
       dispatch({ type: 'EDIT_IN_TIME__FALSE' })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
-      if (
-        typeof e.currentTarget.className === 'string' &&
-        e.currentTarget.className.includes('out-time-input')
-      )
-        return
+      if (e.currentTarget.className.includes('out-time-input')) return
 
       dispatch({ type: 'EDIT_OUT_TIME__FALSE' })
     } else {
@@ -93,7 +85,7 @@ export class App extends Component<Props, State> {
     }
 
     return (
-      <Container onClick={e => this.handleOnClick(e)}>
+      <Container onClick={this.getOnClick()}>
         <Header>
           <LogoutBtn />
         </Header>
@@ -107,6 +99,10 @@ export class App extends Component<Props, State> {
         </Right>
       </Container>
     )
+  }
+
+  getOnClick() {
+    return e => this.handleOnClick(e)
   }
 }
 

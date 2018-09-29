@@ -30,7 +30,7 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
   state = initialState,
   action
 ) => {
-  switch (action) {
+  switch (action.type) {
     case 'ON_CHANGE_HISTORY_FILTER':
       let first = ''
       const p: Period = action.period

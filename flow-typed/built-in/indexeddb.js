@@ -1,4 +1,3 @@
-// @flow
 // Implemented by window & worker
 declare interface IDBEnvironment {
   indexedDB: IDBFactory;
