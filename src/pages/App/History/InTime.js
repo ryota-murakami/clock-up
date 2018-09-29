@@ -77,9 +77,10 @@ export class InTime extends Component<Props, State> {
           type="time"
           autoFocus
           className="in-time-input"
-          onKeyPress={(
-            e // $FlowIssue
-          ) => e.key === 'Enter' && this.mutation(e.target.value)}
+          onKeyPress={(e: SyntheticKeyboardEvent<>) =>
+            // $FlowIssue
+            e.key === 'Enter' && this.mutation(e.target.value)
+          }
         />
       </Td>
     ) : (
