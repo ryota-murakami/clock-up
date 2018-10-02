@@ -6,9 +6,8 @@ import { graphql } from 'react-apollo'
 import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { connect } from 'react-redux'
 import Loading from '../../components/Loading'
-import { Header } from '../../components/Header'
+import Header from './Header'
 import Clock from './Clock'
-import LogoutBtn from './LogoutButton'
 import History from './History/index'
 import ClockIn_ClockOut_Button from './ClockIn_ClockOut_Button'
 import { Container, Left, Right } from './index.style'
@@ -40,21 +39,20 @@ type State = {|
 |}
 
 export class App extends Component<Props, State> {
+  // Timer
   state = {
     currentTime: parseTime(new Date())
   }
 
   componentDidMount() {
-    // Main CLock Timer
+    // Update every sec
     setInterval(
       () => this.setState({ currentTime: parseTime(new Date()) }),
       1000
     )
   }
 
-  isAuthenticated(user: Object): boolean {
-    return !!user
-  }
+  isAuthenticated = (user: Object): boolean => !!user
 
   /**
    * this managing History Editing status.
@@ -102,9 +100,7 @@ export class App extends Component<Props, State> {
 
     return (
       <Container onClick={this.handleOnClick}>
-        <Header>
-          <LogoutBtn />
-        </Header>
+        <Header />
         <Left>
           <Clock currentTime={this.state.currentTime} />
           {/*eslint-disable react/jsx-pascal-case*/}
