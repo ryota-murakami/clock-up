@@ -21,10 +21,11 @@ import type {
   EDIT_IN_TIME__FALSE,
   EDIT_OUT_TIME__FALSE
 } from '../../types/action'
+import type { $PropertyType } from '../../../flow-typed/UtilityTypes/typedef'
 
 type StateProps = {|
-  EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
-  EDIT_OUT_TIME: boolean & $PropertyType<ReduxState, 'EDIT_OUT_TIME'>
+  EDIT_IN_TIME: $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
+  EDIT_OUT_TIME: $PropertyType<ReduxState, 'EDIT_OUT_TIME'>
 |}
 
 type Props = {
@@ -65,36 +66,25 @@ export class App extends Component<Props, State> {
     if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
       if (e.currentTarget.className.includes('in-time-input')) return
 
-      dispatch({
-        type: ('EDIT_IN_TIME__FALSE': $PropertyType<
-          EDIT_IN_TIME__FALSE,
-          'type'
-        >)
-      })
+      // prettier-ignore
+      dispatch({ type: ('EDIT_IN_TIME__FALSE': $PropertyType<EDIT_IN_TIME__FALSE, 'type'>)})
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (e.currentTarget.className.includes('out-time-input')) return
 
-      dispatch({
-        type: ('EDIT_OUT_TIME__FALSE': $PropertyType<
-          EDIT_OUT_TIME__FALSE,
-          'type'
-        >)
-      })
+      // prettier-ignore
+      dispatch({ type: ('EDIT_OUT_TIME__FALSE': $PropertyType<EDIT_OUT_TIME__FALSE, 'type'>)})
     } else {
       throw new Error('Logic Exception: EDIT TIME State Manage missing.')
     }
   }
 
   render() {
-    const {
-      data: { loading, user }
-    } = this.props
-
-    if (loading) {
+    const data: CLOCK_BOARD_QUERY_TYPE = this.props.data
+    if (data.loading) {
       return <Loading />
     }
 
-    if (!this.isAuthenticated(user)) {
+    if (!this.isAuthenticated(data.user)) {
       return <Redirect to="/login" />
     }
 
