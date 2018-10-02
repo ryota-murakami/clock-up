@@ -4,7 +4,11 @@ import type {
   EDIT_IN_TIME__TRUE,
   EDIT_IN_TIME__FALSE,
   EDIT_OUT_TIME__TRUE,
-  EDIT_OUT_TIME__FALSE
+  EDIT_OUT_TIME__FALSE,
+  ON_CLICK_HISTORY_DELETE_BUTTON,
+  UNCHECK_DELETE_HISTORY,
+  CHECK_DELETE_HISTORY,
+  ON_CHANGE_HISTORY_FILTER
 } from './types/action'
 import type { Reducer } from 'redux'
 import type { HistoryQueryArguments, Period } from './types/data'
@@ -31,7 +35,8 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
   action
 ) => {
   switch (action.type) {
-    case 'ON_CHANGE_HISTORY_FILTER':
+    // prettier-ignore
+    case ('ON_CHANGE_HISTORY_FILTER':$PropertyType<ON_CHANGE_HISTORY_FILTER, 'type'>):
       let first = ''
       const p: Period = action.period
       if (p === '1week') {
@@ -51,14 +56,15 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
       return { ...state, historyQueryArguments: newValue }
 
     // Toggle Delete Checkbox
-    case 'CHECK_DELETE_HISTORY':
+    case ('CHECK_DELETE_HISTORY': $PropertyType<CHECK_DELETE_HISTORY, 'type'>):
       return {
         ...state,
         checkedHistoryIdList: [...state.checkedHistoryIdList, action.clockId]
       }
 
     // Toggle Delete Checkbox
-    case 'UNCHECK_DELETE_HISTORY':
+    // prettier-ignore
+    case ('UNCHECK_DELETE_HISTORY': $PropertyType<UNCHECK_DELETE_HISTORY, 'type'>):
       const id = action.clockId
       const freshcheckedHistoryIdList = state.checkedHistoryIdList.filter(
         v => v !== id
@@ -66,7 +72,8 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
       return { ...state, checkedHistoryIdList: freshcheckedHistoryIdList }
 
     // Sent GQL mutation after that Refresh checked id list
-    case 'ON_CLICK_HISTORY_DELETE_BUTTON':
+    // prettier-ignore
+    case ('ON_CLICK_HISTORY_DELETE_BUTTON': $PropertyType<ON_CLICK_HISTORY_DELETE_BUTTON, 'type'>):
       return { ...state, checkedHistoryIdList: [] }
 
     /**
