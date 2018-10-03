@@ -21,7 +21,6 @@ import type {
   EDIT_IN_TIME__FALSE,
   EDIT_OUT_TIME__FALSE
 } from '../../types/action'
-import type { $PropertyType } from '../../../flow-typed/UtilityTypes/typedef'
 
 type StateProps = {|
   EDIT_IN_TIME: $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
