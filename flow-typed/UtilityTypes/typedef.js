@@ -1,1 +1,5 @@
-export type $PropertyType<T, k: string> = typeof T.k
+/**
+ * For Editor Compoletion
+ */
+
+export type $PropertyType<T, k> = any
