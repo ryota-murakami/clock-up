@@ -1,7 +1,6 @@
 {
   "name": "clock-up",
   "homepage": "https://clockup.malloc.tokyo",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.3.0-beta.6",
