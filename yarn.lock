@@ -7846,9 +7846,9 @@ react-test-renderer@^16.5.2:
     react-is "^16.5.2"
     schedule "^0.5.0"
 
-react-testing-library@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-5.1.1.tgz#7cdbad6d546894dadc39f499d65018135b7e61a0"
+react-testing-library@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-5.2.0.tgz#d7af9b0e6d1b653287d8c06cd0eab9e6d5d645ba"
   dependencies:
     dom-testing-library "^3.8.1"
     wait-for-expect "^1.0.0"
