@@ -7,7 +7,6 @@ import { CLOCK_IN_MUTATION } from '../../../graphql/mutation'
 import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import { StyledButton } from './ClockInButton.style'
 import { theme } from '../../../theme'
-import { today } from '../../../functions'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type Props = {
@@ -21,11 +20,7 @@ export class ClockInButton extends Component<Props> {
     const userId = data.user.id
 
     CLOCK_IN_MUTATION({
-      variables: {
-        userId: userId,
-        clockIn: new Date().toISOString(),
-        day: today()
-      },
+      variables: { userId: userId, clockIn: new Date().toISOString() },
       update: (cache, { data: { updateUser } }) => {
         const data = cache.readQuery({ query: CLOCK_BOARD_QUERY })
         data.user = updateUser

@@ -1,21 +1,5 @@
 // @flow
 import type { CurrentTime } from './types/data'
-import type { Day } from './graphql/query'
-
-export function today(): Day {
-  const datetime = new Date()
-
-  const days = []
-  days[0] = 'Sunday'
-  days[1] = 'Monday'
-  days[2] = 'Tuesday'
-  days[3] = 'Wednesday'
-  days[4] = 'Thursday'
-  days[5] = 'Friday'
-  days[6] = 'Saturday'
-
-  return days[datetime.getDay()]
-}
 
 export function parseTime(dateObj: Date = new Date()): CurrentTime {
   const days = []
