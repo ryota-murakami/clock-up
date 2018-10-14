@@ -34,7 +34,7 @@ type StateProps = {|
 
 type Props = {
   ...StateProps,
-  ...HISTORY_BOARD_QUERY_TYPE,
+  data: HISTORY_BOARD_QUERY_TYPE,
   dispatch: Dispatch<ReduxAction>
 }
 
@@ -67,6 +67,11 @@ class History extends Component<Props> {
       history = filtered.map((v, i) => {
         const clockIn = v.clockIn
         const clockOut = v.clockOut
+        if (clockIn === null || clockOut === null) {
+          throw new Error(
+            'LogicException: Invalid Data. History query should not fetch clockIn or ClockOut == null.'
+          )
+        }
         const createdAt = v.createdAt
         const clockId = v.id
         const small = new Date(clockIn)

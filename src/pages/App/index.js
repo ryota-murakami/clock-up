@@ -28,7 +28,7 @@ type StateProps = {|
 |}
 
 type Props = {
-  ...CLOCK_BOARD_QUERY_TYPE,
+  data: CLOCK_BOARD_QUERY_TYPE,
   ...StateProps,
   ...ContextRouter,
   dispatch: Dispatch<EDIT_IN_TIME__FALSE | EDIT_OUT_TIME__FALSE>

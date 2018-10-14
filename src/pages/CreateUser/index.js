@@ -13,7 +13,7 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 
 type Props = {
   ...ContextRouter,
-  ...CLOCK_BOARD_QUERY_TYPE,
+  data: CLOCK_BOARD_QUERY_TYPE,
   CREATE_USER_MUTATION: MutationFunc<*, *>
 }
 

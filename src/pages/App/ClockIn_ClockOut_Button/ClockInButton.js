@@ -2,17 +2,23 @@
 import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { graphql } from 'react-apollo'
-import type { MutationFunc } from 'react-apollo'
+import type { MutationFunc, MutationOpts } from 'react-apollo'
 import { CLOCK_IN_MUTATION } from '../../../graphql/mutation'
 import { CLOCK_BOARD_QUERY } from '../../../graphql/query'
 import { StyledButton } from './ClockInButton.style'
 import { theme } from '../../../theme'
 import { today } from '../../../functions'
-import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
+import type { CLOCK_BOARD_QUERY_TYPE, Day } from '../../../graphql/query'
 
 type Props = {
-  ...CLOCK_BOARD_QUERY_TYPE,
+  data: CLOCK_BOARD_QUERY_TYPE,
   CLOCK_IN_MUTATION: MutationFunc<*, *>
+}
+
+type MutationVariable = {
+  userId: string,
+  clockIn: string,
+  day: Day
 }
 
 export class ClockInButton extends Component<Props> {
@@ -20,18 +26,27 @@ export class ClockInButton extends Component<Props> {
     const { data, CLOCK_IN_MUTATION } = this.props
     const userId = data.user.id
 
-    CLOCK_IN_MUTATION({
+    const opt: MutationOpts<MutationVariable> = {
       variables: {
         userId: userId,
         clockIn: new Date().toISOString(),
         day: today()
       },
-      update: (cache, { data: { updateUser } }) => {
-        const data = cache.readQuery({ query: CLOCK_BOARD_QUERY })
-        data.user = updateUser
-        cache.writeQuery({ query: CLOCK_BOARD_QUERY, data })
+      update: (cache, res) => {
+        if (res.data === undefined) {
+          throw new Error('GQL Error: Mutation could not got respose cacheData')
+        }
+
+        const cacheData = cache.readQuery({ query: CLOCK_BOARD_QUERY })
+        if (cacheData === null) {
+          throw new Error('Apollo Cache Broken')
+        }
+        cacheData.user = res.data.updateUser
+        cache.writeQuery({ query: CLOCK_BOARD_QUERY, data: cacheData })
       }
-    })
+    }
+
+    CLOCK_IN_MUTATION(opt)
   }
 
   render() {

@@ -11,7 +11,7 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../../graphql/query'
 import type { CurrentTime } from '../../../types/data'
 
 type Props = {
-  ...CLOCK_BOARD_QUERY_TYPE,
+  data: CLOCK_BOARD_QUERY_TYPE,
   currentTime: CurrentTime
 }
 
