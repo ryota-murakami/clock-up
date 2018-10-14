@@ -2,6 +2,16 @@
 import gql from 'graphql-tag'
 import type { GraphqlQueryControls } from 'react-apollo'
 
+// GraphQL ENUMS type
+export type Day =
+  | 'Monday'
+  | 'Tuesday'
+  | 'Wednesday'
+  | 'Thursday'
+  | 'Friday'
+  | 'Saturday'
+  | 'Sunday'
+
 export type CLOCK_BOARD_QUERY_TYPE = {|
   data: {
     ...GraphqlQueryControls<>,
