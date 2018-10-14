@@ -9,9 +9,10 @@ export const CREATE_USER_MUTATION = gql`
 `
 
 export const CLOCK_IN_MUTATION = gql`
-  mutation CLOCK_IN_MUTATION($userId: ID!, $clockIn: DateTime) {
-    createClock(userId: $userId, clockIn: $clockIn) {
+  mutation CLOCK_IN_MUTATION($userId: ID!, $clockIn: DateTime, $day: Day!) {
+    createClock(userId: $userId, clockIn: $clockIn, day: $day) {
       id
+      day
       clockIn
       clockOut
     }
@@ -20,6 +21,7 @@ export const CLOCK_IN_MUTATION = gql`
       isDuringClockIn
       clocks(last: 1) {
         id
+        day
         clockIn
         clockOut
       }
