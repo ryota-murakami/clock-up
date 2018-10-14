@@ -1,9 +1,10 @@
+// @flow
 import gql from 'graphql-tag'
 import type { GraphqlQueryControls } from 'react-apollo'
 
 export type CLOCK_BOARD_QUERY_TYPE = {|
   data: {
-    ...GraphqlQueryControls,
+    ...GraphqlQueryControls<>,
     user: ?{
       id: string,
       isDuringClockIn: boolean,
@@ -32,7 +33,7 @@ export const CLOCK_BOARD_QUERY = gql`
 
 export type HISTORY_BOARD_QUERY_TYPE = {|
   data: {
-    ...GraphqlQueryControls,
+    ...GraphqlQueryControls<>,
     user: ?{
       id: string,
       clocks: Array<{
