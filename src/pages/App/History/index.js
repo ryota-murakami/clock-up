@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import { compose, pure } from 'recompose'
 import { connect } from 'react-redux'
 import { graphql } from 'react-apollo'
+import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import { calcTotalTimeWithoutSec, ISOtoYmd } from '../../../functions'
-import { Table, Tr, Td, Tbody, Th } from '../../../components/Table'
 import InTime from './InTime'
 import OutTime from './OutTime'
 import Select from './HistoryFilter'
@@ -14,9 +14,14 @@ import DeleteButton from './DeleteButton'
 import {
   Container,
   ControlArea,
-  Header,
+  DeleteCheckboxTd,
   DeleteCheckboxTh,
-  DeleteCheckboxTd
+  Header,
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Tr
 } from './index.style'
 import type { Dispatch } from 'redux'
 import type { ReduxAction } from '../../../types/action'
@@ -25,7 +30,6 @@ import type {
   MapStateToProps
 } from '../../../types/data'
 import type { ReduxState } from '../../../reducer'
-import type { HISTORY_BOARD_QUERY_TYPE } from '../../../graphql/query'
 
 type StateProps = {|
   historyQueryArguments: HistoryQueryArguments,
