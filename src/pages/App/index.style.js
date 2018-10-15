@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { theme } from '../../theme'
 
 export const Container = styled.main`
   @media (min-width: 768px) {
@@ -25,22 +24,4 @@ export const Container = styled.main`
     grid-template-areas: 'left';
     grid-column-gap: 0;
   }
-`
-
-export const Right = styled.div`
-  grid-area: right;
-  margin: 10px;
-  border-radius: 5px;
-  border: 1px solid ${theme.borderColor};
-
-  @media (max-width: 767px) {
-    display: none;
-  }
-`
-
-export const Left = styled.div`
-  grid-area: left;
-  margin: 10px;
-  border-radius: 5px;
-  border: 1px solid ${theme.borderColor};
 `

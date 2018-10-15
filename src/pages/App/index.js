@@ -7,10 +7,9 @@ import { CLOCK_BOARD_QUERY } from '../../graphql/query'
 import { connect } from 'react-redux'
 import Loading from '../../components/Loading'
 import Header from './Header'
-import Clock from './Clock'
-import History from './History/index'
-import ClockIn_ClockOut_Button from './ClockIn_ClockOut_Button'
-import { Container, Left, Right } from './index.style'
+import Left from './Left'
+import Right from './Right'
+import { Container } from './index.style'
 import type { Dispatch } from 'redux'
 import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
@@ -90,14 +89,8 @@ export class App extends Component<Props, State> {
     return (
       <Container onClick={this.handleOnClick}>
         <Header />
-        <Left>
-          <Clock currentTime={this.state.currentTime} />
-          {/*eslint-disable react/jsx-pascal-case*/}
-          <ClockIn_ClockOut_Button currentTime={this.state.currentTime} />
-        </Left>
-        <Right>
-          <History />
-        </Right>
+        <Left currentTime={this.state.currentTime} />
+        <Right />
       </Container>
     )
   }
