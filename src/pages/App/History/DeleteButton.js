@@ -9,11 +9,6 @@ import { theme } from '../../../theme'
 import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
-import type { ReduxState } from '../../../reducer'
-import type {
-  HistoryQueryArguments,
-  MapStateToProps
-} from '../../../types/data'
 import type { Dispatch } from 'redux'
 import type { ON_CLICK_HISTORY_DELETE_BUTTON } from '../../../types/action'
 
@@ -24,12 +19,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-type StateProps = {|
-  historyQueryArguments: HistoryQueryArguments
-|}
-
 type Props = {
-  ...StateProps,
   dispatch: Dispatch<ON_CLICK_HISTORY_DELETE_BUTTON>,
   checkedHistoryIdList: Array<string>,
   DELETE_CLOCK_MUTATION: MutationFunc<*, *>
@@ -37,12 +27,7 @@ type Props = {
 
 class DeleteButton extends Component<Props> {
   handleClick = (): void => {
-    const {
-      checkedHistoryIdList,
-      DELETE_CLOCK_MUTATION,
-      historyQueryArguments,
-      dispatch
-    } = this.props
+    const { checkedHistoryIdList, DELETE_CLOCK_MUTATION, dispatch } = this.props
     dispatch({ type: 'ON_CLICK_HISTORY_DELETE_BUTTON' })
 
     checkedHistoryIdList.forEach(id => {
@@ -54,11 +39,7 @@ class DeleteButton extends Component<Props> {
          */
         update: (cache, { data: { deleteClock } }) => {
           const data = cache.readQuery({
-            query: HISTORY_BOARD_QUERY,
-            variables: {
-              first: historyQueryArguments.first,
-              orderBy: historyQueryArguments.orderBy
-            }
+            query: HISTORY_BOARD_QUERY
           })
           // $FlowIssue
           const oldClicks = data.user.clocks
@@ -73,10 +54,6 @@ class DeleteButton extends Component<Props> {
 
           cache.writeQuery({
             query: HISTORY_BOARD_QUERY,
-            variables: {
-              first: historyQueryArguments.first,
-              orderBy: historyQueryArguments.orderBy
-            },
             data: newData
           })
           /**
@@ -102,14 +79,8 @@ class DeleteButton extends Component<Props> {
   }
 }
 
-const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
-  return {
-    historyQueryArguments: state.historyQueryArguments
-  }
-}
-
 export default compose(
-  connect(map),
+  connect(),
   withApollo,
   graphql(DELETE_CLOCK_MUTATION, { name: 'DELETE_CLOCK_MUTATION' }),
   pure

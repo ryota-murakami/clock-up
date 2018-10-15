@@ -1,11 +1,7 @@
 // @flow
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { pure, compose } from 'recompose'
 import styled from 'styled-components'
-import type { Period } from '../../../types/data'
-import type { Dispatch } from 'redux'
-import type { ON_CHANGE_HISTORY_FILTER } from '../../../types/action'
 
 const Container = styled.div`
   flex: 1;
@@ -17,25 +13,13 @@ const Container = styled.div`
 // TODO style
 const StyledSelect = styled.select``
 
-type Props = {
-  dispatch: Dispatch<ON_CHANGE_HISTORY_FILTER>
-}
+type Props = {}
 
 class HistoryFilter extends Component<Props> {
-  renewGQL(value: Period) {
-    this.props.dispatch({
-      type: 'ON_CHANGE_HISTORY_FILTER',
-      period: value
-    })
-  }
-
   render() {
     return (
       <Container>
-        <StyledSelect
-          onChange={e => this.renewGQL(e.target.value)}
-          defaultValue={'1week'}
-        >
+        <StyledSelect defaultValue={'1week'}>
           <option value="1week">1week</option>
           <option value="1month">1month</option>
           <option value="all">all</option>
@@ -45,7 +29,4 @@ class HistoryFilter extends Component<Props> {
   }
 }
 
-export default compose(
-  connect(),
-  pure
-)(HistoryFilter)
+export default compose(pure)(HistoryFilter)

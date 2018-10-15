@@ -10,7 +10,6 @@ import type {
   UNCHECK_DELETE_HISTORY
 } from '../../../types/action'
 import type { ReduxState } from '../../../reducer'
-import type { MapStateToProps } from '../../../types/data'
 
 const Checkbox = styled.div`
   width: 16px;
@@ -70,7 +69,7 @@ class DeleteCheckbox extends Component<Props> {
   }
 }
 
-const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
+const map: MapStateToProps = (state: ReduxState): StateProps => {
   return { checkedHistoryIdList: state.checkedHistoryIdList }
 }
 

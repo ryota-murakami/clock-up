@@ -25,14 +25,9 @@ import {
 } from './index.style'
 import type { Dispatch } from 'redux'
 import type { ReduxAction } from '../../../types/action'
-import type {
-  HistoryQueryArguments,
-  MapStateToProps
-} from '../../../types/data'
 import type { ReduxState } from '../../../reducer'
 
 type StateProps = {|
-  historyQueryArguments: HistoryQueryArguments,
   checkedHistoryIdList: Array<string>
 |}
 
@@ -135,24 +130,14 @@ class History extends Component<Props> {
   }
 }
 
-const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
+const map: MapStateToProps = (state: ReduxState): StateProps => {
   return {
-    historyQueryArguments: state.historyQueryArguments,
     checkedHistoryIdList: state.checkedHistoryIdList
   }
 }
 
 export default compose(
   connect(map),
-  graphql(HISTORY_BOARD_QUERY, {
-    options: ({ historyQueryArguments }) => {
-      return {
-        variables: {
-          first: historyQueryArguments.first,
-          orderBy: historyQueryArguments.orderBy
-        }
-      }
-    }
-  }),
+  graphql(HISTORY_BOARD_QUERY),
   pure
 )(History)

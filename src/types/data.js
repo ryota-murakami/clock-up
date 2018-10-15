@@ -1,12 +1,5 @@
 // @flow
 
-/**
- * all of current new Date() related data.
- * use to ReduxState.
- * update every 1 second by setInterval() dispached "SYNC_DATE" action.
- */
-import type { ReduxState } from '../reducer'
-
 export type CurrentTime = {
   dateObject: Date, // typcally use to calculate TotalTime.
   year: string,
@@ -17,14 +10,3 @@ export type CurrentTime = {
   minutes: string,
   seconds: string
 }
-
-export type OrderBy = 'createdAt_DESC' | 'createdAt_ASC'
-
-export type HistoryQueryArguments = {
-  first: number,
-  orderBy: OrderBy
-}
-
-export type Period = '1week' | '1month' | 'all'
-
-export type MapStateToProps<S: Object = {}> = (state: ReduxState) => S

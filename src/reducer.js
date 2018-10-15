@@ -7,24 +7,17 @@ import type {
   EDIT_OUT_TIME__FALSE,
   ON_CLICK_HISTORY_DELETE_BUTTON,
   UNCHECK_DELETE_HISTORY,
-  CHECK_DELETE_HISTORY,
-  ON_CHANGE_HISTORY_FILTER
+  CHECK_DELETE_HISTORY
 } from './types/action'
 import type { Reducer } from 'redux'
-import type { HistoryQueryArguments, Period } from './types/data'
 
 export type ReduxState = {
-  historyQueryArguments: HistoryQueryArguments,
   EDIT_IN_TIME: boolean,
   EDIT_OUT_TIME: boolean,
   checkedHistoryIdList: Array<string>
 }
 
 const initialState: ReduxState = {
-  historyQueryArguments: {
-    first: 7,
-    orderBy: 'createdAt_DESC'
-  },
   EDIT_IN_TIME: false,
   EDIT_OUT_TIME: false,
   checkedHistoryIdList: []
@@ -35,26 +28,6 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
   action
 ) => {
   switch (action.type) {
-    // prettier-ignore
-    case ('ON_CHANGE_HISTORY_FILTER':$PropertyType<ON_CHANGE_HISTORY_FILTER, 'type'>):
-      let first = ''
-      const p: Period = action.period
-      if (p === '1week') {
-        first = 7
-      } else if (p === '1month') {
-        first = 30
-      } else if (p === 'all') {
-        first = 100
-      } else {
-        first = 7
-      }
-      const newValue: HistoryQueryArguments = {
-        first: first,
-        orderBy: 'createdAt_DESC'
-      }
-
-      return { ...state, historyQueryArguments: newValue }
-
     // Toggle Delete Checkbox
     case ('CHECK_DELETE_HISTORY': $PropertyType<CHECK_DELETE_HISTORY, 'type'>):
       return {

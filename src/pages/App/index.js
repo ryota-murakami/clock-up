@@ -15,7 +15,7 @@ import type { CLOCK_BOARD_QUERY_TYPE } from '../../graphql/query'
 import type { ReduxState } from '../../reducer'
 import type { ContextRouter } from 'react-router-dom'
 import { parseTime } from '../../functions'
-import type { CurrentTime, MapStateToProps } from '../../types/data'
+import type { CurrentTime } from '../../types/data'
 import type {
   EDIT_IN_TIME__FALSE,
   EDIT_OUT_TIME__FALSE
@@ -96,7 +96,7 @@ export class App extends Component<Props, State> {
   }
 }
 
-const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
+const map: MapStateToProps = (state: ReduxState): StateProps => {
   return {
     EDIT_IN_TIME: state.EDIT_IN_TIME,
     EDIT_OUT_TIME: state.EDIT_OUT_TIME

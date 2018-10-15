@@ -10,7 +10,6 @@ import type { Dispatch } from 'redux'
 import type { MutationFunc } from 'react-apollo'
 import type { ReduxAction } from '../../../types/action'
 import type { ReduxState } from '../../../reducer'
-import type { MapStateToProps } from '../../../types/data'
 
 type State = {|
   onInput: boolean
@@ -89,7 +88,7 @@ export class InTime extends Component<Props, State> {
   }
 }
 
-const map: MapStateToProps<StateProps> = (state: ReduxState): StateProps => {
+const map: MapStateToProps = (state: ReduxState): StateProps => {
   return { EDIT_IN_TIME: state.EDIT_IN_TIME }
 }
 
