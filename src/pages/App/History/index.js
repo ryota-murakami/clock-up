@@ -26,6 +26,7 @@ import {
 import type { Dispatch } from 'redux'
 import type { ReduxAction } from '../../../types/action'
 import type { ReduxState } from '../../../reducer'
+import type { OperationOption, QueryOpts } from 'react-apollo'
 
 type StateProps = {|
   checkedHistoryIdList: Array<string>
@@ -136,8 +137,17 @@ const map: MapStateToProps = (state: ReduxState): StateProps => {
   }
 }
 
+type TVariable = { first: 100, orderBy: 'createdAt_DESC' }
+
 export default compose(
   connect(map),
-  graphql(HISTORY_BOARD_QUERY),
+  graphql(
+    HISTORY_BOARD_QUERY,
+    ({
+      options: ({
+        variables: { first: 100, orderBy: 'createdAt_DESC' }
+      }: QueryOpts<TVariable>)
+    }: OperationOption<*, *, *, TVariable>)
+  ),
   pure
 )(History)
