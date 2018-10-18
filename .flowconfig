@@ -15,5 +15,6 @@
 [lints]
 
 [options]
+no_flowlib=true
 suppress_comment=.*\\$FlowFixMe
 suppress_comment=.*\\$FlowIssue
