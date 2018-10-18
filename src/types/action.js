@@ -29,12 +29,6 @@ export type EDIT_OUT_TIME__FALSE = {
   type: 'EDIT_OUT_TIME__FALSE'
 }
 
-export type ToggleAction =
-  | EDIT_IN_TIME__TRUE
-  | EDIT_IN_TIME__FALSE
-  | EDIT_OUT_TIME__TRUE
-  | EDIT_OUT_TIME__FALSE
-
 export type CLICK_HISTORY_DELETE_BUTTON = {
   type: 'CLICK_HISTORY_DELETE_BUTTON'
 }
