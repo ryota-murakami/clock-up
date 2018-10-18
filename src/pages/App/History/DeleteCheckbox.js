@@ -48,12 +48,12 @@ class DeleteCheckbox extends Component<Props> {
 
     if (this.isChecked(clockId)) {
       dispatch({
-        type: 'UNCHECK_DELETE_HISTORY',
+        type: ('UNCHECK_DELETE_HISTORY': $PropertyType<UNCHECK_DELETE_HISTORY, 'type'>), // prettier-ignore
         clockId: clockId
       })
     } else {
       dispatch({
-        type: 'CHECK_DELETE_HISTORY',
+        type: ('CHECK_DELETE_HISTORY': $PropertyType<CHECK_DELETE_HISTORY, 'type'>), // prettier-ignore
         clockId: clockId
       })
     }
