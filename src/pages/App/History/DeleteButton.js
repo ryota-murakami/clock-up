@@ -28,7 +28,7 @@ type Props = {
 class DeleteButton extends Component<Props> {
   handleClick = (): void => {
     const { checkedHistoryIdList, DELETE_CLOCK_MUTATION, dispatch } = this.props
-    dispatch({ type: ('CLICK_HISTORY_DELETE_BUTTON': $PropertyType<CLICK_HISTORY_DELETE_BUTTON, 'type'>) }) // prettier-ignore
+    dispatch({ type: 'CLICK_HISTORY_DELETE_BUTTON' })
 
     checkedHistoryIdList.forEach(id => {
       DELETE_CLOCK_MUTATION({
