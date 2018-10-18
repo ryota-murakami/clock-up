@@ -38,11 +38,8 @@ type Props = {
 }
 
 class DeleteCheckbox extends Component<Props> {
-  isChecked = (clockId: string): boolean => {
-    const { checkedHistoryIdList } = this.props
-
-    return checkedHistoryIdList.includes(clockId)
-  }
+  isChecked = (clockId: string): boolean =>
+    this.props.checkedHistoryIdList.includes(clockId)
 
   handleClick = () => {
     const { dispatch, clockId } = this.props
