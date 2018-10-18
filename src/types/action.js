@@ -34,6 +34,10 @@ export type UNCHECK_DELETE_HISTORY = {
   clockId: string
 }
 
+export type SHOW_DELETE_HISTORY_DIALOG = {
+  type: 'SHOW_DELETE_HISTORY_DIALOG'
+}
+
 export type ReduxAction =
   | EDIT_IN_TIME__TRUE
   | EDIT_IN_TIME__FALSE
@@ -42,3 +46,4 @@ export type ReduxAction =
   | CLICK_HISTORY_DELETE_BUTTON
   | EDIT_OUT_TIME__TRUE
   | EDIT_OUT_TIME__FALSE
+  | SHOW_DELETE_HISTORY_DIALOG
