@@ -1,13 +1,4 @@
 // @flow
-export type CHECK_DELETE_HISTORY = {
-  type: 'CHECK_DELETE_HISTORY',
-  clockId: string
-}
-
-export type UNCHECK_DELETE_HISTORY = {
-  type: 'UNCHECK_DELETE_HISTORY',
-  clockId: string
-}
 
 /**
  * Is Editting InTime?
@@ -31,6 +22,16 @@ export type EDIT_OUT_TIME__FALSE = {
 
 export type CLICK_HISTORY_DELETE_BUTTON = {
   type: 'CLICK_HISTORY_DELETE_BUTTON'
+}
+
+export type CHECK_DELETE_HISTORY = {
+  type: 'CHECK_DELETE_HISTORY',
+  clockId: string
+}
+
+export type UNCHECK_DELETE_HISTORY = {
+  type: 'UNCHECK_DELETE_HISTORY',
+  clockId: string
 }
 
 export type ReduxAction =
