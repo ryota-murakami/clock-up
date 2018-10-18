@@ -5,7 +5,7 @@ import type {
   EDIT_IN_TIME__FALSE,
   EDIT_OUT_TIME__TRUE,
   EDIT_OUT_TIME__FALSE,
-  ON_CLICK_HISTORY_DELETE_BUTTON,
+  CLICK_HISTORY_DELETE_BUTTON,
   UNCHECK_DELETE_HISTORY,
   CHECK_DELETE_HISTORY
 } from './types/action'
@@ -46,7 +46,7 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
 
     // Sent GQL mutation after that Refresh checked id list
     // prettier-ignore
-    case ('ON_CLICK_HISTORY_DELETE_BUTTON': $PropertyType<ON_CLICK_HISTORY_DELETE_BUTTON, 'type'>):
+    case ('CLICK_HISTORY_DELETE_BUTTON': $PropertyType<CLICK_HISTORY_DELETE_BUTTON, 'type'>):
       return { ...state, checkedHistoryIdList: [] }
 
     /**

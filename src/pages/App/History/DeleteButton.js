@@ -10,7 +10,7 @@ import { DELETE_CLOCK_MUTATION } from '../../../graphql/mutation'
 import type { MutationFunc } from 'react-apollo'
 import { HISTORY_BOARD_QUERY } from '../../../graphql/query'
 import type { Dispatch } from 'redux'
-import type { ON_CLICK_HISTORY_DELETE_BUTTON } from '../../../types/action'
+import type { CLICK_HISTORY_DELETE_BUTTON } from '../../../types/action'
 
 const Container = styled.div`
   flex: 1;
@@ -20,7 +20,7 @@ const Container = styled.div`
 `
 
 type Props = {
-  dispatch: Dispatch<ON_CLICK_HISTORY_DELETE_BUTTON>,
+  dispatch: Dispatch<CLICK_HISTORY_DELETE_BUTTON>,
   checkedHistoryIdList: Array<string>,
   DELETE_CLOCK_MUTATION: MutationFunc<*, *>
 }
@@ -28,7 +28,7 @@ type Props = {
 class DeleteButton extends Component<Props> {
   handleClick = (): void => {
     const { checkedHistoryIdList, DELETE_CLOCK_MUTATION, dispatch } = this.props
-    dispatch({ type: 'ON_CLICK_HISTORY_DELETE_BUTTON' })
+    dispatch({ type: 'CLICK_HISTORY_DELETE_BUTTON' })
 
     checkedHistoryIdList.forEach(id => {
       DELETE_CLOCK_MUTATION({
