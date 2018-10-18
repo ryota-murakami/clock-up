@@ -19,6 +19,7 @@ export const Th = styled.th`
   ${tablePadding};
 `
 export const Td = styled.td`
+  white-space: nowrap;
   ${tableBorder};
   ${tablePadding};
 `
