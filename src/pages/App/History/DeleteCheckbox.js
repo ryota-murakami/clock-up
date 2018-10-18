@@ -14,6 +14,7 @@ import type { ReduxState } from '../../../reducer'
 const Checkbox = styled.div`
   width: 16px;
   height: 16px;
+  cursor: pointer;
   border-radius: 100%;
   border-style: solid;
   border-width: 1px;
