@@ -1,14 +1,5 @@
 // @flow
-import type {
-  ReduxAction,
-  EDIT_IN_TIME__TRUE,
-  EDIT_IN_TIME__FALSE,
-  EDIT_OUT_TIME__TRUE,
-  EDIT_OUT_TIME__FALSE,
-  CLICK_HISTORY_DELETE_BUTTON,
-  UNCHECK_DELETE_HISTORY,
-  CHECK_DELETE_HISTORY
-} from './types/action'
+import type { ReduxAction } from './types/action'
 import type { Reducer } from 'redux'
 
 export type ReduxState = {
@@ -29,15 +20,14 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
 ) => {
   switch (action.type) {
     // Toggle Delete Checkbox
-    case ('CHECK_DELETE_HISTORY': $PropertyType<CHECK_DELETE_HISTORY, 'type'>):
+    case 'CLICK_HISTORY_DELETE_BUTTON':
       return {
         ...state,
         checkedHistoryIdList: [...state.checkedHistoryIdList, action.clockId]
       }
 
     // Toggle Delete Checkbox
-    // prettier-ignore
-    case ('UNCHECK_DELETE_HISTORY': $PropertyType<UNCHECK_DELETE_HISTORY, 'type'>):
+    case 'UNCLICK_HISTORY_DELETE_BUTTON':
       const id = action.clockId
       const freshcheckedHistoryIdList = state.checkedHistoryIdList.filter(
         v => v !== id
@@ -45,26 +35,25 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
       return { ...state, checkedHistoryIdList: freshcheckedHistoryIdList }
 
     // Sent GQL mutation after that Refresh checked id list
-    // prettier-ignore
-    case ('CLICK_HISTORY_DELETE_BUTTON': $PropertyType<CLICK_HISTORY_DELETE_BUTTON, 'type'>):
+    case 'CLICK_HISTORY_DELETE_BUTTON':
       return { ...state, checkedHistoryIdList: [] }
 
     /**
      * Is Editting InTime?
      */
-    case ('EDIT_IN_TIME__TRUE': $PropertyType<EDIT_IN_TIME__TRUE, 'type'>):
+    case 'EDIT_IN_TIME__TRUE':
       return { ...state, EDIT_IN_TIME: true }
 
-    case ('EDIT_IN_TIME__FALSE': $PropertyType<EDIT_IN_TIME__FALSE, 'type'>):
+    case 'EDIT_IN_TIME__FALSE':
       return { ...state, EDIT_IN_TIME: false }
 
     /**
      * Is Editting OutTime?
      */
-    case ('EDIT_OUT_TIME__TRUE': $PropertyType<EDIT_OUT_TIME__TRUE, 'type'>):
+    case 'EDIT_OUT_TIME__TRUE':
       return { ...state, EDIT_OUT_TIME: true }
 
-    case ('EDIT_OUT_TIME__FALSE': $PropertyType<EDIT_OUT_TIME__FALSE, 'type'>):
+    case 'EDIT_OUT_TIME__FALSE':
       return { ...state, EDIT_OUT_TIME: false }
 
     /**
