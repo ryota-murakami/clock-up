@@ -22,8 +22,8 @@ import type {
 } from '../../types/action'
 
 type StateProps = {|
-  EDIT_IN_TIME: $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
-  EDIT_OUT_TIME: $PropertyType<ReduxState, 'EDIT_OUT_TIME'>
+  EDIT_IN_TIME: boolean & $PropertyType<ReduxState, 'EDIT_IN_TIME'>,
+  EDIT_OUT_TIME: boolean & $PropertyType<ReduxState, 'EDIT_OUT_TIME'>
 |}
 
 type Props = {
@@ -64,13 +64,11 @@ export class App extends Component<Props, State> {
     if (EDIT_IN_TIME && !EDIT_OUT_TIME) {
       if (e.currentTarget.className.includes('in-time-input')) return
 
-      // prettier-ignore
-      dispatch({ type: ('EDIT_IN_TIME__FALSE': $PropertyType<EDIT_IN_TIME__FALSE, 'type'>)})
+      dispatch({ type: 'EDIT_IN_TIME__FALSE' })
     } else if (EDIT_OUT_TIME && !EDIT_IN_TIME) {
       if (e.currentTarget.className.includes('out-time-input')) return
 
-      // prettier-ignore
-      dispatch({ type: ('EDIT_OUT_TIME__FALSE': $PropertyType<EDIT_OUT_TIME__FALSE, 'type'>)})
+      dispatch({ type: 'EDIT_OUT_TIME__FALSE' })
     } else {
       throw new Error('Logic Exception: EDIT TIME State Manage missing.')
     }
