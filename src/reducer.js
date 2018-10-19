@@ -22,7 +22,7 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
 ) => {
   switch (action.type) {
     /**
-     * Handle history delete UI
+     * Handle HISTORY delete UI
      */
     case 'CHECK_DELETE_HISTORY':
       return {
@@ -41,7 +41,6 @@ const reducer: Reducer<ReduxState, ReduxAction> = (
     case 'SHOW_DELETE_HISTORY_DIALOG':
       return { ...state, DELETE_HISTORY_DIALOG: true }
 
-    // Sent GQL mutation after that Refresh checked id list
     case 'CLICK_HISTORY_DELETE_BUTTON':
       return { ...state, checkedHistoryIdList: [] }
 
