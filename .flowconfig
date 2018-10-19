@@ -18,3 +18,4 @@
 no_flowlib=true
 suppress_comment=.*\\$FlowFixMe
 suppress_comment=.*\\$FlowIssue
+suppress_comment=.*\\$FlowIgnore
