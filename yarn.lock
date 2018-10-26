@@ -1510,25 +1510,25 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-auth0-js@^9.8.0:
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-9.8.0.tgz#512a79d27b48ab7535130f67b9cd797eea40468e"
-  integrity sha512-rQtsnwR+J3vitiPjy14KFIIJc/jBq7CAwA1MHghEHeoQRT7Gw1JW9/E4dFZCiSYwz/Y94bGg6v6k9XirozxfCQ==
+auth0-js@^9.8.1:
+  version "9.8.1"
+  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-9.8.1.tgz#4968b60958a75af1478a2f5a93b8d03f66a026e4"
+  integrity sha512-8mAFlj+81pwF+zVjZlboU8bWCTCgie96N88s58v9cXL8o2pynw6UJAzkS96IEkqHw3kOnMKoKu60y8TgLsKp8g==
   dependencies:
     base64-js "^1.2.0"
     idtoken-verifier "^1.2.0"
     js-cookie "^2.2.0"
     qs "^6.4.0"
     superagent "^3.8.2"
-    url-join "^1.1.0"
+    url-join "^4.0.0"
     winchan "^0.2.1"
 
-auth0-lock@^11.10.0:
-  version "11.10.0"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.10.0.tgz#d3bfc780af9a32e6194274d772152e14f5f5d8a5"
-  integrity sha512-Do8UPbs9tgLEUBXID5IlbQaOEU2T0K9GaYxdlsMdD1Kv6PWs5/HygxH83sWJ+y5Kgy1VUz4qTgJWOmF+gN9h2g==
+auth0-lock@^11.11.0:
+  version "11.11.0"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.11.0.tgz#48a1a609ef395fd0fcf317843fdc117ef0bd2001"
+  integrity sha512-N5OXKe0u55gZeUVnOW8NSVXoZ5TP73aWsmVm1hp+ZIO+UWmbJ8DWammqgk4vsR8gewL2Qi6f4T5/jSGO8o33EA==
   dependencies:
-    auth0-js "^9.8.0"
+    auth0-js "^9.8.1"
     auth0-password-policies "^1.0.1"
     blueimp-md5 "2.3.1"
     fbjs "^0.3.1"
@@ -10027,6 +10027,11 @@ url-join@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-1.1.0.tgz#741c6c2f4596c4830d6718460920d0c92202dc78"
   integrity sha1-dBxsL0WWxIMNZxhGCSDQySIC3Hg=
+
+url-join@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
+  integrity sha1-TTNA6AfTdzvamZH4MFrNzCpmXSo=
 
 url-loader@1.1.1:
   version "1.1.1"
