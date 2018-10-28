@@ -57,7 +57,7 @@
     "prettier": "^1.14.3",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^1.6.2",
-    "react-test-renderer": "^16.5.2",
+    "react-test-renderer": "^16.6.0",
     "react-testing-library": "^5.2.3"
   },
   "browserslist": {
