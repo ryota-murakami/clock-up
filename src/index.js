@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
-import Loadable from 'react-loadable'
 import Auth0Lock from 'auth0-lock'
 import ApolloClient from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -17,22 +16,15 @@ import { AUTH0_ID_TOKEN } from './constants'
 import ErrorBoudary from './pages/Error/ErrorBoudary'
 import Loading from './components/Loading'
 
-// react-loadable
-const App = Loadable({
-  loader: () => import('./pages/App' /* webpackChunkName: "App" */),
-  loading: ({ isLoading }) => isLoading && <Loading />
-})
+const App = lazy(() => import('./pages/App' /* webpackChunkName: "App" */))
 
-const CreateUser = Loadable({
-  loader: () =>
-    import('./pages/CreateUser' /* webpackChunkName: "CreateUser" */),
-  loading: ({ isLoading }) => isLoading && <Loading />
-})
+const CreateUser = lazy(() =>
+  import('./pages/CreateUser' /* webpackChunkName: "Createuser" */)
+)
 
-const Login = Loadable({
-  loader: () => import('./pages/Login' /* webpackChunkName: "Login" */),
-  loading: ({ isLoading }) => isLoading && <Loading />
-})
+const Login = lazy(() =>
+  import('./pages/Login' /* webpackChunkName: "Login" */)
+)
 
 // redux
 const store = createStore(
@@ -80,11 +72,13 @@ ReactDOM.render(
     <Provider store={store}>
       <ApolloProvider client={client}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={App} />
-            <Route path="/login" component={LoginComponent} />
-            <Route path="/createuser" component={CreateUser} />
-          </Switch>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path="/" component={App} />
+              <Route path="/login" component={LoginComponent} />
+              <Route path="/createuser" component={CreateUser} />
+            </Switch>
+          </Suspense>
         </BrowserRouter>
       </ApolloProvider>
     </Provider>
