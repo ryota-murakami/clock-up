@@ -1,8 +1,10 @@
-// flow-typed signature: b00823afcd31d0a5c10e11f475f9ec7d
-// flow-typed version: adbbf6f8b2/react-apollo_v2.x.x/flow_>=v0.58.x
+// flow-typed signature: 906b2a12a0a89ac58e467265dbf0d0a0
+// flow-typed version: a0c7c0b50b/react-apollo_v2.x.x/flow_>=v0.58.x
 
 declare module "react-apollo" {
   import type { ComponentType, Element, Node } from 'react';
+
+  declare type MakeOptional = <V>(V) => ?V;
   /**
    * Copied types from Apollo Client libdef
    * Please update apollo-client libdef as well if updating these types
@@ -782,7 +784,8 @@ declare module "react-apollo" {
     fetchPolicy?: FetchPolicy,
     pollInterval?: number,
     skip?: boolean,
-    errorPolicy?: ErrorPolicy
+    errorPolicy?: ErrorPolicy,
+    context?: { [key: string]: any }
   |};
 
   declare export interface GraphqlQueryControls<
@@ -906,7 +909,7 @@ declare module "react-apollo" {
     TData = any,
     TVariables = OperationVariables
   > = {
-    data: TData | {||} | void,
+    data: $ObjMap<TData, MakeOptional> | void,
     loading: boolean,
     error?: ApolloError,
     variables: TVariables,
@@ -1019,4 +1022,6 @@ declare module "react-apollo" {
     onError?: (error: ApolloError) => mixed,
     context?: { [string]: any }
   }> {}
+
+  declare export var compose: $Compose;
 }
