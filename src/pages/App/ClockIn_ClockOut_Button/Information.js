@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, Fragment } from 'react'
-import { compose, pure } from 'recompose'
+import { pure } from 'recompose'
 import { calcTotalTime } from '../../../functions'
 import { Container, Text, Time } from './Information.style'
 import type { CurrentTime } from '../../../types/data'
@@ -55,4 +55,4 @@ export class Information extends Component<Props> {
   }
 }
 
-export default compose(pure)(Information)
+export default pure<*>(Information)

@@ -38,6 +38,6 @@ export class ClockIn_ClockOut_Button extends Component<Props> {
 }
 
 export default compose(
-  graphql(CLOCK_BOARD_QUERY),
+  graphql<_, Object, _, _>(CLOCK_BOARD_QUERY),
   pure
 )(ClockIn_ClockOut_Button)

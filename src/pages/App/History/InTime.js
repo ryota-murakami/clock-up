@@ -93,7 +93,7 @@ const map: MapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export default compose(
-  graphql(EDIT_CLOCK_IN_MUTATON, {
+  graphql<_, Object, _, _>(EDIT_CLOCK_IN_MUTATON, {
     name: 'EDIT_CLOCK_IN_MUTATON'
   }),
   connect(map),

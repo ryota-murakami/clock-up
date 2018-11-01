@@ -30,4 +30,4 @@ const Left = (props: Props) => {
   )
 }
 
-export default pure(Left)
+export default pure<*>(Left)

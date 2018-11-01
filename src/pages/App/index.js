@@ -102,7 +102,7 @@ const map: MapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export default compose(
-  connect(map),
+  connect<_, _, ReduxState, _, StateProps, _, _>(map),
   graphql(CLOCK_BOARD_QUERY),
   withRouter,
   pure

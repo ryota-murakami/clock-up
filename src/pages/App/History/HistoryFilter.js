@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { pure, compose } from 'recompose'
+import { pure } from 'recompose'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -29,4 +29,4 @@ class HistoryFilter extends Component<Props> {
   }
 }
 
-export default compose(pure)(HistoryFilter)
+export default pure<*>(HistoryFilter)

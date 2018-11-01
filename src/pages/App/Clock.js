@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { compose, pure } from 'recompose'
+import { pure } from 'recompose'
 import { Container, Day, Time } from './Clock.style'
 import type { CurrentTime } from '../../types/data'
 
@@ -40,4 +40,4 @@ export class Clock extends Component<Props> {
   }
 }
 
-export default compose(pure)(Clock)
+export default pure<*>(Clock)

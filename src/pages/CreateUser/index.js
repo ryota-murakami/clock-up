@@ -65,7 +65,9 @@ class CreateUser extends React.Component<Props> {
 }
 
 export default compose(
-  graphql(CREATE_USER_MUTATION, { name: 'CREATE_USER_MUTATION' }),
+  graphql<_, Object, _, _>(CREATE_USER_MUTATION, {
+    name: 'CREATE_USER_MUTATION'
+  }),
   graphql(CLOCK_BOARD_QUERY, {
     // $FlowIssue
     options: { fetchPolicy: 'network-only', notifyOnNetworkStatusChange: true }

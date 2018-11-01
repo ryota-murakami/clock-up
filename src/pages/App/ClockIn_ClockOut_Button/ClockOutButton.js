@@ -46,7 +46,7 @@ export class ClockOutButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(CLOCK_BOARD_QUERY),
+  graphql<_, Object, _, _>(CLOCK_BOARD_QUERY),
   graphql(CLOCK_OUT_MUTATION, {
     name: 'CLOCK_OUT_MUTATION'
   }),

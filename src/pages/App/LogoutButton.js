@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import { compose, pure } from 'recompose'
+import { pure } from 'recompose'
 import { AUTH0_ID_TOKEN } from '../../constants'
 import { Button } from '../../components/Button'
 import { theme } from '../../theme'
@@ -22,4 +22,4 @@ export class LogoutButton extends Component<Props> {
   }
 }
 
-export default compose(pure)(LogoutButton)
+export default pure<*>(LogoutButton)

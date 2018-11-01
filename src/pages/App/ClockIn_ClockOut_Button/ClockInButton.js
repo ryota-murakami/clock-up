@@ -62,7 +62,7 @@ export class ClockInButton extends Component<Props> {
 }
 
 export default compose(
-  graphql(CLOCK_BOARD_QUERY),
+  graphql<_, Object, _, _>(CLOCK_BOARD_QUERY),
   graphql(CLOCK_IN_MUTATION, {
     name: 'CLOCK_IN_MUTATION'
   }),

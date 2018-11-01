@@ -72,6 +72,6 @@ const map: MapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export default compose(
-  connect(map),
+  connect<_, _, *, _, *, _, _>(map),
   pure
 )(DeleteCheckbox)

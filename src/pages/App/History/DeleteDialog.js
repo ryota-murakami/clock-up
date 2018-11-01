@@ -68,7 +68,7 @@ class DeleteDialog extends Component<Props> {
 
 export default compose(
   connect(),
-  withApollo,
+  c => withApollo<*>(c),
   graphql(DELETE_CLOCK_MUTATION, { name: 'DELETE_CLOCK_MUTATION' }),
   pure
 )(DeleteDialog)

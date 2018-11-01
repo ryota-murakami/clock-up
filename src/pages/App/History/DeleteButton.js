@@ -41,5 +41,5 @@ class DeleteButton extends Component<Props> {
 
 export default compose(
   connect(),
-  pure
+  c => pure<*>(c)
 )(DeleteButton)

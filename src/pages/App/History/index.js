@@ -140,7 +140,7 @@ const map: MapStateToProps = (state: ReduxState): StateProps => {
 type TVariable = { first: 100, orderBy: 'createdAt_DESC' }
 
 export default compose(
-  connect(map),
+  connect<_, _, *, _, *, _, _>(map),
   graphql(
     HISTORY_BOARD_QUERY,
     ({

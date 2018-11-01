@@ -22,4 +22,4 @@ const Right = () => (
   </Container>
 )
 
-export default pure(Right)
+export default pure<*>(Right)

@@ -25,4 +25,4 @@ const Header = () => (
   </StyledHeader>
 )
 
-export default pure(Header)
+export default pure<*>(Header)
