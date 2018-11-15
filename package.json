@@ -10,7 +10,7 @@
     "graphql": "^14.0.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.6.3",
-    "react-apollo": "^2.2.4",
+    "react-apollo": "^2.3.1",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-router": "^4.3.1",
