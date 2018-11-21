@@ -1568,10 +1568,10 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-auth0-js@^9.8.1:
-  version "9.8.1"
-  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-9.8.1.tgz#4968b60958a75af1478a2f5a93b8d03f66a026e4"
-  integrity sha512-8mAFlj+81pwF+zVjZlboU8bWCTCgie96N88s58v9cXL8o2pynw6UJAzkS96IEkqHw3kOnMKoKu60y8TgLsKp8g==
+auth0-js@^9.8.2:
+  version "9.8.2"
+  resolved "https://registry.yarnpkg.com/auth0-js/-/auth0-js-9.8.2.tgz#0c3b4d9c95d828af70182334e9793948e10e356a"
+  integrity sha512-fwUkIABBA0e1B6hfkePtjOFlhXzvOUc/ZFx3NE1X9Ij3VZeqtJK7QU/Pc6tar+NkOpgZbRUXkxEG5qPGiwixWQ==
   dependencies:
     base64-js "^1.2.0"
     idtoken-verifier "^1.2.0"
@@ -1581,13 +1581,13 @@ auth0-js@^9.8.1:
     url-join "^4.0.0"
     winchan "^0.2.1"
 
-auth0-lock@^11.11.0:
-  version "11.11.0"
-  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.11.0.tgz#48a1a609ef395fd0fcf317843fdc117ef0bd2001"
-  integrity sha512-N5OXKe0u55gZeUVnOW8NSVXoZ5TP73aWsmVm1hp+ZIO+UWmbJ8DWammqgk4vsR8gewL2Qi6f4T5/jSGO8o33EA==
+auth0-lock@^11.12.0:
+  version "11.12.0"
+  resolved "https://registry.yarnpkg.com/auth0-lock/-/auth0-lock-11.12.0.tgz#45a5195f1f69d4613599d8ea356af7075fe3789b"
+  integrity sha512-9xy3mESkFsj+svj1bl4ov+dZnnTPUqDCvFNcBUoLXuDyZq2pSFnzwZQ7CZ/fdi5ftGYN/I8V1mCOPnKdSe7ldw==
   dependencies:
-    auth0-js "^9.8.1"
-    auth0-password-policies "^1.0.1"
+    auth0-js "^9.8.2"
+    auth0-password-policies "^1.0.2"
     blueimp-md5 "2.3.1"
     fbjs "^0.3.1"
     immutable "^3.7.3"
@@ -1600,10 +1600,10 @@ auth0-lock@^11.11.0:
     trim "0.0.1"
     url-join "^1.1.0"
 
-auth0-password-policies@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/auth0-password-policies/-/auth0-password-policies-1.0.1.tgz#d00420b9bd5ac81d37790b1f5c83e5b8a47e9d12"
-  integrity sha512-R1Kx8uo/Bl8Kp+kbtYugnvLVd4EmL6my1ZyP7FFXah6FYM8DumZh3Ks7aVM2/p95s/Z3La0uAVvZy0bzXf/KrQ==
+auth0-password-policies@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/auth0-password-policies/-/auth0-password-policies-1.0.2.tgz#b5ba7454254f0dc51067b37c674bc09b0f96ba30"
+  integrity sha512-ZshousKt+Wfv/iIBS3oQfOsH8NBF9IbL15qd2Qur8YfiQrRjrAT0T7VaesnrytYEHEXkUbHcdxWEAlyr16w20A==
   dependencies:
     password-sheriff "^1.1.0"
 
