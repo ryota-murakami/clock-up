@@ -52,7 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "flow-bin": "^0.87.0",
+    "flow-bin": "^0.88.0",
     "prettier": "^1.15.3",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^1.6.2",
