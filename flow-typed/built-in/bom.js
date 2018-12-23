@@ -523,7 +523,7 @@ declare class SharedWorker extends EventTarget {
 declare function importScripts(...urls: Array<string>): void;
 
 declare class WorkerGlobalScope extends EventTarget {
-    self: WorkerGlobalScope;
+    self: this;
     location: WorkerLocation;
     navigator: WorkerNavigator;
     close(): void;
@@ -537,7 +537,7 @@ declare class WorkerGlobalScope extends EventTarget {
 }
 
 declare class DedicatedWorkerGlobalScope extends WorkerGlobalScope {
-    onmessage(): (ev: MessageEvent) => any;
+    onmessage: (ev: MessageEvent) => any;
     postMessage(message: any, transfer?: Iterable<Object>): void;
 }
 
@@ -677,9 +677,9 @@ declare class PositionError {
 }
 
 type PositionOptions = {
-    enableHighAccuracy: boolean;
-    timeout: number;
-    maximumAge: number;
+    enableHighAccuracy?: boolean;
+    timeout?: number;
+    maximumAge?: number;
 }
 
 declare class AudioContext {
@@ -983,6 +983,7 @@ type RequestOptions = {
     redirect?: RedirectType;
     referrer?: string;
     referrerPolicy?: ReferrerPolicyType;
+    signal?: ?AbortSignal;
     window?: any;
 }
 
@@ -1042,6 +1043,17 @@ declare class Request {
     formData(): Promise<FormData>;
     json(): Promise<any>;
     text(): Promise<string>;
+}
+
+declare class AbortController {
+    constructor(): void;
+    +signal: AbortSignal;
+    abort(): void;
+}
+
+declare class AbortSignal extends EventTarget {
+    +aborted: boolean;
+    onabort: (event: AbortProgressEventTypes) => mixed;
 }
 
 declare function fetch(input: RequestInfo, init?: RequestOptions): Promise<Response>;

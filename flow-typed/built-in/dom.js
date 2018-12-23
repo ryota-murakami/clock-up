@@ -92,6 +92,10 @@ declare class DataTransferItem {
 
 /* DOM */
 
+declare type DOMStringMap = {
+  [key:string]: string;
+}
+
 declare class DOMError {
   name: string;
 }
@@ -130,6 +134,8 @@ type TouchEventHandler = (event: TouchEvent) => mixed
 type TouchEventListener = {handleEvent: TouchEventHandler} | TouchEventHandler
 type WheelEventHandler = (event: WheelEvent) => mixed
 type WheelEventListener = {handleEvent: WheelEventHandler} | WheelEventHandler
+type AbortProgressEventHandler = (event: ProgressEvent) => mixed
+type AbortProgressEventListener = {handleEvent: AbortProgressEventHandler} | AbortProgressEventHandler
 type ProgressEventHandler = (event: ProgressEvent) => mixed
 type ProgressEventListener = {handleEvent: ProgressEventHandler} | ProgressEventHandler
 type DragEventHandler = (event: DragEvent) => mixed
@@ -146,6 +152,7 @@ type FocusEventTypes = 'blur' | 'focus' | 'focusin' | 'focusout';
 type KeyboardEventTypes = 'keydown' | 'keyup' | 'keypress';
 type TouchEventTypes = 'touchstart' | 'touchmove' | 'touchend' | 'touchcancel';
 type WheelEventTypes = 'wheel';
+type AbortProgressEventTypes = 'abort';
 type ProgressEventTypes = 'abort' | 'error' | 'load' | 'loadend' | 'loadstart' | 'progress' | 'timeout';
 type DragEventTypes = 'drag' | 'dragend' | 'dragenter' | 'dragexit' | 'dragleave' | 'dragover' | 'dragstart' | 'drop';
 type PointerEventTypes = 'pointerover' | 'pointerenter' | 'pointerdown' | 'pointermove' | 'pointerup' | 'pointercancel' | 'pointerout' | 'pointerleave' | 'gotpointercapture' | 'lostpointercapture';
@@ -164,6 +171,7 @@ declare class EventTarget {
   addEventListener(type: KeyboardEventTypes, listener: KeyboardEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   addEventListener(type: TouchEventTypes, listener: TouchEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   addEventListener(type: WheelEventTypes, listener: WheelEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+  addEventListener(type: AbortProgressEventTypes, listener: AbortProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   addEventListener(type: ProgressEventTypes, listener: ProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   addEventListener(type: DragEventTypes, listener: DragEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   addEventListener(type: PointerEventTypes, listener: PointerEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
@@ -176,6 +184,7 @@ declare class EventTarget {
   removeEventListener(type: KeyboardEventTypes, listener: KeyboardEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   removeEventListener(type: TouchEventTypes, listener: TouchEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   removeEventListener(type: WheelEventTypes, listener: WheelEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
+  removeEventListener(type: AbortProgressEventTypes, listener: AbortProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   removeEventListener(type: ProgressEventTypes, listener: ProgressEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   removeEventListener(type: DragEventTypes, listener: DragEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
   removeEventListener(type: PointerEventTypes, listener: PointerEventListener, optionsOrUseCapture?: EventListenerOptionsOrUseCapture): void;
@@ -188,6 +197,7 @@ declare class EventTarget {
   attachEvent?: (type: KeyboardEventTypes, listener: KeyboardEventListener) => void;
   attachEvent?: (type: TouchEventTypes, listener: TouchEventListener) => void;
   attachEvent?: (type: WheelEventTypes, listener: WheelEventListener) => void;
+  attachEvent?: (type: AbortProgressEventTypes, listener: AbortProgressEventListener) => void;
   attachEvent?: (type: ProgressEventTypes, listener: ProgressEventListener) => void;
   attachEvent?: (type: DragEventTypes, listener: DragEventListener) => void;
   attachEvent?: (type: PointerEventTypes, listener: PointerEventListener) => void;
@@ -200,6 +210,7 @@ declare class EventTarget {
   detachEvent?: (type: KeyboardEventTypes, listener: KeyboardEventListener) => void;
   detachEvent?: (type: TouchEventTypes, listener: TouchEventListener) => void;
   detachEvent?: (type: WheelEventTypes, listener: WheelEventListener) => void;
+  detachEvent?: (type: AbortProgressEventTypes, listener: AbortProgressEventListener) => void;
   detachEvent?: (type: ProgressEventTypes, listener: ProgressEventListener) => void;
   detachEvent?: (type: DragEventTypes, listener: DragEventListener) => void;
   detachEvent?: (type: PointerEventTypes, listener: PointerEventListener) => void;
@@ -485,6 +496,7 @@ declare class Node extends EventTarget {
   baseURI: ?string;
   childNodes: NodeList<Node>;
   firstChild: ?Node;
+  +isConnected: boolean;
   lastChild: ?Node;
   nextSibling: ?Node;
   nodeName: string;
@@ -500,6 +512,7 @@ declare class Node extends EventTarget {
   cloneNode(deep?: boolean): this;
   compareDocumentPosition(other: Node): number;
   contains(other: ?Node): boolean;
+  getRootNode(options?: {composed: boolean}): Node;
   hasChildNodes(): boolean;
   insertBefore<T: Node>(newChild: T, refChild?: ?Node): T;
   isDefaultNamespace(namespaceURI: string): boolean;
@@ -861,7 +874,7 @@ declare class Document extends Node {
   createEvent(eventInterface: 'CustomEvent'): CustomEvent;
   createEvent(eventInterface: string): Event;
   createRange(): Range;
-  elementFromPoint(x: number, y: number): HTMLElement;
+  elementFromPoint(x: number, y: number): HTMLElement | null;
   defaultView: any;
   compatMode: 'BackCompat' | 'CSS1Compat';
   hidden: boolean;
@@ -1528,7 +1541,7 @@ declare class HTMLElement extends Element {
   className: string;
   contentEditable: string;
   contextMenu: ?HTMLMenuElement;
-  dataset: {[key:string]: string};
+  dataset: DOMStringMap;
   dir: 'ltr' | 'rtl' | 'auto';
   draggable: bool;
   dropzone: any;
@@ -3049,6 +3062,7 @@ declare class HTMLMediaElement extends HTMLElement {
   volume: number;
   muted: boolean;
   defaultMuted: boolean;
+  controlsList?: DOMTokenList;
 
   // tracks
   audioTracks: AudioTrackList;

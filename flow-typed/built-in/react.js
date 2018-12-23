@@ -89,7 +89,7 @@ declare class React$Component<Props, State = void> {
   static displayName?: ?string;
   static childContextTypes: any;
   static contextTypes: any;
-  static propTypes: $Subtype<{[_: $Keys<Props>]: any}>;
+  static propTypes: any;
 
   // We don't add a type for `defaultProps` so that its type may be entirely
   // inferred when we diff the type for `defaultProps` with `Props`. Otherwise
@@ -129,6 +129,13 @@ declare class LegacyReactComponent<Props, State>
   state: State;
 }
 
+declare type React$AbstractComponentStatics = {
+  displayName?: ?string,
+  // This is only on function components, but trying to access name when
+  // displayName is undefined is a common pattern.
+  name?: ?string,
+};
+
 /**
  * The type of a stateless functional component. In most cases these components
  * are a single function. However, they may have some static properties that we
@@ -137,7 +144,7 @@ declare class LegacyReactComponent<Props, State>
 declare type React$StatelessFunctionalComponent<Props> = {
   (props: Props, context: any): React$Node,
   displayName?: ?string,
-  propTypes?: $Subtype<{[_: $Keys<Props>]: any}>,
+  propTypes?: any,
   contextTypes?: any
 };
 
@@ -149,9 +156,7 @@ declare type React$StatelessFunctionalComponent<Props> = {
  * - ES6 class component. Components with state defined either using the ES6
  *   class syntax, or with the legacy `React.createClass()` helper.
  */
-declare type React$ComponentType<Props> =
-  | React$StatelessFunctionalComponent<Props>
-  | Class<React$Component<Props, any>>;
+declare type React$ComponentType<-Config> = React$AbstractComponent<Config, any>;
 
 /**
  * The type of an element in React. A React element may be a:
@@ -163,8 +168,7 @@ declare type React$ComponentType<Props> =
  */
 declare type React$ElementType =
   | string
-  | React$StatelessFunctionalComponent<any>
-  | Class<React$Component<any, any>>;
+  | React$AbstractComponent<any, any>;
 
 /**
  * Type of a React element. React elements are commonly created using JSX
@@ -212,7 +216,7 @@ declare module react {
   declare export var version: string;
 
   declare export function checkPropTypes<V>(
-    propTypes: $Subtype<{[_: $Keys<V>]: ReactPropsCheckType}>,
+    propTypes : any,
     values: V,
     location: string,
     componentName: string,
@@ -222,14 +226,15 @@ declare module react {
   declare export var createClass: React$CreateClass;
   declare export function createContext<T>(
     defaultValue: T,
+    calculateChangedBits: ?(a: T, b: T) => number,
   ): React$Context<T>;
   declare export var createElement: React$CreateElement;
   declare export var cloneElement: React$CloneElement;
   declare export function createFactory<ElementType: React$ElementType>(
     type: ElementType,
   ): React$ElementFactory<ElementType>;
-  declare export function createRef<ElementType: React$ElementType>(
-  ): {current: null | React$ElementRef<ElementType>};
+  declare export function createRef<T>(
+  ): {current: null | T};
 
   declare export function isValidElement(element: any): boolean;
 
@@ -237,7 +242,11 @@ declare module react {
   declare export var PureComponent: typeof React$PureComponent;
   declare export type StatelessFunctionalComponent<P> =
     React$StatelessFunctionalComponent<P>;
-  declare export type ComponentType<P> = React$ComponentType<P>;
+  declare export type ComponentType<-P> = React$ComponentType<P>;
+  declare export type AbstractComponent<
+    -Config,
+    +Instance = mixed,
+  > = React$AbstractComponent<Config, Instance>;
   declare export type ElementType = React$ElementType;
   declare export type Element<+C> = React$Element<C>;
   declare export var Fragment: ({children: ?React$Node}) => React$Node;
@@ -246,10 +255,19 @@ declare module react {
   declare export type Node = React$Node;
   declare export type Context<T> = React$Context<T>;
   declare export type Portal = React$Portal;
+  declare export var ConcurrentMode: ({children: ?React$Node}) => React$Node; // 16.7+
+  declare export var StrictMode: ({children: ?React$Node}) => React$Node;
+
+  declare export var Suspense: React$ComponentType<{
+    children?: ?React$Node,
+    fallback?: React$Node,
+    maxDuration?: number
+  }>; // 16.6+
 
   declare export type ElementProps<C> = React$ElementProps<C>;
   declare export type ElementConfig<C> = React$ElementConfig<C>;
   declare export type ElementRef<C> = React$ElementRef<C>;
+  declare export type Config<Props, DefaultProps> = React$Config<Props, DefaultProps>;
 
   declare export type ChildrenArray<+T> = $ReadOnlyArray<ChildrenArray<T>> | T;
   declare export var Children: {
@@ -268,22 +286,98 @@ declare module react {
     toArray<T>(children: ChildrenArray<T>): Array<$NonMaybeType<T>>;
   };
 
+  declare export function forwardRef<Config, Instance>(
+    render: (
+      props: Config,
+      ref: {current: null | Instance} | ((null | Instance) => mixed),
+    ) => React$Node,
+  ): React$AbstractComponent<Config, Instance>;
+
+  declare export function memo<P>(
+    component: React$StatelessFunctionalComponent<P>,
+    equal?: (P, P) => boolean,
+  ): React$StatelessFunctionalComponent<P>;
+
+  declare export function lazy<P>(
+    component: () => Promise<{ default: React$ComponentType<P> }>,
+  ): React$ComponentType<P>;
+
+  declare type MaybeCleanUpFn = ?(() => mixed);
+
+  declare export function useContext<T>(
+    context: React$Context<T>,
+    observedBits: void | number | boolean,
+  ): T;
+
+  declare export function useState<S>(
+    initialState: (() => S) | S,
+  ): [S, ((S => S) | S) => void];
+
+  declare export function useReducer<S, A>(
+    reducer: (S, A) => S,
+    initialState: S,
+    initialAction: ?A,
+  ): [S, A => void];
+
+  declare export function useRef<T>(initialValue: ?T): {current: T | null};
+
+  declare export function useEffect(
+    create: () => MaybeCleanUpFn,
+    inputs: ?$ReadOnlyArray<mixed>,
+  ): void;
+
+  declare export function useLayoutEffect(
+    create: () => MaybeCleanUpFn,
+    inputs: ?$ReadOnlyArray<mixed>,
+  ): void;
+
+  declare export function useCallback<T: (...args: $ReadOnlyArray<empty>) => mixed>(
+    callback: T,
+    inputs: ?$ReadOnlyArray<mixed>,
+  ): T;
+
+  declare export function useMemo<T>(
+    create: () => T,
+    inputs: ?$ReadOnlyArray<mixed>,
+  ): T;
+
+  declare export function useImperativeMethods<T>(
+    ref: {current: T | null} | ((inst: T | null) => mixed) | null | void,
+    create: () => T,
+    inputs: ?$ReadOnlyArray<mixed>,
+  ): void;
+
   declare export default {|
     +DOM: typeof DOM,
     +PropTypes: typeof PropTypes,
     +version: typeof version,
     +checkPropTypes: typeof checkPropTypes,
+    +memo: typeof memo,
+    +lazy: typeof lazy,
     +createClass: typeof createClass,
     +createContext: typeof createContext,
     +createElement: typeof createElement,
     +cloneElement: typeof cloneElement,
     +createFactory: typeof createFactory,
     +createRef: typeof createRef,
+    +forwardRef: typeof forwardRef,
     +isValidElement: typeof isValidElement,
     +Component: typeof Component,
     +PureComponent: typeof PureComponent,
     +Fragment: typeof Fragment,
     +Children: typeof Children,
+    +ConcurrentMode: typeof ConcurrentMode,
+    +StrictMode: typeof StrictMode,
+    +Suspense: typeof Suspense,
+    +useContext: typeof useContext,
+    +useState: typeof useState,
+    +useReducer: typeof useReducer,
+    +useRef: typeof useRef,
+    +useEffect: typeof useEffect,
+    +useLayoutEffect: typeof useLayoutEffect,
+    +useCallback: typeof useCallback,
+    +useMemo: typeof useMemo,
+    +useImperativeMethods: typeof useImperativeMethods,
   |};
 }
 
