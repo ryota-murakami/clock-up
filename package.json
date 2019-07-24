@@ -7,7 +7,7 @@
     "apollo-client": "^2.4.7",
     "apollo-link-http": "^1.5.9",
     "auth0-lock": "^11.12.1",
-    "graphql": "^14.0.2",
+    "graphql": "^14.4.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.6.3",
     "react-apollo": "^2.3.3",
