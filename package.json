@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.2",
-    "apollo-client": "^2.4.7",
+    "apollo-client": "^2.6.3",
     "apollo-link-http": "^1.5.9",
     "auth0-lock": "^11.17.1",
     "graphql": "^14.0.2",
